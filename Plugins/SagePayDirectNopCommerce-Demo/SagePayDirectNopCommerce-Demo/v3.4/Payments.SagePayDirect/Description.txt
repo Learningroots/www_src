@@ -1,0 +1,8 @@
+﻿Group: Payment methods
+FriendlyName: Debit/Credit Card
+SystemName: Payments.SagePayDirect
+Version: 0.01
+SupportedVersions: 3.40
+Author: Ninvoice Limited
+DisplayOrder: 1
+FileName: Ninvoice.NopPlugin.Payments.SagePayDirect.dll
