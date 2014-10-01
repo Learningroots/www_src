@@ -1,0 +1,70 @@
+﻿@using Nop.Core
+@using Nop.Core.Infrastructure
+@using Nop.Services.Localization
+@using Nop.Web.Framework.Themes
+@{
+    //logo path
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var logoPath = "~/Themes/" + currentThemeName + "/Content/images/logo.gif";
+
+    //store name
+    var storeName = EngineContext.Current.Resolve<IStoreContext>().CurrentStore.GetLocalized(x => x.Name);
+}
+
+<header>
+    <div class="topbar">
+        <div class="wrapper">
+            <div class="col profile-links right">
+                <a href="#">Login</a>|<a href="#">Register</a>
+            </div>
+            <div class="col country-flag right">
+                <ul>
+                    <li class="selected"><a href="#"><img src="~/Content/Images/flags/gb.png" /></a></li>
+                    <li><a href="#"><img src="~/Content/Images/flags/fr.png" /></a></li>
+                    <li><a href="#"><img src="~/Content/Images/flags/de.png" /></a></li>
+                    <li><a href="#"><img src="~/Content/Images/flags/my.png" /></a></li>
+                </ul>
+            </div>
+            <form class="col search right" action="#">
+                <input type="text" name="searchText" placeholder="Search..." />
+                <button type="submit" class="right">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="wrapper">
+        <h1 class="col left">Learning Roots</h1>
+        
+        @Html.Action("HeaderLinks", "Common")
+        @Html.Action("TopMenu", "Catalog")
+        @*<nav class="col fill">
+            <a href="#">Category</a>|<a href="#">Category</a>|<a href="#">Category</a>|<a href="#">Category</a>|<a href="#">Category</a>
+        </nav>*@
+    </div>
+</header>
+@*<div class="header">
+    @Html.Widget("header")
+    <div class="header-logo">
+        <a href="@Url.RouteUrl("HomePage")">
+            <img title="" alt="@storeName" src="@Url.Content(logoPath)">
+        </a>
+    </div>
+    <div class="header-links-wrapper">
+        @Html.Action("HeaderLinks", "Common")
+        @Html.Action("FlyoutShoppingCart", "ShoppingCart")
+    </div>
+    <div class="search-box">
+        @Html.Action("SearchBox", "Catalog")
+    </div>
+    <div class="header-selectors-wrapper">
+        <div class="tax-display-type-selector">
+            @Html.Action("TaxTypeSelector", "Common")
+        </div>
+        <div class="currency-selector">
+            @Html.Action("CurrencySelector", "Common")
+        </div>
+        <div class="language-selector">
+            @Html.Action("LanguageSelector", "Common")
+        </div>
+        @Html.Widget("header_selectors")
+    </div>
+</div>*@

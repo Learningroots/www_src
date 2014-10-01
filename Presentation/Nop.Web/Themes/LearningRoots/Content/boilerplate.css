@@ -1,0 +1,113 @@
+/*General Elements » start*/
+* {
+margin:0;
+padding:0;
+border:0;
+}
+
+ul {
+margin: 0;
+padding: 0;
+list-style: none outside none;
+}
+
+li {
+margin: 0;
+padding: 0;
+}
+
+img {
+border:none;
+}
+/*General Elements » end*/
+
+/*Common Elements » start*/
+.left{
+float:left;
+}
+
+.center {
+text-align: center;
+}
+
+.right{
+float:right;
+}
+
+.no_border{
+border:0!important;
+}
+
+.no_margin{
+margin:0!important;
+}
+
+.no_padding{
+padding:0!important;
+}
+
+.no_bg{
+filter:none!important;
+background:none!important;
+}
+
+.no_bottom{
+margin-bottom:0!important;
+padding-bottom:0!important;
+}
+
+.hidden{
+display:none!important;
+}
+
+
+/*Common Elements » end*/
+
+/*Page Templating » start*/
+
+#main{
+width:100%;
+margin:0;
+padding:0 0;
+}
+
+.wrapper{
+clear:both;
+margin:0 auto;
+display:block;
+}
+/*Wrapper Clearfix » start*/
+.wrapper:after {
+content: ".";
+display: block;
+clear: both;
+visibility: hidden;
+line-height: 0;
+height: 0;
+}
+
+html[xmlns] .wrapper {
+display: block;
+}
+
+* html .wrapper {
+height: 1%;
+}
+/*Wrapper Clearfix » end*/
+
+
+
+.wrapper .col.fill{
+overflow-x:hidden;
+}
+
+.wrapper .col .box{
+display:inline-block;
+width:100%;
+}
+
+.wrapper .col .box.left, .wrapper .col .box.right{
+width:auto;
+}
+/*Page Templating » end*/
+

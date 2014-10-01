@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "~/Views/Shared/_Root.Head.cshtml";
+}
+
+<div id="main">
+    @Html.Partial("Header")
+    @RenderBody()
+    @Html.Action("Footer", "Common")
+</div>

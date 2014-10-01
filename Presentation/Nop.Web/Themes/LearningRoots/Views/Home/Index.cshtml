@@ -1,0 +1,62 @@
+﻿@using Nop.Core
+@using Nop.Core.Infrastructure
+@using Nop.Web.Framework.Themes
+@{
+    //Layout = "~/Views/Shared/_Root.cshtml";
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var themeImagesPath = "~/Themes/" + currentThemeName + "/Content/images/";
+
+    Html.AppendCssFileParts("~/Themes/" + currentThemeName + "/Content/index.css");
+}
+
+<main class="index">
+    <section class="wrapper">
+        @Html.Widget("home_page_top")
+    </section>
+    <section class="wrapper images-box distribute">
+        <div>
+            <img src="@Url.Content(themeImagesPath + "home/img2.jpg")" alt="Home Image" width="307" height="261" />
+            <p>Explore history Text<a hre="#">Text in this space</a></p>
+        </div>
+        <div>
+            <img src="@Url.Content(themeImagesPath + "home/img1.jpg")" alt="Home Image" width="307" height="261" />
+            <p class="light">Explore history Text<a hre="#">Text in this space</a></p>
+        </div>
+        <div>
+            <img src="@Url.Content(themeImagesPath + "home/img2.jpg")" alt="Home Image" width="307" height="261" />
+            <p>Explore history Text<a hre="#">Text in this space</a></p>
+        </div>
+    </section>
+    <section class="wrapper newsletter-stripe center">
+        <h3><label for="homeEmail">Subscribe to enjoy exclusive updates</label></h3>
+        <form class="newsletter-subscribe" action="#">
+            <input type="text" name="emailAddress" id="homeEmail" placeholder="Enter e-mail" />
+            <button type="submit">subscribe</button>
+        </form>
+    </section>
+    <section class="wrapper center">
+        <h3 class="title">What makes us unique</h3>
+        <p>Some custom text goes here bla bla bla bla</p>
+    </section>
+    <section class="wrapper images-box distribute">
+        <div>
+            <img src="@Url.Content(themeImagesPath + "home/img3.jpg")" alt="Home Image" width="610" height="261" />
+            <p>Explore history Text<a hre="#">Text in this space</a></p>
+        </div>
+        <div>
+            <img src="@Url.Content(themeImagesPath + "home/img1.jpg")" alt="Home Image" width="307" height="261" />
+            <p class="light">Explore history Text<a hre="#">Text in this space</a></p>
+        </div>
+    </section>
+    <section class="wrapper images-box distribute">
+        <div>
+            <img src="@Url.Content(themeImagesPath + "home/img1.jpg")" alt="Home Image" width="307" height="261" />
+            <p class="light">Explore history Text<a hre="#">Text in this space</a></p>
+        </div>
+        <div>
+            <img src="@Url.Content(themeImagesPath + "home/img3.jpg")" alt="Home Image" width="610" height="261" />
+            <p>Explore history Text<a hre="#">Text in this space</a></p>
+        </div>
+    </section>
+</main>
+

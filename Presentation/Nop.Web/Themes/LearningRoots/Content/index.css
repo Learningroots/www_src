@@ -1,0 +1,36 @@
+/*HOME >> start*/
+.index .newsletter-stripe{
+	background-color: #424242;
+	padding: 20px 10px;
+	width:940px;
+}
+
+.index .newsletter-stripe > *{
+	display:inline-block;
+	margin:0 10px;
+	vertical-align: middle
+}
+
+.index .newsletter-stripe label{
+	color:#FFFFFF;
+}
+
+.index .newsletter-stripe form.newsletter-subscribe button {
+    background-color:#B72025;
+}
+
+.index .newsletter-stripe form.newsletter-subscribe input {
+	width:210px;
+	padding-left: 40px;
+	background: #FFF url("images/email.png") 9px 8px no-repeat;
+	color:#808080;
+}
+
+.index .title{
+	background:transparent url("images/home/title.png") 0 0 no-repeat;
+	width:392px;
+	height:58px;
+	text-indent: -9999px;
+	display:inline-block;
+}
+/*HOME >> end*/
