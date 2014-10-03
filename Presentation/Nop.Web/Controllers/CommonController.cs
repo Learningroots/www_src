@@ -390,6 +390,21 @@ namespace Nop.Web.Controllers
 
             return PartialView(model);
         }
+
+        [ChildActionOnly]
+        public ActionResult HeaderAuthLinks()
+        {
+            var customer = _workContext.CurrentCustomer;
+
+            var model = new HeaderLinksModel()
+            {
+                IsAuthenticated = customer.IsRegistered(),
+                CustomerEmailUsername = customer.IsRegistered() ? (_customerSettings.UsernamesEnabled ? customer.Username : customer.Email) : "",
+            };
+
+            return PartialView(model);
+        }
+
         [ChildActionOnly]
         public ActionResult AdminHeaderLinks()
         {

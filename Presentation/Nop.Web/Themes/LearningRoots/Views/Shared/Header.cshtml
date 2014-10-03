@@ -15,7 +15,7 @@
     <div class="topbar">
         <div class="wrapper">
             <div class="col profile-links right">
-                <a href="#">Login</a>|<a href="#">Register</a>
+                @Html.Action("HeaderAuthLinks", "Common")
             </div>
             <div class="col country-flag right">
                 <ul>
@@ -25,15 +25,11 @@
                     <li><a href="#"><img src="~/Content/Images/flags/my.png" /></a></li>
                 </ul>
             </div>
-            <form class="col search right" action="#">
-                <input type="text" name="searchText" placeholder="Search..." />
-                <button type="submit" class="right">Search</button>
-            </form>
+            @Html.Action("SearchBox", "Catalog")
         </div>
     </div>
     <div class="wrapper">
         <h1 class="col left">Learning Roots</h1>
-        
         @Html.Action("HeaderLinks", "Common")
         @Html.Action("TopMenu", "Catalog")
         @*<nav class="col fill">

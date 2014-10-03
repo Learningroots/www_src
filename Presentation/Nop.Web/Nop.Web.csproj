@@ -92,6 +92,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="Mindscape.Raygun4Net">
+      <HintPath>..\..\packages\Mindscape.Raygun4Net.3.3.3\lib\net45\Mindscape.Raygun4Net.dll</HintPath>
+    </Reference>
     <Reference Include="MiniProfiler, Version=3.1.1.139, Culture=neutral, PublicKeyToken=b44f9351044011a3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\MiniProfiler.3.1.1.139\lib\net40\MiniProfiler.dll</HintPath>
@@ -2274,6 +2277,8 @@
     <Content Include="Themes\LearningRoots\Views\Shared\Header.cshtml" />
     <Content Include="Themes\LearningRoots\Views\ShoppingCart\FlyoutShoppingCart.cshtml" />
     <Content Include="Themes\LearningRoots\Views\Common\HeaderLinks.cshtml" />
+    <Content Include="Themes\LearningRoots\Views\Common\HeaderAuthLinks.cshtml" />
+    <Content Include="Views\Common\HeaderAuthLinks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\bin\" />
