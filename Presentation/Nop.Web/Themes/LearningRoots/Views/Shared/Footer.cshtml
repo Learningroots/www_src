@@ -43,11 +43,7 @@
             <li><a href="#">link</a></li>
         </ul>
         <div class="col fill">
-            <h3>Subscribe to our newsletter</h3>
-            <form class="newsletter-subscribe" action="#">
-                <input type="text" name="emailAddress" placeholder="Enter e-mail" />
-                <button type="submit">subscribe</button>
-            </form>
+            @Html.Action("NewsletterBox", "Newsletter")
         </div>
     </div>
     <div class="wrapper">
