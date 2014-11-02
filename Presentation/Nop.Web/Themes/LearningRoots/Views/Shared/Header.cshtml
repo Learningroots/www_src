@@ -14,18 +14,18 @@
 <header>
     <div class="topbar">
         <div class="wrapper">
-            <div class="col profile-links right">
-                @Html.Action("HeaderAuthLinks", "Common")
-            </div>
+            
+            @Html.Action("HeaderAuthLinks", "Common")
+            
             <div class="col country-flag right">
                 <ul>
-                    <li class="selected"><a href="#"><img src="~/Content/Images/flags/gb.png" /></a></li>
-                    <li><a href="#"><img src="~/Content/Images/flags/fr.png" /></a></li>
-                    <li><a href="#"><img src="~/Content/Images/flags/de.png" /></a></li>
-                    <li><a href="#"><img src="~/Content/Images/flags/my.png" /></a></li>
+                    <li class="selected"><a href="#">United Kingdom<img src="~/Content/Images/flags/gb.png" /></a></li>
+                    <li><a href="#">France<img src="~/Content/Images/flags/fr.png" /></a></li>
+                    <li><a href="#">Germany<img src="~/Content/Images/flags/de.png" /></a></li>
+                    <li><a href="#">Malaysia<img src="~/Content/Images/flags/my.png" /></a></li>
                 </ul>
             </div>
-            @Html.Action("SearchBox", "Catalog")
+            @*@Html.Action("SearchBox", "Catalog")*@
         </div>
     </div>
     <div class="wrapper">

@@ -4,59 +4,52 @@
 @using Nop.Core.Infrastructure
 @using Nop.Web.Models.Common;
 
+@*@Html.Action("NewsletterBox", "Newsletter")*@
+
 <footer>
     <div class="wrapper">
-        <ul class="col mini left">
-            <li><h3>link</h3></li>
-            <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
+        <ul class="footer-extras distribute">
+            <li class="boy"><span>boy</span></li>
+            <li class="marker"><a href="#">FIND A<br />RETAILER</a></li>
+            <li class="card"><a href="#">JOIN OUR<br />CLUB</a></li>
+            <li class="at"><a href="#">EMAIL<br />NEWSLETTER</a></li>
         </ul>
-        <ul class="col mini left">
-            <li><h3>link</h3></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-        </ul>
-        <ul class="col mini left">
-            <li><h3>link</h3></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-        </ul>
-        <ul class="col mini left">
-            <li><h3>link</h3></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-        </ul>
-        <div class="col fill">
-            @Html.Action("NewsletterBox", "Newsletter")
-        </div>
     </div>
-    <div class="wrapper">
-        <ul class="footer-links distribute">
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
-            <li><a href="#">link</a></li>
+    <div class="wrapper distribute">
+        <ul class="footer-links">
+            <li><h3>Learning Roots</h3></li>
+            <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Responsibility</a></li>
+            <li><a href="#">International</a></li>
+            <li><a href="#">Investors</a></li>
         </ul>
-        <div class="center">
-            <a class="logo-footer" href="#">LearningRoots</a>
-        </div>
+        <ul class="footer-links">
+            <li><h3>Learning Roots</h3></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Responsibility</a></li>
+            <li><a href="#">International</a></li>
+            <li><a href="#">Investors</a></li>
+        </ul>
+        <ul class="footer-links">
+            <li><h3>Learning Roots</h3></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Responsibility</a></li>
+            <li><a href="#">International</a></li>
+            <li><a href="#">Investors</a></li>
+        </ul>
+        <ul class="footer-links social">
+            <li><h3>Connect with  us</h3></li>
+            <li><a class="facebook" href="#">link</a></li>
+            <li><a class="twitter" href="#">link</a></li>
+            <li><a class="pinterest" href="#">link</a></li>
+            <li><a class="youtube" href="#">link</a></li>
+            <li><a class="instagram" href="#">link</a></li>
+        </ul>
+    </div>
+    <div class="footer-bottom">
+        <p class="wrapper">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error</p>
     </div>
 </footer>
