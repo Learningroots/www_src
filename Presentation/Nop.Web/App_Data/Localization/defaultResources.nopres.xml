@@ -12700,7 +12700,7 @@
     <Value>{0} item(s)</Value>
   </LocaleResource>
   <LocaleResource Name="ShoppingCart.Mini.ItemsText">
-    <Value>There are {0} in your cart.</Value>
+    <Value>{0}</Value>
   </LocaleResource>
   <LocaleResource Name="ShoppingCart.Mini.NoItems">
     <Value>You have no items in your shopping cart.</Value>

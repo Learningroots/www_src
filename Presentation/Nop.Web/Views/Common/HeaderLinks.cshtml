@@ -49,6 +49,7 @@
     @if (Model.ShoppingCartEnabled)
     {
         <script type="text/javascript">
+            $('.cart-qty').text( $('.cart-qty').text().replace('(','').replace(')','') );
             $(document).ready(function () {
                 $('.header').on('mouseenter', '#topcartlink', function () {
                     $('#flyout-cart').addClass('active');

@@ -9,11 +9,12 @@
             }
             else
             {
-                @Html.Raw(string.Format(T("ShoppingCart.Mini.ItemsText").Text, string.Format("<a href=\"{0}\" class=\"items\">{1}</a>", Url.RouteUrl("ShoppingCart"), string.Format(T("ShoppingCart.Mini.Items").Text, Model.TotalProducts))))
+                @Html.Raw(Model.TotalProducts)
             }
         </div>
         @if (Model.TotalProducts > 0)
         {
+            <div class="totals">@T("ShoppingCart.Totals.SubTotal"): <strong>@Model.SubTotal</strong></div>
             <div class="items">
                 @for (int i = 0; i < Model.Items.Count; i++)
                 {
@@ -37,18 +38,16 @@
                                     @Html.Raw(item.AttributeInfo)
                                 </div>
                             }
-                            <div class="price">@T("ShoppingCart.Mini.UnitPrice"): <span>@item.UnitPrice</span></div>
                             <div class="quantity">@T("ShoppingCart.Mini.Quantity"): <span>@item.Quantity</span></div>
+                            <div class="price">@T("ShoppingCart.Mini.UnitPrice"): <span>@item.UnitPrice</span></div>
                         </div>
                     </div>
                 }
             </div>
-            <div class="totals">@T("ShoppingCart.Totals.SubTotal"): <strong>@Model.SubTotal</strong></div>
             <div class="buttons">
                 @if (Model.DisplayShoppingCartButton)
                 {
-                    <input type="button" value="@T("ShoppingCart.Mini.ViewCart")" class="button-1 cart-button" onclick="setLocation('@(Url.RouteUrl("ShoppingCart"))')" />
-                    
+                    <a class="cart-button"  href="@(Url.RouteUrl("ShoppingCart"))">See cart in detail</a>
                 }
                 @if (Model.DisplayCheckoutButton)
                 {

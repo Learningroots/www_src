@@ -60,7 +60,11 @@ var AjaxCart = {
     
     success_process: function (response) {
         if (response.updatetopcartsectionhtml) {
-            $(AjaxCart.topcartselector).html(response.updatetopcartsectionhtml);
+
+            var cart_items = response.updatetopcartsectionhtml.replace('(','').replace(')','');
+
+            $(AjaxCart.topcartselector).html(cart_items)
+
         }
         if (response.updatetopwishlistsectionhtml) {
             $(AjaxCart.topwishlistselector).html(response.updatetopwishlistsectionhtml);
