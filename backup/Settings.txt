@@ -1,0 +1,2 @@
+DataProvider: sqlserver
+DataConnectionString: Server=.\SQLExpress;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\NOPSRC.mdf;Database=NOPSRC;Trusted_Connection=No;User ID=nop;Password=password;

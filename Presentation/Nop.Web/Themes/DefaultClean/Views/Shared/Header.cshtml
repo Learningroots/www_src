@@ -1,0 +1,103 @@
+﻿@using Nop.Core
+@using Nop.Core.Infrastructure
+@using Nop.Services.Localization
+@using Nop.Web.Framework.Themes
+@{
+    //logo path
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var logoPath = "~/Themes/" + currentThemeName + "/Content/images/logo.jpg";
+    var menuPath = "~/Themes/" + currentThemeName + "/Content/images/menu.jpg";
+
+    //store name
+    var storeName = EngineContext.Current.Resolve<IStoreContext>().CurrentStore.GetLocalized(x => x.Name);
+}
+
+<div class="header">
+    @Html.Widget("header")
+    <div class="header-links-wrapper">
+        <div class="wrapper">
+            @Html.Action("HeaderLinks", "Common")
+            @Html.Action("FlyoutShoppingCart", "ShoppingCart")
+        </div>
+    </div>
+    <div class="header-logo wrapper">
+
+        <a href="#" class="burger-menu">
+            <img title="" alt="@storeName" src="@Url.Content(menuPath)">
+        </a>
+
+        <a href="@Url.RouteUrl("HomePage")" title="@storeName - Home page" class="logo-site">
+            <img title="" alt="@storeName" src="@Url.Content(logoPath)">
+        </a>
+
+        <ul class="main-menu">
+            <li>
+                <a href="#" class="menu-active">Shop <span class="menu-arrow"></span></a>
+                <div class="sub-menu">
+                    <ul>
+                        <li><span class="menu-heading menu-heading-1"></span></li>
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                        <li><a href="#">Link 4</a></li>
+                        <li><a href="#">Link 5</a></li>
+                        <li><a href="#">Link 5</a></li>
+                        <li><a href="#">Link 6</a></li>
+                        <li><a href="#">Link 7</a></li>
+                        <li><a href="#">Link 8</a></li>
+                        <li><a href="#">Link 9</a></li>
+                        <li><a href="#">Link 10</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">Our World <span class="menu-arrow"></span></a>
+                <div class="sub-menu">
+                    <ul>
+                        <li><span class="menu-heading menu-heading-2"></span></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li>
+                <a href="#">Nature lab <span class="menu-arrow"></span></a>
+                <div class="sub-menu">
+                    <ul>
+                        <li><span class="menu-heading menu-heading-3"></span></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                    </ul>
+                </div>
+            </li>
+
+        </ul>
+
+        <div class="search-box">
+            @Html.Action("SearchBox", "Catalog")
+        </div>
+
+
+    </div>
+    
+    <!-- <div class="header-selectors-wrapper">
+        <div class="tax-display-type-selector">
+            @Html.Action("TaxTypeSelector", "Common")
+        </div>
+        <div class="currency-selector">
+            @Html.Action("CurrencySelector", "Common")
+        </div>
+        <div class="language-selector">
+            @Html.Action("LanguageSelector", "Common")
+        </div>
+        @Html.Widget("header_selectors")
+    </div> -->
+</div>

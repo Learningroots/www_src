@@ -1,0 +1,126 @@
+.wrapper {
+	width: 1000px;
+	margin: auto;
+	/*background: red;
+	min-height: 10px;*/
+}
+
+.header-logo a.burger-menu {
+	display: block;
+	width: 40px;
+	float: left;
+	padding-top: 23px;
+	margin-right: 21px;
+	border-right: 1px solid #eee;
+	margin-top: 0;
+	padding-bottom: 21px;
+	padding-right: 20px;
+}
+
+.header-logo a.burger-menu img {
+	width: 100%;
+}
+
+.main-menu {
+	float: left;
+	margin-left: 110px;
+	margin-top: 20px;
+}
+
+.main-menu li {
+	list-style: none;
+}
+
+.main-menu > li {
+	display: inline;
+	float: left;
+	padding-right: 8px;
+}
+
+.main-menu a .menu-arrow {
+	display: none;
+	height: 33px;
+	position: absolute;
+	width: 100%;
+	top: 35px;
+	left: 0;
+	background: #ce092e url(images/menu-arrow.jpg) no-repeat 50% 0%;
+	background-size: 28px;
+}
+
+
+.main-menu > li > a {
+	background: #fff;
+	color: black;
+	border-bottom: 4px #fff solid;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 10px 13px 8px;
+	font-weight: bold;
+	font-size: 15px;
+	position: relative;
+}
+
+.main-menu li  a.menu-active,
+.main-menu > li:hover > a {
+	background: #ce092e;
+	color: white;
+	border-bottom: 4px #8c0021 solid;
+	text-decoration: none;
+}
+
+.main-menu > li:hover .sub-menu,
+.main-menu > li:hover a .menu-arrow {
+	display: block;
+}
+
+.main-menu > li .sub-menu {
+	display: none;
+	background: #ce092e url(images/menu-girl-boy.jpg) no-repeat 90px 26px;
+	top: 80px;
+	min-height: 305px;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: left;
+	padding: 0px;
+	z-index: 10;
+	background-size: 165px;
+}
+
+.main-menu > li .sub-menu .menu-heading {
+	display: block;
+	width: 96%;
+	height: 52px;
+	border-bottom: 1px dotted #fff;
+	margin-bottom: 21px; 
+}
+
+.main-menu > li .sub-menu .menu-heading-1 {
+	background: url(images/menu-shop.jpg) no-repeat -7px 0;
+	background-size: 66px;
+}
+
+.main-menu > li .sub-menu .menu-heading-2 {
+	background: url(images/menu-our-world.jpg) no-repeat -2px 3px;
+	background-size: 106px;
+}
+
+.main-menu > li .sub-menu .menu-heading-3 {
+	background: url(images/menu-nature-lab.jpg) no-repeat -4px 3px;
+	background-size: 122px;
+}
+
+.main-menu > li .sub-menu ul {
+	margin-left: 363px;
+	margin-top: 30px;
+}
+
+.main-menu > li .sub-menu a {
+	color: white;
+	display: block;
+	margin-bottom: 3px;
+}
+
+
+

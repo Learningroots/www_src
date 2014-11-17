@@ -1,2 +1,2 @@
 DataProvider: sqlserver
-DataConnectionString: Data Source=localhost;Initial Catalog=NOPSRC;Integrated Security=False;Persist Security Info=False;User ID=ssalim;Password=codem0nkey
+DataConnectionString: Data Source=IE9WIN7\SQLEXPRESS;Initial Catalog=NOPSRC;Integrated Security=False;Persist Security Info=False;User ID=nop;Password=password
