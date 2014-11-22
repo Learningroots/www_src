@@ -20,6 +20,15 @@
         else
         {
             <li><a href="@Url.RouteUrl("Register")" ><i class="fa fa-cog"></i> @T("Account.Register")</a></li>
+            @if (Model.WishlistEnabled)
+            {
+                <li>
+                    <a href="@Url.RouteUrl("Wishlist")" class="ico-wishlist">
+                        <span class="cart-label"><i class="fa fa-star"></i> @T("Wishlist")</span>
+                        <span class="wishlist-qty">@T("Wishlist.HeaderQuantity", Model.WishlistItems)</span>
+                    </a>
+                </li>
+            }
             <li><a href="@Url.RouteUrl("Login")" ><i class="fa fa-power-off"></i> @T("Account.Login")</a></li>
         }
         @if (Model.AllowPrivateMessages)
@@ -71,15 +80,6 @@
 				
             </li>
 
-        }
-        @if (Model.WishlistEnabled)
-        {
-            <li>
-                <a href="@Url.RouteUrl("Wishlist")" class="ico-wishlist">
-                    <span class="cart-label"><i class="fa fa-star"></i> @T("Wishlist")</span>
-                    <span class="wishlist-qty">@T("Wishlist.HeaderQuantity", Model.WishlistItems)</span>
-                </a>
-            </li>
         }
     
         

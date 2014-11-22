@@ -25,6 +25,10 @@ blockquote,q {
 	quotes: none;
 }
 
+button {
+	cursor: pointer;
+}
+
 blockquote:before,blockquote:after,q:before,q:after {
 	content: '';
 	content: none;
@@ -85,7 +89,7 @@ input,select {
 
 /* OTHER RESET STYLESHEET (HTML GENERAL) */
 body {
-	text-align: center;
+	text-align: left;
 	font-family: arial,verdana,helvetica,sans-serif;
 	font-size: 12px;
 	background: none repeat scroll 0 0 #fff;
@@ -115,7 +119,7 @@ h2,h3 {
 textarea {
 	width: 100%;
 	font-family: Verdana,Arial,sans-serif;
-	font-size: 11px;
+	font-size: 13px;
 	border: 1px solid #EEEEEE;
 }
 
@@ -136,10 +140,10 @@ legend {
 
 input[type="text"],input[type="password"] {
 	border: 1px solid #eee;
-}
-
-input[type="text"]:disabled {
-	background: none repeat scroll 0 0 #FFF;
+	border-radius: 5px;
+	padding: 12px 15px;
+	font-size: 14px;
+	background-color: #f9f9f9;
 }
 
 
@@ -155,31 +159,32 @@ input[type="text"]:disabled {
 .master-wrapper-main {
 	font-family: arial,helvetica,sans-serif;
 	color: #5C5B5B;
+	padding: 30px 0;
 }
 /* one column master page */
 .master-wrapper-main .center-1 {
 	float: left;
-	width: 910px;
+	width: 100%;
 	min-height: 400px;
-	padding: 10px;
+	padding: 0;
 	background: #FFF;
-	display: inline;
-	border-radius: 5px;
+	display: block;
 }
 /* two column master page */
 .master-wrapper-main .side-2 {
 	float: left;
-	width: 190px;
+	width: 245px;
 	margin: 10px 0;
 	display: inline;
+	margin-right: 30px;
 }
 
 .master-wrapper-main .center-2 {
 	float: left;
-	width: 710px;
+	width: 725px;
 	min-height: 400px;
-	padding: 10px;
-	margin: 10px 0 10px 10px;
+	padding: 0;
+	margin: 0;
 	background: #FFF;
 	display: inline;
 	border-radius: 5px;
@@ -214,33 +219,27 @@ input[type="text"]:disabled {
 
 /* HEADER AND MENU */
 .header {
-	height: 110px;
+	height: 118px;
 	background: #fff;
+	border-bottom: 8px solid #eee;
 }
 
 .header .icon {
 	vertical-align: bottom;
 }
 
+.header .account,
 .header .ico-register {
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 }
 
-.header .ico-login {
+.header .ico-wishlist {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
+	text-align: center;
 }
 
-.header .ico-logout {
-	padding-left: 10px;
-	padding-bottom: 5px;
-}
-
-.header .ico-inbox {
-	padding-left: 10px;
-	padding-bottom: 5px;
-}
 
 .header .ico-cart:hover *,
 .header .ico-cart:hover {
@@ -252,7 +251,7 @@ input[type="text"]:disabled {
 	display: block;
 	padding: 0;
 	margin: 0;
-	height: 74px;
+	height: 84px;
 	background-size: 82px;
 	position: relative;
 }
@@ -270,16 +269,11 @@ input[type="text"]:disabled {
 }
 
 .header .ico-wishlist {
-	padding-left: 10px;
-	padding-bottom: 5px;
+	text-align: center;
 }
 
 .header .ico-cart:hover *,.header .ico-wishlist:hover * {
 	cursor: pointer;
-}
-
-.header .ico-cart span,.header .ico-wishlist span {
-	float: left;
 }
 
 .header-logo {
@@ -348,7 +342,6 @@ ul.language-list li:hover {
 }
 
 .header-links-wrapper .ico-wishlist {
-	display: none;
 }
 
 .header-links-wrapper #topcartlink {
@@ -383,7 +376,7 @@ ul.language-list li:hover {
 	float: left;
 	background: #ddd;
 	padding: 8px;
-	width: 84px;
+	min-width: 84px;
 	text-align: center;
 	margin-top: 5px;
 	text-transform: uppercase;
@@ -398,18 +391,18 @@ ul.language-list li:hover {
 
 .header-links a.account {
 	color: #AF0304;
-	padding-left: 10px;
-	padding-bottom: 5px;
 }
 
 .admin-header-links {
-	padding: 5px;
-	margin-bottom: -15px;
+	padding: 20px;
+	background-color: #CE092E;
 	text-align: center;
 }
 
 .admin-header-links .administration {
 	font-weight: bold;
+	font-size: 17px;
+	color: white;
 }
 
 .admin-header-links .impersonate {
@@ -426,17 +419,12 @@ ul.language-list li:hover {
 .header-menu {
 	background: none repeat scroll 0 0 #404040;
 	border-radius: 4px;
-	-o-border-radius: 4px;
-	-icab-border-radius: 4px;
-	-khtml-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
 	height: auto;
 	list-style: none outside none;
 	margin: 10px auto 0;
 	padding: 0 10px;
 	clear: both;
+	display: none;
 }
 
 .header-menu a {
@@ -655,22 +643,106 @@ textarea, input { outline: none !important; }
 }
 
 /* FOOTER */
+.spacer {
+	clear: both;
+	height: 90px;
+}
+
+.footer .wrapper {
+	width: 750px;
+}
+
 .footer {
-/*border-top: 2px solid #666666;*/
+	border-top: 8px solid #bab7b4;
 	clear: both;
 	height: auto;
-	margin: 0 0 30px;
-	padding: 15px 10px;
-	background: none repeat scroll 0 0 #FFFFFF;
+	margin: 0;
+	background: #222222;
 }
 
 .footer a {
 	text-decoration: none;
-	color: #555555;
+	color: #fff;
 }
 
+.footer-top-links {
+	text-align: left;
+	border-bottom: 1px solid #414141;
+	height: 90px;
+}
+
+.footer-boy {
+	background: url(images/footer-boy.png) no-repeat 0 0;
+	display: inline-block;
+	height: 156px;
+	width: 95px;
+	margin-top: -64px;
+	float: left;
+}
+
+.footer-link {
+	display: inline-block;
+	height: 40px;
+	width: 70px;
+	float: left;
+	margin-left: 71px;
+	margin-top: 24px;
+	padding-top: 6px;
+	color: white !important;
+}
+
+.footer-link1 {
+	background: url(images/marker.png) no-repeat 0 0;
+	padding-left: 36px;
+}
+
+.footer-link2 {
+	background: url(images/card.png) no-repeat 0 0;
+	padding-left: 69px;
+}
+
+.footer-link3 {
+	background: url(images/at.png) no-repeat 0 0;
+	padding-left: 44px;
+}
+
+
+
+.follow-us ul a {
+	float:left;
+	display:inline-block;
+	width:38px;
+	height:38px;
+	text-indent: -9999px;
+}
+
+.follow-us ul li.google-plus,
+.follow-us ul li.rss { display: none; }
+
+.follow-us ul li.facebook a {
+	background: url("images/facebook.png") 0 0 no-repeat;
+}
+
+.follow-us ul li.instagram a {
+	background: url("images/instagram.png") 0 0 no-repeat;
+}
+
+.follow-us ul li.pinterest a {
+	background: url("images/pinterest.png") 0 0 no-repeat;
+}
+
+.follow-us ul li.twitter a {
+	background: url("images/twitter.png") 0 0 no-repeat;
+}
+
+.follow-us ul li.youtube a {
+	background: url("images/youtube.png") 0 0 no-repeat;
+}
+
+
+
 .footer-tax-shipping {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .footer-tax-shipping a {
@@ -678,19 +750,20 @@ textarea, input { outline: none !important; }
 }
 
 .footer-disclaimer {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .footer-poweredby {
-	padding-top: 10px;
-	border-top: 1px solid #EEEEEE;
+	padding-top: 30px;
+	padding-bottom: 30px;
 	clear: both;
-	font-size: 11px;
+	background-color: #c8133c;
+	color: white;
+	text-align: center;
 }
 
 .footer-store-theme {
-	margin: 0 100px 0 10px;
-	font-size: 11px;
+	display: none;
 }
 
 .store-theme-list {
@@ -700,16 +773,19 @@ textarea, input { outline: none !important; }
 
 .footer-menu-wrapper {
 	zoom: 1;
-	padding: 20px;
-	overflow: auto;
-	background: none repeat scroll 0 0 #F6F6F4;
-	border-radius: 4px;
-	-o-border-radius: 4px;
-	-icab-border-radius: 4px;
-	-khtml-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
+	padding: 40px 0;
+	clear: both;
+	position: relative;
+}
+
+.footer-circle {
+	height: 25px;
+	width: 25px;
+	border-radius: 30px;
+	background-color: #222222;
+	position: absolute;
+	left: 50%;
+	bottom: -10px;
 }
 
 .footer-menu-wrapper:after {
@@ -730,7 +806,7 @@ textarea, input { outline: none !important; }
 
 .footer-menu-wrapper .column h3 {
 	font-size: 13px;
-	color: #333;
+	color: #e21836;
 	text-transform: uppercase;
 	font-weight: 700;
 }
@@ -776,17 +852,24 @@ textarea, input { outline: none !important; }
 }
 
 .page-title {
-	margin: 0 0 10px;
+	margin: 0 0 15px;
 	overflow: hidden;
 	width: 100%;
 }
 
-.page-title h1,.page-title h2 {
+.page-title h1, .page-title h2 {
 	padding: 5px 5px 5px 0;
 	font-size: 20px;
 	margin: 0;
-	font-family: Arial,Helvetica,sans-serif;
-	font-weight: 400;
+	font-family: Helvetica,Arial,sans-serif;
+	font-weight: 100;
+	color: white;
+	background: #ce092e;
+	padding: 12px 15px;
+}
+
+.page-title h1 a, .page-title h2 a {
+	color: #FFDADA;
 }
 
 .page-title .link-rss {
@@ -811,38 +894,28 @@ td.fieldname {
 .captcha-box {
 }
 
-.button-1,.button-2 {
-	color: #6e6e6e;
-	font: bold 12px Helvetica,Arial,sans-serif;
+.button-1, .button-2 {
+	color: #fff;
+	font: bold 13px Helvetica,Arial,sans-serif;
 	text-decoration: none;
-	padding: 3px 7px;
-/*position: relative;*/
-	position: static;
+	padding: 9px 12px;
 	display: inline-block;
-	text-shadow: 0 1px 0 #fff;
-	-webkit-transition: border-color .218s;
-	-moz-transition: border .218s;
-	-o-transition: border-color .218s;
-	transition: border-color .218s;
-	background: #F6F6F6;
-	background: -webkit-gradient(linear,0% 40%,0% 70%,from(#F6F6F6),to(#DEDEDE));
-	background: -moz-linear-gradient(linear,0% 40%,0% 70%,from(#F6F6F6),to(#DEDEDE));
-	border: solid 1px #dcdcdc;
-	border-radius: 2px;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
+	background: #c8133c;
+	border-radius: 3px;
 	cursor: pointer;
 	height: auto;
 	width: auto;
 	overflow: visible;
+	border: none;
+	text-transform: uppercase;
+	font-weight: 400;
+	transition: 300ms;
 }
 
 .button-1:hover,.button-2:hover {
-	color: #333;
-	border-color: #999;
-	-moz-box-shadow: 0 2px 0 rgba(0,0,0,0.2);
-	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	background: #DF1643;
+	color: #fff;
+	transition: 300ms;
 }
 
 .noscript {
@@ -856,10 +929,8 @@ td.fieldname {
 }
 
 .fieldset {
-	padding: 10px;
+	padding: 10px 0;
 	margin-bottom: 15px;
-	border: 1px solid #eee;
-	border-radius: 5px;
 }
 
 .fieldset .title {
@@ -867,7 +938,11 @@ td.fieldname {
 }
 
 .fieldset .title strong {
-	background: #fff;
+	font-size: 14px;
+	margin-top: 11px;
+	display: block;
+	padding-bottom: 14px;
+	padding: 13px 0;
 }
 
 .fieldset .inputs {
@@ -877,7 +952,7 @@ td.fieldname {
 .fieldset .inputs label {
 	display: inline-block;
 	width: 130px;
-	margin-left: 10px;
+	font-size: 13px;
 }
 
 .fieldset .inputs label.forcheckbox {
@@ -1010,20 +1085,22 @@ td.fieldname {
 
 .validation-summary-errors {
 	font-family: Verdana,Arial,sans-serif;
-	font-size: 10px;
-	font-weight: 700;
+	font-size: 13px;
 	color: red;
+	font-weight: normal;
+	margin-top: 20px;
+	margin-bottom: 10px;
 }
 
 .field-validation-error {
 	font-family: Verdana,Arial,sans-serif;
-	font-size: 10px;
-	font-weight: 700;
+	font-size: 13px;
 	color: red;
 }
 
 .required {
 	color: red;
+	font-size: 15px;
 }
 
 
@@ -1125,7 +1202,7 @@ td.fieldname {
 	min-width: 10px;
 	text-align: center;
 	color: #555;
-	font-size: 11px;
+	font-size: 13px;
 	font-weight: 700;
 	padding: 0px 8px;
 	-webkit-border-radius: 2px;
@@ -1178,12 +1255,11 @@ td.fieldname {
 	font-size: 12px;
 	letter-spacing: 1px;
 	text-align: left;
-	padding: 9px 7px;
+	padding: 13px 10px;
 	text-transform: uppercase;
-	color: #333;
-	border-radius: 5px 5px 0px 0px;
+	color: #000;
 	margin: 0;
-	background: none repeat scroll 0 0 #F6F6F4;
+	background: #e0e0e0;
 }
 
 .block .title strong {
@@ -1191,7 +1267,7 @@ td.fieldname {
 }
 
 .block .listbox {
-	font-size: 11px;
+	font-size: 13px;
 	padding: 5px 10px 10px;
 	line-height: 18px;
 	margin: 0;
@@ -1337,14 +1413,7 @@ td.fieldname {
 
 .block,.news-list-homepage .item,.product-details-page,.search-panel .search-input,.product-filters,fieldset,.product-list .product-item,.product-list .product-item .picture {
 	background: none repeat scroll 0 0 #FFF;
-	border: 1px solid #eee;
-	border-radius: 4px;
-	-o-border-radius: 4px;
-	-icab-border-radius: 4px;
-	-khtml-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
+	border: 1px solid #ECECEC;
 }
 
 
@@ -1353,17 +1422,25 @@ td.fieldname {
 	display: none;
 	position: absolute;
 	float: left;
-	top: 125px;
+	top: 135px;
 	right: 0px;
 	width: 300px;
 	min-height: 50px;
 	z-index: 99999;
 	background: #fff;
 	border: 1px solid #eee;
+	box-shadow: 0px 7px 29px #2D2D2D;
 }
 
 .flyout-cart.active {
 	display: block;
+}
+
+.no-items {
+	font-size: 13px;
+	margin-top: 18px;
+	text-align: center;
+	margin-bottom: 10px;
 }
 
 .flyout-cart:before {
@@ -1372,17 +1449,17 @@ td.fieldname {
 	height: 0;
 	border-style: solid;
 	border-width: 0 10px 10px 10px;
-	border-color: transparent transparent #eee transparent;
+	border-color: transparent transparent #fff transparent;
 	position: absolute;
 	margin-top: -10px;
-	margin-left: 94px;
+	margin-left: 230px;
 }
 
 .mini-shopping-cart {
 	padding: 70px 10px 10px;
 	margin: 5px;
 	border: 1px solid #eee;
-	font-size: 11px;
+	font-size: 13px;
 	background: #fff url(images/top-cart-header.jpg) no-repeat 15px 12px;
 	background-size: 187px;
 	position: relative;
@@ -1414,6 +1491,8 @@ td.fieldname {
 }
 
 .mini-shopping-cart .items {
+	max-height: 300px;
+	overflow: scroll;	
 }
 
 .mini-shopping-cart .item {
@@ -1439,6 +1518,7 @@ td.fieldname {
 .mini-shopping-cart .item .product {
 	float: left;
 	text-align: left;
+	width: 195px;
 }
 
 .mini-shopping-cart .item .name {
@@ -1478,10 +1558,10 @@ td.fieldname {
 	text-align: right;
 	background: #bd0a2f;
 	margin-top: 3px;
-	padding: 14px 10px;
+	padding: 15px;
 	margin-left: -17px;
 	margin-bottom: -22px;
-	margin-right: -16px;
+	margin-right: -17px;
 	border-bottom-right-radius: 7px;
 	border-bottom-left-radius: 7px;
 }
@@ -1499,6 +1579,10 @@ td.fieldname {
 
 .cart-label {
 	display: none;
+}
+
+.ico-wishlist .cart-label {
+	display: inline;
 }
 
 
@@ -1609,13 +1693,42 @@ td.fieldname {
 .shopping-cart-page,.wishlist-page {
 }
 
+.checkoutpage h1,
+.shoppingcart-page h1 {
+	background: url(images/mybasket.jpg) no-repeat 0 0;
+	height: 145px;
+	padding: 0;
+	text-indent: -9999px;
+	overflow: hidden;
+}
+
+.checkoutpage h1 {
+	background: url(images/myorder.jpg) no-repeat 0 0;
+}
+
+.ordercompleted h1 {
+	background: url(images/jzk.jpg) no-repeat center;
+	height: 87px;
+	margin-top: 40px;
+}
+
+.ordercompleted .checkout-page {
+	background: #000;
+}
+
+.ordercompleted .page-title {
+	text-align: center;
+	background-color: #000;
+	margin-top: -30px;
+}
+
 .shopping-cart-page .page-title,.wishlist-page .page-title {
 }
 
 .shopping-cart-page .page-body,.wishlist-page .page-body {
 	margin: 0;
 	padding: 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 }
 
@@ -1632,15 +1745,34 @@ td.fieldname {
 	text-decoration: none;
 }
 
+
 .order-summary-content,.wishlist-content {
 	margin: 0;
 	padding: 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 }
 
 .order-summary-content .message-error,.wishlist-content .message-error {
 	margin: 5px 0;
+}
+
+.order-summary-content .product {
+	padding-top: 0;
+}
+
+
+.checkout-attributes {
+	font-size: 12px;
+}
+
+select#checkout_attribute_1 {
+	margin-top: 10px;
+}
+
+.order-summary-content .product .product-name {
+	font-size: 16px;
+	color: #000;
 }
 
 .order-summary-content .totals {
@@ -1671,7 +1803,7 @@ td.fieldname {
 
 .order-summary-content .coupon-box,.order-summary-content .giftcard-box {
 	padding: 10px;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 	margin: 0 0 10px;
 	border: 1px solid #EEE;
@@ -1679,21 +1811,23 @@ td.fieldname {
 
 .order-summary-content .coupon-box .message,.order-summary-content .giftcard-box .message {
 	font-family: Verdana,Arial,sans-serif;
-	font-size: 10px;
-	font-weight: 700;
+	font-size: 13px;
+	font-weight: 100;
 	color: red;
+	margin-top: 5px;
 }
 
 .order-summary-content .coupon-box .current-code {
 	padding: 10px 0px 0px 0px;
 }
 
-.order-summary-content .coupon-box .discount-coupon-code,.order-summary-content .giftcard-box .gift-card-coupon-code {
-	width: auto;
+.order-summary-content .coupon-box .discount-coupon-code, .order-summary-content .giftcard-box .gift-card-coupon-code {
+	width: 85%;
 }
 
 .order-summary-content .coupon-box .hint,.order-summary-content .giftcard-box .hint {
 	padding-top: 5px;
+	margin-bottom: 10px;
 }
 
 .order-summary-content .giftcard-box {
@@ -1701,8 +1835,8 @@ td.fieldname {
 	z-index: 1;
 }
 
-.order-summary-content .apply-discount-coupon-code-button,.order-summary-content .apply-gift-card-coupon-code-button {
-	margin: 5px 0;
+.order-summary-content .apply-discount-coupon-code-button, .order-summary-content .apply-gift-card-coupon-code-button {
+	margin-top: 10px;
 }
 
 .order-summary-content .cart,.wishlist-content .cart {
@@ -1725,29 +1859,26 @@ td.fieldname {
 }
 
 .order-summary-content .cart .cart-header-row th,.wishlist-content .cart .cart-header-row th {
-	background: none repeat scroll 0 0 #404040;
+	background: none repeat scroll 0 0 #ce143d;
 	color: #FFF;
-	border-right: solid 1px #6a6a6a;
-	height: 20px;
-	padding: 2px 8px;
+	border-right: solid 1px #fff;
+	height: 42px;
+	padding: 3px 22px;
 	vertical-align: middle;
 	white-space: nowrap;
+	font-size: 13px;
+	text-align: center;
 }
 
 .order-summary-content .cart .cart-header-row th.picture,.wishlist-content .cart .cart-header-row th.picture {
 	border: none;
 }
 
-.order-summary-content .cart .cart-header-row th.end,.wishlist-content .cart .cart-header-row th.end {
-	text-align: right;
-	padding-right: 5px;
-}
-
 .order-summary-content .cart .cart-item-row,.wishlist-content .cart .cart-item-row {
 }
 
-.order-summary-content .cart .cart-item-row td,.wishlist-content .cart .cart-item-row td {
-	border-bottom: 1px solid #c5c5c5;
+.order-summary-content .cart .cart-item-row td, .wishlist-content .cart .cart-item-row td {
+	border-bottom: 1px dotted #eee;
 	vertical-align: middle;
 	line-height: 30px;
 }
@@ -1806,7 +1937,7 @@ td.fieldname {
 
 .order-summary-content .total-info .selected-shipping-method {
 	font-weight: normal;
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .order-summary-content .total-info .order-total {
@@ -1973,9 +2104,8 @@ td.fieldname {
 .order-summary-content .checkout-buttons .checkout-button {
 	display: inline-block;
 	padding: 0px 25px;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
+	border-radius: 3px;
+	padding: 9px 110px;
 }
 
 .order-summary-content .addon-buttons {
@@ -1993,7 +2123,7 @@ td.fieldname {
 .estimate-shipping {
 	margin: 0;
 	padding: 10px;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 	border: 1px solid #EEE;
 }
@@ -2003,11 +2133,14 @@ td.fieldname {
 	padding-bottom: 5px;
 }
 
-.estimate-shipping .country-input,.estimate-shipping .state-input {
+.estimate-shipping .country-input, .estimate-shipping .state-input {
 	width: 137px;
+	margin-bottom: 5px;
+	margin-top: 5px;
 }
 
 .estimate-shipping .zip-input {
+	margin-top: 10px;
 }
 
 .estimate-shipping .shipping-options {
@@ -2021,7 +2154,7 @@ td.fieldname {
 }
 
 .estimate-shipping .shipping-options .estimate-shipping-button {
-	margin-left: 90px;
+	margin-top: 10px;
 }
 
 .estimate-shipping .shipping-results li.shipping-option-item {
@@ -2043,7 +2176,31 @@ td.fieldname {
 
 
 /* CHECKOUT */
-.checkout-page,.checkout-one-page {
+
+.checkoutpage .master-wrapper-main .center-1 {
+	width: 100%;
+}
+
+
+.checkout-page, .checkout-one-page {
+}
+
+.checkout-page select {
+	width: 33%;
+}
+
+.checkout-page .text-box {
+	width: 30%;
+}
+
+.checkout-page label {
+	font-size: 13px !important;
+	width: 105px !important;
+}
+
+.checkout-page .inputs {
+	margin-bottom: 15px;
+	margin-top: 15px;
 }
 
 .checkout-page .page-title,.checkout-one-page .page-title {
@@ -2078,7 +2235,7 @@ td.fieldname {
 
 .order-summary-title {
 	padding: 10px 10px 5px 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 	font-weight: 700;
 	clear: both;
@@ -2126,9 +2283,7 @@ td.fieldname {
 }
 
 .checkout-data .enter-address {
-	border: 1px solid #EEE;
 	height: auto;
-	padding: 10px;
 }
 
 .checkout-data .enter-address label {
@@ -2152,7 +2307,6 @@ td.fieldname {
 
 .checkout-data .shipping-method {
 	text-align: left;
-	border: 1px solid #EEE;
 	height: auto;
 }
 
@@ -2238,12 +2392,18 @@ td.fieldname {
 
 .checkout-data .payment-info {
 	text-align: left;
-	border: 1px solid #EEE;
 	height: auto;
 }
 
+.checkout-data .payment-info table {
+	width: 70%;
+}
+
+.checkout-data .payment-info table td {
+	padding: 10px 0;
+}
+
 .checkout-data .payment-info .info {
-	padding: 10px;
 	text-align: left;
 	vertical-align: text-top;
 }
@@ -2286,6 +2446,13 @@ td.fieldname {
 	margin-left: 15px;
 	margin-right: 15px;
 	width: 350px;
+	font-size: 15px;
+}
+
+.confirm-order-next-step-button {
+	padding: 20px 70px !important;
+	margin: 21px 0 45px 460px !important;
+	font-size: 16px !important;
 }
 
 .checkout-data .order-review-data li {
@@ -2298,18 +2465,36 @@ td.fieldname {
 }
 
 .checkout-data .order-review-data .title {
-	margin: 10px 0 5px;
+	margin: 20px 0 5px;
+	color: #ce143d;
 }
 
 .checkout-data .order-review-data .payment-method,.checkout-page .order-review-data .shipping-method {
 	border: none;
 }
 
+.order-completed-continue-button {
+	background: url('images/return-home.jpg') no-repeat 0 0;
+	border: none;
+	text-indent: -9999px;
+	overflow: hidden;
+	width: 274px;
+	height: 35px;
+	margin-bottom: 200px;
+	cursor: pointer;
+}
+
 .checkout-data .order-completed {
-	text-align: left;
-	border: 1px solid #EEE;
+	text-align: center;
 	height: auto;
 	padding: 10px;
+	color: white;
+	font-size: 16px;
+	position: relative;
+}
+
+.checkout-data .order-completed * {
+	font-weight: 100;
 }
 
 .checkout-data .order-completed ul {
@@ -2322,8 +2507,17 @@ td.fieldname {
 }
 
 .checkout-data .order-completed a {
-	color: #B80709;
+	color: #c40035;
 	text-decoration: none;
+	margin-top: 13px;
+	display: block;
+	margin-bottom: 20px;
+}
+
+.thankyou {
+	background: url(images/thankyou.png) no-repeat center;
+	height: 270px;
+	margin-top: -212px;
 }
 
 .order-progress {
@@ -2368,7 +2562,11 @@ td.fieldname {
 /* ONE PAGE CHECKOUT */
 .opc .buttons {
 	margin-top: 0;
-	padding-top: 2em;
+}
+
+.opc .buttons .button-1 {
+	padding: 12px 54px;
+	font-size: 13px;
 }
 
 .opc .buttons .back-link {
@@ -2407,15 +2605,10 @@ td.fieldname {
 }
 
 .opc li.tab-section {
-}
+}.opc .step-title
 
 .opc .step-title {
-	border-width: 0 1px;
-	border-style: solid;
-	border-color: #fff #d9dde3 #d9dde3;
-	background: #F2F2F2;
-	padding: 4px 8px 6px;
-	text-align: right;
+	
 }
 
 .opc .step-title .number {
@@ -2436,48 +2629,60 @@ td.fieldname {
 	text-transform: capitalize;
 }
 
-.opc .allow .step-title {
-	background: #F2F2F2;
-	border: 1px solid #EEE;
-	border-bottom: 0;
-	color: #a4b3b9;
-	cursor: pointer;
-}
 
-.opc .allow .step-title .number {
-	background: #dbe6eb;
-	border-color: #dbe6eb;
-	color: #a4b3b9;
-}
-
-.opc .allow .step-title h2 {
-	color: #a4b3b9;
+.opc .step-title {
+	background: #afafaf;
+	padding: 10px;
+	color: #fff;
+	cursor: default;
+	position: relative;
+	height: 33px;
+	margin-bottom: 6px;
 }
 
 .opc .active .step-title {
-	background: #f9f3e3;
-	border: 1px solid #EEE;
-	padding-bottom: 5px;
-	color: #f18200;
-	cursor: default;
+	background: #000;
+	margin-bottom: 0;
+}
+
+.opc .active .step-title:after {
+	content: ' ';
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 8px 7.5px 0 7.5px;
+	border-color: black transparent transparent transparent;
+	position: absolute;
+	margin-top: 41px;
+	z-index: 1;
+	margin-left: 10px;
+}
+
+.opc .step-title .number {
+	background: #939393;
+	color: #fff;
+	border-radius: 20px;
+	padding: 10px 13px;
+	border: none;
+	font-size: 17px;
 }
 
 .opc .active .step-title .number {
-	background: #B20405;
-	border-color: #B20405;
-	color: #fff;
+	background: #b81237;
 }
 
-.opc .active .step-title h2 {
-	color: #555;
+
+.opc .step-title h2 {
+	color: white;
+	padding-top: 9px;
+	padding-left: 5px;
+	font-size: 18px;
+	font-weight: 100;
 }
 
 .opc .step {
-	border: 1px solid #EEE;
-	border-top: 0;
-	background: #fbfaf6 0 0 repeat-x;
-	padding: 15px 30px;
 	position: relative;
+	padding: 15px 0;
 }
 
 .opc .step-title:after {
@@ -2496,7 +2701,15 @@ td.fieldname {
 
 
 /* ORDER DETAILS */
+
+.select-shipping-address label {
+	margin-bottom: 10px;
+	display: block;
+	width: 90% !important;
+}
+
 .order-details-page {
+	font-size: 13px;
 }
 
 .order-details-page .page-title {
@@ -2611,6 +2824,20 @@ td.fieldname {
 
 .order-details-page .cart-total-left {
 	color: #000;
+}
+
+.ui-widget-header {
+	color: white !important;
+	background: #c8133c !important;
+}
+
+.order-summary-content .cart-total-right,
+.order-summary-content .cart-total-left {
+	font-size: 15px !important;
+}
+
+.order-summary-content tr:last-child .cart-total-right  .order-total {
+	color: #c8133c;
 }
 
 .order-details-page .order-notes th.createdon {
@@ -2866,7 +3093,7 @@ td.fieldname {
 }
 
 .product-grid .product-item .prices .tax-shipping-info {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .product-grid .product-item .prices .tax-shipping-info a {
@@ -2892,10 +3119,11 @@ td.fieldname {
 	border-color: #999;
 	border: 0 none;
 	font-weight: 700;
+	transition: 0;
 }
 
 .product-box-add-to-cart-button:hover {
-	color: #fff;
+	
 }
 
 
@@ -2997,7 +3225,7 @@ td.fieldname {
 }
 
 .product-list .product-item .prices .tax-shipping-info {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .product-list .product-item .prices .tax-shipping-info a {
@@ -3254,7 +3482,7 @@ td.fieldname {
 .compare-products-page .page-body {
 	margin: 0;
 	padding: 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 	background-color: inherit;
 }
@@ -3284,8 +3512,22 @@ td.fieldname {
 .login-page {
 }
 
-.login-page .page-title {
-	margin-bottom: 20px;
+.registrationpage .side-2,
+.passwordrecovery-page .side-2,
+.loginpage .side-2 {
+	display: none;
+}
+
+.loginpage .master-wrapper-main .center-2 {
+	width: 100%;
+}
+
+.login-page .page-title h1 {
+	text-indent: -99999px;
+	overflow: hidden;
+	background: url(images/salam.jpg) no-repeat 0 0;
+	height: 138px;
+	background-size: 350px;
 }
 
 .login-page .page-body {
@@ -3295,6 +3537,7 @@ td.fieldname {
 .login-page .title {
 	margin: -17px 0 14px;
 	zoom: 1;
+	margin-bottom: 35px !important;
 }
 
 .login-page .title strong {
@@ -3312,33 +3555,67 @@ td.fieldname {
 	visibility: hidden;
 }
 
-.login-page .new-wrapper {
-	float: left;
-	width: 46%;
-	min-height: 240px;
+.login-page .customer-blocks {
+	background-color: #f6f6f6;
+	margin-bottom: 70px;
 	padding: 10px;
-	border: 1px solid #eee;
-	margin-bottom: 15px;
-	border-radius: 5px;
+}
+
+.login-page .new-wrapper, .login-page .returning-wrapper {
+	float: left;
+	width: 42%;
+	min-height: 340px;
+	padding: 25px 35px;
+	border: 1px solid #d7d7d7;
+	background-color: white;
+	position: relative;
+}
+
+.login-page .topic-html-content { display: none;}
+
+
+.register-boy {
+	background: url('images/full-boy.png') no-repeat 0 0;
+	height: 209px;
+	display: block;
+	width: 96px;
+	position: absolute;
+	right: -44px;
+	bottom: -34px;
+}
+
+.login-page .new-wrapper * {
+	text-align: left;
+}
+
+.login-page .new-wrapper {
+	float: right;
 }
 
 .login-page .returning-wrapper {
-	float: right;
-	width: 46%;
-	min-height: 240px;
-	padding: 10px;
-	border: 1px solid #eee;
-	margin-bottom: 15px;
-	border-radius: 5px;
+	position: relative;
 }
 
-.login-page .new-wrapper .text {
-	line-height: 20px;
+.login-page .returning-wrapper .title {
+	background: url(images/login-txt.jpg) no-repeat -2px 0;
+	margin: 0;
+	height: 35px;
+	text-indent: -99999px;
+	overflow: hidden;
+}
+
+.login-page .new-wrapper .title {
+	background: url(images/newcustomer-txt.jpg) no-repeat -1px 0;
+	margin: 0;
+	height: 35px;
+	text-indent: -99999px;
+	overflow: hidden;
 }
 
 .login-page .new-wrapper .buttons {
-	float: right;
-	margin: 30px 30px 5px 30px;
+	text-align: left;
+	margin: 30px 30px 5px 0;
+	float: left;
 }
 
 .login-page .checkout-as-guest-or-register-block ul {
@@ -3347,39 +3624,69 @@ td.fieldname {
 
 .login-page .returning-wrapper .inputs {
 	margin: 20px 0;
+	text-align: left;
 }
 
 .login-page .returning-wrapper .message-error {
 	padding: 0;
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+.login-page .returning-wrapper .message-error .validation-summary-errors {
+	font-size: 14px !important;
+	font-weight: normal;
+}
+
+.login-page .returning-wrapper .message-error .validation-summary-errors span {
+	display: block;
+	margin-bottom: 5px;
 }
 
 .login-page .returning-wrapper .buttons {
-	float: right;
-	margin: 5px 30px;
+	float: left;
+	margin: 5px;
+	text-align: left;
 }
 
 .login-page .returning-wrapper label {
 	width: 100px;
-	display: inline-block;
+	display: block;
 	margin-right: 10px;
 	white-space: nowrap;
 	vertical-align: middle;
-	font-weight: 700;
+	font-size: 14px;
+	color: #8a8a8a;
+	text-align: left;
+}
+
+#RememberMe {
+	float: left;
+	margin-right: 8px;
+	margin-top: 1px;
 }
 
 .login-page .email,.login-page .username,.login-page .password {
-	width: 170px;
+	background-color: #f9f9f9;
+	margin-top: 10px;
+	width: 92%;
+	border-radius: 5px;
+	padding: 15px;
+	font-size: 14px;
 }
 
-.login-page .returning-customer .reversed label {
-	width: auto;
-	font-weight: 400;
+.login-page .field-validation-error {
+	padding: 12px 0;
+	font-size: 14px;
+	font-weight: normal;
 }
 
 .login-page .forgot-password {
 	display: block;
-	margin-top: 20px;
-	font-weight: 700;
+	margin-top: 0;
+	right: 36px;
+	position: absolute;
+	bottom: 26px;
 }
 
 .login-page .field-validation-error {
@@ -3421,6 +3728,30 @@ td.fieldname {
 
 /* REGISTRATION */
 .registration-page {
+	position: relative;
+}
+
+.registration-page .inputs {
+	margin-bottom: 20px;
+}
+
+.registration-page .inputs select {
+	margin-right: 8px;
+	height: 10px;
+}
+
+.registration-page .register-boy {
+	bottom: auto;
+	top: -12px;
+	right: -63px;
+}
+
+.registrationpage .master-wrapper-main .center-2 {
+	width: 90%;
+}
+
+.registration-page .text-box {
+	width: 30%;
 }
 
 .registration-page .page-title {
@@ -3435,6 +3766,7 @@ td.fieldname {
 
 .registration-page .gender {
 	display: inline-block;
+	margin-right: 13px;
 }
 
 .registration-page ul.option-list {
@@ -3512,7 +3844,7 @@ td.fieldname {
 .breadcrumb {
 	font-size: 1.1em;
 	font-weight: bold;
-	margin: 10px 0 10px;
+	margin: 10px 0 20px;
 	padding: 0;
 	text-transform: uppercase;
 }
@@ -3525,6 +3857,7 @@ td.fieldname {
 .breadcrumb li {
 	list-style: none;
 	display: inline;
+	font-size: 20px;
 }
 
 .breadcrumb li strong {
@@ -3532,9 +3865,8 @@ td.fieldname {
 }
 
 .breadcrumb a {
-	font-size: 0.9em;
 	text-decoration: none;
-	color: #5C5B5B;
+	color: #ce092e;
 }
 
 .breadcrumb a:hover {
@@ -3984,7 +4316,7 @@ td.fieldname {
 .poll {
 	margin: 0;
 	padding: 0;
-	font-size: 11px;
+	font-size: 13px;
 	background-color: inherit;
 }
 
@@ -4195,15 +4527,31 @@ td.fieldname {
 	background-color: inherit;
 }
 
+.password-recovery-page .fieldset .inputs label {
+	display: block;
+	margin-left: 0;
+	margin-bottom: 12px; 
+}
+
+.password-recovery-page .field-validation-error {
+	font-weight: normal;
+	font-size: 13px;
+}
+
+.password-recovery-page .tooltip {
+	font-size: 13px;
+}
+
 .password-recovery-page .email {
-	width: 250px;
+	width: 350px;
 }
 
 .password-recovery-page .result {
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 10px;
-	font-weight: 700;
+	font-size: 13px;
 	color: red;
+	padding: 14px;
+	background: rgb(255, 235, 235);
+	border: 1px solid rgb(255, 215, 215);
 }
 
 
@@ -4302,6 +4650,11 @@ td.fieldname {
 
 /* CUSTOMER ACCOUNT PAGES */
 .account-page {
+}
+
+.account-page .inputs {
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .account-page .result {
@@ -4489,7 +4842,6 @@ td.fieldname {
 .customer-info-page .buttons {
 	margin-bottom: 5px;
 	margin-top: 5px;
-	text-align: center;
 }
 
 .customer-info-page .message-error {
@@ -4677,7 +5029,7 @@ td.fieldname {
 
 .product-details-page .free-shipping {
 	background: url('images/free-shipping.png') left 0px no-repeat;
-	font-size: 11px;
+	font-size: 13px;
 	height: 45px;
 	width: 55px;
 	line-height: 12px;
@@ -4856,7 +5208,7 @@ td.fieldname {
 	color: #444;
 	cursor: pointer;
 	font-family: arial,sans-serif!important;
-	font-size: 11px!important;
+	font-size: 13px!important;
 	font-size-adjust: none!important;
 	font-stretch: normal!important;
 	font-style: normal!important;
@@ -4908,7 +5260,7 @@ td.fieldname {
 }
 
 .product-details-page .prices .tax-shipping-info {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .product-details-page .prices .tax-shipping-info a {
@@ -4944,7 +5296,7 @@ td.fieldname {
 }
 
 .product-details-page .attributes .attribute-description {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .product-details-page .attributes ul.option-list {
@@ -5000,6 +5352,14 @@ td.fieldname {
 	z-index: -10000;
 	position: absolute;
 	float: none;
+}
+
+.product-details-page .giftcard  label {
+	margin-bottom: 5px;
+}
+
+.product-details-page .giftcard  input {
+	margin-bottom: 10px;
 }
 
 .product-details-page .giftcard {
@@ -5191,7 +5551,7 @@ td.fieldname {
 }
 
 .product-reviews-page .write-review .review-text {
-	width: 350px;
+	width: 374px;
 	height: 150px;
 }
 
@@ -5271,7 +5631,7 @@ td.fieldname {
 }
 
 .product-review-helpfulness {
-	font-size: 11px;
+	font-size: 13px;
 	color: #333;
 	clear: both;
 }
@@ -5381,14 +5741,14 @@ td.fieldname {
 .private-messages-page .page-body {
 	margin: 0;
 	padding: 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 }
 
 .private-messages-box {
 	margin: 0;
 	padding: 5px;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 }
 
@@ -5489,7 +5849,7 @@ td.fieldname {
 	padding: 1px 3px;
 	border: solid 1px #ccc;
 	line-height: 15px;
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .post-link {
