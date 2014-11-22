@@ -119,7 +119,7 @@ h2,h3 {
 textarea {
 	width: 100%;
 	font-family: Verdana,Arial,sans-serif;
-	font-size: 11px;
+	font-size: 13px;
 	border: 1px solid #EEEEEE;
 }
 
@@ -380,7 +380,7 @@ ul.language-list li:hover {
 	text-align: center;
 	margin-top: 5px;
 	text-transform: uppercase;
-	font-size: 11px;
+	font-size: 13px;
 	font-weight: bold;
 }
 
@@ -742,7 +742,7 @@ textarea, input { outline: none !important; }
 
 
 .footer-tax-shipping {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .footer-tax-shipping a {
@@ -750,7 +750,7 @@ textarea, input { outline: none !important; }
 }
 
 .footer-disclaimer {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .footer-poweredby {
@@ -894,9 +894,9 @@ td.fieldname {
 .captcha-box {
 }
 
-.button-1,.button-2 {
+.button-1, .button-2 {
 	color: #fff;
-	font: bold 11px Helvetica,Arial,sans-serif;
+	font: bold 13px Helvetica,Arial,sans-serif;
 	text-decoration: none;
 	padding: 9px 12px;
 	display: inline-block;
@@ -1202,7 +1202,7 @@ td.fieldname {
 	min-width: 10px;
 	text-align: center;
 	color: #555;
-	font-size: 11px;
+	font-size: 13px;
 	font-weight: 700;
 	padding: 0px 8px;
 	-webkit-border-radius: 2px;
@@ -1267,7 +1267,7 @@ td.fieldname {
 }
 
 .block .listbox {
-	font-size: 11px;
+	font-size: 13px;
 	padding: 5px 10px 10px;
 	line-height: 18px;
 	margin: 0;
@@ -1459,7 +1459,7 @@ td.fieldname {
 	padding: 70px 10px 10px;
 	margin: 5px;
 	border: 1px solid #eee;
-	font-size: 11px;
+	font-size: 13px;
 	background: #fff url(images/top-cart-header.jpg) no-repeat 15px 12px;
 	background-size: 187px;
 	position: relative;
@@ -1491,6 +1491,8 @@ td.fieldname {
 }
 
 .mini-shopping-cart .items {
+	max-height: 300px;
+	overflow: scroll;	
 }
 
 .mini-shopping-cart .item {
@@ -1516,6 +1518,7 @@ td.fieldname {
 .mini-shopping-cart .item .product {
 	float: left;
 	text-align: left;
+	width: 195px;
 }
 
 .mini-shopping-cart .item .name {
@@ -1725,7 +1728,7 @@ td.fieldname {
 .shopping-cart-page .page-body,.wishlist-page .page-body {
 	margin: 0;
 	padding: 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 }
 
@@ -1742,10 +1745,11 @@ td.fieldname {
 	text-decoration: none;
 }
 
+
 .order-summary-content,.wishlist-content {
 	margin: 0;
 	padding: 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 }
 
@@ -1799,7 +1803,7 @@ select#checkout_attribute_1 {
 
 .order-summary-content .coupon-box,.order-summary-content .giftcard-box {
 	padding: 10px;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 	margin: 0 0 10px;
 	border: 1px solid #EEE;
@@ -1807,9 +1811,10 @@ select#checkout_attribute_1 {
 
 .order-summary-content .coupon-box .message,.order-summary-content .giftcard-box .message {
 	font-family: Verdana,Arial,sans-serif;
-	font-size: 10px;
-	font-weight: 700;
+	font-size: 13px;
+	font-weight: 100;
 	color: red;
+	margin-top: 5px;
 }
 
 .order-summary-content .coupon-box .current-code {
@@ -1932,7 +1937,7 @@ select#checkout_attribute_1 {
 
 .order-summary-content .total-info .selected-shipping-method {
 	font-weight: normal;
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .order-summary-content .total-info .order-total {
@@ -2118,7 +2123,7 @@ select#checkout_attribute_1 {
 .estimate-shipping {
 	margin: 0;
 	padding: 10px;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 	border: 1px solid #EEE;
 }
@@ -2230,7 +2235,7 @@ select#checkout_attribute_1 {
 
 .order-summary-title {
 	padding: 10px 10px 5px 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 	font-weight: 700;
 	clear: both;
@@ -3088,7 +3093,7 @@ select#checkout_attribute_1 {
 }
 
 .product-grid .product-item .prices .tax-shipping-info {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .product-grid .product-item .prices .tax-shipping-info a {
@@ -3220,7 +3225,7 @@ select#checkout_attribute_1 {
 }
 
 .product-list .product-item .prices .tax-shipping-info {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .product-list .product-item .prices .tax-shipping-info a {
@@ -3477,7 +3482,7 @@ select#checkout_attribute_1 {
 .compare-products-page .page-body {
 	margin: 0;
 	padding: 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 	background-color: inherit;
 }
@@ -4312,7 +4317,7 @@ select#checkout_attribute_1 {
 .poll {
 	margin: 0;
 	padding: 0;
-	font-size: 11px;
+	font-size: 13px;
 	background-color: inherit;
 }
 
@@ -5025,7 +5030,7 @@ select#checkout_attribute_1 {
 
 .product-details-page .free-shipping {
 	background: url('images/free-shipping.png') left 0px no-repeat;
-	font-size: 11px;
+	font-size: 13px;
 	height: 45px;
 	width: 55px;
 	line-height: 12px;
@@ -5204,7 +5209,7 @@ select#checkout_attribute_1 {
 	color: #444;
 	cursor: pointer;
 	font-family: arial,sans-serif!important;
-	font-size: 11px!important;
+	font-size: 13px!important;
 	font-size-adjust: none!important;
 	font-stretch: normal!important;
 	font-style: normal!important;
@@ -5256,7 +5261,7 @@ select#checkout_attribute_1 {
 }
 
 .product-details-page .prices .tax-shipping-info {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .product-details-page .prices .tax-shipping-info a {
@@ -5292,7 +5297,7 @@ select#checkout_attribute_1 {
 }
 
 .product-details-page .attributes .attribute-description {
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .product-details-page .attributes ul.option-list {
@@ -5348,6 +5353,14 @@ select#checkout_attribute_1 {
 	z-index: -10000;
 	position: absolute;
 	float: none;
+}
+
+.product-details-page .giftcard  label {
+	margin-bottom: 5px;
+}
+
+.product-details-page .giftcard  input {
+	margin-bottom: 10px;
 }
 
 .product-details-page .giftcard {
@@ -5619,7 +5632,7 @@ select#checkout_attribute_1 {
 }
 
 .product-review-helpfulness {
-	font-size: 11px;
+	font-size: 13px;
 	color: #333;
 	clear: both;
 }
@@ -5729,14 +5742,14 @@ select#checkout_attribute_1 {
 .private-messages-page .page-body {
 	margin: 0;
 	padding: 0;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 }
 
 .private-messages-box {
 	margin: 0;
 	padding: 5px;
-	font-size: 11px;
+	font-size: 13px;
 	color: #555;
 }
 
@@ -5837,7 +5850,7 @@ select#checkout_attribute_1 {
 	padding: 1px 3px;
 	border: solid 1px #ccc;
 	line-height: 15px;
-	font-size: 11px;
+	font-size: 13px;
 }
 
 .post-link {
