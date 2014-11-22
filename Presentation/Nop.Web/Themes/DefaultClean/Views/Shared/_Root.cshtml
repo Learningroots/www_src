@@ -31,7 +31,10 @@
         </div>
     </div>
     <script>
-        $('body').addClass($('.page').attr('class').replace('-',''));
+        $('body')
+            .addClass(  $('.page').length !=0 ? $('.page').attr('class').replace('-','') : '' )
+            .addClass(  $('.order-completed').length !=0 ? $('.order-completed').attr('class').replace('-','') : '' );
+
         $('.login-page .new-wrapper .buttons, .registration-page h1')
             .after('<div class="register-boy"></div>');
     </script>
