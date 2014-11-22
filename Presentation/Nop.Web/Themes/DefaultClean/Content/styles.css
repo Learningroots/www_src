@@ -137,8 +137,9 @@ legend {
 input[type="text"],input[type="password"] {
 	border: 1px solid #eee;
 	border-radius: 5px;
-	padding: 15px;
+	padding: 12px 15px;
 	font-size: 14px;
+	background-color: #f9f9f9;
 }
 
 input[type="text"]:disabled {
@@ -770,6 +771,7 @@ textarea, input { outline: none !important; }
 	clear: both;
 	background-color: #c8133c;
 	color: white;
+	text-align: center;
 }
 
 .footer-store-theme {
@@ -867,13 +869,15 @@ textarea, input { outline: none !important; }
 	width: 100%;
 }
 
-.page-title h1,.page-title h2 {
+.page-title h1, .page-title h2 {
 	padding: 5px 5px 5px 0;
 	font-size: 20px;
 	margin: 0;
 	font-family: Helvetica,Arial,sans-serif;
-	font-weight: 400;
-	color: #c8133c;
+	font-weight: 100;
+	color: white;
+	background: #ce092e;
+	padding: 12px 15px;
 }
 
 .page-title .link-rss {
@@ -941,7 +945,11 @@ td.fieldname {
 }
 
 .fieldset .title strong {
-	background: #fff;
+	font-size: 14px;
+	margin-top: 11px;
+	display: block;
+	padding-bottom: 14px;
+	padding: 13px 0;
 }
 
 .fieldset .inputs {
@@ -951,7 +959,7 @@ td.fieldname {
 .fieldset .inputs label {
 	display: inline-block;
 	width: 130px;
-	margin-left: 10px;
+	font-size: 13px;
 }
 
 .fieldset .inputs label.forcheckbox {
@@ -1084,15 +1092,15 @@ td.fieldname {
 
 .validation-summary-errors {
 	font-family: Verdana,Arial,sans-serif;
-	font-size: 10px;
-	font-weight: 700;
+	font-size: 13px;
 	color: red;
+	font-weight: normal;
+	margin-top: 25px;
 }
 
 .field-validation-error {
 	font-family: Verdana,Arial,sans-serif;
-	font-size: 10px;
-	font-weight: 700;
+	font-size: 13px;
 	color: red;
 }
 
@@ -3360,6 +3368,7 @@ td.fieldname {
 .login-page {
 }
 
+.registrationpage .side-2,
 .passwordrecovery-page .side-2,
 .loginpage .side-2 {
 	display: none;
@@ -3412,7 +3421,7 @@ td.fieldname {
 .login-page .returning-wrapper {
 	float: left;
 	width: 42%;
-	height: 336px;
+	min-height: 336px;
 	padding: 25px 35px;
 	border: 1px solid #d7d7d7;
 	background-color: white;
@@ -3420,6 +3429,7 @@ td.fieldname {
 }
 
 .login-page .topic-html-content { display: none;}
+
 
 .register-boy {
 	background: url('images/full-boy.png') no-repeat 0 0;
@@ -3575,6 +3585,30 @@ td.fieldname {
 
 /* REGISTRATION */
 .registration-page {
+	position: relative;
+}
+
+.registration-page .inputs {
+	margin-bottom: 20px;
+}
+
+.registration-page .inputs select {
+	margin-right: 8px;
+	height: 10px;
+}
+
+.registration-page .register-boy {
+	bottom: auto;
+	top: -12px;
+	right: -63px;
+}
+
+.registrationpage .master-wrapper-main .center-2 {
+	width: 90%;
+}
+
+.registration-page .text-box {
+	width: 30%;
 }
 
 .registration-page .page-title {
@@ -3589,6 +3623,7 @@ td.fieldname {
 
 .registration-page .gender {
 	display: inline-block;
+	margin-right: 13px;
 }
 
 .registration-page ul.option-list {
