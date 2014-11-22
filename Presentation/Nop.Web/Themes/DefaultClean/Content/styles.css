@@ -85,7 +85,7 @@ input,select {
 
 /* OTHER RESET STYLESHEET (HTML GENERAL) */
 body {
-	text-align: center;
+	text-align: left;
 	font-family: arial,verdana,helvetica,sans-serif;
 	font-size: 12px;
 	background: none repeat scroll 0 0 #fff;
@@ -136,6 +136,9 @@ legend {
 
 input[type="text"],input[type="password"] {
 	border: 1px solid #eee;
+	border-radius: 5px;
+	padding: 15px;
+	font-size: 14px;
 }
 
 input[type="text"]:disabled {
@@ -155,16 +158,16 @@ input[type="text"]:disabled {
 .master-wrapper-main {
 	font-family: arial,helvetica,sans-serif;
 	color: #5C5B5B;
+	padding: 30px 0;
 }
 /* one column master page */
 .master-wrapper-main .center-1 {
 	float: left;
-	width: 910px;
+	width: auto;
 	min-height: 400px;
-	padding: 10px;
+	padding: 0;
 	background: #FFF;
-	display: inline;
-	border-radius: 5px;
+	display: block;
 }
 /* two column master page */
 .master-wrapper-main .side-2 {
@@ -178,8 +181,8 @@ input[type="text"]:disabled {
 	float: left;
 	width: 710px;
 	min-height: 400px;
-	padding: 10px;
-	margin: 10px 0 10px 10px;
+	padding: 0;
+	margin: 0;
 	background: #FFF;
 	display: inline;
 	border-radius: 5px;
@@ -214,7 +217,7 @@ input[type="text"]:disabled {
 
 /* HEADER AND MENU */
 .header {
-	height: 126px;
+	height: 118px;
 	background: #fff;
 	border-bottom: 8px solid #eee;
 }
@@ -253,7 +256,7 @@ input[type="text"]:disabled {
 	display: block;
 	padding: 0;
 	margin: 0;
-	height: 74px;
+	height: 84px;
 	background-size: 82px;
 	position: relative;
 }
@@ -427,17 +430,12 @@ ul.language-list li:hover {
 .header-menu {
 	background: none repeat scroll 0 0 #404040;
 	border-radius: 4px;
-	-o-border-radius: 4px;
-	-icab-border-radius: 4px;
-	-khtml-border-radius: 4px;
-	-moz-border-radius: 4px;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
 	height: auto;
 	list-style: none outside none;
 	margin: 10px auto 0;
 	padding: 0 10px;
 	clear: both;
+	display: none;
 }
 
 .header-menu a {
@@ -873,8 +871,9 @@ textarea, input { outline: none !important; }
 	padding: 5px 5px 5px 0;
 	font-size: 20px;
 	margin: 0;
-	font-family: Arial,Helvetica,sans-serif;
+	font-family: Helvetica,Arial,sans-serif;
 	font-weight: 400;
+	color: #c8133c;
 }
 
 .page-title .link-rss {
@@ -900,37 +899,26 @@ td.fieldname {
 }
 
 .button-1,.button-2 {
-	color: #6e6e6e;
-	font: bold 12px Helvetica,Arial,sans-serif;
+	color: #fff;
+	font: bold 11px Helvetica,Arial,sans-serif;
 	text-decoration: none;
-	padding: 3px 7px;
-/*position: relative;*/
-	position: static;
+	padding: 9px 12px;
 	display: inline-block;
-	text-shadow: 0 1px 0 #fff;
-	-webkit-transition: border-color .218s;
-	-moz-transition: border .218s;
-	-o-transition: border-color .218s;
-	transition: border-color .218s;
-	background: #F6F6F6;
-	background: -webkit-gradient(linear,0% 40%,0% 70%,from(#F6F6F6),to(#DEDEDE));
-	background: -moz-linear-gradient(linear,0% 40%,0% 70%,from(#F6F6F6),to(#DEDEDE));
-	border: solid 1px #dcdcdc;
-	border-radius: 2px;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
+	background: #c8133c;
+	border-radius: 3px;
 	cursor: pointer;
 	height: auto;
 	width: auto;
 	overflow: visible;
+	border: none;
+	text-transform: uppercase;
+	font-weight: 400;
+	transition: 300ms;
 }
 
 .button-1:hover,.button-2:hover {
-	color: #333;
-	border-color: #999;
-	-moz-box-shadow: 0 2px 0 rgba(0,0,0,0.2);
-	-webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-	box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+	background: #DF1643;
+	transition: 300ms;
 }
 
 .noscript {
@@ -944,10 +932,8 @@ td.fieldname {
 }
 
 .fieldset {
-	padding: 10px;
+	padding: 10px 0;
 	margin-bottom: 15px;
-	border: 1px solid #eee;
-	border-radius: 5px;
 }
 
 .fieldset .title {
@@ -1112,6 +1098,7 @@ td.fieldname {
 
 .required {
 	color: red;
+	font-size: 15px;
 }
 
 
@@ -1441,13 +1428,14 @@ td.fieldname {
 	display: none;
 	position: absolute;
 	float: left;
-	top: 125px;
+	top: 135px;
 	right: 0px;
 	width: 300px;
 	min-height: 50px;
 	z-index: 99999;
 	background: #fff;
 	border: 1px solid #eee;
+	box-shadow: 0px 7px 29px #2D2D2D;
 }
 
 .flyout-cart.active {
@@ -1460,7 +1448,7 @@ td.fieldname {
 	height: 0;
 	border-style: solid;
 	border-width: 0 10px 10px 10px;
-	border-color: transparent transparent #eee transparent;
+	border-color: transparent transparent #fff transparent;
 	position: absolute;
 	margin-top: -10px;
 	margin-left: 94px;
@@ -1566,10 +1554,10 @@ td.fieldname {
 	text-align: right;
 	background: #bd0a2f;
 	margin-top: 3px;
-	padding: 14px 10px;
+	padding: 15px;
 	margin-left: -17px;
 	margin-bottom: -22px;
-	margin-right: -16px;
+	margin-right: -17px;
 	border-bottom-right-radius: 7px;
 	border-bottom-left-radius: 7px;
 }
@@ -3372,8 +3360,21 @@ td.fieldname {
 .login-page {
 }
 
+.passwordrecovery-page .side-2,
+.loginpage .side-2 {
+	display: none;
+}
+
+.loginpage .master-wrapper-main .center-2 {
+	width: auto;
+}
+
 .login-page .page-title {
-	margin-bottom: 20px;
+	text-indent: -99999px;
+	overflow: hidden;
+	background: url(images/salam.jpg) no-repeat 0 0;
+	height: 138px;
+	background-size: 350px;
 }
 
 .login-page .page-body {
@@ -3383,6 +3384,7 @@ td.fieldname {
 .login-page .title {
 	margin: -17px 0 14px;
 	zoom: 1;
+	margin-bottom: 35px !important;
 }
 
 .login-page .title strong {
@@ -3400,33 +3402,67 @@ td.fieldname {
 	visibility: hidden;
 }
 
-.login-page .new-wrapper {
-	float: left;
-	width: 46%;
-	min-height: 240px;
+.login-page .customer-blocks {
+	background-color: #f6f6f6;
+	margin-bottom: 70px;
 	padding: 10px;
-	border: 1px solid #eee;
-	margin-bottom: 15px;
-	border-radius: 5px;
+}
+
+.login-page .new-wrapper,
+.login-page .returning-wrapper {
+	float: left;
+	width: 42%;
+	height: 336px;
+	padding: 25px 35px;
+	border: 1px solid #d7d7d7;
+	background-color: white;
+	position: relative;
+}
+
+.login-page .topic-html-content { display: none;}
+
+.register-boy {
+	background: url('images/full-boy.png') no-repeat 0 0;
+	height: 209px;
+	display: block;
+	width: 96px;
+	position: absolute;
+	right: -44px;
+	bottom: -34px;
+}
+
+.login-page .new-wrapper * {
+	text-align: left;
+}
+
+.login-page .new-wrapper {
+	float: right;
 }
 
 .login-page .returning-wrapper {
-	float: right;
-	width: 46%;
-	min-height: 240px;
-	padding: 10px;
-	border: 1px solid #eee;
-	margin-bottom: 15px;
-	border-radius: 5px;
+	position: relative;
 }
 
-.login-page .new-wrapper .text {
-	line-height: 20px;
+.login-page .returning-wrapper .title {
+	background: url(images/login-txt.jpg) no-repeat -2px 0;
+	margin: 0;
+	height: 35px;
+	text-indent: -99999px;
+	overflow: hidden;
+}
+
+.login-page .new-wrapper .title {
+	background: url(images/newcustomer-txt.jpg) no-repeat -1px 0;
+	margin: 0;
+	height: 35px;
+	text-indent: -99999px;
+	overflow: hidden;
 }
 
 .login-page .new-wrapper .buttons {
-	float: right;
-	margin: 30px 30px 5px 30px;
+	text-align: left;
+	margin: 30px 30px 5px 0;
+	float: left;
 }
 
 .login-page .checkout-as-guest-or-register-block ul {
@@ -3435,39 +3471,69 @@ td.fieldname {
 
 .login-page .returning-wrapper .inputs {
 	margin: 20px 0;
+	text-align: left;
 }
 
 .login-page .returning-wrapper .message-error {
 	padding: 0;
+	text-align: left;
+	margin-bottom: 5px;
+}
+
+.login-page .returning-wrapper .message-error .validation-summary-errors {
+	font-size: 14px !important;
+	font-weight: normal;
+}
+
+.login-page .returning-wrapper .message-error .validation-summary-errors span {
+	display: block;
+	margin-bottom: 5px;
 }
 
 .login-page .returning-wrapper .buttons {
-	float: right;
-	margin: 5px 30px;
+	float: left;
+	margin: 5px;
+	text-align: left;
 }
 
 .login-page .returning-wrapper label {
 	width: 100px;
-	display: inline-block;
+	display: block;
 	margin-right: 10px;
 	white-space: nowrap;
 	vertical-align: middle;
-	font-weight: 700;
+	font-size: 14px;
+	color: #8a8a8a;
+	text-align: left;
+}
+
+#RememberMe {
+	float: left;
+	margin-right: 8px;
+	margin-top: 1px;
 }
 
 .login-page .email,.login-page .username,.login-page .password {
-	width: 170px;
+	background-color: #f9f9f9;
+	margin-top: 10px;
+	width: 92%;
+	border-radius: 5px;
+	padding: 15px;
+	font-size: 14px;
 }
 
-.login-page .returning-customer .reversed label {
-	width: auto;
-	font-weight: 400;
+.login-page .field-validation-error {
+	padding: 12px 0;
+	font-size: 14px;
+	font-weight: normal;
 }
 
 .login-page .forgot-password {
 	display: block;
-	margin-top: 20px;
-	font-weight: 700;
+	margin-top: 0;
+	right: 36px;
+	position: absolute;
+	bottom: 26px;
 }
 
 .login-page .field-validation-error {
@@ -4283,15 +4349,31 @@ td.fieldname {
 	background-color: inherit;
 }
 
+.password-recovery-page .fieldset .inputs label {
+	display: block;
+	margin-left: 0;
+	margin-bottom: 12px; 
+}
+
+.password-recovery-page .field-validation-error {
+	font-weight: normal;
+	font-size: 13px;
+}
+
+.password-recovery-page .tooltip {
+	font-size: 13px;
+}
+
 .password-recovery-page .email {
-	width: 250px;
+	width: 350px;
 }
 
 .password-recovery-page .result {
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 10px;
-	font-weight: 700;
+	font-size: 13px;
 	color: red;
+	padding: 14px;
+	background: rgb(255, 235, 235);
+	border: 1px solid rgb(255, 215, 215);
 }
 
 

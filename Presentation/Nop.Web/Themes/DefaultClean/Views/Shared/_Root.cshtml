@@ -30,6 +30,10 @@
             @Html.Widget("content_after")
         </div>
     </div>
+    <script>
+        $('body').addClass($('.page').attr('class').replace('-',''));
+        $('.login-page .new-wrapper .buttons').after('<div class="register-boy"></div>');
+    </script>
     @Html.Action("Footer", "Common")
 </div>
 @Html.Action("EuCookieLaw", "Common")

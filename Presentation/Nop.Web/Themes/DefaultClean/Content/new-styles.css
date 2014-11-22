@@ -39,12 +39,12 @@
 
 .main-menu a .menu-arrow {
 	display: none;
-	height: 33px;
+	height: 31px;
 	position: absolute;
 	width: 100%;
 	top: 35px;
 	left: 0;
-	background: #ce092e url(images/menu-arrow.jpg) no-repeat 50% 0%;
+	background: #ce092e url(images/menu-arrow.jpg) no-repeat 50% 35%;
 	background-size: 28px;
 }
 
@@ -77,7 +77,7 @@
 .main-menu > li .sub-menu {
 	display: none;
 	background: #ce092e url(images/menu-girl-boy.jpg) no-repeat 90px 26px;
-	top: 80px;
+	top: 86px;
 	min-height: 305px;
 	position: absolute;
 	left: 0;
