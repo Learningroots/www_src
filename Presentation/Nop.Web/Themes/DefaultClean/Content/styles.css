@@ -85,12 +85,28 @@ input,select {
 
 
 
+/* Fonts */
+@font-face{
+	font-family:'BreeBold';
+	font-weight: bold;
+	src: url('fonts/BreeBold.otf') format('opentype');
+}
+
+@font-face{
+	font-family:'BreeLight';
+	src: url('fonts/BreeLight.otf') format('opentype');
+}
+
+@font-face{
+	font-family:'BreeRegular';
+	src: url('fonts/BreeRegular.otf') format('opentype');
+}
 
 
 /* OTHER RESET STYLESHEET (HTML GENERAL) */
 body {
 	text-align: left;
-	font-family: arial,verdana,helvetica,sans-serif;
+	font-family: 'BreeRegular',arial,verdana,helvetica,sans-serif;
 	font-size: 12px;
 	background: none repeat scroll 0 0 #fff;
 	color: #5C5B5B;
@@ -157,7 +173,6 @@ input[type="text"],input[type="password"] {
 }
 
 .master-wrapper-main {
-	font-family: arial,helvetica,sans-serif;
 	color: #5C5B5B;
 	padding: 30px 0;
 }
@@ -235,6 +250,10 @@ input[type="text"],input[type="password"] {
 }
 
 .header .ico-wishlist {
+	display: none;
+}
+
+.header .ico-login {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	text-align: center;
@@ -251,9 +270,10 @@ input[type="text"],input[type="password"] {
 	display: block;
 	padding: 0;
 	margin: 0;
-	height: 84px;
-	background-size: 82px;
+	height: 88px;
+	background-size: 87px;
 	position: relative;
+	margin-top: -7px;
 }
 
 .header .ico-cart .cart-qty {
@@ -265,7 +285,8 @@ input[type="text"],input[type="password"] {
 	left: 27px;
 	color: white;
 	padding: 3px 5px;
-	font-size: 9px; 
+	font-size: 9px;
+	padding-left: 6px;
 }
 
 .header .ico-wishlist {
@@ -386,7 +407,6 @@ ul.language-list li:hover {
 
 .header-links a:hover {
 	color: #AF0304;
-	text-decoration: underline;
 }
 
 .header-links a.account {
@@ -593,12 +613,12 @@ ul.language-list li:hover {
 
 .search-box-text {
 	background: #fff url(images/search.png) no-repeat 97% 49%;
-	width: 162px;
+	width: 177px;
 	border: 1px solid #E3E3E3 !important;
-	padding: 11px 12px;
+	padding: 9px 12px !important;
 	vertical-align: top;
-	font-size: 13px;
-	border-radius: 5px;
+	font-size: 13px !important;
+	margin-top: 2px;
 }
 
 .search-box-text:focus {
@@ -896,7 +916,8 @@ td.fieldname {
 
 .button-1, .button-2 {
 	color: #fff;
-	font: bold 13px Helvetica,Arial,sans-serif;
+	font-size: 13px;
+	font-weight: normal;
 	text-decoration: none;
 	padding: 9px 12px;
 	display: inline-block;
@@ -916,6 +937,7 @@ td.fieldname {
 	background: #DF1643;
 	color: #fff;
 	transition: 300ms;
+	text-decoration: none;
 }
 
 .noscript {
@@ -1424,7 +1446,7 @@ td.fieldname {
 	float: left;
 	top: 135px;
 	right: 0px;
-	width: 300px;
+	width: 360px;
 	min-height: 50px;
 	z-index: 99999;
 	background: #fff;
@@ -1452,7 +1474,7 @@ td.fieldname {
 	border-color: transparent transparent #fff transparent;
 	position: absolute;
 	margin-top: -10px;
-	margin-left: 230px;
+	margin-left: 290px;
 }
 
 .mini-shopping-cart {
@@ -1466,15 +1488,16 @@ td.fieldname {
 }
 
 .mini-shopping-cart a img {
-
+	width: 100%;
 }
 
-.mini-shopping-cart a {
-	font-weight: 700;
+.mini-shopping-cart .items a {
+	font-weight: bold;
 	text-decoration: none;
+	font-family: "BreeBold";
 }
 
-.mini-shopping-cart a:hover {
+.mini-shopping-cart .items a:hover {
 	text-decoration: underline;
 }
 
@@ -1511,14 +1534,15 @@ td.fieldname {
 
 .mini-shopping-cart .item .picture {
 	float: left;
-	width: 50px;
-	text-align: center;
+	width: 75px;
+	padding-top: 15px;
+	margin-bottom: 8px;
 }
 
 .mini-shopping-cart .item .product {
 	float: left;
 	text-align: left;
-	width: 195px;
+	width: 230px;
 }
 
 .mini-shopping-cart .item .name {
@@ -1549,9 +1573,9 @@ td.fieldname {
 	font-size: 15px;
 	border-top: 1px solid #eee;
 	border-bottom: 1px solid #eee;
-	padding-top: 14px;
+	padding-top: 19px;
 	margin-top: -5px;
-	padding-bottom: 14px;
+	padding-bottom: 19px;
 }
 
 .mini-shopping-cart .buttons {
@@ -1570,6 +1594,8 @@ td.fieldname {
 .cart-button {
 	color: white;
 	font-size: 13px; 
+	float: right;
+	margin-top: -8px !important
 }
 
 .mini-shopping-cart .cart-button,
@@ -3252,8 +3278,53 @@ select#checkout_attribute_1 {
 
 
 /* CATALOG PAGES */
-.category-page,.manufacturer-page,.vendor-page,.manufacturer-list-page,.product-tag-page,.product-tags-all-page,.vendor-list-page {
+.top-message-special {
+	display: none;
+	background: #000;
+	text-align: center;
+	color: #FFF;
+	padding: 19px 0;
+	font-size: 17px;
+	overflow: hidden;
 }
+
+.cookieHideMessage {
+	display: none !important;
+}
+
+.btn-close {
+	text-indent: -9999px;
+	overflow: hidden;
+	display: inline-block;
+	background: url(images/close-btn.jpg) no-repeat -7px -6px;
+	height: 24px;
+	width: 24px;
+	background-size: 40px;
+	position: absolute;
+	margin-top: -4px;
+	margin-left: 230px;
+}
+
+.category-page,
+.manufacturer-page,
+.vendor-page,
+.manufacturer-list-page,
+.product-tag-page,
+.product-tags-all-page,
+.vendor-list-page {
+}
+
+.categorypage .top-message-special,
+.manufacturerpage .top-message-special,
+.vendorpage .top-message-special,
+.manufacturerlist-page .top-message-special,
+.producttag-page .top-message-special,
+.producttags-all-page .top-message-special,
+.vendorlist-page .top-message-special{
+	display: block;
+}
+
+
 
 .category-page .page-title,.manufacturer-list-page .page-title,.manufacturer-page .page-title,.vendor-page .page-title,.product-tag-page .page-title,.product-tags-all-page .page-title,.vendor-list-page .page-title {
 	border-bottom: 0 none;
@@ -3512,6 +3583,8 @@ select#checkout_attribute_1 {
 .login-page {
 }
 
+.home-page .side-2,
+.homepage .side-2,
 .registrationpage .side-2,
 .passwordrecovery-page .side-2,
 .loginpage .side-2 {
