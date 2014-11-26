@@ -29,6 +29,7 @@ using Nop.Web.Framework.Security;
 using Nop.Web.Infrastructure.Cache;
 using Nop.Web.Models.Catalog;
 using Nop.Web.Models.Media;
+using Nop.Web.Themes.DefaultClean.Models.Catalog;
 
 namespace Nop.Web.Controllers
 {
@@ -651,6 +652,26 @@ namespace Nop.Web.Controllers
             var model = new CategoryNavigationModel()
             {
                 CurrentCategoryId = activeCategoryId,
+                Categories = cachedModel
+            };
+
+            return PartialView(model);
+        }
+
+        [ChildActionOnly]
+        public ActionResult HeaderCategory()
+        {
+            var customerRolesIds = _workContext.CurrentCustomer.CustomerRoles
+                .Where(cr => cr.Active).Select(cr => cr.Id).ToList();
+            string cacheKey = string.Format(ModelCacheEventConsumer.CATEGORY_MENU_MODEL_KEY, _workContext.WorkingLanguage.Id,
+                string.Join(",", customerRolesIds), _storeContext.CurrentStore.Id);
+            var cachedModel = _cacheManager.Get(cacheKey, () =>
+            {
+                return PrepareCategorySimpleModels(0, null, 0, _catalogSettings.TopCategoryMenuSubcategoryLevelsToDisplay, true).ToList();
+            });
+
+            var model = new HeaderCategoryModel()
+            {
                 Categories = cachedModel
             };
 
