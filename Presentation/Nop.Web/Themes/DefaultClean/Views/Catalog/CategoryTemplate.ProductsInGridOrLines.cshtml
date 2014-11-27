@@ -48,10 +48,16 @@
 }
 <div class="page category-page">
     <div class="page-title">
-        <h1>
-            @Html.Raw(Model.Products.Count) products in @Model.Name 
-            <span style="float:right;font-size: 11px">Count is per page. Sarina to fix<br>Remove this line when fixed</span>
-        </h1>
+        <h1>@Html.Raw(Model.Products.Count) products in @Model.Name</h1>
+        
+        @*sorting*@
+        @if (Model.PagingFilteringContext.AllowProductSorting && Model.Products.Count > 0)
+        {
+            <div class="product-sorting">
+                <span>@T("Catalog.OrderBy")</span>
+                @Html.DropDownList("products-orderby", Model.PagingFilteringContext.AvailableSortOptions, new { onchange = "setLocation(this.value);" })
+            </div>
+        }
     </div>
     <div class="page-body">
         @Html.Widget("categorydetails_top", Model.Id)
@@ -104,33 +110,7 @@
             </div>
         }
         @Html.Widget("categorydetails_after_featured_products", Model.Id)
-        <div class="product-selectors">
-            @*view mode*@
-            @if (Model.PagingFilteringContext.AllowProductViewModeChanging && Model.Products.Count > 0)
-            {
-                <div class="product-viewmode">
-                    <span>@T("Catalog.ViewMode")</span>
-                    @Html.DropDownList("products-viewmode", Model.PagingFilteringContext.AvailableViewModes, new { onchange = "setLocation(this.value);" })
-                </div>
-            }
-            @*sorting*@
-            @if (Model.PagingFilteringContext.AllowProductSorting && Model.Products.Count > 0)
-            {
-                <div class="product-sorting">
-                    <span>@T("Catalog.OrderBy")</span>
-                    @Html.DropDownList("products-orderby", Model.PagingFilteringContext.AvailableSortOptions, new { onchange = "setLocation(this.value);" })
-                </div>
-            }
-            @*page size*@
-            @if (Model.PagingFilteringContext.AllowCustomersToSelectPageSize && Model.Products.Count > 0)
-            {
-                <div class="product-page-size">
-                    <span>@T("Catalog.PageSize")</span> 
-                    @Html.DropDownList("products-pagesize", Model.PagingFilteringContext.PageSizeOptions, new { onchange = "setLocation(this.value);" })
-                    <span>@T("Catalog.PageSize.PerPage")</span>
-                </div>
-            }
-        </div>
+
         @Html.Widget("categorydetails_before_filters", Model.Id)
         <div class="product-filters-wrapper">
             @*filtering*@

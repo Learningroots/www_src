@@ -33,7 +33,22 @@
         <ul class="main-menu">
             <li>
                 <a href="#" class="menu-active">Shop <span class="menu-arrow"></span></a>
-                @Html.Action("HeaderCategory", "Catalog")
+                <div class="sub-menu">
+                    <ul>
+                        <li><span class="menu-heading menu-heading-1"></span></li>
+                        <li><a href="#">Link 1</a></li>
+                        <li><a href="#">Link 2</a></li>
+                        <li><a href="#">Link 3</a></li>
+                        <li><a href="#">Link 4</a></li>
+                        <li><a href="#">Link 5</a></li>
+                        <li><a href="#">Link 5</a></li>
+                        <li><a href="#">Link 6</a></li>
+                        <li><a href="#">Link 7</a></li>
+                        <li><a href="#">Link 8</a></li>
+                        <li><a href="#">Link 9</a></li>
+                        <li><a href="#">Link 10</a></li>
+                    </ul>
+                </div>
             </li>
 
             <li>
@@ -70,21 +85,7 @@
             @Html.Action("SearchBox", "Catalog")
         </div>
 
-
     </div>
-    
-    <!-- <div class="header-selectors-wrapper">
-        <div class="tax-display-type-selector">
-            @Html.Action("TaxTypeSelector", "Common")
-        </div>
-        <div class="currency-selector">
-            @Html.Action("CurrencySelector", "Common")
-        </div>
-        <div class="language-selector">
-            @Html.Action("LanguageSelector", "Common")
-        </div>
-        @Html.Widget("header_selectors")
-    </div> -->
 </div>
 
 <div class="top-message-special cookieHideMessage">
@@ -92,12 +93,15 @@ FREE DELIVERY FOR ALL ORDERS OVER £50.00
 <span class="btn-close" title="Hide this message">Close this message</span>
 </div>
 
-<script type="text/javascript">
+<!-- This is the place holder for the banner - wrap this whole block in if statement to check if there is content than display this whole block -->
+<div class="top-banner"><div class="wrapper">bannerplaceholder - Sarina will make this dynamic</div></div>
 
+
+<script type="text/javascript">
+    //create cookie so this message should not appear again for a month
     if(!$.cookie('topmessage')) {
         $('.top-message-special').removeClass('cookieHideMessage').find('.btn-close').click(function(){
             $(this).add('.top-message-special').slideUp('fast');
-            //create cookie so this message should not appear again for a month
             $.cookie('topmessage', 'hidden', { expires: 30 });
         });
     }
