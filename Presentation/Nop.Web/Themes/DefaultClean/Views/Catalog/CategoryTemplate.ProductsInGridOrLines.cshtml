@@ -54,38 +54,35 @@
         @if (Model.PagingFilteringContext.AllowProductSorting && Model.Products.Count > 0)
         {
             <div class="product-sorting">
-                <span>@T("Catalog.OrderBy")</span>
+                <span>@T("Catalog.OrderBy") </span> 
                 @Html.DropDownList("products-orderby", Model.PagingFilteringContext.AvailableSortOptions, new { onchange = "setLocation(this.value);" })
             </div>
         }
     </div>
     <div class="page-body">
         @Html.Widget("categorydetails_top", Model.Id)
-        @*description*@
-        @if (!String.IsNullOrWhiteSpace(Model.Description))
-        {
-            <div class="category-description">
-                @Html.Raw(Model.Description)
-            </div>
-        }
+        
+
         @Html.Widget("categorydetails_before_subcategories", Model.Id)
         @*subcategories*@
         @if (Model.SubCategories.Count > 0)
         {
+            <h2 class="page-sub-heading">Select one of the following category</h2>
+            
             <div class="sub-category-grid">
                 @foreach (var item in Model.SubCategories)
                 {
                     <div class="item-box">
                         <div class="sub-category-item">
-                            <h2 class="title">
-                                <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
-                                    @item.Name</a>
-                            </h2>
                             <div class="picture">
                                 <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
                                     <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl"
                                          title="@item.PictureModel.Title" /></a>
                             </div>
+                            <h2 class="title">
+                                <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
+                                    @item.Name</a>
+                            </h2>
                         </div>
                     </div>
                 }
@@ -112,18 +109,7 @@
         @Html.Widget("categorydetails_after_featured_products", Model.Id)
 
         @Html.Widget("categorydetails_before_filters", Model.Id)
-        <div class="product-filters-wrapper">
-            @*filtering*@
-            @if (Model.PagingFilteringContext.PriceRangeFilter.Enabled)
-            {
-                @Html.Partial("_FilterPriceBox", Model.PagingFilteringContext.PriceRangeFilter, new ViewDataDictionary())
-            }
-            @*filtering*@
-            @if (Model.PagingFilteringContext.SpecificationFilter.Enabled)
-            {
-                @Html.Partial("_FilterSpecsBox", Model.PagingFilteringContext.SpecificationFilter, new ViewDataDictionary())
-            }
-        </div>
+
         @Html.Widget("categorydetails_before_product_list", Model.Id)
         @*product list*@
         @if (Model.Products.Count > 0)
@@ -159,3 +145,31 @@
         @Html.Widget("categorydetails_bottom", Model.Id)
     </div>
 </div>
+
+<script>
+    var $items = $('.product-grid .product-item');
+    if($items.length == 0) $items = $('.sub-category-grid .sub-category-item');
+    var highest = 0;
+    $items.each(function(i){
+        $this = $(this);
+        var j = i+1;
+        if(j % 3 == 0) $this.addClass('product-item-third');
+        if($this.height() > highest) highest = $this.height();
+    });
+    $items.height(highest);
+
+    //display discount message after 6 items or before
+    var $items = $('.product-grid .product-item');
+    if($items.length > 0) {
+        var discountMsg = '<div class="product-discount-message">FREE DELIVERY FOR ALL ORDERS OVER £50.00</div>';
+        if($items.length <= 6) {
+            $items.last().closest('.item-box').after(discountMsg);
+        }
+        else {
+            $items.eq(5).closest('.item-box').after(discountMsg);
+        }
+        discountMsg = null;
+    }
+
+    $items = highest = null;
+</script>
