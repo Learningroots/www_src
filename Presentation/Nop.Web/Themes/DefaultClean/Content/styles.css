@@ -1539,13 +1539,12 @@ td.fieldname {
 
 .mini-shopping-cart .items {
 	max-height: 300px;
-	overflow: scroll;	
+	overflow-y: auto;
 }
 
 .mini-shopping-cart .item {
 	overflow: hidden;
 	clear: both;
-	
 }
 
 .mini-shopping-cart .item.first {
@@ -1570,7 +1569,7 @@ td.fieldname {
 .mini-shopping-cart .item .product {
 	float: left;
 	text-align: left;
-	width: 230px;
+	width: 215px;
 }
 
 .mini-shopping-cart .item .name {
