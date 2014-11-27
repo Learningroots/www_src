@@ -256,6 +256,7 @@
     <Compile Include="Models\Catalog\BackInStockSubscribeModel.cs" />
     <Compile Include="Models\Catalog\CategorySimpleModel.cs" />
     <Compile Include="Models\Catalog\CompareProductsModel.cs" />
+    <Compile Include="Models\Catalog\HeaderCategoryModel.cs" />
     <Compile Include="Models\Catalog\VendorModel.cs" />
     <Compile Include="Models\Catalog\VendorNavigationModel.cs" />
     <Compile Include="Models\Catalog\ProductOverviewModel.cs" />
@@ -352,7 +353,6 @@
     <Compile Include="Models\ShoppingCart\ShoppingCartModel.cs" />
     <Compile Include="Models\Topics\TopicModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Themes\DefaultClean\Models\Catalog\HeaderCategoryModel.cs" />
     <Compile Include="Validators\Blogs\BlogPostValidator.cs" />
     <Compile Include="Validators\Boards\EditForumPostValidator.cs" />
     <Compile Include="Validators\Boards\EditForumTopicValidator.cs" />
@@ -1015,6 +1015,7 @@
     <Content Include="Content\kendo\2014.1.318\images\kendoui.woff" />
     <Content Include="Content\kendo\2014.1.318\images\kendoui.ttf" />
     <None Include="Properties\PublishProfiles\AWS.pubxml" />
+    <None Include="Properties\PublishProfiles\LRPublish.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fineuploader\iframe.xss.response-4.2.2.js" />
     <Content Include="Scripts\fineuploader\jquery.fineuploader-4.2.2.js" />

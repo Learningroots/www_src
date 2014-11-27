@@ -1,0 +1,13 @@
+﻿@model Nop.Web.Models.Catalog.HeaderCategoryModel
+<div class="sub-menu">
+    <ul>
+        <li><span class="menu-heading menu-heading-1"></span></li>
+        @if (Model.Categories.Count > 0)
+        {
+            foreach (var category in Model.Categories)
+            {
+                <li><a href="@Url.RouteUrl("Category", new { SeName = category.SeName })">@category.Name</a></li>
+            }
+        }
+    </ul>
+</div>

@@ -29,7 +29,7 @@ using Nop.Web.Framework.Security;
 using Nop.Web.Infrastructure.Cache;
 using Nop.Web.Models.Catalog;
 using Nop.Web.Models.Media;
-using Nop.Web.Themes.DefaultClean.Models.Catalog;
+
 
 namespace Nop.Web.Controllers
 {
