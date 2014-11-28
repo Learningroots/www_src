@@ -3358,6 +3358,7 @@ select#checkout_attribute_1 {
 	position: absolute;
 	margin-top: -4px;
 	margin-left: 230px;
+	cursor: pointer;
 }
 
 .category-page,
