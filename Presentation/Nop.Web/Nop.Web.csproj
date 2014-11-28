@@ -1528,6 +1528,8 @@
     <Content Include="Themes\DefaultClean\Content\images\top-menu-list-image-hover.png" />
     <Content Include="Themes\DefaultClean\Content\images\top-menu-list-image.png" />
     <Content Include="Themes\DefaultClean\Content\images\top-menu-triangle.png" />
+    <Content Include="Themes\DefaultClean\Content\js\jquery.cookie.js" />
+    <Content Include="Themes\DefaultClean\Content\new-styles.css" />
     <Content Include="Themes\DefaultClean\Content\responsive.css" />
     <Content Include="Themes\DefaultClean\Content\images\star-x-active.png" />
     <Content Include="Themes\DefaultClean\Content\images\star-x-inactive.png" />
@@ -1962,6 +1964,17 @@
     <Content Include="Themes\DefaultClean\Views\Shared\_Root.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Catalog\HeaderCategory.cshtml" />
     <Content Include="Views\Catalog\HeaderCategory.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Catalog\CategoryNavigation.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Themes\DefaultClean\Views\Catalog\CategoryTemplate.ProductsInGridOrLines.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Themes\DefaultClean\Views\Shared\_ProductBox.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_Root.Head.cshtml" />
+    <Content Include="Themes\DefaultClean\Content\fonts\BreeBold.otf" />
+    <Content Include="Themes\DefaultClean\Content\fonts\BreeLight.otf" />
+    <Content Include="Themes\DefaultClean\Content\fonts\BreeRegular.otf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\bin\" />
