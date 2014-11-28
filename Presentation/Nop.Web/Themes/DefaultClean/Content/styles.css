@@ -5081,9 +5081,8 @@ select#checkout_attribute_1 {
 
 /* PRODUCT DETAILS PAGE */
 .product-details-page {
-	border: 1px solid #d3d3d3;
 	margin-top: 10px;
-	padding: 10px;
+	padding: 0;
 }
 
 .product-collateral {
