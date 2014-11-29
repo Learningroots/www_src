@@ -435,9 +435,6 @@ namespace Nop.Web.Controllers
 
             var model = category.ToModel();
             
-
-
-
             //sorting
             PrepareSortingOptions(model.PagingFilteringContext, command);
             //view mode
@@ -461,11 +458,7 @@ namespace Nop.Web.Controllers
                 if (selectedPriceRange.To.HasValue)
                     maxPriceConverted = _currencyService.ConvertToPrimaryStoreCurrency(selectedPriceRange.To.Value, _workContext.WorkingCurrency);
             }
-
-
-
-
-
+            
             //category breadcrumb
             model.DisplayCategoryBreadcrumb = _catalogSettings.CategoryBreadcrumbEnabled;
             if (model.DisplayCategoryBreadcrumb)
@@ -481,13 +474,9 @@ namespace Nop.Web.Controllers
                 }
             }
 
-
-
             var customerRolesIds = _workContext.CurrentCustomer.CustomerRoles
                 .Where(cr => cr.Active).Select(cr => cr.Id).ToList();
-
-
-
+            
             //subcategories
             string subCategoriesCacheKey = string.Format(ModelCacheEventConsumer.CATEGORY_SUBCATEGORIES_KEY,
                 categoryId,
@@ -527,9 +516,6 @@ namespace Nop.Web.Controllers
                 })
                 .ToList();
             });
-
-
-
 
             //featured products
             if (!_catalogSettings.IgnoreFeaturedProducts)
@@ -589,6 +575,8 @@ namespace Nop.Web.Controllers
                 orderBy: (ProductSortingEnum)command.OrderBy,
                 pageIndex: command.PageNumber - 1,
                 pageSize: command.PageSize);
+
+            model.ProductTotalCount = products.TotalCount;
             model.Products = PrepareProductOverviewModels(products).ToList();
 
             model.PagingFilteringContext.LoadPagedList(products);
