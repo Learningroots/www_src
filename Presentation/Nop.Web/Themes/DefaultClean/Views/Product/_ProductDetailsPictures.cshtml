@@ -1,0 +1,73 @@
+﻿@model ProductDetailsModel
+@using Nop.Core.Domain.Media
+@using Nop.Core.Infrastructure;
+@using Nop.Web.Models.Catalog;
+@{
+    Html.AddScriptParts("~/Scripts/jquery.magnific-popup.js");
+    Html.AddCssFileParts("~/Content/magnific-popup/magnific-popup.css");
+
+    int productPerRow = EngineContext.Current.Resolve<MediaSettings>().ProductThumbPerRowOnProductDetailsPage;
+}
+<div class="gallery">
+    <div class="picture">
+        @if (Model.DefaultPictureZoomEnabled)
+        {
+            <a href="@Model.DefaultPictureModel.FullSizeImageUrl" title="@Model.Name" id="main-product-img-lightbox-anchor-@Model.Id">
+                <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" itemprop="image" class="main-slider-img" id="main-product-img-@Model.Id" />
+            </a>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#main-product-img-lightbox-anchor-@Model.Id').magnificPopup(
+                    {
+                        type: 'image',
+                        removalDelay: 300,
+                        gallery: {
+                            enabled: true
+                        }
+                    });
+                });
+            </script>
+        }
+        else
+        {
+            <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" itemprop="image" class="main-slider-img" id="main-product-img-@Model.Id" />
+        }
+    </div>
+    @if (Model.PictureModels.Count > 1)
+    {
+        <div class="picture-thumbs slider">
+            <a class="buttons prev" href="#">&#60;</a>
+                <div class="viewport">
+                    <ul class="overview">
+                        @for (int i = 0; i < Model.PictureModels.Count; i++)
+                        {
+                            var picture = Model.PictureModels[i];
+                            <li>
+                                <a class="thumb-popup-link" href="@picture.FullSizeImageUrl" title="@Model.Name">
+                                    <img src="@picture.ImageUrl" alt="@picture.AlternateText" title="@picture.Title" />
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            <a class="buttons next" href="#">&#62;</a>
+        </div>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //$('.thumb-popup-link').magnificPopup({ type: 'image', removalDelay: 300, gallery: { enabled: true } });
+                var $main = $('.main-slider-img');
+                $('.slider')
+                    .tinycarousel({infinite: false})
+                    .find('a.thumb-popup-link')
+                        .click(function(e) {
+                            var that = this;
+                            e.preventDefault();
+                            $main.stop(true).fadeOut('normal', function() {
+                                $main.attr('src', that.href ).fadeIn('normal');
+                            })
+                        })
+            });
+        </script>
+    }
+</div>

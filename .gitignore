@@ -7,5 +7,9 @@ obj
 /Presentation/Nop.Web/Properties/PublishProfiles/LRPublish.pubxml
 /Presentation/Nop.Web/Content/Images/Thumbs
 NopCommerce.v12.suo
-Presentation/Nop.Web/Themes/DefaultClean/.DS_Store
 /.project
+/Presentation/Nop.Web/Themes/DefaultClean/.DS_Store
+/Presentation/Nop.Web/Themes/.DS_Store
+/Presentation/Nop.Web/.DS_Store
+/Presentation/.DS_Store
+*.DS_Store
