@@ -12,7 +12,8 @@
             $_home_page_slider.show();
         </script>
 
-        @Html.Action("HomepageCategories", "Catalog")
+        @Html.Partial("_top_block_1")
+        
         @Html.Action("HomepageProducts", "Product")
         @Html.Action("HomepageBestSellers", "Product")
         @Html.Action("HomePageNews", "News")

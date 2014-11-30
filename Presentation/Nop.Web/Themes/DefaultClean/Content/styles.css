@@ -3118,6 +3118,82 @@ select#checkout_attribute_1 {
 	box-shadow: none;
 }
 
+.homepage .master-wrapper-main .center-2 {
+	width: auto;
+	float: none;
+}
+
+/* explore block */
+.home-page-block {
+	margin: 20px 0;
+}
+
+.home-block-title {
+	text-align: center;
+	margin-bottom: 15px;
+	font-size: 25px;
+	color: #000;
+}
+
+.home-discover .slider {
+	border: none;
+	margin-top: 25px;
+	padding-top: 0;
+}
+
+.home-discover .slider .viewport {
+	width: auto;
+}
+
+.home-discover .slider .buttons {
+	top: 80px;
+	left: 0
+}
+
+.home-discover .slider .next {
+	right: 0;
+	left: auto;
+	background-position: 8px 0;
+}
+
+.home-discover .slider .viewport {
+	height: auto;
+	margin: 0 68px;
+	width: 870px;
+}
+
+.home-discover .slider .overview {
+	height: auto;
+}
+
+.home-discover .slider .overview li {
+	border: none;
+	height: auto;
+	width: 180px;
+	margin-right: 50px;
+}
+
+.home-discover .slider .overview li a {
+	padding: 0;
+	text-align: center;
+}
+
+.home-discover .slider .overview li a span {
+	color: #BC0A2F;
+	padding-top: 5px;
+	display: block;
+}
+
+.home-discover .slider .overview li a .image-wrapper {
+	height: 140px;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+
+.home-discover .slider .overview li a .image-wrapper img {
+	border-radius: 100px;
+}
+
 .master-wrapper-page .theme-default .nivo-controlNav a {
 	background-image: url(images/bullets.png); 
 }
@@ -6967,8 +7043,6 @@ pre {
 	width: 44px;
 	top: 62px;
 	background-size: 36px;
-	opacity: 0.9;
-	text-transform: 300ms opacity;
 }
 
 .slider .next {
@@ -6977,13 +7051,9 @@ pre {
     background-image: url(images/next-arrow.png);
 }
 
-.slider .buttons:hover {
-	opacity: 1;
-	text-transform: 300ms opacity;
-}
-
+.slider .disable:hover,
 .slider .disable {
-	visibility: hidden;
+	opacity: 0.7;
 }
 
 .slider .overview {
