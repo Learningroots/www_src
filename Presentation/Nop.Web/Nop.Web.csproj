@@ -1529,7 +1529,6 @@
     <Content Include="Themes\DefaultClean\Content\images\top-menu-list-image.png" />
     <Content Include="Themes\DefaultClean\Content\images\top-menu-triangle.png" />
     <Content Include="Themes\DefaultClean\Content\js\jquery.cookie.js" />
-    <Content Include="Themes\DefaultClean\Content\new-styles.css" />
     <Content Include="Themes\DefaultClean\Content\responsive.css" />
     <Content Include="Themes\DefaultClean\Content\images\star-x-active.png" />
     <Content Include="Themes\DefaultClean\Content\images\star-x-inactive.png" />
@@ -1875,7 +1874,6 @@
     <Content Include="Content\samples\product_PokerFace_2.txt" />
     <Content Include="Content\samples\product_productPanasonic.jpeg" />
     <Content Include="Content\samples\product_RockabillyPolka.jpg" />
-    <Content Include="Content\Images\Thumbs\placeholder.txt" />
     <Content Include="Content\samples\product_SamsungPhone_1.jpeg" />
     <Content Include="Content\samples\product_SamsungPhone_2.jpeg" />
     <Content Include="Content\samples\product_SingleLadies.jpeg" />
@@ -1975,13 +1973,14 @@
     <Content Include="Themes\DefaultClean\Content\fonts\BreeBold.otf" />
     <Content Include="Themes\DefaultClean\Content\fonts\BreeLight.otf" />
     <Content Include="Themes\DefaultClean\Content\fonts\BreeRegular.otf" />
-    <Content Include="Themes\DefaultClean\Views\Product\DUMMY-REVIEWS.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\ProductReviews.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\ProductTemplate.Grouped.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\ProductTemplate.Simple.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\_ProductDetailsPictures.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\ProductDetailsReviews.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Images\Thumbs\" />
     <Folder Include="Plugins\bin\" />
   </ItemGroup>
   <ItemGroup>
