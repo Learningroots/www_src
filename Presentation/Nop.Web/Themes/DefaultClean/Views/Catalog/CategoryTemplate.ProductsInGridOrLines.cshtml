@@ -167,8 +167,12 @@
 
     //display discount message after 6 items or before
     var $items = $('.product-grid .product-item');
-    if($items.length > 0) {
-        var discountMsg = '<div class="product-discount-message">FREE DELIVERY FOR ALL ORDERS OVER £50.00</div>';
+    if($items.length > 0 && $('.top-message-special').length != 0) {
+        var $_msg_clone = $('.top-message-special').clone();
+            $_msg_clone.find('span').remove();
+        var _discount_msg = $_msg_clone.text();
+
+        var discountMsg = '<div class="product-discount-message">'+_discount_msg+'</div>';
         if($items.length <= 6) {
             $items.last().closest('.item-box').after(discountMsg);
         }

@@ -242,7 +242,7 @@ input[type="text"],input[type="password"] {
 
 /* HEADER AND MENU */
 .header {
-	height: 118px;
+	height: 126px;
 	background: #fff;
 	border-bottom: 8px solid #eee;
 }
@@ -278,10 +278,10 @@ input[type="text"],input[type="password"] {
 	display: block;
 	padding: 0;
 	margin: 0;
-	height: 88px;
-	background-size: 87px;
+	height: 96px;
+	background-size: 89px;
 	position: relative;
-	margin-top: -7px;
+	margin-top: -8px;
 }
 
 .header .ico-cart .cart-qty {
@@ -1024,9 +1024,10 @@ td.fieldname {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 128px;
-	height: 128px;
+	width: 100px;
+	height: 100px;
 	background-image: url('images/ajax_loader_large.gif');
+	background-repeat: no-repeat;
 }
 
 .please-wait {
@@ -1529,8 +1530,7 @@ td.fieldname {
 	color: white;
 	top: 19px;
 	right: 30px;
-	padding: 7px 11px;
-	height: 16px;
+	padding: 5px 11px;
 }
 
 .mini-shopping-cart .items {
@@ -1662,13 +1662,14 @@ td.fieldname {
 	width: 20px;
 	height: 20px;
 	float: right;
-	margin: 9px 9px 0px 0px;
+	margin: 12px 12px 0px 0px;
 	cursor: pointer;
 }
 
 .bar-notification p.content {
-	padding: 0px 10px;
-	margin: 10px 0px;
+	margin: 15px;
+	text-align: center;
+	font-size: 18px;
 }
 
 .bar-notification p.content a {
@@ -5115,7 +5116,7 @@ select#checkout_attribute_1 {
 	border-color: #C8133C transparent transparent transparent;
 	position: absolute;
 	bottom: -6px;
-	left: 55px;
+	left: 51px;
 }
 
 .product-details-page .tab-content > div {
@@ -5206,6 +5207,7 @@ select#checkout_attribute_1 {
 	margin: 0 2px;
 }
 
+.product-details-page .product-reviews-overview .product-no-reviews,
 .product-details-page .product-reviews-overview .product-review-links {
 	margin: 0;
 	position: absolute;
@@ -5463,6 +5465,7 @@ select#checkout_attribute_1 {
 	float: none;
 }
 
+
 .product-details-page .giftcard  label {
 	margin-bottom: 5px;
 }
@@ -5472,6 +5475,8 @@ select#checkout_attribute_1 {
 }
 
 .product-details-page .giftcard {
+	margin-top: 25px;
+	margin-bottom: 10px;
 }
 
 .product-details-page .giftcard dt {
@@ -6809,4 +6814,137 @@ pre {
 .slider .overview li a {
 	padding: 10px;
 	display: block;
+}
+
+
+
+
+
+
+
+
+
+/* NEWLY ADDED STYLES FOR HEADER */
+.wrapper {
+	width: 1000px;
+	margin: auto;
+	/*background: red;
+	min-height: 10px;*/
+}
+
+.header-logo a.burger-menu {
+	display: block;
+	width: 57px;
+	float: left;
+	padding-top: 23px;
+	margin-right: 21px;
+	border-right: 1px solid #eee;
+	margin-top: 0;
+	padding-bottom: 21px;
+	padding-right: 20px;
+}
+
+.header-logo a.burger-menu img {
+	width: 100%;
+}
+
+.main-menu {
+	float: left;
+	margin-left: 110px;
+	margin-top: 20px;
+}
+
+.main-menu li {
+	list-style: none;
+}
+
+.main-menu > li {
+	display: inline;
+	float: left;
+	padding-right: 8px;
+}
+
+.main-menu a .menu-arrow {
+	display: none;
+	height: 31px;
+	position: absolute;
+	width: 100%;
+	top: 35px;
+	left: 0;
+	background: #ce092e url(images/menu-arrow.jpg) no-repeat 50% 35%;
+	background-size: 28px;
+}
+
+
+.main-menu > li > a {
+	background: #fff;
+	color: black;
+	border-bottom: 4px #fff solid;
+	border-radius: 5px;
+	display: inline-block;
+	padding: 10px 13px 8px;
+	font-weight: bold;
+	font-size: 15px;
+	position: relative;
+}
+
+.main-menu li  a.menu-active,
+.main-menu > li:hover > a {
+	background: #ce092e;
+	color: white;
+	border-bottom: 4px #8c0021 solid;
+	text-decoration: none;
+}
+
+.main-menu > li:hover .sub-menu,
+.main-menu > li:hover a .menu-arrow {
+	display: block;
+}
+
+.main-menu > li .sub-menu {
+	display: none;
+	background: #ce092e url(images/menu-girl-boy.jpg) no-repeat 90px 26px;
+	top: 86px;
+	min-height: 305px;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-align: left;
+	padding: 0px;
+	z-index: 10;
+	background-size: 165px;
+}
+
+.main-menu > li .sub-menu .menu-heading {
+	display: block;
+	width: 96%;
+	height: 52px;
+	border-bottom: 1px dotted #fff;
+	margin-bottom: 21px; 
+}
+
+.main-menu > li .sub-menu .menu-heading-1 {
+	background: url(images/menu-shop.jpg) no-repeat -7px 0;
+	background-size: 66px;
+}
+
+.main-menu > li .sub-menu .menu-heading-2 {
+	background: url(images/menu-our-world.jpg) no-repeat -2px 3px;
+	background-size: 106px;
+}
+
+.main-menu > li .sub-menu .menu-heading-3 {
+	background: url(images/menu-nature-lab.jpg) no-repeat -4px 3px;
+	background-size: 122px;
+}
+
+.main-menu > li .sub-menu ul {
+	margin-left: 363px;
+	margin-top: 30px;
+}
+
+.main-menu > li .sub-menu a {
+	color: white;
+	display: block;
+	margin-bottom: 3px;
 }
