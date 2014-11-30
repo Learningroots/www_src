@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+}
+<div class="page home-page">
+    <div class="page-body">
+        @Html.Widget("home_page_top")
+
+        <script type="text/javascript">
+            //move the slider upper in dom so it becomes full width
+            var $_home_page_slider = $('.home-page .slider-wrapper');
+            $_home_page_slider.closest('.wrapper').before($_home_page_slider);
+            $_home_page_slider.show();
+        </script>
+
+        @Html.Action("HomepageCategories", "Catalog")
+        @Html.Action("HomepageProducts", "Product")
+        @Html.Action("HomepageBestSellers", "Product")
+        @Html.Action("HomePageNews", "News")
+        @Html.Action("HomePagePolls", "Poll")
+        @Html.Widget("home_page_bottom")
+    </div>
+</div>

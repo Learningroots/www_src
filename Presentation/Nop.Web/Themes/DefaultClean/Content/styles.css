@@ -3071,6 +3071,57 @@ select#checkout_attribute_1 {
 	width: auto;
 }
 
+.home-page .slider-wrapper {
+	display: none;
+}
+
+/* slider overwrites */
+.master-wrapper-page .theme-default .nivo-directionNav a {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	-moz-opacity: 1;
+	-khtml-opacity: 1;
+	opacity: 1;
+}
+
+.master-wrapper-page .theme-default .nivo-directionNav a {
+	background-image: url(images/arrows.png);
+	width: 86px;
+	height: 85px;
+}
+
+.master-wrapper-page .theme-default a.nivo-prevNav {
+	left: -23px;
+}
+
+.master-wrapper-page .theme-default a.nivo-nextNav {
+	background-position: -85px 0;
+	right: -26px;
+}
+
+.master-wrapper-page .nivo-directionNav a {
+	top: 50%;
+	margin-top: -53px;
+}
+
+
+.master-wrapper-page .theme-default .nivo-controlNav {
+	z-index: 10;
+	position: absolute;
+	width: 100%;
+	margin-top: -70px;
+}
+
+.master-wrapper-page .theme-default .nivoSlider {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.master-wrapper-page .theme-default .nivo-controlNav a {
+	background-image: url(images/bullets.png); 
+}
+
 .home-page-product-grid .title {
 	padding: 10px 10px 10px 0;
 	margin: 0 0 0 10px;
@@ -3751,7 +3802,7 @@ select#checkout_attribute_1 {
 	text-indent: -99999px;
 	overflow: hidden;
 	background: url(images/salam.jpg) no-repeat 0 0;
-	height: 138px;
+	height: 120px;
 	background-size: 350px;
 }
 
