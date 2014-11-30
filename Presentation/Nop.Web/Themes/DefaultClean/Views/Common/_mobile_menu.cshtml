@@ -1,0 +1,84 @@
+<div class="mobile-menu-overlay"></div>
+<div class="mobile-menu">
+	
+	<div class="mobile-menu-header">
+		<a href="#" class="mobile-menu-close" title="Close menu"></a>
+	</div>
+
+	<div class="mobile-menu-body">
+		<div class="side-2">
+			
+			<div class="block mobile-main-menu">
+			    <div class="listbox">
+			        <ul class="list">
+			            <li class="inactive"><a href="#">NATURE LAB</a></li>
+			            <li class="inactive"><a href="#">OUR WORLD</a></li>
+			            <li class="inactive"><a href="#">SHOP LEARNING ROOTS</a></li>
+			            <li class="inactive"><a href="#">SHOP LEARNING ROOTS</a></li>
+			            <li class="inactive"><a href="#">SHOP LEARNING ROOTS</a></li>
+			        </ul>
+			    </div>
+			</div>
+
+			<div class="block block-other-links">
+			    <div class="title">
+			        <strong>Join Us!</strong>
+			    </div>
+			    <div class="listbox">
+			        <ul class="list">
+			            <li class="inactive"><a href="#">LEARNING ROOTS CLUB</a></li>
+			            <li class="inactive"><a href="#">FREEBIES</a></li>
+			            <li class="inactive"><a href="#">OUMMAKIDS</a></li>
+			        </ul>
+			    </div>
+			</div>
+
+			<a href="#" class="button-1 mobile-menu-signup">SIGN UP FOR NEWSLETTER</a>
+
+			<div class="mobile-menu-social">
+				<!-- links will be copied from the footer which is connected to db so no worries about this section -->
+				<ul></ul>
+				<script type="text/javascript">
+					//copy links from footer links
+					var $_footer_links = $('.footer .follow-us');
+					var $_mobile_social_list = $('.mobile-menu-social ul');
+					if($_footer_links.length != 0) {
+						$_mobile_social_list.append(
+							$_footer_links.find('.facebook'),
+							$_footer_links.find('.youtube'),
+							$_footer_links.find('.twitter')
+						)
+					}
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	//opening and closing of mobile menu
+	var $_mobile_opener = $('.header-logo a.burger-menu'),
+		$_mobile_closer = $('.mobile-menu-close'),
+		$_mobile_overlay = $('.mobile-menu-overlay'),
+		$_mobile_menu = $('.mobile-menu');
+
+	$_mobile_opener.click(function(e) {
+		e.preventDefault();
+		$_mobile_overlay.show();
+		$_mobile_menu.addClass('mobile-menu-opened');
+	});
+
+	$_mobile_closer.click(function(e) {
+		e.preventDefault();
+		$_mobile_overlay.hide();
+		$_mobile_menu.removeClass('mobile-menu-opened');
+	});
+
+</script>
+
+
+
+
+
+
+
