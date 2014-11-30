@@ -5728,8 +5728,9 @@ select#checkout_attribute_1 {
 	margin-bottom: 10px;
 }
 
+.product-details-page .sku,
 .product-details-page .add-to-cart {
-	padding-top: 15px;
+	padding-top: 20px;
 }
 
 .product-details-page .add-to-cart .enter-price-input {
