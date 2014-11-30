@@ -14,3 +14,5 @@ NopCommerce.v12.suo
 /Presentation/Nop.Web/.DS_Store
 /Presentation/.DS_Store
 *.DS_Store
+*.DS_Store
+Presentation/Nop.Web/Themes/DefaultClean/Content/.DS_Store

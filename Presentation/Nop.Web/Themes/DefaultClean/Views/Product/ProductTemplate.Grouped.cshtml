@@ -70,15 +70,23 @@
                                 @Html.Raw(Model.ShortDescription)
                             </div>
                         }
+
                         @Html.Widget("productdetails_overview_top", Model.Id)
+
                         <!--product manufacturers-->
                         @Html.Partial("_ProductManufacturers", Model.ProductManufacturers)
+
                         <!--product reviews-->
                         @Html.Partial("_ProductReviewOverview", Model.ProductReviewOverview)
+
                         @Html.Partial("_ProductEmailAFriendButton", Model)
+
                         @Html.Partial("_CompareProductsButton", Model)
+
                         @Html.Partial("_ShareButton", Model)
+
                         @Html.Widget("productdetails_overview_bottom", Model.Id)
+
                     </div>
                     @if (!String.IsNullOrEmpty(Model.FullDescription))
                     {

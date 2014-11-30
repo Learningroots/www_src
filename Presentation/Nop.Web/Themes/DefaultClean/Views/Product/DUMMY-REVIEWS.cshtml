@@ -1,0 +1,75 @@
+<div class="product-review-list">
+                <div class="title">
+                    <strong>Existing reviews</strong>
+                </div>
+                    <div class="product-review-item">
+                        <div class="review-item-head">
+                            <span class="user">
+John says:
+                            </span>
+                            
+                            <div class="product-review-box">
+                                <div class="rating">
+                                    <div style="width: 100%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-title">
+                            <strong>Some sample review</strong>
+                        </div>
+                        <div class="review-text">
+                            This sample review is for the ASUS Eee PC 1000HA 10-Inch Netbook. I've been waiting for this product to be available. It is priced just right.
+                        </div>
+                        <div class="review-info">
+                            <span class="date">
+                                <strong>Date:</strong>
+                                11/15/2014 2:00 PM
+                            </span>
+                        </div>
+                        <div class="product-review-helpfulness">
+    <span class="question">Was this review helpful?</span>
+    <span>
+        <span id="vote-yes-6" class="vote">Yes</span>
+        <span id="vote-no-6" class="vote">No</span>
+    </span>
+    <span>
+        (<span id="helpfulness-vote-yes-6">0</span>/<span id="helpfulness-vote-no-6">0</span>)
+    </span>
+    <span id="helpfulness-vote-result-6" class="result"></span>
+
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#vote-yes-6').click(function () {
+                setProductReviewHelpfulness6('true');
+            });
+            $('#vote-no-6').click(function () {
+                setProductReviewHelpfulness6('false');
+            });
+        });
+
+        function setProductReviewHelpfulness6(wasHelpful){
+                $.ajax({
+                    cache: false,
+                    type: "POST",
+                    url: "/setproductreviewhelpfulness",
+                    data: { "productReviewId": 6, "washelpful": wasHelpful },
+                    success: function (data) {
+                         $("#helpfulness-vote-yes-6").html(data.TotalYes);
+                         $("#helpfulness-vote-no-6").html(data.TotalNo);
+                         $("#helpfulness-vote-result-6").html(data.Result);
+                                                  
+                         $('#helpfulness-vote-result-6').fadeIn("slow").delay(1000).fadeOut("slow");
+                    },
+                    error:function (xhr, ajaxOptions, thrownError){
+                        alert('Failed to vote. Please refresh the page and try one more time.');
+                    }  
+                });
+        }
+    </script>
+</div>
+
+                        
+                    </div>
+            </div>
