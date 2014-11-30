@@ -3232,6 +3232,44 @@ select#checkout_attribute_1 {
 }
 
 /* meet the characters */
+
+.home-page-characters {
+	overflow: hidden;
+}
+
+.all-characters-wrapper {
+	width: 50000px;
+}
+
+.char-video-popup {
+	position: fixed;
+	top: 30%;
+	text-align: center;
+	z-index: 20;
+	width: 100%;
+}
+
+.close-popup {
+	position: relative;
+}
+
+.close-popup a {
+	position: absolute;
+	margin-top: -32px;
+	margin-left: 221px;
+	height: 35px;
+	width: 91px;
+	display: inline-block;
+	background: url(images/close_icon.png) no-repeat -8px 0;
+	padding-top: 15px;
+	color: #FFF;
+}
+
+.charater-wrapper {
+	width: 1000px;
+	float: left;
+}
+
 .home-page-characters .charater-tabs {
 	width: 100%;
 	margin-bottom: 50px;
