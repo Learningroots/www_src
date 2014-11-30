@@ -93,6 +93,8 @@ namespace Nop.Web.Models.Catalog
         //a list of associated products. For example, "Grouped" products could have several child "simple" products
         public IList<ProductDetailsModel> AssociatedProducts { get; set; }
 
+        public List<ProductReviewModel> Reviews { get; set; }
+
 		#region Nested Classes
 
         public partial class ProductBreadcrumbModel : BaseNopModel

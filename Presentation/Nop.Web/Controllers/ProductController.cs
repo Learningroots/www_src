@@ -41,7 +41,7 @@ namespace Nop.Web.Controllers
 {
     public partial class ProductController : BasePublicController
     {
-		#region Fields
+        #region Fields
 
         private readonly ICategoryService _categoryService;
         private readonly IManufacturerService _manufacturerService;
@@ -81,37 +81,37 @@ namespace Nop.Web.Controllers
         private readonly CaptchaSettings _captchaSettings;
         private readonly SeoSettings _seoSettings;
         private readonly ICacheManager _cacheManager;
-        
+
         #endregion
 
-		#region Constructors
+        #region Constructors
 
-        public ProductController(ICategoryService categoryService, 
+        public ProductController(ICategoryService categoryService,
             IManufacturerService manufacturerService,
-            IProductService productService, 
+            IProductService productService,
             IVendorService vendorService,
             IProductTemplateService productTemplateService,
             IProductAttributeService productAttributeService,
-            IWorkContext workContext, 
+            IWorkContext workContext,
             IStoreContext storeContext,
-            ITaxService taxService, 
+            ITaxService taxService,
             ICurrencyService currencyService,
-            IPictureService pictureService, 
+            IPictureService pictureService,
             ILocalizationService localizationService,
             IPriceCalculationService priceCalculationService,
             IPriceFormatter priceFormatter,
-            IWebHelper webHelper, 
+            IWebHelper webHelper,
             ISpecificationAttributeService specificationAttributeService,
             IDateTimeHelper dateTimeHelper,
             IRecentlyViewedProductsService recentlyViewedProductsService,
             ICompareProductsService compareProductsService,
-            IWorkflowMessageService workflowMessageService, 
+            IWorkflowMessageService workflowMessageService,
             IProductTagService productTagService,
-            IOrderReportService orderReportService, 
-            IBackInStockSubscriptionService backInStockSubscriptionService, 
+            IOrderReportService orderReportService,
+            IBackInStockSubscriptionService backInStockSubscriptionService,
             IAclService aclService,
             IStoreMappingService storeMappingService,
-            IPermissionService permissionService, 
+            IPermissionService permissionService,
             ICustomerActivityService customerActivityService,
             IProductAttributeParser productAttributeParser,
             IShippingService shippingService,
@@ -119,8 +119,8 @@ namespace Nop.Web.Controllers
             CatalogSettings catalogSettings,
             VendorSettings vendorSettings,
             ShoppingCartSettings shoppingCartSettings,
-            LocalizationSettings localizationSettings, 
-            CustomerSettings customerSettings, 
+            LocalizationSettings localizationSettings,
+            CustomerSettings customerSettings,
             CaptchaSettings captchaSettings,
             SeoSettings seoSettings,
             ICacheManager cacheManager)
@@ -187,7 +187,7 @@ namespace Nop.Web.Controllers
         }
 
         [NonAction]
-        protected virtual ProductDetailsModel PrepareProductDetailsPageModel(Product product, 
+        protected virtual ProductDetailsModel PrepareProductDetailsPageModel(Product product,
             ShoppingCartItem updatecartitem = null, bool isAssociatedProduct = false)
         {
             if (product == null)
@@ -240,7 +240,7 @@ namespace Nop.Web.Controllers
                     model.DeliveryDate = deliveryDate.GetLocalized(dd => dd.Name);
                 }
             }
-            
+
             //email a friend
             model.EmailAFriendEnabled = _catalogSettings.EmailAFriendEnabled;
             //compare products
@@ -332,7 +332,7 @@ namespace Nop.Web.Controllers
                     return breadcrumbModel;
                 });
             }
-            
+
             #endregion
 
             #region Product tags
@@ -375,7 +375,7 @@ namespace Nop.Web.Controllers
                     throw new Exception("No default template could be loaded");
                 return template.ViewPath;
             });
-            
+
             #endregion
 
             #region Pictures
@@ -419,7 +419,7 @@ namespace Nop.Web.Controllers
             #endregion
 
             #region Product price
-            
+
             model.ProductPrice.ProductId = product.Id;
             if (_permissionService.Authorize(StandardPermissionProvider.DisplayPrices))
             {
@@ -455,12 +455,12 @@ namespace Nop.Web.Controllers
 
                         model.ProductPrice.PriceValue = finalPriceWithoutDiscount;
                         model.ProductPrice.PriceWithDiscountValue = finalPriceWithDiscount;
-                        
+
                         //property for German market
                         //we display tax/shipping info only with "shipping enabled" for this product
                         //we also ensure this it's not free shipping
                         model.ProductPrice.DisplayTaxShippingInfo = _catalogSettings.DisplayTaxShippingInfoProductDetailsPage
-                            && product.IsShipEnabled && 
+                            && product.IsShipEnabled &&
                             !product.IsFreeShipping;
 
                         //currency code
@@ -597,7 +597,7 @@ namespace Nop.Web.Controllers
                 if (!String.IsNullOrEmpty(attribute.ValidationFileAllowedExtensions))
                 {
                     pvaModel.AllowedFileExtensions = attribute.ValidationFileAllowedExtensions
-                        .Split(new[] {','}, StringSplitOptions.RemoveEmptyEntries)
+                        .Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
                         .ToList();
                 }
 
@@ -711,7 +711,7 @@ namespace Nop.Web.Controllers
                 model.ProductVariantAttributes.Add(pvaModel);
             }
 
-            #endregion 
+            #endregion
 
             #region Product specifications
 
@@ -723,7 +723,7 @@ namespace Nop.Web.Controllers
                     _cacheManager,
                     product);
             }
-            
+
             #endregion
 
             #region Product review overview
@@ -735,6 +735,38 @@ namespace Nop.Web.Controllers
                 TotalReviews = product.ApprovedTotalReviews,
                 AllowCustomerReviews = product.AllowCustomerReviews
             };
+
+            #endregion
+
+            #region Product reviews
+
+            //model.Reviews = product.ProductReviews.Where(pr => pr.IsApproved).OrderBy(pr => pr.CreatedOnUtc).ToList();
+            model.Reviews = new List<ProductReviewModel>();
+            foreach (var pr in product.ProductReviews)
+            {
+                if (pr.IsApproved)
+                {
+                    var productReviewModel = new ProductReviewModel()
+                    {
+                        Id = pr.Id,
+                        CustomerId = pr.CustomerId,
+                        CustomerName = pr.Customer.FormatUserName(),
+                        AllowViewingProfiles = _customerSettings.AllowViewingProfiles && pr.Customer != null && !pr.Customer.IsGuest(),
+                        Title = pr.Title,
+                        ReviewText = pr.ReviewText,
+                        Rating = pr.Rating,
+                        Helpfulness = new ProductReviewHelpfulnessModel()
+                        {
+                            ProductReviewId = pr.Id,
+                            HelpfulYesTotal = pr.HelpfulYesTotal,
+                            HelpfulNoTotal = pr.HelpfulNoTotal,
+                        },
+                        WrittenOnStr = _dateTimeHelper.ConvertToUserTime(pr.CreatedOnUtc, DateTimeKind.Utc).ToString("g")
+                    };
+
+                    model.Reviews.Add(productReviewModel);
+                }
+            }
 
             #endregion
 
@@ -766,7 +798,7 @@ namespace Nop.Web.Controllers
             #endregion
 
             #region Manufacturers
-            
+
             //do not prepare this model for the associated products. any it's not used
             if (!isAssociatedProduct)
             {
@@ -916,7 +948,7 @@ namespace Nop.Web.Controllers
         {
             //load and cache report
             var productIds = _cacheManager.Get(string.Format(ModelCacheEventConsumer.PRODUCTS_RELATED_IDS_KEY, productId, _storeContext.CurrentStore.Id),
-                () => 
+                () =>
                     _productService.GetRelatedProductsByProductId1(productId).Select(x => x.ProductId2).ToArray()
                     );
 
@@ -924,7 +956,7 @@ namespace Nop.Web.Controllers
             var products = _productService.GetProductsByIds(productIds);
             //ACL and store mapping
             products = products.Where(p => _aclService.Authorize(p) && _storeMappingService.Authorize(p)).ToList();
-            
+
             if (products.Count == 0)
                 return Content("");
 
@@ -979,7 +1011,7 @@ namespace Nop.Web.Controllers
             //We know that the entire shopping cart page is not refresh
             //even if "ShoppingCartSettings.DisplayCartAfterAddingProduct" setting  is enabled.
             //That's why we force page refresh (redirect) in this case
-            var model = PrepareProductOverviewModels(products,  
+            var model = PrepareProductOverviewModels(products,
                 productThumbPictureSize: productThumbPictureSize, forceRedirectionAfterAddingToCart: true)
                 .ToList();
 
@@ -1101,7 +1133,7 @@ namespace Nop.Web.Controllers
                 return Content("");
 
             //load and cache report
-            var report = _cacheManager.Get(string.Format(ModelCacheEventConsumer.HOMEPAGE_BESTSELLERS_IDS_KEY, _storeContext.CurrentStore.Id), 
+            var report = _cacheManager.Get(string.Format(ModelCacheEventConsumer.HOMEPAGE_BESTSELLERS_IDS_KEY, _storeContext.CurrentStore.Id),
                 () =>
                     _orderReportService.BestSellersReport(storeId: _storeContext.CurrentStore.Id,
                     pageSize: _catalogSettings.NumberOfBestsellersOnHomepage));
@@ -1196,7 +1228,7 @@ namespace Nop.Web.Controllers
                         .GetAllSubscriptionsByCustomerId(_workContext.CurrentCustomer.Id, _storeContext.CurrentStore.Id, 0, 1)
                         .TotalCount >= _catalogSettings.MaximumBackInStockSubscriptions)
                         return Content(string.Format(_localizationService.GetResource("BackInStockSubscriptions.MaxSubscriptions"), _catalogSettings.MaximumBackInStockSubscriptions));
-            
+
                     //subscribe   
                     subscription = new BackInStockSubscription()
                     {
@@ -1208,7 +1240,7 @@ namespace Nop.Web.Controllers
                     _backInStockSubscriptionService.InsertSubscription(subscription);
                     return Content("Subscribed");
                 }
-                
+
             }
             else
             {
@@ -1374,7 +1406,7 @@ namespace Nop.Web.Controllers
         #endregion
 
         #region Email a friend
-        
+
         [NopHttpsRequirement(SslRequirement.No)]
         public ActionResult ProductEmailAFriend(int productId)
         {
@@ -1417,7 +1449,7 @@ namespace Nop.Web.Controllers
                 //email
                 _workflowMessageService.SendProductEmailAFriendMessage(_workContext.CurrentCustomer,
                         _workContext.WorkingLanguage.Id, product,
-                        model.YourEmailAddress, model.FriendEmail, 
+                        model.YourEmailAddress, model.FriendEmail,
                         Core.Html.HtmlHelper.FormatText(model.PersonalMessage, false, true, false, false, false, false));
 
                 model.ProductId = product.Id;

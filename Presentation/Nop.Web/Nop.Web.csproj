@@ -1975,6 +1975,11 @@
     <Content Include="Themes\DefaultClean\Content\fonts\BreeBold.otf" />
     <Content Include="Themes\DefaultClean\Content\fonts\BreeLight.otf" />
     <Content Include="Themes\DefaultClean\Content\fonts\BreeRegular.otf" />
+    <Content Include="Themes\DefaultClean\Views\Product\DUMMY-REVIEWS.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\ProductReviews.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\ProductTemplate.Grouped.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\ProductTemplate.Simple.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\_ProductDetailsPictures.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\bin\" />
