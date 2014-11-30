@@ -74,6 +74,11 @@
 		$_mobile_menu.removeClass('mobile-menu-opened');
 	});
 
+	//close menu when esc is pressed
+	$(document).keydown(function(e) {
+		if (e.keyCode == 27) $_mobile_closer.click();
+	});
+
 </script>
 
 
