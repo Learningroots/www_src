@@ -6,18 +6,21 @@
         @Html.Widget("home_page_top")
 
         <script type="text/javascript">
-            //move the slider upper in dom so it becomes full width
-            var $_home_page_slider = $('.home-page .slider-wrapper');
-            $_home_page_slider.closest('.wrapper').before($_home_page_slider);
-            $_home_page_slider.show();
+            $('.home-page').closest('.wrapper').removeClass('wrapper');
         </script>
 
-        @Html.Partial("_top_block_1")
+        <div class="wrapper">
+            @Html.Partial("_top_block_1")
+        </div>
         
-        @Html.Action("HomepageProducts", "Product")
-        @Html.Action("HomepageBestSellers", "Product")
-        @Html.Action("HomePageNews", "News")
-        @Html.Action("HomePagePolls", "Poll")
+        <div class="home-page-featured-products home-page-block">
+            <div class="wrapper">
+                @Html.Action("HomepageProducts", "Product")
+            </div>
+        </div>
+
+        @Html.Partial("_meet_chars")
+
         @Html.Widget("home_page_bottom")
     </div>
 </div>

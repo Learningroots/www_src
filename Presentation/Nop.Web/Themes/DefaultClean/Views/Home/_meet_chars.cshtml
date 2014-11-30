@@ -1,0 +1,68 @@
+@{
+	//logo path
+	var char1 = "~/Themes/DefaultClean/Content/images/character-1.jpg";
+
+}
+<div class="wrapper">
+	<div class="meet_chars home-page-characters">
+		
+		<h3 class="home-block-title">Meet our Characters</h3>
+
+		<div class="charater-tabs product-page-tabs">
+			<a href="#char-1" class="active-tab">Character 1</a>
+			<a href="#char-2">Character 2</a>
+			<a href="#char-3">Character 3</a>
+			<a href="#char-4">Character 4</a>
+			<a href="#char-5">Character 5</a>
+		</div>
+
+
+		<div class="all-characters-wrapper">
+			<div id="char-1" class="charater-wrapper">
+				
+				<div class="character-img">
+					<img src="@Url.Content(char1)">
+				</div>
+
+				<div class="character-details">
+					<div class="character-video">
+						<a href="https://www.youtube.com/watch?v=v4BwafaEBV4">
+							<img src="http://i851.photobucket.com/albums/ab75/coolmomtech/MeBooks_zps5b4cca51.jpg"/>
+							<span class="icon-play"></span>
+						</a>
+					</div>
+					<div class="charater-bio">
+						<h3>Meet Sarah</h3>
+						<p>
+							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+						</p>
+					</div>
+					<div class="charater-other">
+						<h3>Other section here</h3>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	//equal height for .charater-other & charater-bio blocks
+	$('.character-details').each(function(){
+		var $bio = $(this).find('.charater-bio');
+		var $other = $(this).find('.charater-other');
+		var bio_height = $bio.outerHeight(true);
+		var other_height = $other.outerHeight(true);
+		var biggerHeight = 0;
+
+		if(bio_height > other_height) biggerHeight = bio_height;
+		else biggerHeight = other_height;
+
+		$bio.add($other).height(biggerHeight);
+	});
+</script>
+
+
