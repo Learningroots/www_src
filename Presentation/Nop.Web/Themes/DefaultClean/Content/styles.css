@@ -162,7 +162,7 @@ legend {
 	font-size: 16px;
 }
 
-input[type="text"],input[type="password"] {
+input[type="text"], input[type="password"] {
 	border: 1px solid #eee;
 	border-radius: 5px;
 	padding: 12px 15px;
@@ -170,6 +170,9 @@ input[type="text"],input[type="password"] {
 	background-color: #f9f9f9;
 }
 
+textarea[disabled="disabled"], input[disabled="disabled"] {
+	background: #ccc;
+}
 
 /* MASTER PAGE WRAPPERS */
 .master-wrapper-page {
@@ -261,6 +264,7 @@ input[type="text"],input[type="password"] {
 	display: none;
 }
 
+.header .ico-logout,
 .header .ico-login {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
@@ -895,7 +899,7 @@ textarea, input { outline: none !important; }
 }
 
 .page-title h1 a, .page-title h2 a {
-	color: #FFDADA;
+	color: #BC0A2F;
 }
 
 .page-title h1 {
@@ -1123,7 +1127,7 @@ td.fieldname {
 	color: red;
 	font-weight: normal;
 	margin-top: 20px;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 .field-validation-error {
@@ -3668,8 +3672,8 @@ select#checkout_attribute_1 {
 
 .login-page .new-wrapper, .login-page .returning-wrapper {
 	float: left;
-	width: 42%;
-	min-height: 340px;
+	width: 49.5%;
+	min-height: 392px;
 	padding: 25px 35px;
 	border: 1px solid #d7d7d7;
 	background-color: white;
@@ -5618,10 +5622,12 @@ select#checkout_attribute_1 {
 .product-reviews-page .result {
 }
 
-.product-reviews-page .write-review {
-	margin-top: 10px;
-	padding: 15px;
-	border: 1px solid #eee;
+.product-reviews-page .write-review #AddProductReview_ReviewText, .product-reviews-page .write-review #AddProductReview_Title {
+	width: 50%;
+}
+
+.product-reviews-page .write-review #AddProductReview_ReviewText {
+	height: 100px;
 }
 
 .product-reviews-page .write-review .title {
@@ -5640,12 +5646,23 @@ select#checkout_attribute_1 {
 	margin-bottom: 12px;
 }
 
+.product-reviews-page .write-review .validation-summary-errors {
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
+.product-reviews-page .product-review-list {
+	padding-top: 10px;
+	margin-top: 10px;
+	border-top: 1px solid #eee;
+}
+
 .product-reviews-page .write-review .inputs label {
 	display: block;
 }
 
 .product-reviews-page .write-review .review-title {
-	width: 350px;
+	width: 374px;
 }
 
 .product-reviews-page .write-review .review-text {
@@ -5653,12 +5670,18 @@ select#checkout_attribute_1 {
 	height: 150px;
 }
 
+textarea {
+	border-radius: 7px;
+}
+
 .product-reviews-page .write-review .review-rating {
 	margin-bottom: 12px;
 	clear: both;
 }
 
-.product-reviews-page .write-review .review-rating label {
+.product-reviews-page .write-review label {
+	display: block;
+	margin-bottom: 5px;
 }
 
 .product-reviews-page .write-review .review-rating ul {
