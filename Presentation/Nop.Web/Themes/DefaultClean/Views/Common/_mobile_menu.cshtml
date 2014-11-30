@@ -68,9 +68,9 @@
 		$_mobile_menu.addClass('mobile-menu-opened');
 	});
 
-	$_mobile_closer.click(function(e) {
+	$('body').delegate( '.mobile-menu-close, .char-video-popup a', "click", function(e){
 		e.preventDefault();
-		$_mobile_overlay.hide();
+		$_mobile_overlay.add('.char-video-popup').fadeOut('fast', function(){ $(this).empty(); });
 		$_mobile_menu.removeClass('mobile-menu-opened');
 	});
 
