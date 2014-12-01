@@ -1978,6 +1978,7 @@
     <Content Include="Themes\DefaultClean\Views\Product\ProductTemplate.Simple.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\_ProductDetailsPictures.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\ProductDetailsReviews.cshtml" />
+    <Content Include="Views\Product\ProductDetailsReviews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Thumbs\" />

@@ -297,6 +297,17 @@ namespace Nop.Web.Controllers
 
             #endregion
 
+            var productCategories = _categoryService.GetProductCategoriesByProductId(product.Id);
+
+            #region Product Category
+
+            if (productCategories.Count > 0)
+            {
+                model.IsFeaturedProduct = productCategories[0].IsFeaturedProduct;
+            }
+
+            #endregion
+
             #region Breadcrumb
 
             //do not prepare this model for the associated products. any it's not used
@@ -312,7 +323,6 @@ namespace Nop.Web.Controllers
                         ProductName = product.GetLocalized(x => x.Name),
                         ProductSeName = product.GetSeName()
                     };
-                    var productCategories = _categoryService.GetProductCategoriesByProductId(product.Id);
                     if (productCategories.Count > 0)
                     {
                         var category = productCategories[0].Category;

@@ -95,6 +95,8 @@ namespace Nop.Web.Models.Catalog
 
         public List<ProductReviewModel> Reviews { get; set; }
 
+        public bool IsFeaturedProduct { get; set; }
+
 		#region Nested Classes
 
         public partial class ProductBreadcrumbModel : BaseNopModel

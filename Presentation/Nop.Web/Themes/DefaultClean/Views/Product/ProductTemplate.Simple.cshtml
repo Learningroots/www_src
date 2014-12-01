@@ -65,6 +65,11 @@
                             </h1>
                         </div>
 
+                        @if (Model.IsFeaturedProduct)
+                        {
+                            <div>FEATURED PRODUCT</div>
+                        }
+
                         <!-- price -->
                         @{
                             var dataDictPrice = new ViewDataDictionary();
@@ -121,8 +126,7 @@
 
 
                     <div class="spacer"></div>
-
-
+                    
                     <div class="product-page-tabs">
                         <a data-target-tab="#tab-des" class="active-tab" href="#">DESCRIPTION</a>
                         <a data-target-tab="#tab-rev" href="#">REVIEWS</a>
