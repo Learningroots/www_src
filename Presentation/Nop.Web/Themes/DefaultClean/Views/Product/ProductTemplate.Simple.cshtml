@@ -53,6 +53,12 @@
         @using (Html.BeginRouteForm("Product", new { SeName = Model.SeName }, FormMethod.Post, new { id = "product-details-form" }))
         {
             <div itemscope itemtype="http://schema.org/Product" data-productid="@Model.Id">
+                @if (Model.IsFeaturedProduct)
+                {
+                    <script type="text/javascript">
+                        $('.product-details-page').addClass('featured-product');
+                    </script>
+                }
                 <div class="product-essential">
                     @Html.Widget("productdetails_before_pictures", Model.Id)
                     <!--product pictures-->
@@ -64,11 +70,6 @@
                                 @Model.Name
                             </h1>
                         </div>
-
-                        @if (Model.IsFeaturedProduct)
-                        {
-                            <div>FEATURED PRODUCT</div>
-                        }
 
                         <!-- price -->
                         @{
