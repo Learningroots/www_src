@@ -929,15 +929,73 @@ textarea, input { outline: none !important; }
 	padding: 15px;
 }
 
-.homepage .mobile-menu-body .side-2 {
+.mobile-menu-body .side-2 {
+	display: block !important;
+}
+
+.mobile-main-menu .list li a {
+	padding: 10px 0;
+	z-index: 1;
+}
+
+/* submenu */
+.mobile-main-menu .has-sub-menus .list {
+	display: none;
+}
+
+.mobile-main-menu .has-sub-menus.sub-menu-active > li {
+	display: none;
+}
+
+.mobile-main-menu .has-sub-menus.sub-menu-active > li .list,
+.mobile-main-menu .has-sub-menus.sub-menu-active li.sub-menu-active {
 	display: block;
 }
 
+.mobile-main-menu .has-sub-menus.sub-menu-active li.sub-menu-active {
+	background: none;
+}
+
+.mobile-main-menu .has-sub-menus.sub-menu-active li.sub-menu-active > a {
+	cursor: default;
+	border-bottom-width: 2px;
+	padding-top: 14px;
+	padding-bottom: 14px;
+}
+
+.mobile-main-menu .listbox {
+	border-top: 5px solid #000;
+}
+
+.close-sub-menu {
+	float: right;
+	margin-top: -36px;
+}
+
+.closeBtn {
+	border-radius: 20px;
+	border: 2px solid #9D9D9D;
+	color: #9D9D9D;
+	display: inline-block;
+	height: 23px;
+	width: 23px;
+	font-size: 28px;
+	padding: 2px;
+	cursor: pointer;
+}
+
+.closeBtn:hover {
+	border-color: #000;
+	color: #000;
+}
+
+/* end of submenu */
+
 .mobile-menu-body .mobile-main-menu {
-	background: url(images/mobile-menu-girl.jpg) no-repeat 21px 0;
-	padding-top: 130px;
+	background: url(images/mobile-menu-girl.jpg) no-repeat 73px 0;
+	padding-top: 91px;
 	margin-bottom: 15px;
-	background-size: 240px;
+	background-size: 170px;
 }
 
 .mobile-menu-social {
@@ -970,7 +1028,7 @@ textarea, input { outline: none !important; }
 	background-position: -93px 0;
 }
 
-.mobile-menu-body .mobile-main-menu .list {
+.mobile-menu-body .mobile-main-menu > .list {
 	border-top: 5px solid #000;
 }
 
@@ -1390,6 +1448,7 @@ td.fieldname {
 	padding-left: 0;
 }
 
+li.sub-menu-active > a,
 .block .title {
 	font-size: 18px;
 	padding: 13px 0;
