@@ -70,6 +70,24 @@
 </div>
 
 <script type="text/javascript">
+
+	//sign up
+	$(function(){
+		$_newsLetter_input   = $('#newsletter-email');
+		$_mobile_menu_signup = $('.mobile-menu-signup');
+		if($_newsLetter_input.length == 0) return $_mobile_menu_signup.remove();
+		$_mobile_menu_signup.click(function(e){
+			e.preventDefault();
+			//close the popup and focus the input at the footer
+			$('.mobile-menu-close').click();
+			$('html, body').animate({
+			    scrollTop: $_newsLetter_input.offset().top
+			}, 1000, function(){
+				$_newsLetter_input.focus();
+			});
+		});
+	});
+
 	//opening and closing of mobile menu
 	var $_mobile_opener = $('.header-logo a.burger-menu'),
 		$_mobile_closer = $('.mobile-menu-close'),

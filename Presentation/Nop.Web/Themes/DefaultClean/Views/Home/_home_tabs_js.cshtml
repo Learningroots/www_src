@@ -35,11 +35,21 @@
 
 		//arrows
 		$tab_arrow_right.click(function(e){
-			$all_tab_links.find('a.active-tab').next('a').first().click();
+			if($all_tab_links.find('a.active-tab').next('a').length == 0) {
+				$all_tab_links.find('a').first().click();
+			}
+			else {
+				$all_tab_links.find('a.active-tab').next('a').first().click();
+			}
 		});
 
 		$tab_arrow_left.click(function(e){
-			$all_tab_links.find('a.active-tab').prev('a').first().click();
+			if($all_tab_links.find('a.active-tab').prev('a').length == 0) {
+				$all_tab_links.find('a').last().click();
+			}
+			else {
+				$all_tab_links.find('a.active-tab').prev('a').first().click();
+			}
 		});
 
 	});

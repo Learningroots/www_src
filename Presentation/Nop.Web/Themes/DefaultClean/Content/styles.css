@@ -683,7 +683,7 @@ textarea, input { outline: none !important; }
 /* FOOTER */
 .spacer {
 	clear: both;
-	height: 90px;
+	height: 70px;
 }
 
 .footer .wrapper {
@@ -1021,11 +1021,11 @@ textarea, input { outline: none !important; }
 }
 
 .mobile-menu-social ul li.youtube a {
-	background-position: -46px 0;
+	background-position: -47px 0;
 }
 
 .mobile-menu-social ul li.twitter a {
-	background-position: -93px 0;
+	background-position: -91px 0;
 }
 
 .mobile-menu-body .mobile-main-menu > .list {
@@ -1605,9 +1605,60 @@ li.sub-menu-active > a,
 	color: #B80709 !important;
 }
 
-.block-newsletter .buttons {
-	margin-top: 5px;
+
+.block-newsletter .newsletter-email {
+	background: url(images/newsletter.jpg) no-repeat 0 0;
+	width: 580px;
+	margin: auto;
+	padding-left: 75px;
+	height: 50px;
+	background-size: 58px;
+	position: relative;
 }
+
+.block-newsletter .please-wait {
+	position: absolute;
+	top: 12px;
+	right: 121px;
+	z-index: 1;
+	padding: 0;
+	display: inline-block;
+	height: 20px;
+	width: 20px;
+}
+
+.newsletter-success {
+	padding-top: 14px;
+	color: #C8133C;
+}
+
+#newsletter-result-block {
+	padding-top: 7px;
+}
+
+.block-newsletter #newsletter-email {
+	width: 390px;
+	margin-right: 10px;
+}
+
+.block-newsletter #newsletter-subscribe-button {
+	padding: 11px 10px 11px;
+	border-radius: 7px;
+	box-shadow: 0px 4px 0px #7B021E;
+	margin-top: -6px;
+}
+
+.block-newsletter .title {
+	border-bottom: none;
+}
+
+.block-newsletter .title strong {
+	text-align: center;
+	display: block;
+	color: #000;
+}
+
+
 
 .block-popular-tags li,.block-popular-blogtags li {
 	display: inline!important;
@@ -3365,6 +3416,10 @@ select#checkout_attribute_1 {
 	right: 0;	
 }
 
+.home-meet-chars-block .tabs-arrows .tab-arrow {
+	top: 315px;
+}
+
 .social-block div a {
 	color: #C8133C;
 }
@@ -3440,7 +3495,7 @@ select#checkout_attribute_1 {
 .character-img {
 	text-align: center;
 	float: left;
-	width: 40%;
+	width: 45%;
 	padding-top: 60px;
 }
 
@@ -3473,7 +3528,7 @@ select#checkout_attribute_1 {
 
 .character-details {
 	float: right;
-	width: 60%;
+	width: 55%;
 }
 
 .charater-bio, .charater-other {
