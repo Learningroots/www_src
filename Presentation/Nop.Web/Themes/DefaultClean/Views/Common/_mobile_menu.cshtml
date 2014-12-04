@@ -58,9 +58,9 @@
 					var $_mobile_social_list = $('.mobile-menu-social ul');
 					if($_footer_links.length != 0) {
 						$_mobile_social_list.append(
-							$_footer_links.find('.facebook'),
-							$_footer_links.find('.youtube'),
-							$_footer_links.find('.twitter')
+							$_footer_links.find('.facebook').clone(),
+							$_footer_links.find('.youtube').clone(),
+							$_footer_links.find('.twitter').clone()
 						)
 					}
 				</script>

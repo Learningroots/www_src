@@ -933,7 +933,7 @@ textarea, input { outline: none !important; }
 	display: block !important;
 }
 
-.mobile-main-menu .list li a {
+.mobile-menu .list li a {
 	padding: 10px 0;
 	z-index: 1;
 }
@@ -1520,15 +1520,6 @@ li.sub-menu-active > a,
 .block-blog-archive,
 .block-poll,
 .block-account-navigation {
-}
-
-.block-newsletter {
-	display: none;
-}
-
-.home-page .block-newsletter,
-.homepage .block-newsletter {
-	display: block;
 }
 
 .block-category-navigation .active > a {
@@ -3290,13 +3281,120 @@ select#checkout_attribute_1 {
 	border-radius: 100px;
 }
 
-/* meet the characters */
+/* home page social block */
+.home-social-block {
+	clear: both;
+	background: #f1f1f1;
+	top: -58px;
+	padding-top: 58px;
+	z-index: 1;
+	position: relative;
+	padding-bottom: 60px;
+}
 
+.home-social-block .tabs-wrapper {
+}
+
+.social-inner-wrapper {
+	margin: 0 100px;
+	min-height: 100px;
+}
+
+.social-block {
+	background: #FFF;
+	width: 250px;
+	display: inline-block;
+	float: left;
+	margin: 0 8px;
+	margin-bottom: 16px;
+	padding: 10px;
+	box-shadow: 1px 1px 2px #DDD;
+}
+
+.social_instagram .social-block {
+	box-shadow: 0 0 8px #9D9D9D;
+}
+
+.social-block-header {
+	margin-bottom: 10px;
+}
+
+.social-block .social-block-header .social-avatar {
+	border-radius: 20px;
+	float: left;
+	height: 30px;
+	margin-right: 10px;
+	width: 30px;
+}
+
+.social-block .social-block-header a {
+	color: #C8133C;
+	padding-bottom: 5px;
+	display: block;
+}
+
+.social-block .social-block-header .posted-time {
+	display: block;
+	color: #B8B8B8;
+}
+
+.tabs-arrows {
+	position: relative;
+}
+
+.tabs-arrows .tab-arrow {
+	position: absolute;
+	top: 248px;
+	height: 60px;
+	width: 46px;
+	cursor: pointer;
+}
+
+.tabs-arrows .tab-arrow-active,
+.tabs-arrows .tab-arrow:hover {
+
+}
+
+.tabs-arrows .tab-arrow.tab-arrow-left {
+	background: url(images/tab-arrow-left.png) no-repeat 0 0;
+	left: 0;
+}
+
+.tabs-arrows .tab-arrow.tab-arrow-right {
+	background: url(images/tab-arrow-right.png) no-repeat 0 0;
+	right: 0;	
+}
+
+.social-block div a {
+	color: #C8133C;
+}
+
+.social_testimonials .social-block div {
+	text-align: center;
+}
+
+.double-quote {
+	display: block;
+	color: #5D5D5D;
+	font-size: 48px;
+	font-family: sans-serif;
+	height: 28px;
+	text-align: left;
+}
+
+.double-quote-end {
+	text-align: right;
+}
+
+/* end of social block */
+
+/* meet the characters */
+.home-social-block .wrapper,
 .home-page-characters {
 	overflow: hidden;
 }
 
-.all-characters-wrapper {
+.all-tabs-wrapper {
 	width: 50000px;
 }
 
@@ -3324,18 +3422,19 @@ select#checkout_attribute_1 {
 	color: #FFF;
 }
 
-.charater-wrapper {
+.tabs-wrapper {
 	width: 1000px;
 	float: left;
 }
 
-.home-page-characters .charater-tabs {
+.home-page .homepage-tabs {
+	background: inherit;
 	width: 100%;
 	margin-bottom: 50px;
 	margin-top: 30px;
 }
 
-.charater-wrapper {
+.tabs-wrapper {
 }
 
 .character-img {
@@ -3400,7 +3499,7 @@ select#checkout_attribute_1 {
 }
 
 
-.home-page-characters .charater-tabs a {
+.home-page .homepage-tabs a {
 	margin-right: 3px;
 	margin-left: 3px;
 }
@@ -3412,6 +3511,8 @@ select#checkout_attribute_1 {
 	height: 145px;
 	margin-top: 70px;
 	border-top: 9px solid #E9E9E9;
+	z-index: 2;
+	position: relative;
 }
 
 .home-page-join-the-club p {

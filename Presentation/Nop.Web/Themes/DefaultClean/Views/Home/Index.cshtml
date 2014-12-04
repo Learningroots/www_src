@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
 }
 <div class="page home-page">
     <div class="page-body">
@@ -10,7 +10,7 @@
         </script>
 
         <div class="wrapper">
-            @Html.Partial("_top_block_1")
+            @Html.Partial("_discover_block")
         </div>
         
         <div class="home-page-featured-products home-page-block">
@@ -26,7 +26,10 @@
                 @Html.Partial("_join_the_club")
             </div>
         </div>
+        
+        @Html.Partial("_social_block")
 
+        @Html.Partial("_home_tabs_js")
         @Html.Widget("home_page_bottom")
     </div>
 </div>

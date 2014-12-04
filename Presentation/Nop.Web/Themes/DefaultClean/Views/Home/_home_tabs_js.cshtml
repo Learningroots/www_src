@@ -1,0 +1,46 @@
+<script type="text/javascript">
+	//home page tabs
+	$('.all-tabs-wrapper').each(function(){
+		var $taps_wrapper = $(this);
+
+		//tabbing
+		var $all_tab_content_wrappers = $taps_wrapper.find('.tabs-wrapper');
+		var _width_of_content = $all_tab_content_wrappers.first().width();
+		var $tab_arrows = $taps_wrapper.closest('.all-tabs-outer').find('.tabs-arrows');
+		var $tab_arrow_left = $tab_arrows.find('.tab-arrow-left');
+		var $tab_arrow_right = $tab_arrows.find('.tab-arrow-right');
+		
+		var $all_tab_links = $taps_wrapper.closest('.wrapper').find('.homepage-tabs');
+		var $tab_links = $all_tab_links.find('a');
+
+		$tab_links.click(function(e){
+			e.preventDefault();
+
+			var $this = $(this);
+
+			//if already active than return
+			if($this.hasClass('active-tab')) return false;
+
+			//active link
+			$tab_links.removeClass('active-tab');
+			$this.addClass('active-tab')
+
+			var id = $this.attr('href');
+
+			//find the index of element to scroll to
+			if($(id).length == 0) return false;
+			var index = $all_tab_content_wrappers.index( $(id) );
+			$taps_wrapper.animate({marginLeft: '-'+(_width_of_content * index) })
+		});
+
+		//arrows
+		$tab_arrow_right.click(function(e){
+			$all_tab_links.find('a.active-tab').next('a').first().click();
+		});
+
+		$tab_arrow_left.click(function(e){
+			$all_tab_links.find('a.active-tab').prev('a').first().click();
+		});
+
+	});
+</script>
