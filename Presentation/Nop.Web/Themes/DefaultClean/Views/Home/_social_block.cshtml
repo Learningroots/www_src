@@ -1,0 +1,56 @@
+<div class="home-social-block all-tabs-outer">
+	
+	<div class="tabs-arrows">
+		<span class="tab-arrow tab-arrow-left" title="Previous section"></span>
+		<span class="tab-arrow tab-arrow-right" title="Next section"></span>
+	</div>
+
+	<div class="wrapper">
+		<h3 class="home-block-title">Learning Roots Social</h3>
+
+		<div class="homepage-tabs product-page-tabs">
+			<a href="#social-twitter" class="active-tab">Twitter</a>
+			<a href="#social-instagram">Instagram</a>
+			<a href="#social-testimonials">Testimonials</a>
+		</div>
+
+		<div class="all-tabs-wrapper">
+			
+			<div id="social-twitter" class="tabs-wrapper">
+				<div class="social-inner-wrapper social_twitter">
+					@Html.Partial("_social_twitter")
+				</div>
+			</div>
+
+			<div id="social-instagram" class="tabs-wrapper">
+				<div class="social-inner-wrapper social_instagram">
+					@Html.Partial("_social_instagram")
+				</div>
+			</div>
+
+			<div id="social-testimonials" class="tabs-wrapper">
+				<div class="social-inner-wrapper social_testimonials">
+					@Html.Partial("_social_testimonials")
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(window).load(function(){
+		//equal height blocks
+		$('.social-block').parent().each(function(){
+			var $this = $(this);
+			var tallest = 0;
+			var $socialBlocks = $this.find('.social-block');
+			$socialBlocks.each(function(){
+				var $that = $(this);
+				var thatHeight = $that.height();
+				if(thatHeight > tallest) tallest = thatHeight;
+			});
+			$socialBlocks.height(tallest);
+		});
+	});
+</script>

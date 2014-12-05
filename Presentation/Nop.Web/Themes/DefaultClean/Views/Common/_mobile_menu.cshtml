@@ -10,9 +10,23 @@
 			
 			<div class="block mobile-main-menu">
 			    <div class="listbox">
-			        <ul class="list">
-			            <li class="inactive"><a href="#">NATURE LAB</a></li>
-			            <li class="inactive"><a href="#">OUR WORLD</a></li>
+			        <ul class="list has-sub-menus">
+			            <li class="inactive">
+			            	<a href="#">NATURE LAB</a> <!-- this link will not take user any where but will show a sub menu so keep this as # -->
+			            	<ul class="list">
+					            <li class="inactive"><a href="#">Sub menu 1</a></li>
+					            <li class="inactive"><a href="#">Sub menu 2</a></li>
+					            <li class="inactive"><a href="#">Sub menu 3</a></li>
+					        </ul>
+			            </li>
+			            <li class="inactive">
+			            	<a href="#">OUR WORLD</a>
+			            	<ul class="list">
+					            <li class="inactive"><a href="#">Sub menu 4</a></li>
+					            <li class="inactive"><a href="#">Sub menu 5</a></li>
+					            <li class="inactive"><a href="#">Sub menu 6</a></li>
+					        </ul>
+			            </li>
 			            <li class="inactive"><a href="#">SHOP LEARNING ROOTS</a></li>
 			            <li class="inactive"><a href="#">SHOP LEARNING ROOTS</a></li>
 			            <li class="inactive"><a href="#">SHOP LEARNING ROOTS</a></li>
@@ -44,9 +58,9 @@
 					var $_mobile_social_list = $('.mobile-menu-social ul');
 					if($_footer_links.length != 0) {
 						$_mobile_social_list.append(
-							$_footer_links.find('.facebook'),
-							$_footer_links.find('.youtube'),
-							$_footer_links.find('.twitter')
+							$_footer_links.find('.facebook').clone(),
+							$_footer_links.find('.youtube').clone(),
+							$_footer_links.find('.twitter').clone()
 						)
 					}
 				</script>
@@ -56,6 +70,24 @@
 </div>
 
 <script type="text/javascript">
+
+	//sign up
+	$(function(){
+		$_newsLetter_input   = $('#newsletter-email');
+		$_mobile_menu_signup = $('.mobile-menu-signup');
+		if($_newsLetter_input.length == 0) return $_mobile_menu_signup.remove();
+		$_mobile_menu_signup.click(function(e){
+			e.preventDefault();
+			//close the popup and focus the input at the footer
+			$('.mobile-menu-close').click();
+			$('html, body').animate({
+			    scrollTop: $_newsLetter_input.offset().top
+			}, 1000, function(){
+				$_newsLetter_input.focus();
+			});
+		});
+	});
+
 	//opening and closing of mobile menu
 	var $_mobile_opener = $('.header-logo a.burger-menu'),
 		$_mobile_closer = $('.mobile-menu-close'),
@@ -72,6 +104,31 @@
 		e.preventDefault();
 		$_mobile_overlay.add('.char-video-popup').fadeOut('fast', function(){ $(this).empty(); });
 		$_mobile_menu.removeClass('mobile-menu-opened');
+	});
+
+	//sub menu
+	var $_mobile_sub_menu = $('.has-sub-menus');
+	$_mobile_sub_menu.find('> li > a').click(function(e) {
+		var $this = $(this);
+		var $itsLi = $this.closest('li');
+		if($itsLi.hasClass('sub-menu-active')) {
+			e.preventDefault();
+			return false;
+		};
+		var $sub = $this.closest('li').find('.list');
+		if($sub.length !=0 ) {
+			e.preventDefault();
+			$this.closest('li').add($_mobile_sub_menu).addClass('sub-menu-active');
+			//add close btn
+			$this.after(
+				$('<span class="close-sub-menu closeBtn" title="Back to main menu">&times;</span>')
+					.click(function(e){
+						e.stopPropagation();
+						$('.sub-menu-active').removeClass('sub-menu-active');
+						$(this).remove();
+					})
+			)
+		}
 	});
 
 	//close menu when esc is pressed

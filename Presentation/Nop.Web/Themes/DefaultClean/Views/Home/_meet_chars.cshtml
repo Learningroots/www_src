@@ -3,66 +3,75 @@
 	var char1 = "~/Themes/DefaultClean/Content/images/character-1.jpg";
 
 }
-<div class="wrapper">
-	<div class="meet_chars home-page-characters">
-		
-		<h3 class="home-block-title">Meet our Characters</h3>
 
-		<div class="charater-tabs product-page-tabs">
-			<a href="#char-1" class="active-tab">Character 1</a>
-			<a href="#char-2">Character 2</a>
-		</div>
+<div class="home-meet-chars-block all-tabs-outer">
 
-		<div class="all-characters-wrapper">
+	<div class="tabs-arrows">
+		<span class="tab-arrow tab-arrow-left" title="Previous section"></span>
+		<span class="tab-arrow tab-arrow-right" title="Next section"></span>
+	</div>
+	
+	<div class="wrapper">
+		<div class="meet_chars home-page-characters">
+			
+			<h3 class="home-block-title">Meet our Characters</h3>
 
-			<!-- char 1 -->
-			<div id="char-1" class="charater-wrapper">
-				<div class="character-img">
-					<img src="@Url.Content(char1)">
-				</div>
-				<div class="character-details">
-					<div class="character-video">
-						<a href="#" data-youtube-video-id="v4BwafaEBV4">
-							<img src="http://i851.photobucket.com/albums/ab75/coolmomtech/MeBooks_zps5b4cca51.jpg"/>
-							<span class="icon-play"></span>
-						</a>
-					</div>
-					<div class="charater-bio">
-						<h3>Meet Sarah</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-						</p>
-					</div>
-					<div class="charater-other">
-						<h3>Other section here</h3>
-					</div>
-				</div>
+			<div class="homepage-tabs product-page-tabs">
+				<a href="#char-1" class="active-tab">Character 1</a>
+				<a href="#char-2">Character 2</a>
 			</div>
 
-			<!-- char 2 -->
-			<div id="char-2" class="charater-wrapper">
-				<div class="character-img">
-					<img src="@Url.Content(char1)">
-				</div>
-				<div class="character-details">
-					<div class="character-video">
-						<a href="#" data-youtube-video-id="v4BwafaEBV4">
-							<img src="http://i851.photobucket.com/albums/ab75/coolmomtech/MeBooks_zps5b4cca51.jpg"/>
-							<span class="icon-play"></span>
-						</a>
-					</div>
-					<div class="charater-bio">
-						<h3>Meet Sarah</h3>
-						<p>
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
-						</p>
-					</div>
-					<div class="charater-other">
-						<h3>Other section here</h3>
-					</div>
-				</div>
-			</div>
+			<div class="all-tabs-wrapper">
 
+				<!-- char 1 -->
+				<div id="char-1" class="tabs-wrapper">
+					<div class="character-img">
+						<img src="@Url.Content(char1)">
+					</div>
+					<div class="character-details">
+						<div class="character-video">
+							<a href="#" data-youtube-video-id="v4BwafaEBV4">
+								<img src="http://i851.photobucket.com/albums/ab75/coolmomtech/MeBooks_zps5b4cca51.jpg"/>
+								<span class="icon-play"></span>
+							</a>
+						</div>
+						<div class="charater-bio">
+							<h3>Meet Sarah</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+							</p>
+						</div>
+						<div class="charater-other">
+							<h3>Other section here</h3>
+						</div>
+					</div>
+				</div>
+
+				<!-- char 2 -->
+				<div id="char-2" class="tabs-wrapper">
+					<div class="character-img">
+						<img src="@Url.Content(char1)">
+					</div>
+					<div class="character-details">
+						<div class="character-video">
+							<a href="#" data-youtube-video-id="v4BwafaEBV4">
+								<img src="http://i851.photobucket.com/albums/ab75/coolmomtech/MeBooks_zps5b4cca51.jpg"/>
+								<span class="icon-play"></span>
+							</a>
+						</div>
+						<div class="charater-bio">
+							<h3>Meet Sarah</h3>
+							<p>
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+							</p>
+						</div>
+						<div class="charater-other">
+							<h3>Other section here</h3>
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
 	</div>
 </div>
@@ -83,41 +92,6 @@
 		$bio.add($other).height(biggerHeight);
 	});
 
-	//tabs for characters
-	var $_char_wrapper = $('.all-characters-wrapper');
-	// var $_clone_char = $_char_wrapper.html();
-	// $_char_wrapper.append($_clone_char,$_clone_char,$_clone_char,$_clone_char);
-	// //change ids
-	// $_char_wrapper.find('.charater-wrapper').eq(1).attr('id', 'char-2');
-	// $_char_wrapper.find('.charater-wrapper').eq(2).attr('id', 'char-3');
-	// $_char_wrapper.find('.charater-wrapper').eq(3).attr('id', 'char-4');
-	// $_char_wrapper.find('.charater-wrapper').eq(4).attr('id', 'char-5');
-
-	//tabbing
-	$all_tab_content_wrappers = $_char_wrapper.find('.charater-wrapper');
-	var _width_of_content = $_char_wrapper.find('.charater-wrapper').first().width();
-	$char_tab_links = $('.charater-tabs a');
-	$char_tab_links.click(function(e){
-		e.preventDefault();
-
-		var $this = $(this);
-
-		//if already active than return
-		if($this.hasClass('active-tab')) return;
-
-		//active link
-		$char_tab_links.removeClass('active-tab');
-		$this.addClass('active-tab')
-
-		var id = $this.attr('href');
-
-		//find the index of element to scroll to
-		if($(id).length == 0) return;
-		var index = $all_tab_content_wrappers.index( $(id) );
-		$_char_wrapper.animate({marginLeft: '-'+(_width_of_content * index) })
-	});
-
-
 	//video player
 	$('.character-video a').click(function(e){
 		e.preventDefault();
@@ -132,7 +106,6 @@
 			'</div>'
 		);
 	});
-
 </script>
 
 
