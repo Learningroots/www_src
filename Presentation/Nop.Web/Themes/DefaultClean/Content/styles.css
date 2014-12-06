@@ -399,7 +399,7 @@ ul.language-list li:hover {
 	padding: 0;
 	margin: 0;
 	float: right;
-	margin-right: 200px;
+	margin-right: 50px;
 }
 
 .header-links ul li {
@@ -407,6 +407,24 @@ ul.language-list li:hover {
 	display: inline;
 	margin-left: 2px;
 	float: left;
+}
+
+.header-links .ico-account {
+	margin-right: 106px;
+}
+
+.header-links .ico-france a,
+.header-links .ico-account a,
+.header-links .ico-orders a {
+	background: none;
+	padding-top: 10px;
+}
+
+.header-links .ico-france a {
+	margin-right: 32px;
+	background: url(data:image/gif;base64,R0lGODlhHgAUAPMAAMYAAM0jIwYAtAgAtSQdvfLe3tnY7/f39/f5+…BOCT1Kk89a9ISlVVvNlFdr5TrHrLJQXARs1xoqGXxFJbJpupm9VE/xIm9/aIF+XW2Ch0URADs=) no-repeat 0 7px;
+	padding-left: 29px;
+	background-size: 23px;
 }
 
 .header-links a {
@@ -3207,12 +3225,14 @@ select#checkout_attribute_1 {
 	-moz-opacity: 1;
 	-khtml-opacity: 1;
 	opacity: 1;
+	cursor: pointer;
 }
 
 .master-wrapper-page .theme-default .nivo-directionNav a {
 	background-image: url(images/arrows.png);
 	width: 86px;
 	height: 85px;
+	cursor: pointer;
 }
 
 .master-wrapper-page .theme-default a.nivo-prevNav {
@@ -3965,12 +3985,13 @@ select#checkout_attribute_1 {
 }
 
 .featured-product-grid .title {
-	padding: 10px 10px 5px 0;
+	padding-bottom: 30px;
 	font-weight: 700;
 	text-transform: uppercase;
 	clear: both;
+	font-size: 16px;
 	margin: 0;
-	color: #5C5B5B;
+	color: #BC0A2F;
 }
 
 
