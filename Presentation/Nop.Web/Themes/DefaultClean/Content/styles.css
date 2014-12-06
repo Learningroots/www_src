@@ -2914,13 +2914,6 @@ select#checkout_attribute_1 {
 	position: relative;
 }
 
-.opc li.tab-section {
-}.opc .step-title
-
-.opc .step-title {
-	
-}
-
 .opc .step-title .number {
 	float: left;
 	background: #fff;
@@ -2946,7 +2939,7 @@ select#checkout_attribute_1 {
 	color: #fff;
 	cursor: default;
 	position: relative;
-	height: 33px;
+	height: 52px;
 	margin-bottom: 6px;
 }
 
