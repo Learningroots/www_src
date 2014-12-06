@@ -7,9 +7,7 @@
     {
         foreach (var htmlwidget in Model.HtmlWidgets)
         {
-            <div class="html-widget">
-                @Html.Raw(htmlwidget.HtmlContent)
-            </div>
+           @Html.Raw(htmlwidget.HtmlContent)
         }
     }
 }

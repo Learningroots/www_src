@@ -1529,6 +1529,7 @@
     <Content Include="Themes\DefaultClean\Content\images\top-menu-list-image.png" />
     <Content Include="Themes\DefaultClean\Content\images\top-menu-triangle.png" />
     <Content Include="Themes\DefaultClean\Content\js\jquery.cookie.js" />
+    <Content Include="Themes\DefaultClean\Content\js\jquery.tinycarousel.min.js" />
     <Content Include="Themes\DefaultClean\Content\responsive.css" />
     <Content Include="Themes\DefaultClean\Content\images\star-x-active.png" />
     <Content Include="Themes\DefaultClean\Content\images\star-x-inactive.png" />
@@ -1979,6 +1980,17 @@
     <Content Include="Themes\DefaultClean\Views\Product\_ProductDetailsPictures.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\ProductDetailsReviews.cshtml" />
     <Content Include="Views\Product\ProductDetailsReviews.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\Index.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\_discover_block.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\_home_tabs_js.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\_join_the_club.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\_meet_chars.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\_social_block.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\_social_instagram.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\_social_testimonials.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\_social_twitter.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Newsletter\NewsletterBox.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Common\_mobile_menu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Thumbs\" />

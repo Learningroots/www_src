@@ -51,6 +51,7 @@
   <WidgetZone>header_menu_before</WidgetZone>
   <WidgetZone>header_selectors</WidgetZone>
   <WidgetZone>home_page_bottom</WidgetZone>
+  <WidgetZone>home_page_explore_block</WidgetZone>
   <WidgetZone>home_page_top</WidgetZone>
   <WidgetZone>infoblock_after</WidgetZone>
   <WidgetZone>infoblock_before</WidgetZone>
@@ -118,7 +119,7 @@
   <WidgetZone>productsearch_page_basic</WidgetZone>
   <WidgetZone>profile_page_info_userdetails</WidgetZone>
   <WidgetZone>profile_page_info_userstats</WidgetZone>
-    <WidgetZone>recommended_for_you</WidgetZone>
+  <WidgetZone>recommended_for_you</WidgetZone>
   <WidgetZone>right_side_column_after</WidgetZone>
   <WidgetZone>right_side_column_before</WidgetZone>
 </SupportedWidgetZones>
