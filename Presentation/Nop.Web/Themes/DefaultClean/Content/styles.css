@@ -2082,11 +2082,19 @@ select#checkout_attribute_1 {
 	width: 280px;
 }
 
-.order-summary-content .coupon-box,.order-summary-content .giftcard-box {
+.order-summary-content .shipping {
+	display: none;
+}
+
+.order-summary-content .coupon-box {
 	padding: 0;
 	font-size: 13px;
 	color: #555;
 	margin: 0 0 10px;
+}
+
+.order-summary-content .giftcard-box {
+	display: none;
 }
 
 .order-summary-content .coupon-box .title {
