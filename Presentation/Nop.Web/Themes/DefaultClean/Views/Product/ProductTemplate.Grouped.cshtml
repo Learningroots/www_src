@@ -47,128 +47,128 @@
 }
 
 @Html.Widget("productdetails_after_breadcrumb", Model.Id)
-<div class="page product-details-page">
-    <div class="page-body">
-        @Html.Widget("productdetails_top", Model.Id)
-        @using (Html.BeginRouteForm("Product", new { SeName = Model.SeName }, FormMethod.Post, new { id = "product-details-form" }))
-        {
-            <div itemscope itemtype="http://schema.org/Product" data-productid="@Model.Id">
-                <div class="product-essential">
-                    @Html.Widget("productdetails_before_pictures", Model.Id)
-                    <!--product pictures-->
-                    @Html.Partial("_ProductDetailsPictures", Model)
-                    @Html.Widget("productdetails_after_pictures", Model.Id)
-                    <div class="overview">
-                        <div class="product-name">
-                            <h1 itemprop="name">
-                                @Model.Name
-                            </h1>
-                        </div>
-
-                        <!-- price -->
-                        @{
-                            var dataDictPrice = new ViewDataDictionary();
-                            dataDictPrice.TemplateInfo.HtmlFieldPrefix = string.Format("price_{0}", Model.Id);
-                            @Html.Partial("_ProductPrice", Model.ProductPrice, dataDictPrice)
-                        }
-
-                        @Html.Widget("productdetails_overview_top", Model.Id)
-
-                        
-                        <!--Back in stock subscription-->
-                        @Html.Partial("_BackInStockSubscription", Model)
-
-                        <!--product reviews-->
-                        @Html.Partial("_ProductReviewOverview", Model.ProductReviewOverview)
-                        
-                        @if (!String.IsNullOrEmpty(Model.ShortDescription))
-                        {
-                            <div class="short-description">
-                                @Html.Raw(Model.ShortDescription)
+<div class="page product-details-page @(Model.IsFeaturedProduct ? "featured-product" : "")">
+        <div class="page-body">
+            @Html.Widget("productdetails_top", Model.Id)
+            @using (Html.BeginRouteForm("Product", new { SeName = Model.SeName }, FormMethod.Post, new { id = "product-details-form" }))
+            {
+                <div itemscope itemtype="http://schema.org/Product" data-productid="@Model.Id">
+                    <div class="product-essential">
+                        @Html.Widget("productdetails_before_pictures", Model.Id)
+                        <!--product pictures-->
+                        @Html.Partial("_ProductDetailsPictures", Model)
+                        @Html.Widget("productdetails_after_pictures", Model.Id)
+                        <div class="overview">
+                            <div class="product-name">
+                                <h1 itemprop="name">
+                                    @Model.Name
+                                </h1>
                             </div>
-                        }
 
-                        <!--sample download-->
-                        @Html.Partial("_DownloadSample", Model)
+                            <!-- price -->
+                            @{
+                var dataDictPrice = new ViewDataDictionary();
+                dataDictPrice.TemplateInfo.HtmlFieldPrefix = string.Format("price_{0}", Model.Id);
+                @Html.Partial("_ProductPrice", Model.ProductPrice, dataDictPrice)
+                            }
 
-                        <!--attributes-->
-                        @{
+                            @Html.Widget("productdetails_overview_top", Model.Id)
+
+
+                            <!--Back in stock subscription-->
+                            @Html.Partial("_BackInStockSubscription", Model)
+
+                            <!--product reviews-->
+                            @Html.Partial("_ProductReviewOverview", Model.ProductReviewOverview)
+
+                            @if (!String.IsNullOrEmpty(Model.ShortDescription))
+                            {
+                                <div class="short-description">
+                                    @Html.Raw(Model.ShortDescription)
+                                </div>
+                            }
+
+                            <!--sample download-->
+                            @Html.Partial("_DownloadSample", Model)
+
+                            <!--attributes-->
+                            @{
                             var dataDictAttributes = new ViewDataDictionary();
                             dataDictAttributes.TemplateInfo.HtmlFieldPrefix = string.Format("attributes_{0}", Model.Id);
-                            @Html.Partial("_ProductAttributes", Model.ProductVariantAttributes, dataDictAttributes)                  
-                        }
-                        <!--gift card-->
-                        @{
+                            @Html.Partial("_ProductAttributes", Model.ProductVariantAttributes, dataDictAttributes)
+                            }
+                            <!--gift card-->
+                            @{
                             var dataDictGiftCard = new ViewDataDictionary();
                             dataDictGiftCard.TemplateInfo.HtmlFieldPrefix = string.Format("giftcard_{0}", Model.Id);
                             @Html.Partial("_GiftCardInfo", Model.GiftCard, dataDictGiftCard)
-                        }
-                        <!-- add to cart-->
-                        @{
+                            }
+                            <!-- add to cart-->
+                            @{
                             var dataDictAddToCart = new ViewDataDictionary();
                             dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = string.Format("addtocart_{0}", Model.Id);
-                            @Html.Partial("_AddToCart", Model.AddToCart, dataDictAddToCart)                    
-                        }
-                        
-                        <!--product SKU, manufacturer part number, stock info-->
-                        @Html.Partial("_SKU_Man_Stock", Model)
-
-
-                        @Html.Partial("_ShareButton", Model)
-
-                        @Html.Widget("productdetails_overview_bottom", Model.Id)
-                    </div>
-
-
-                    <div class="spacer"></div>
-
-
-                    <div class="product-page-tabs">
-                        <a data-target-tab="#tab-des" class="active-tab" href="#">DESCRIPTION</a>
-                        <a data-target-tab="#tab-rev" href="#">REVIEWS</a>
-                    </div>
-
-                    <div class="tab-content">
-                        <div id="tab-des" class="full-description" itemprop="description">
-                            @if (!String.IsNullOrEmpty(Model.FullDescription))
-                            {  
-                                @Html.Raw(Model.FullDescription)
+                            @Html.Partial("_AddToCart", Model.AddToCart, dataDictAddToCart)
                             }
-                            @Html.Widget("productdetails_before_collateral", Model.Id)
-                            <div class="product-collateral">
-                                @Html.Partial("_ProductTierPrices", Model.TierPrices)
-                                @Html.Partial("_ProductSpecifications", Model.ProductSpecifications)
-                                @Html.Action("ProductsAlsoPurchased", "Product", new { productId = Model.Id })
+
+                            <!--product SKU, manufacturer part number, stock info-->
+                            @Html.Partial("_SKU_Man_Stock", Model)
+
+
+                            @Html.Partial("_ShareButton", Model)
+
+                            @Html.Widget("productdetails_overview_bottom", Model.Id)
+                        </div>
+
+
+                        <div class="spacer"></div>
+
+
+                        <div class="product-page-tabs">
+                            <a data-target-tab="#tab-des" class="active-tab" href="#">DESCRIPTION</a>
+                            <a data-target-tab="#tab-rev" href="#">REVIEWS</a>
+                        </div>
+
+                        <div class="tab-content">
+                            <div id="tab-des" class="full-description" itemprop="description">
+                                @if (!String.IsNullOrEmpty(Model.FullDescription))
+                                {
+                                    @Html.Raw(Model.FullDescription)
+                                }
+                                @Html.Widget("productdetails_before_collateral", Model.Id)
+                                <div class="product-collateral">
+                                    @Html.Partial("_ProductTierPrices", Model.TierPrices)
+                                    @Html.Partial("_ProductSpecifications", Model.ProductSpecifications)
+                                    @Html.Action("ProductsAlsoPurchased", "Product", new { productId = Model.Id })
+                                </div>
+                            </div>
+
+                            <div id="tab-rev" class="hidden">
+                                @Html.Partial("ProductDetailsReviews")
                             </div>
                         </div>
 
-                        <div id="tab-rev" class="hidden">
-                            @Html.Partial("ProductDetailsReviews")
-                        </div>
+                        <script type="text/javascript">
+                            var $_all_tabs = $('.tab-content > div');
+                            var $_tabs_links = $('.product-page-tabs a');
+
+                            $_tabs_links.click(function (e) {
+                                e.preventDefault();
+                                var $this = $(this);
+                                $_tabs_links.removeClass('active-tab');
+                                $this.addClass('active-tab');
+                                $_all_tabs.slideUp('normal', function () {
+                                    $($this.data('target-tab')).slideDown('normal');
+                                });
+                            })
+                        </script>
+
                     </div>
-
-                    <script type="text/javascript">
-                        var $_all_tabs = $('.tab-content > div');
-                        var $_tabs_links = $('.product-page-tabs a');
-                        
-                        $_tabs_links.click(function(e){
-                            e.preventDefault();
-                            var $this = $(this);
-                            $_tabs_links.removeClass('active-tab');
-                            $this.addClass('active-tab');
-                            $_all_tabs.slideUp('normal', function(){
-                                $($this.data('target-tab')).slideDown('normal');
-                            });
-                        })
-                    </script>
-
                 </div>
-            </div>
 
-            <div class="product-related-products">
-                @Html.Action("RelatedProducts", "Product", new { productId = Model.Id })
-            </div>
-        }
-        @Html.Widget("productdetails_bottom", Model.Id)
+                <div class="product-related-products">
+                    @Html.Action("RelatedProducts", "Product", new { productId = Model.Id })
+                </div>
+            }
+            @Html.Widget("productdetails_bottom", Model.Id)
+        </div>
     </div>
-</div>
