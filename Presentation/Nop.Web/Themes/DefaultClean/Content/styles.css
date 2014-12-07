@@ -53,6 +53,7 @@ a {
 	font-size: 100%;
 	vertical-align: baseline;
 	background: transparent;
+	outline: none;
 }
 
 ins {
@@ -169,12 +170,13 @@ h2,h3 {
 
 textarea {
 	width: 100%;
-	font-family: Verdana,Arial,sans-serif;
-	font-size: 13px;
-	border: 1px solid #EEEEEE;
 }
 
 checkbox,input,radio,select,button {
+}
+
+label {
+	font-size: 13px;
 }
 
 fieldset {
@@ -189,7 +191,9 @@ legend {
 	font-size: 16px;
 }
 
+textarea,
 input[type="text"], input[type="password"] {
+	font-family: Arial,sans-serif;
 	border: 1px solid #eee;
 	border-radius: 5px;
 	padding: 12px 15px;
@@ -1072,8 +1076,10 @@ textarea, input { outline: none !important; }
 	display: inline-block;
 }
 
+.product-share-button .at15t_twitter, 
+.product-share-button .at15t_facebook, 
 .mobile-menu-social ul li a {
-	background: url(images/mobile-menu-social.jpg) no-repeat 0 0;
+	background: url(images/mobile-menu-social.png) no-repeat 0 0 !important;
 	display: inline-block;
 	height: 48px;
 	width: 44px;
@@ -1082,11 +1088,40 @@ textarea, input { outline: none !important; }
 }
 
 .mobile-menu-social ul li.youtube a {
-	background-position: -47px 0;
+	background-position: -47px 0 !important;
 }
 
+.addthis_button_email.addthis_button_preferred_3.at300b,
+.addthis_button_print.addthis_button_preferred_4.at300b,
+.addthis_button_compact.at300m {
+	display: none;
+}
+
+.product-share-button .addthis_counter.addthis_bubble_style {
+	background: none !important;
+}
+
+.addthis_counter.addthis_bubble_style a.addthis_button_expanded {
+	color: #666 !important;
+	border-radius: 12px;
+	border: 1px solid #CCC;
+	color: inherit;
+	padding: 9px 14px;
+	display: inline-block;
+	height: auto !important;
+	width: auto !important;
+	background: #FFF !important;
+	margin-top: 5px;
+}
+
+
+.product-share-button .at15t_twitter,
 .mobile-menu-social ul li.twitter a {
-	background-position: -91px 0;
+	background-position: -91px 0 !important;
+}
+
+.product-share-button .at15t_twitter {
+	margin-left: -8px;
 }
 
 .mobile-menu-body .mobile-main-menu > .list {
@@ -5863,8 +5898,62 @@ select#checkout_attribute_1 {
 }
 
 .product-details-page .gallery .picture img {
-	max-height: 300px;
+	
 }
+
+/* zoom */
+.viewer {
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+.iviewer_zoom_status .iviewer_common {
+    display: none;
+}
+
+.viewer-controls {
+	background: url(images/viewer-controls.jpg) no-repeat 0 0;
+	display: block;
+	margin-top: 15px;
+	background-size: 471px;
+	height: 35px;
+	position: relative;
+}
+
+.viewer-controls span {
+	cursor: pointer;
+	display: block;
+	height: 15px;
+	width: 16px;
+	position: absolute;
+	top: 10px;
+	text-indent: -999px;
+	overflow: hidden;
+	webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.viewer-controls span#in {
+	left: 217px;
+}
+
+.viewer-controls span#out {
+	left: 235px;
+}
+
+.viewer-controls span#orig {
+	left: 254px;
+}
+
+.viewer-controls span#fit {
+	left: 272px;
+}
+
+/* end of zoom */
 
 .product-details-page .gallery .picture-thumbs a {
 	margin-right: 3px;
@@ -5966,6 +6055,7 @@ select#checkout_attribute_1 {
 	width: 113px;
 	display: inline-block;
 	margin-left: 1px;
+	border-radius: 3px;
 	transition: 300ms all;
 }
 
@@ -6049,6 +6139,15 @@ select#checkout_attribute_1 {
 	margin-top: 10px;
 	margin-bottom: 10px;
 	clear: both;
+	position: relative;
+}
+
+.product-details-page .product-share-label {
+	color: #CE092E;
+	font-size: 14px;
+	position: absolute;
+	top: 15px;
+	left: 140px;
 }
 
 .product-details-page .product-reviews-overview {
@@ -6244,9 +6343,9 @@ select#checkout_attribute_1 {
 	margin-bottom: 10px;
 }
 
-.product-details-page .sku,
 .product-details-page .add-to-cart {
 	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .product-details-page .add-to-cart .enter-price-input {
@@ -6484,6 +6583,8 @@ select#checkout_attribute_1 {
 }
 
 .product-reviews-page .result {
+	font-size: 15px;
+	padding-bottom: 14px;
 }
 
 .product-reviews-page .write-review #AddProductReview_ReviewText, .product-reviews-page .write-review #AddProductReview_Title {
@@ -7640,7 +7741,6 @@ pre {
 	padding: 35px 0 10px;
 	position: relative;
 	margin-top: 30px;
-	border-top: 1px solid #CCC;
 }
 
 .slider .viewport {
