@@ -9,6 +9,7 @@
 		<div class="side-2">
 			
 			<div class="block mobile-main-menu">
+				<h3>Find<br/> your Way</h3>
 			    <div class="listbox">
 			        <ul class="list has-sub-menus">
 			            <li class="inactive">
@@ -47,7 +48,7 @@
 			    </div>
 			</div>
 
-			<a href="#" class="button-1 mobile-menu-signup">SIGN UP FOR NEWSLETTER</a>
+			<a href="#" class="button-1 mobile-menu-signup">NEWSLETTER SIGN UP</a>
 
 			<div class="mobile-menu-social">
 				<!-- links will be copied from the footer which is connected to db so no worries about this section -->
@@ -74,14 +75,14 @@
 	//sign up
 	$(function(){
 		$_newsLetter_input   = $('#newsletter-email');
-		$_mobile_menu_signup = $('.mobile-menu-signup');
-		if($_newsLetter_input.length == 0) return $_mobile_menu_signup.remove();
+		$_mobile_menu_signup = $('.mobile-menu-signup, .footer-link3');
+		if($_newsLetter_input.length == 0) return $_mobile_menu_signup.hide();
 		$_mobile_menu_signup.click(function(e){
 			e.preventDefault();
 			//close the popup and focus the input at the footer
 			$('.mobile-menu-close').click();
 			$('html, body').animate({
-			    scrollTop: $_newsLetter_input.offset().top
+			    scrollTop: $_newsLetter_input.offset().top - 200
 			}, 1000, function(){
 				$_newsLetter_input.focus();
 			});

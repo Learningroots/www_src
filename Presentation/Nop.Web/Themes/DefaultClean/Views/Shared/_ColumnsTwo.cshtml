@@ -28,6 +28,11 @@
         currentProductId = Convert.ToInt32(Url.RequestContext.RouteData.Values["productId"].ToString());
     }
 }
+
+<!-- If you want to hide the girl on sidebar, just add a css class 'no-girl' to the following element -->
+<!-- so the following element becomes like this -->
+<!--  <div class="side-2 no-girl">  -->
+<!-- PLEASE REMOVE ALL THESE COMMENTS ONE READ -->
 <div class="side-2">
     @if (IsSectionDefined("left"))
     {

@@ -20,6 +20,7 @@
             @Html.Action("FlyoutShoppingCart", "ShoppingCart")
         </div>
     </div>
+    <div class="full-width-menu-bg"></div>
     <div class="header-logo wrapper">
 
         <a href="#" class="burger-menu">
@@ -77,6 +78,22 @@
 @Html.Widget("recommended_for_you")
 
 <script type="text/javascript">
+    //sub menu bg
+    var $_full_width_menu_bg = $('.full-width-menu-bg');
+    $('.main-menu > li').hover(
+        function(){
+            var $this = $(this);
+            $_full_width_menu_bg.height( $this.find('.sub-menu').height() ).show();
+            if( $this.index( $('.main-menu > li') ) != 0  ) {
+                $('.main-menu > li').first().find('>a').removeClass('menu-active');
+            }
+        },
+        function(){
+            $_full_width_menu_bg.height(0).hide();
+            $('.main-menu > li:first-child').find('>a').addClass('menu-active');
+        }
+    );
+
     //create cookie so this message should not appear again for a month
     if(!$.cookie('topmessage')) {
         $('.top-message-special').removeClass('cookieHideMessage').find('.btn-close').click(function(){

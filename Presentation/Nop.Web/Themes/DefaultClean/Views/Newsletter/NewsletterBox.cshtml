@@ -6,11 +6,10 @@
     </div>
     <div class="listbox">
         <div id="newsletter-subscribe-block" class="newsletter-subscribe-block">
-            <!-- <span>@T("Newsletter.Subscribe"):</span> -->
             <div class="newsletter-email">
-            @Html.TextBoxFor(x => x.NewsletterEmail, new { id = "newsletter-email", placeholder = "Enter your email address" })
-            @Html.ValidationMessageFor(x => x.NewsletterEmail)
-            <input type="button" value="@T("Newsletter.Button")" id="newsletter-subscribe-button" class="button-1 newsletter-subscribe-button" />
+                @Html.TextBoxFor(x => x.NewsletterEmail, new { id = "newsletter-email", placeholder = "Enter your email address" })
+                @Html.ValidationMessageFor(x => x.NewsletterEmail)
+                <input type="button" value="@T("Newsletter.Button")" id="newsletter-subscribe-button" class="button-1 newsletter-subscribe-button" />
                 <span id="subscribe-loading-progress" style="display: none;" class="please-wait"></span>
                 <div id="newsletter-result-block" class="newsletter-result-block"></div>
             </div>
