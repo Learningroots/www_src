@@ -67,10 +67,13 @@
 
                         <!-- price -->
                         @{
-            var dataDictPrice = new ViewDataDictionary();
-            dataDictPrice.TemplateInfo.HtmlFieldPrefix = string.Format("price_{0}", Model.Id);
-            @Html.Partial("_ProductPrice", Model.ProductPrice, dataDictPrice)
+                            var dataDictPrice = new ViewDataDictionary();
+                            dataDictPrice.TemplateInfo.HtmlFieldPrefix = string.Format("price_{0}", Model.Id);
+                            @Html.Partial("_ProductPrice", Model.ProductPrice, dataDictPrice)
                         }
+
+                        <!--product SKU, manufacturer part number, stock info-->
+                        @Html.Partial("_SKU_Man_Stock", Model)
 
                         @Html.Widget("productdetails_overview_top", Model.Id)
 
@@ -110,11 +113,12 @@
                         @Html.Partial("_AddToCart", Model.AddToCart, dataDictAddToCart)
                         }
 
-                        <!--product SKU, manufacturer part number, stock info-->
-                        @Html.Partial("_SKU_Man_Stock", Model)
-
 
                         @Html.Partial("_ShareButton", Model)
+
+                        <script type="text/javascript">
+                            $('.product-share-button').append('<span class="product-share-label">Share it!</span>')
+                        </script>
 
                         @Html.Widget("productdetails_overview_bottom", Model.Id)
                     </div>
