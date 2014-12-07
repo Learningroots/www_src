@@ -952,12 +952,15 @@ namespace Nop.Web.Controllers
         public ActionResult RegisterResult(int resultId)
         {
             var resultText = "";
+            var resultTitle = _localizationService.GetResource("Account.Register"); ;
+
             switch ((UserRegistrationType)resultId)
             {
                 case UserRegistrationType.Disabled:
                     resultText = _localizationService.GetResource("Account.Register.Result.Disabled");
                     break;
                 case UserRegistrationType.Standard:
+                    resultTitle = _localizationService.GetResource("Account.Register.Result.Standard.Title");
                     resultText = _localizationService.GetResource("Account.Register.Result.Standard");
                     break;
                 case UserRegistrationType.AdminApproval:
@@ -971,8 +974,10 @@ namespace Nop.Web.Controllers
             }
             var model = new RegisterResultModel()
             {
-                Result = resultText
+                Result = resultText,
+                ResultTitle = resultTitle
             };
+
             return View(model);
         }
 
