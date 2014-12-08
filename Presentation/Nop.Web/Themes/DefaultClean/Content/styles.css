@@ -4268,6 +4268,10 @@ select#checkout_attribute_1 {
 	display: none;
 }
 
+.ordercompleted .page-title h1 {
+	border: none;
+}
+
 .top-message-special {
 	display: none;
 	background: #000;
