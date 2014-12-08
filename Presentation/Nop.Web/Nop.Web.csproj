@@ -1559,7 +1559,7 @@
     <Content Include="Themes\DefaultClean\Content\images\mobile-menu-collapse.png" />
     <Content Include="Themes\DefaultClean\Content\images\mobile-menu-expand.png" />
     <Content Include="Themes\DefaultClean\Content\images\mobile-menu-girl.jpg" />
-    <Content Include="Themes\DefaultClean\Content\images\mobile-menu-social.jpg" />
+    <Content Include="Themes\DefaultClean\Content\images\mobile-menu-social.png" />
     <Content Include="Themes\DefaultClean\Content\images\mybasket.jpg" />
     <Content Include="Themes\DefaultClean\Content\images\myorder.jpg" />
     <Content Include="Themes\DefaultClean\Content\images\newcustomer-txt.jpg" />
@@ -1585,9 +1585,13 @@
     <Content Include="Themes\DefaultClean\Content\images\top-menu-triangle.png" />
     <Content Include="Themes\DefaultClean\Content\images\twitter-big.png" />
     <Content Include="Themes\DefaultClean\Content\images\twitter.png" />
+    <Content Include="Themes\DefaultClean\Content\images\viewer-controls.jpg" />
     <Content Include="Themes\DefaultClean\Content\images\youtube.png" />
     <Content Include="Themes\DefaultClean\Content\js\jquery.cookie.js" />
+    <Content Include="Themes\DefaultClean\Content\js\jquery.elevatezoom.js" />
+    <Content Include="Themes\DefaultClean\Content\js\jquery.iviewer.js" />
     <Content Include="Themes\DefaultClean\Content\js\jquery.tinycarousel.min.js" />
+    <Content Include="Themes\DefaultClean\Content\js\jquery.zoom.js" />
     <Content Include="Themes\DefaultClean\Content\responsive.css" />
     <Content Include="Themes\DefaultClean\Content\images\star-x-active.png" />
     <Content Include="Themes\DefaultClean\Content\images\star-x-inactive.png" />

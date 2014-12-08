@@ -21,70 +21,39 @@
     </div>
 
     <div class="footer-menu-wrapper wrapper">
-        <div class="column information">
-            <h3>@T("Footer.Information")</h3>
-            <ul>
-                @if (Model.SitemapEnabled)
-                {
-                    <li><a href="@Url.RouteUrl("Sitemap")">@T("Sitemap")</a></li>
-                }
-                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("shippinginfo") })">@T("ShippingReturns")</a></li>
-                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("privacyinfo") })">@T("PrivacyNotice")</a></li>
-                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("conditionsofuse") })">@T("ConditionsOfUse")</a></li>
-                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("aboutus") })">@T("AboutUs")</a></li>
-                <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
-            </ul>
-        </div>
         <div class="column customer-service">
             <h3>@T("Footer.CustomerService")</h3>
             <ul>
                 <li><a href="@Url.RouteUrl("ProductSearch")">@T("Search")</a> </li>
-                @if (Model.NewsEnabled)
-                {
-                    <li><a href="@Url.RouteUrl("NewsArchive")">@T("News")</a></li>
-                }
+                <li><a href="@Url.RouteUrl("Topic", new { SeName = Html.GetTopicSeName("faq") })">@T("faq")</a></li>
+                <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("shippinginfo") })">@T("ShippingReturns")</a></li>
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("privacyinfo") })">@T("PrivacyNotice")</a></li>
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("conditionsofuse") })">@T("ConditionsOfUse")</a></li>
+            </ul>
+        </div>
+        <div class="column information">
+            <h3>@T("Footer.AboutUs")</h3>
+            <ul>
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("aboutus")})">@T("AboutUs")</a></li>
                 @if (Model.BlogEnabled)
                 {
                     <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
                 }
-                @if (Model.ForumEnabled)
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("international")})">@T("International")</a></li>
+                @if (Model.SitemapEnabled)
                 {
-                    <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
-                }
-                @if (Model.RecentlyViewedProductsEnabled)
-                {
-                    <li><a href="@Url.RouteUrl("RecentlyViewedProducts")">@T("Products.RecentlyViewedProducts")</a></li>
-                }
-                @if (Model.CompareProductsEnabled)
-                {
-                    <li><a href="@Url.RouteUrl("CompareProducts")">@T("Products.Compare.List")</a></li>
-                }
-                @if (Model.RecentlyAddedProductsEnabled)
-                {
-                    <li><a href="@Url.RouteUrl("RecentlyAddedProducts")">@T("Products.NewProducts")</a></li>
+                    <li><a href="@Url.RouteUrl("Sitemap")">@T("Sitemap")</a></li>
                 }
             </ul>
         </div>
         <div class="column my-account">
-            <h3>@T("Footer.MyAccount")</h3>
+            <h3>@T("Footer.Trade")</h3>
             <ul>
-                <li><a href="@Url.RouteUrl("CustomerInfo")" class="account">@T("Account.MyAccount")</a></li>
-                @if (!Model.HideOrders)
-                {
-                    <li><a href="@Url.RouteUrl("CustomerOrders")">@T("Account.CustomerOrders")</a></li>
-                }
-                @if (!Model.HideAddresses)
-                {
-                    <li><a href="@Url.RouteUrl("CustomerAddresses")" class="">@T("Account.CustomerAddresses")</a></li>
-                }
-                @if (Model.ShoppingCartEnabled)
-                {
-                    <li><a href="@Url.RouteUrl("ShoppingCart")" class="ico-cart">@T("ShoppingCart")</a></li>
-                }
-                @if (Model.WishlistEnabled)
-                {
-                    <li><a href="@Url.RouteUrl("Wishlist")" class="ico-wishlist">@T("Wishlist")</a></li>
-                }
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("retail")})">@T("Footer.Retail")</a></li>
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("education")})">@T("Footer.Education")</a></li>
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("translate")})">@T("Footer.Translate")</a></li>
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("champions")})">@T("Footer.Champions")</a></li>
             </ul>
         </div>
         <div class="column follow-us">
