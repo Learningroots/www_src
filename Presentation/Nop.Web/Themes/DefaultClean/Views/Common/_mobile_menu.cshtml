@@ -58,7 +58,7 @@
 					var $_footer_links = $('.footer .follow-us');
 					var $_mobile_social_list = $('.mobile-menu-social ul');
 					if($_footer_links.length != 0) {
-						$_mobile_social_list.append(
+						$_mobile_social_list.add('.thank-you-share-list ul').append(
 							$_footer_links.find('.facebook').clone(),
 							$_footer_links.find('.youtube').clone(),
 							$_footer_links.find('.twitter').clone()

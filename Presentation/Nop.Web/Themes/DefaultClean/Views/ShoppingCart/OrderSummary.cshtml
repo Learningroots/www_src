@@ -8,6 +8,12 @@
 <div class="order-summary-content">
     @Html.Widget("order_summary_content_before")
     @Html.Partial("_OrderReviewData", Model.OrderReviewData)
+    <div class="order-top-btns">
+        <input type="submit" name="continueshopping" value="@T("ShoppingCart.ContinueShopping")" class="continue-shopping-button" />
+        <button type="submit" id="checkout" name="checkout" value="checkout" class="button-1 checkout-button">
+            @T("Checkout.Button")
+        </button>
+    </div>
     @if (Model.Items.Count > 0)
     {
         if (Model.Warnings.Count > 0)
@@ -186,7 +192,6 @@
             {
                 <div class="common-buttons">
                     <input type="submit" name="updatecart" value="@T("ShoppingCart.UpdateCart")" class="button-2 update-cart-button" />
-                    <input type="submit" name="continueshopping" value="@T("ShoppingCart.ContinueShopping")" class="button-2 continue-shopping-button" />
                 </div>
                 
                 @Html.Widget("message_freedelivery")
@@ -222,13 +227,14 @@
                 {
                     if (Model.TermsOfServiceOnShoppingCartPage)
                     {
-                        <div id="terms-of-service-warning-box" title="@T("Checkout.TermsOfService")" style="display:none;">
-                            <p>@T("Checkout.TermsOfService.PleaseAccept")</p>
-                        </div>
+                        
                         <div class="terms-of-service">
                             <input id="termsofservice" type="checkbox" name="termsofservice" />
                             @T("Checkout.TermsOfService.IAccept")
                             <span class="read" onclick="javascript:OpenWindow('@Url.RouteUrl("TopicPopup", new { SystemName = "conditionsofuse" })', 450, 500, true)">@T("Checkout.TermsOfService.Read")</span>
+                        </div>
+                        <div id="terms-of-service-warning-box" title="@T("Checkout.TermsOfService")" style="display:none;">
+                            <p>@T("Checkout.TermsOfService.PleaseAccept")</p>
                         </div>
                     }
                     <div class="checkout-buttons">
@@ -236,13 +242,14 @@
                         {
                             <script type="text/javascript">
                                 $(document).ready(function () {
-                                    $('#checkout').click(function () {
+                                    $('.checkout-button').click(function (e) {
                                         //terms of service
                                         var termOfServiceOk = true;
                                         if ($('#termsofservice').length > 0) {
                                             //terms of service element exists
                                             if (!$('#termsofservice').is(':checked')) {
-                                                $("#terms-of-service-warning-box").dialog();
+                                                e.preventDefault();
+                                                $("#terms-of-service-warning-box").show();
                                                 termOfServiceOk = false;
                                             } else {
                                                 termOfServiceOk = true;
@@ -252,6 +259,7 @@
                                     });
                                 });
                             </script>
+
                             <button type="submit" id="checkout" name="checkout" value="checkout" class="button-1 checkout-button">
                                 @T("Checkout.Button")
                             </button>
