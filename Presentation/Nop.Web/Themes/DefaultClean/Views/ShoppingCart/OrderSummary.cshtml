@@ -250,6 +250,11 @@
                                             if (!$('#termsofservice').is(':checked')) {
                                                 e.preventDefault();
                                                 $("#terms-of-service-warning-box").show();
+                                                $('html, body').animate({
+                                                    scrollTop: $("#terms-of-service-warning-box").offset().top - 200
+                                                }, 300, function(){
+                                                    $("#terms-of-service-warning-box").show();
+                                                });
                                                 termOfServiceOk = false;
                                             } else {
                                                 termOfServiceOk = true;
