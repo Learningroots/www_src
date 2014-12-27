@@ -35,8 +35,10 @@
         <div class="column information">
             <h3>@T("Footer.AboutUs")</h3>
             <ul>
-                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("aboutus")})">@T("AboutUs")</a></li>
-                @if (Model.BlogEnabled)
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("ourteam")})">@T("footer.ourteam")</a></li>
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("ourtouch")})">@T("footer.ourtouch")</a></li>
+                <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("ourstory")})">@T("footer.ourstory")</a></li>
+               @if (Model.BlogEnabled)
                 {
                     <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
                 }
