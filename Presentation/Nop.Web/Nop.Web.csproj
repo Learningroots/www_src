@@ -1528,6 +1528,7 @@
     <Content Include="Themes\DefaultClean\Content\images\bullets.png" />
     <Content Include="Themes\DefaultClean\Content\images\card.png" />
     <Content Include="Themes\DefaultClean\Content\images\character-1.jpg" />
+    <Content Include="Themes\DefaultClean\Content\images\checkout-logo.jpg" />
     <Content Include="Themes\DefaultClean\Content\images\close-btn.jpg" />
     <Content Include="Themes\DefaultClean\Content\images\close_icon.png" />
     <Content Include="Themes\DefaultClean\Content\images\comment-bg.jpg" />
@@ -1588,10 +1589,8 @@
     <Content Include="Themes\DefaultClean\Content\images\viewer-controls.jpg" />
     <Content Include="Themes\DefaultClean\Content\images\youtube.png" />
     <Content Include="Themes\DefaultClean\Content\js\jquery.cookie.js" />
-    <Content Include="Themes\DefaultClean\Content\js\jquery.elevatezoom.js" />
     <Content Include="Themes\DefaultClean\Content\js\jquery.iviewer.js" />
     <Content Include="Themes\DefaultClean\Content\js\jquery.tinycarousel.min.js" />
-    <Content Include="Themes\DefaultClean\Content\js\jquery.zoom.js" />
     <Content Include="Themes\DefaultClean\Content\responsive.css" />
     <Content Include="Themes\DefaultClean\Content\images\star-x-active.png" />
     <Content Include="Themes\DefaultClean\Content\images\star-x-inactive.png" />
@@ -2063,6 +2062,7 @@
     <Content Include="Themes\DefaultClean\Views\Shared\_ColumnsTwo.cshtml" />
     <Content Include="Themes\DefaultClean\Content\fonts\CandyScript.ttf" />
     <Content Include="Themes\DefaultClean\Content\fonts\ProximaNova.otf" />
+    <Content Include="Themes\DefaultClean\Views\Checkout\OnePageCheckout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Thumbs\" />
