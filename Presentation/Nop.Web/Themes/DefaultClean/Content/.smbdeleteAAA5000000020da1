@@ -2956,7 +2956,7 @@ select#checkout_attribute_1 {
 
 .thankyou {
 	background: url(images/thankyou.png) no-repeat center;
-	height: 285px;
+	height: 270px;
 	margin-top: -212px;
 }
 
@@ -2972,8 +2972,8 @@ select#checkout_attribute_1 {
 
 .thank-you-links > div {
 	float: right;
-	width: 100%; /*33%*/
-	margin-bottom: 30px;
+	width: 33%;
+	margin-bottom: 80px;
 }
 
 .thank-you-links h3 {
