@@ -2887,8 +2887,9 @@ select#checkout_attribute_1 {
 
 .confirm-order-next-step-button {
 	padding: 20px 70px !important;
-	margin: 21px 0 45px 460px !important;
+	margin: 0px 0 40px 0 !important;
 	font-size: 16px !important;
+	float: right;
 }
 
 .checkout-data .order-review-data li {
