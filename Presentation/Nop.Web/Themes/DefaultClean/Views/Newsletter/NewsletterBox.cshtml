@@ -1,52 +1,36 @@
 ﻿@model NewsletterBoxModel
 @using Nop.Web.Models.Newsletter;
-<div class="block block-newsletter">
-    <div class="title">
-        <strong>@T("Newsletter.Title")</strong>
-    </div>
-    <div class="listbox">
-        <div id="newsletter-subscribe-block" class="newsletter-subscribe-block">
-            <div class="newsletter-email">
-                @Html.TextBoxFor(x => x.NewsletterEmail, new { id = "newsletter-email", placeholder = "Enter your email address" })
-                @Html.ValidationMessageFor(x => x.NewsletterEmail)
-                <input type="button" value="@T("Newsletter.Button")" id="newsletter-subscribe-button" class="button-1 newsletter-subscribe-button" />
-                <span id="subscribe-loading-progress" style="display: none;" class="please-wait"></span>
-                <div id="newsletter-result-block" class="newsletter-result-block"></div>
+
+
+<!-- Begin MailChimp Signup Form -->
+<link href="//cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+    #mc_embed_signup {
+        background: #fff;
+        clear: left;
+        font: 14px Helvetica,Arial,sans-serif;
+    }
+    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+       We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+</style>
+<div id="mc_embed_signup">
+    <form action="//learningroots.us1.list-manage.com/subscribe/post?u=1fc2a761b1fb5d8dc8399d514&amp;id=2c75f45850" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+        <div class="block block-newsletter">
+            <div id="mc_embed_signup_scroll" class="title">
+                <label for="mce-EMAIL"><strong>@T("Newsletter.Title")</strong></label>
+            </div>
+            <div class="listbox">
+                <div id="newsletter-subscribe-block" class="newsletter-subscribe-block">
+                    <div class="newsletter-email">
+                        <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Enter your email address" required>
+                        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button-1 newsletter-subscribe-button">
+                        <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                        <div style="position: absolute; left: -5000px;"><input type="text" name="b_1fc2a761b1fb5d8dc8399d514_2c75f45850" tabindex="-1" value=""></div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#newsletter-subscribe-button').click(function () {
-                
-                var email = $("#newsletter-email").val();
-                var subscribeProgress = $("#subscribe-loading-progress");
-                subscribeProgress.show();
-                //return;
-                $.ajax({
-                    cache: false,
-                    type: "POST",
-                    url: "@(Url.RouteUrl("SubscribeNewsletter"))",
-                    data: { "email": email },
-                    success: function (data) {
-                        subscribeProgress.hide();
-                        $("#newsletter-result-block").html(data.Result);
-                         if (data.Success) {
-                            $('#newsletter-subscribe-block .newsletter-email').addClass('newsletter-success').html(data.Result);
-                            $('.mobile-menu-signup').remove();
-                            $('#newsletter-result-block').hide();
-                         }
-                         else {
-                            $('#newsletter-result-block').fadeIn("slow").delay(2000).fadeOut("slow");
-                         }
-                    },
-                    error:function (xhr, ajaxOptions, thrownError){
-                        alert('Failed to subscribe.');
-                        subscribeProgress.hide();
-                    }  
-                });                
-                return false;
-            });
-        });
-    </script>
+    </form>
 </div>
+
+<!--End mc_embed_signup-->
