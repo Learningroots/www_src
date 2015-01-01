@@ -1697,7 +1697,7 @@ li.sub-menu-active > a,
 
 .block-newsletter .newsletter-email {
 	background: url(images/newsletter.jpg) no-repeat 0 0;
-	width: 580px;
+	width: 660px;
 	margin: auto;
 	padding-left: 75px;
 	height: 50px;
@@ -1714,6 +1714,16 @@ li.sub-menu-active > a,
 	display: inline-block;
 	height: 20px;
 	width: 20px;
+}
+
+#mc_embed_signup #newsletter-subscribe-block input.email {
+	padding: 11px;
+	border-radius: 5px;
+	width: 460px;
+	background: #F1F1F1;
+	border: 1px solid #E7E7E7;
+	font-size: 14px;
+	float: left;
 }
 
 .block-newsletter .newsletter-email.newsletter-success {
@@ -1736,11 +1746,12 @@ li.sub-menu-active > a,
 	margin-right: 10px;
 }
 
-.block-newsletter #newsletter-subscribe-button {
-	padding: 11px 10px 11px;
+.block-newsletter #mc-embedded-subscribe {
+	padding: 12px 13px 10px;
 	border-radius: 7px;
 	box-shadow: 0px 4px 0px #7B021E;
-	margin-top: -6px;
+	margin-top: -2px;
+	border: none;
 }
 
 .block-newsletter .title {
@@ -1880,7 +1891,7 @@ li.sub-menu-active > a,
 
 .mini-shopping-cart .item .picture {
 	float: left;
-	width: 90px;
+	width: 75px;
 	padding-top: 15px;
 	margin-bottom: 8px;
 }
