@@ -198,6 +198,10 @@
 
                 @Html.Partial("_CheckoutAttributes", Model.CheckoutAttributes, new ViewDataDictionary())
             }
+            <script type="text/javascript">
+                var $_f_msg = $('.order-summary-content .top-message-special');
+                $_f_msg.html($_f_msg.text().replace('FREE DELIVERY', '<span>FREE DELIVERY</span>'));
+            </script>
         </div>
         <div class="cart-footer">
             @Html.Widget("order_summary_cart_footer")

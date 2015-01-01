@@ -2218,7 +2218,7 @@ select#checkout_attribute_1 {
 .order-summary-content .coupon-box .hint,.order-summary-content .giftcard-box .hint {
 	padding-top: 5px;
 	margin-bottom: 10px;
-	font-family: "BreeBold";
+	text-transform: uppercase;
 }
 
 .order-summary-content .giftcard-box {
@@ -2321,7 +2321,9 @@ select#checkout_attribute_1 {
 	margin: 0;
 	font-size: 12px;
 	float: right;
-	width: 230px;
+	width: 340px;
+	border-top: 1px solid #EEE;
+	padding-top: 5px;
 }
 
 .order-summary-content .total-info .selected-shipping-method {
@@ -2340,6 +2342,7 @@ select#checkout_attribute_1 {
 	height: 21px;
 	font-weight: 700;
 	color: #666;
+	padding: 5px 0;
 }
 
 .continue-shopping-button {
@@ -2357,6 +2360,14 @@ select#checkout_attribute_1 {
 
 .checkout-page .order-top-btns {
 	display: none;
+}
+
+.cart-total tr:last-child {
+	border-top: 1px solid #eee;
+}
+
+.cart-total tr:last-child td {
+	padding-top: 10px;
 }
 
 .cart-total tr:last-child td * {
@@ -2524,9 +2535,9 @@ select#checkout_attribute_1 {
 
 .order-summary-content .checkout-buttons .checkout-button {
 	display: inline-block;
-	padding: 0px 25px;
 	border-radius: 3px;
-	padding: 9px 110px;
+	padding: 10px 0;
+	width: 335px;
 }
 
 .order-summary-content .addon-buttons {
@@ -4284,9 +4295,13 @@ select#checkout_attribute_1 {
 	margin-top: 20px;
 }
 
+.order-summary-content .cookieHideMessage span {
+	color: #DF0C3D;
+}
+
 .order-summary-content .top-message-special {
-	background: #DF0C3D;
-	color: #fff;
+	background: #e0e0e0;
+	color: #000;
 }
 
 .btn-close {
