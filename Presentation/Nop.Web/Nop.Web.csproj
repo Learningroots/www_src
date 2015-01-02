@@ -2063,6 +2063,7 @@
     <Content Include="Themes\DefaultClean\Content\fonts\CandyScript.ttf" />
     <Content Include="Themes\DefaultClean\Content\fonts\ProximaNova.otf" />
     <Content Include="Themes\DefaultClean\Views\Checkout\OnePageCheckout.cshtml" />
+    <Content Include="Views\Install\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Thumbs\" />
@@ -2230,7 +2231,6 @@
     <Content Include="Views\Boards\_ForumPost.cshtml" />
     <Content Include="Views\Boards\LastPost.cshtml" />
     <Content Include="Views\Boards\_SearchBox.cshtml" />
-    <Content Include="Views\Install\Index.cshtml" />
     <Content Include="Views\PrivateMessages\Index.cshtml" />
     <Content Include="Views\PrivateMessages\SendPM.cshtml" />
     <Content Include="Views\PrivateMessages\ViewPM.cshtml" />
