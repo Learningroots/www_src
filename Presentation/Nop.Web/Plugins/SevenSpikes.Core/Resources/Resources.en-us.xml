@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Language Name="English">
+  <LocaleResource Name="SevenSpikes.Core.Admin.Help">
+    <Value>Help</Value>
+  </LocaleResource>
+  
   <LocaleResource Name="SevenSpikes.Themes.Admin.Settings.CustomHeadStyles">
     <Value>Custom Head Styles</Value>
   </LocaleResource>
