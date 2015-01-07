@@ -438,6 +438,7 @@ ul.language-list li:hover {
 	margin-right: 106px;
 }
 
+.header-links .ico-uk a,
 .header-links .ico-france a,
 .header-links .ico-account a,
 .header-links .ico-orders a {
@@ -445,12 +446,16 @@ ul.language-list li:hover {
 	padding-top: 10px;
 }
 
-
+.header-links .ico-uk a,
 .header-links .ico-france a {
 	margin-right: 32px;
 	background: url('data:image/gif;base64,R0lGODlhEAALAMQAAEp1zmOP3PIAAP///3yi5vgZBP8AAJCv6ld+03OX5P8uGvYKAP8PAE1+0/8XAGOU3oOm6Ji18Hyg51WC1P4IAGCF1fcAAISt5v8dBFF6z2qU3fUTAJSt5miP3lJ+1FqG1iH5BAAHAP8ALAAAAAAQAAsAAAVQYCRGx2CeCuasV3tB54kxVA3dkBSbc00RQOBu0KsljschzcDsODWaYc1C/VgDn6GBSvV4P5MhVUAGADKIjJhM9qARiOFiPp/YK5VhYcPfhAAAOw==') no-repeat 0 7px;
 	padding-left: 29px;
 	background-size: 23px;
+}
+
+.header-links .ico-uk a {
+	background: url('images/ico-flag-uk.jpg') no-repeat 0 7px;
 }
 
 .header-links a {
