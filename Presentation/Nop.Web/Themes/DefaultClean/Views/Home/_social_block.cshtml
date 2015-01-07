@@ -48,6 +48,7 @@
 			$socialBlocks.each(function(){
 				var $that = $(this);
 				var thatHeight = $that.height();
+				console.log(thatHeight)
 				if(thatHeight > tallest) tallest = thatHeight;
 			});
 			$socialBlocks.height(tallest);

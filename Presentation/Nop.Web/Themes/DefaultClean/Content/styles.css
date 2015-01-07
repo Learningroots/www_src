@@ -3620,13 +3620,14 @@ select#checkout_attribute_1 {
 
 .social-block {
 	background: #FFF;
-	width: 250px;
+	width: 235px;
 	display: inline-block;
 	float: left;
-	margin: 0 8px;
-	margin-bottom: 16px;
-	padding: 10px;
-	box-shadow: 1px 1px 2px #DDD;
+	margin: 0 15px;
+	margin-bottom: 30px;
+	padding: 15px;
+	padding-bottom: 12px;
+	box-shadow: 2px 2px 2px #DDD;
 }
 
 .social_instagram .social-block {
@@ -3759,8 +3760,8 @@ select#checkout_attribute_1 {
 .home-page .homepage-tabs {
 	background: inherit;
 	width: 100%;
-	margin-bottom: 50px;
-	margin-top: 50px;
+	margin-bottom: 55px;
+	margin-top: 55px;
 }
 
 .tabs-wrapper {
