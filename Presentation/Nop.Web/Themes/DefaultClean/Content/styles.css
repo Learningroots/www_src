@@ -967,6 +967,10 @@ textarea, input { outline: none !important; }
 	margin: 15px;
 }
 
+.side-2 .block-other-links {
+	display: none;
+}
+
 .mobile-menu-body .block-other-links {
 	margin-bottom: 10px;
 }
