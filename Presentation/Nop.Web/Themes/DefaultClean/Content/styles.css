@@ -3579,11 +3579,11 @@ select#checkout_attribute_1 {
 .home-discover .slider .overview li a .image-wrapper {
 	height: 134px;
 	overflow: hidden;
-	margin-bottom: 9px;
+	margin-bottom: 18px;
 }
 
 .home-discover .slider .overview li a .image-wrapper img {
-	border-radius: 100px;
+	width: 180px;
 }
 
 /* home page social block */
@@ -3830,6 +3830,13 @@ select#checkout_attribute_1 {
 	position: relative;
 }
 
+.charater-other p {
+	margin-top: 45%;
+	font-size: 18px;
+	text-align: center;
+	line-height: 22px;
+}
+
 .charater-bio {
 	border-right: 1px solid #eee;
 }
@@ -3866,8 +3873,13 @@ select#checkout_attribute_1 {
 	margin-top: -7px;
 }
 
+.charater-bio p {
+	font-size: 14px; 
+}
+
 .charater-bio p, .charater-other p {
 	margin-bottom: 0;
+	font-family: "Ronnia";
 }
 
 
