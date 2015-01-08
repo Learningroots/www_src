@@ -976,6 +976,10 @@ textarea, input { outline: none !important; }
 	display: none;
 }
 
+.side-2 .mobile-main-menu .block-other-links {
+	display: block;
+}
+
 .mobile-menu-body .block-other-links {
 	margin-bottom: 10px;
 }
