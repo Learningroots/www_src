@@ -1,3 +1,8 @@
+@{
+    //image folder path
+    var imagesfolder = "~/Themes/DefaultClean/Content/images";
+}
+
 <span class="social-block-testimonials-icon"></span>
 
 <!-- 6 blocks of .social-block will go here  -->
@@ -10,7 +15,7 @@
 </div>
 
 <div class="social-block">
-	<img src="http://dummyimage.com/205x108/C8133C/ffffff"/>
+	<img src="@Url.Content(imagesfolder)/testimonial1.jpg"/>
 </div>
 
 <div class="social-block">
@@ -22,7 +27,7 @@
 </div>
 
 <div class="social-block">
-	<img src="http://dummyimage.com/205x108/C8133C/ffffff"/>
+	<img src="@Url.Content(imagesfolder)/testimonial2.jpg"/>
 </div>
 
 <div class="social-block">
@@ -34,5 +39,5 @@
 </div>
 
 <div class="social-block">
-	<img src="http://dummyimage.com/205x108/C8133C/ffffff"/>
+	<img src="@Url.Content(imagesfolder)/testimonial3.jpg"/>
 </div>
