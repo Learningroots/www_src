@@ -1737,12 +1737,12 @@ li.sub-menu-active > a,
 #mc_embed_signup #newsletter-subscribe-block input.email {
 	padding: 11px;
 	border-radius: 5px;
-	width: 470px;
+	width: 465px;
 	background: #F1F1F1;
 	border: 1px solid #E7E7E7;
 	font-size: 14px;
 	float: left;
-	margin-right: 5px;
+	margin-right: 10px;
 }
 
 .block-newsletter .newsletter-email.newsletter-success {
@@ -3635,7 +3635,7 @@ select#checkout_attribute_1 {
 .social-block {
 	background: #FFF;
 	width: 235px;
-	display: inline-block;
+	display: table;
 	float: left;
 	margin: 0 15px;
 	margin-bottom: 30px;
@@ -3700,6 +3700,11 @@ select#checkout_attribute_1 {
 
 .home-meet-chars-block .tabs-arrows .tab-arrow {
 	top: 315px;
+}
+
+.social-block > div {
+	display: table-cell;
+	vertical-align: middle;
 }
 
 .social-block div a {

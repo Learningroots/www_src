@@ -6,9 +6,28 @@
 	</div>
 
 	<div class="wrapper">
-		<h3 class="home-block-title">Testimonials</h3>
-		<div style="width: 100%; height: 45px;"></div>
+		<h3 class="home-block-title">Connect with Learning Roots</h3>
+
+		<div class="homepage-tabs product-page-tabs">
+			<a href="#social-twitter" class="active-tab">Twitter</a>
+			<a href="#social-instagram">Instagram</a>
+			<a href="#social-testimonials">Testimonials</a>
+		</div>
+
 		<div class="all-tabs-wrapper">
+			
+			<div id="social-twitter" class="tabs-wrapper">
+				<div class="social-inner-wrapper social_twitter">
+					@Html.Partial("_social_twitter")
+				</div>
+			</div>
+
+			<div id="social-instagram" class="tabs-wrapper">
+				<div class="social-inner-wrapper social_instagram">
+					@Html.Partial("_social_instagram")
+				</div>
+			</div>
+
 			<div id="social-testimonials" class="tabs-wrapper">
 				<div class="social-inner-wrapper social_testimonials">
 					@Html.Partial("_social_testimonials")
@@ -18,19 +37,6 @@
 		</div>
 	</div>
 </div>
-
-<style type="text/css">
-	.social-block-testimonials-icon {
-		top: -112px;
-		right: -1px;		
-	}
-	.social-block {
-		padding: 3px 15px;
-	}
-	.home-social-block .tabs-arrows .tab-arrow {
-		display: none;
-	}
-</style>
 
 <script type="text/javascript">
 	$(window).load(function(){
