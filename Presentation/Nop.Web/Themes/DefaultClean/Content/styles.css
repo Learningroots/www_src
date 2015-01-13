@@ -8049,26 +8049,12 @@ pre {
 }
 
 .main-menu > li .sub-menu .menu-heading {
-	display: block;
-	width: 96%;
-	height: 52px;
-	border-bottom: 1px dotted #fff;
-	margin-bottom: 21px; 
-}
-
-.main-menu > li .sub-menu .menu-heading-1 {
-	background: url(images/menu-shop.jpg) no-repeat -7px 0;
-	background-size: 66px;
-}
-
-.main-menu > li .sub-menu .menu-heading-2 {
-	background: url(images/menu-our-world.jpg) no-repeat -2px 3px;
-	background-size: 106px;
-}
-
-.main-menu > li .sub-menu .menu-heading-3 {
-	background: url(images/menu-nature-lab.jpg) no-repeat -4px 3px;
-	background-size: 122px;
+	font-size: 22px;
+	color: white;
+	font-family: 'CandyScript';
+	padding-top: 14px;
+	font-weight: normal;
+	letter-spacing: 2px;
 }
 
 .main-menu > li .sub-menu ul {
