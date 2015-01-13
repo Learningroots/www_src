@@ -8049,6 +8049,11 @@ pre {
 }
 
 .main-menu > li .sub-menu .menu-heading {
+	display: block;
+	width: 96%;
+	height: 52px;
+	border-bottom: 1px dotted #fff;
+	margin-bottom: 21px;
 	font-size: 22px;
 	color: white;
 	font-family: 'CandyScript';
