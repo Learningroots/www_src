@@ -5496,6 +5496,10 @@ select#checkout_attribute_1 {
 .search-page .search-input {
 	margin-bottom: 10px;
 }
+.search-page .search-input,
+.search-page .product-selectors {
+	display: none;
+}
 
 .search-page .search-input .buttons {
 	text-align: right;
