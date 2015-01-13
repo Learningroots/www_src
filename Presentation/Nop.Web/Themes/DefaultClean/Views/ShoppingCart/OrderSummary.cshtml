@@ -9,7 +9,7 @@
     @Html.Widget("order_summary_content_before")
     @Html.Partial("_OrderReviewData", Model.OrderReviewData)
     <div class="order-top-btns">
-        <input type="submit" name="continueshopping" value="@T("ShoppingCart.ContinueShopping")" class="continue-shopping-button" />
+        <input type="submit" onclick="javascript:location.href='/'" name="continueshopping" value="@T("ShoppingCart.ContinueShopping")" class="continue-shopping-button" />
         <button type="submit" id="checkout" name="checkout" value="checkout" class="button-1 checkout-button">
             @T("Checkout.Button")
         </button>
