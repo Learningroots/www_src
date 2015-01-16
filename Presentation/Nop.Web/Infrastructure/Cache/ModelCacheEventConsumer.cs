@@ -584,6 +584,12 @@ namespace Nop.Web.Infrastructure.Cache
         public const string WIDGET_MODEL_KEY = "Nop.pres.widget-{0}-{1}";
         public const string WIDGET_PATTERN_KEY = "Nop.pres.widget";
 
+        /// <summary>
+        /// Key for Twitter Feeds caching
+        /// </summary>
+        public const string TWITTER_FEEDS_KEY = "Nop.pres.twitterfeed";
+
+
         private readonly ICacheManager _cacheManager;
         
         public ModelCacheEventConsumer()
