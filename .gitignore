@@ -1,6 +1,5 @@
 bin
 obj
-/Presentation/Nop.Web/Plugins
 /Presentation/Nop.Web/App_Data/Settings.txt
 /Presentation/Nop.Web/App_Data/InstalledPlugins.txt
 /Presentation/Nop.Web/Properties/PublishProfiles/LRPublish.pubxml.user

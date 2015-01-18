@@ -102,6 +102,7 @@ namespace Nop.Web.Framework.Controllers
             var customer = workContext.CurrentCustomer;
             logger.Error(exc.Message, exc, customer);
         }
+
         /// <summary>
         /// Display success notification
         /// </summary>

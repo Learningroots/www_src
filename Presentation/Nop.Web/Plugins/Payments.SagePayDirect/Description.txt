@@ -1,0 +1,8 @@
+Group: Payment methods
+FriendlyName: SagePay Direct
+SystemName: Payments.SagePayDirect
+Version: 3.40
+SupportedVersions: 3.40
+Author: nopCommerceTemplate.com
+DisplayOrder: 1
+FileName: Nop.Plugin.Payments.SagePayDirect.dll

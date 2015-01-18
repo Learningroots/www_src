@@ -367,6 +367,7 @@
     <Compile Include="Domain\Catalog\TierPrice.cs" />
     <Compile Include="Domain\Customers\PasswordFormat.cs" />
     <Compile Include="NopVersion.cs" />
+    <Compile Include="Social\InstagramManager.cs" />
     <Compile Include="Social\TwitterManager.cs" />
     <Compile Include="WebHelper.cs" />
     <Compile Include="Domain\Customers\Customer.cs" />

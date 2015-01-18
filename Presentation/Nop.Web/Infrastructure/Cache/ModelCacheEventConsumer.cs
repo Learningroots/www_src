@@ -589,6 +589,10 @@ namespace Nop.Web.Infrastructure.Cache
         /// </summary>
         public const string TWITTER_FEEDS_KEY = "Nop.pres.twitterfeed";
 
+        /// <summary>
+        /// Key for Instagram Feeds caching
+        /// </summary>
+        public const string INSTAGRAM_FEEDS_KEY = "Nop.pres.instagramfeed";
 
         private readonly ICacheManager _cacheManager;
         
