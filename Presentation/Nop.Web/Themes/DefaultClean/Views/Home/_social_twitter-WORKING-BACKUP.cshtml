@@ -1,0 +1,50 @@
+@using System.Configuration
+@using Nop.Core.Social
+
+<!-- 
+IMPORTANT NOTE: make sure to replace all chars from tweets which are used in template language
+like at sign with twitter username below. Once read, please remove this message -->
+
+<span class="social-block-twitter-icon"></span>
+
+<!-- Make AJAX call to http://<your site URL>/Home/TwitterFeeds to return latest 6 LR tweets in JSON format.
+All API settings are in web.config in <appSettings> section starting with the keys "Twitter_xxx"
+Once read, please remove this message -->
+
+<!-- 6 blocks of .social-block will go here  -->
+
+<script type="text/javascript">
+	$(function(){
+		function formatAMPM(date) {
+			var hours = date.getHours();
+			var minutes = date.getMinutes();
+			var ampm = hours >= 12 ? 'pm' : 'am';
+			hours = hours % 12;
+			hours = hours ? hours : 12; // the hour '0' should be '12'
+			minutes = minutes < 10 ? '0'+minutes : minutes;
+			var strTime = hours + ':' + minutes + ' ' + ampm;
+			return strTime;
+		}
+		function parseTwitterDate(str){
+			var date = new Date(str);
+			return date.getDate() +"/" + date.getMonth() + "/" + date.getFullYear() + " " + formatAMPM(date);
+		} 
+		//http://local.nop.com/Home/TwitterFeed
+		$.getJSON('/Home/TwitterFeed', function(res) {
+			$(res).each(function(){
+				//console.log(this)
+				$('.social_twitter').append(
+					'<div class="social-block">'+
+					    '<div class="social-block-header">'+
+					        '<img class="social-avatar" src="'+this.user.profile_image_url.replace("http:","")+'"/>'+
+					        '<a href="https://twitter.com/'+this.user.screen_name+'">&#64;'+this.user.screen_name+'</a>'+
+					        '<span class="posted-time">'+parseTwitterDate(this.created_at)+'</span>'+ //11/12/2014 11:23PM
+					    '</div>'+
+					    '<div>'+ this.text +'</div>'+
+					'</div>'
+				);
+			});
+			if(window.setEqualHeight) window.setEqualHeight();
+		});
+	});
+</script>

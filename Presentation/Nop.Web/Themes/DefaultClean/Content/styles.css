@@ -791,6 +791,7 @@ textarea, input { outline: none !important; }
 .footer-link3 {
 	background: url(images/at.png) no-repeat 0 0;
 	padding-left: 44px;
+	display: none;
 }
 
 
@@ -3707,9 +3708,9 @@ select#checkout_attribute_1 {
 	vertical-align: middle;
 }
 
-#social-twitter .social-block > div {
+/*#social-twitter .social-block > div {
 	display: block;
-}
+}*/
 
 .social-block div a {
 	color: #C8133C;
@@ -4317,8 +4318,9 @@ select#checkout_attribute_1 {
 	border: none;
 }
 
-.top-message-special {
-	display: none;
+body .order-summary-content .cookieHideMessage,
+body .order-summary-content .top-message-special {
+	display: none !important;
 	background: #000;
 	text-align: center;
 	color: #FFF;
