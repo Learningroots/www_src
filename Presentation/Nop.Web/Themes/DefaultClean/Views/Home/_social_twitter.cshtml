@@ -27,7 +27,7 @@ Once read, please remove this message -->
 		}
 		function parseTwitterDate(str){
 			var date = new Date(str);
-			return date.getDate() +"/" + date.getMonth() + "/" + date.getFullYear() + " " + formatAMPM(date);
+			return date.getDate() +"/" + (date.getMonth() + 1) + "/" + date.getFullYear() + " " + formatAMPM(date);
 		} 
 		//http://local.nop.com/Home/TwitterFeed
 		$.getJSON('/Home/TwitterFeed', function(res) {
