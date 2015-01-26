@@ -7,9 +7,8 @@ like at sign with twitter username below. Once read, please remove this message 
 
 <span class="social-block-twitter-icon"></span>
 
-<!-- Make AJAX call to http://<your site URL>/Home/TwitterFeeds to return latest 6 LR tweets in JSON format.
-All API settings are in web.config in <appSettings> section starting with the keys "Twitter_xxx"
-Once read, please remove this message -->
+<!-- Make AJAX call to http://<your site URL>/Home/TwitterFeed to return latest 6 LR tweets in JSON format.
+All API settings are in app.config starting with the keys "Twitter_xxx" -->
 
 <!-- 6 blocks of .social-block will go here  -->
 
@@ -21,7 +20,7 @@ Once read, please remove this message -->
 			var ampm = hours >= 12 ? 'pm' : 'am';
 			hours = hours % 12;
 			hours = hours ? hours : 12; // the hour '0' should be '12'
-			minutes = minutes < 10 ? '0'+minutes : minutes;
+			minutes = minutes < 10 ? '0'+ minutes : minutes;
 			var strTime = hours + ':' + minutes + ' ' + ampm;
 			return strTime;
 		}
