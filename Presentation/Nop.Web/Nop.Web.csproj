@@ -2065,6 +2065,8 @@
     <Content Include="Themes\DefaultClean\Content\fonts\ProximaNova.otf" />
     <Content Include="Themes\DefaultClean\Views\Checkout\OnePageCheckout.cshtml" />
     <Content Include="Views\Install\Index.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\_social_block-BLOCK.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\_social_twitter-WORKING-BACKUP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Thumbs\" />
