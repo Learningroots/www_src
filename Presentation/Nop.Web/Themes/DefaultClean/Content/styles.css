@@ -2822,6 +2822,11 @@ select#checkout_attribute_1 {
 	border: dotted 1px #d3d3d3;
 }
 
+#CardNumber,
+#CardholderName {
+	width: 68% !important;
+}
+
 .checkout-data .payment-method {
 	text-align: left;
 	border: 1px solid #EEE;
@@ -3703,14 +3708,10 @@ select#checkout_attribute_1 {
 	top: 315px;
 }
 
-.social-block > div {
+#social-testimonials .social-block > div {
 	display: table-cell;
 	vertical-align: middle;
 }
-
-/*#social-twitter .social-block > div {
-	display: block;
-}*/
 
 .social-block div a {
 	color: #C8133C;
