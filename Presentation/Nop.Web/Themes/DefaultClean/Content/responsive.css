@@ -18,7 +18,7 @@
         width: 100%;
     }
     .master-wrapper-main .center-1 {
-        width: 98%;
+        width: 100%;
         padding: 5px 1%;
     }
     .master-wrapper-page {
@@ -65,8 +65,18 @@
         display: table;
         width: 100%;
     }
+    .home-social-block,
     .full-width-menu-bg {
         display: none !important;
+    }
+    .header-links-wrapper a {
+        border-radius: 0 !important;
+        margin: 0;
+        padding: 14px;
+        margin-bottom: -4px;
+    }
+    .main-menu > li:hover a {
+        border-bottom: none;
     }
     .main-menu > li .sub-menu {
         top: 132px;
@@ -79,6 +89,20 @@
         padding: 3px;
         font-size: 18px;
     }
+    .home-discover .slider .viewport {
+        margin: 0;
+        width: 100%;
+        text-align: center;
+    }
+    .home-discover .slider .overview li {
+        float: none;
+        display: inline-block;
+    }
+    .home-discover .slider .overview li {
+        margin: 10px;
+    }
+    .home-discover .slider .prev,
+    .home-discover .slider .next,
     .slider-wrapper {
         display: none !important;
     }
@@ -887,9 +911,6 @@
 
 
 
-
-
-
 @media screen and (max-width: 375px) {
     .header-logo a.logo-site {
         padding-top: 15px;
@@ -904,4 +925,21 @@
         padding-left: 7px;
         padding-right: 7px;
     }
+    .home-discover .slider .overview li a .image-wrapper img {
+        width: 100%;
+    }
+    .home-discover .slider .overview li a .image-wrapper {
+        height: 110px;
+        margin-bottom: 13px;
+    }
+    .home-discover .slider .overview li {
+        width: 135px;
+    }
 }
+
+
+
+
+
+
+
