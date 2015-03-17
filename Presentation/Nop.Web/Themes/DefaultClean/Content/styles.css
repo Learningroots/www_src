@@ -2827,6 +2827,11 @@ select#checkout_attribute_1 {
 	border: dotted 1px #d3d3d3;
 }
 
+#CardNumber,
+#CardholderName {
+	width: 68% !important;
+}
+
 .checkout-data .payment-method {
 	text-align: left;
 	border: 1px solid #EEE;
@@ -3708,14 +3713,10 @@ select#checkout_attribute_1 {
 	top: 315px;
 }
 
-.social-block > div {
+#social-testimonials .social-block > div {
 	display: table-cell;
 	vertical-align: middle;
 }
-
-/*#social-twitter .social-block > div {
-	display: block;
-}*/
 
 .social-block div a {
 	color: #C8133C;
@@ -4135,14 +4136,14 @@ select#checkout_attribute_1 {
 
 .product-grid .product-item .prices .price {
 	margin: 0px;
-	display: block;
 	font-family: "BreeBold";
 	font-size: 16px;
 }
 
 .product-grid .product-item .prices .old-price {
-	color: #5C5B5B;
+	color: #9D9D9D;
 	text-decoration: line-through;
+	margin-right: 6px;
 }
 
 .product-grid .product-item .prices .tax-shipping-info {
@@ -4323,15 +4324,19 @@ select#checkout_attribute_1 {
 	border: none;
 }
 
-body .order-summary-content .cookieHideMessage,
-body .order-summary-content .top-message-special {
-	display: none !important;
+.top-message-special,
+.cookieHideMessage {
 	background: #000;
 	text-align: center;
 	color: #FFF;
 	padding: 19px 0;
 	font-size: 17px;
 	overflow: hidden;
+}
+
+body .order-summary-content .cookieHideMessage,
+body .order-summary-content .top-message-special {
+	display: none !important;
 }
 
 .order-summary-content .cookieHideMessage .btn-close,
@@ -4376,6 +4381,7 @@ body .order-summary-content .top-message-special {
 .vendor-list-page {
 }
 
+.homepage .top-message-special,
 .categorypage .top-message-special,
 .manufacturerpage .top-message-special,
 .vendorpage .top-message-special,
