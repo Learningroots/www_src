@@ -23,5 +23,7 @@ namespace Nop.Web.Models.Common
         public bool RecentlyAddedProductsEnabled { get; set; }
         public bool DisplayTaxShippingInfoFooter { get; set; }
         public int WorkingLanguageId { get; set; }
+        public bool SideBarImageBannerEnabled { get; set; }
+
     }
 }

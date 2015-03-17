@@ -51,5 +51,10 @@ namespace Nop.Core.Domain.Common
         /// Gets a sets a value of "X-UA-Compatible" META tag
         /// </summary>
         public string XuaCompatibleValue { get; set; }
+
+        /// <summary>
+        /// Gets and sets the visibility of the sidebar banner
+        /// </summary>
+        public bool SidebarBannerEnabled { get; set; }
     }
 }

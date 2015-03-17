@@ -1066,6 +1066,11 @@ textarea, input { outline: none !important; }
 	position: relative;
 }
 
+.mobile-menu-body .mobile-main-menu-nobanner {
+	background: none;
+	padding-top: 0;
+}
+
 .mobile-menu-social {
 	margin-top: 15px;
 }

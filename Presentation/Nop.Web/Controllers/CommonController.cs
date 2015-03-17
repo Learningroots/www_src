@@ -441,7 +441,8 @@ namespace Nop.Web.Controllers
                 NewsEnabled = _newsSettings.Enabled,
                 RecentlyViewedProductsEnabled = _catalogSettings.RecentlyViewedProductsEnabled,
                 RecentlyAddedProductsEnabled = _catalogSettings.RecentlyAddedProductsEnabled,
-                DisplayTaxShippingInfoFooter = _catalogSettings.DisplayTaxShippingInfoFooter
+                DisplayTaxShippingInfoFooter = _catalogSettings.DisplayTaxShippingInfoFooter,
+                SideBarImageBannerEnabled = _commonSettings.SidebarBannerEnabled
             };
 
             return PartialView(model);
