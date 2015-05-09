@@ -4,6 +4,9 @@
 @using Nop.Core.Infrastructure;
 @using Nop.Services.Localization;
 @using Nop.Web.Models.Catalog;
+@using Nop.Core.Domain.Common;
+@*category breadcrumb*@
+
 @{
     Layout = "~/Views/Shared/_ColumnsOne.cshtml";
 
@@ -44,7 +47,27 @@
         Html.AddHeadCustomParts("<meta property=\"twitter:image\" content=\"" + Model.DefaultPictureModel.ImageUrl + "\" />");
         Html.AddHeadCustomParts("<meta property=\"twitter:url\" content=\"" + Request.Url.AbsoluteUri + "\" />");
     }
+
+    var breadcrumbDelimiter = EngineContext.Current.Resolve<CommonSettings>().BreadcrumbDelimiter;
+
 }
+
+<div class="breadcrumb">
+    <ul>
+        <li>
+            <a href="@Url.RouteUrl("HomePage")" title="@T("Categories.Breadcrumb.Top")">@T("Categories.Breadcrumb.Top")</a>
+            <span class="delimiter">@breadcrumbDelimiter</span>
+        </li>
+        @foreach (var cat in Model.Breadcrumb.CategoryBreadcrumb)
+        {
+            <li>
+            <a href="@Url.RouteUrl("Category", new { SeName = cat.SeName })" title="@cat.Name">@cat.Name</a>
+            <span class="delimiter">@breadcrumbDelimiter</span>
+            </li>
+        }
+        <li><strong class="current-item">@Model.Name</strong></li>
+    </ul>
+</div>
 
 @Html.Widget("productdetails_after_breadcrumb", Model.Id)
 <div class="page product-details-page @(Model.IsFeaturedProduct ? "featured-product" : "")">
