@@ -1,0 +1,44 @@
+.menu-arrow,
+.sub-menu,
+.search-box,
+.header-links-wrapper {
+	display: none !important;
+}
+
+.theater-page {
+	position: relative;
+}
+
+.main-menu {
+	float: right;
+	margin-right: 100px;
+}
+
+.main-menu li a {
+	text-transform: uppercase;
+	font-size: 13px;
+	padding-top: 13px;
+}
+
+.main-menu li a.menu-active, .main-menu > li:hover > a {
+	background: inherit;
+	color: #000;
+	border-bottom: none;
+	text-decoration: inherit;
+}
+
+.header {
+	height: 81px;
+	background: #FFF;
+	border-bottom: 1px solid #EEE;
+}
+
+.header-buy-now-btn {
+	position: absolute;
+	padding: 14px 16px;
+	border: none;
+	top: -94px;
+	right: 0;
+	background: #C8133C;
+	border-radius: 5px;
+}
