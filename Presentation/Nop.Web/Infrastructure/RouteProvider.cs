@@ -11,6 +11,12 @@ namespace Nop.Web.Infrastructure
         {
             //We reordered our routes so the most used ones are on top. It can improve performance.
 
+            //Theater page
+            routes.MapLocalizedRoute("TheaterPage",
+                            "theater/",
+                            new { controller = "Theater", action = "Index" },
+                            new[] { "Nop.Web.Controllers" });
+
             //home page
             routes.MapLocalizedRoute("HomePage",
                             "",

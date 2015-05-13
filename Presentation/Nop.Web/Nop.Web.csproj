@@ -204,6 +204,7 @@
     <Compile Include="Controllers\ExternalAuthenticationController.cs" />
     <Compile Include="Controllers\InstallController.cs" />
     <Compile Include="Controllers\PollController.cs" />
+    <Compile Include="Controllers\TheaterController.cs" />
     <Compile Include="Controllers\WidgetController.cs" />
     <Compile Include="Controllers\PrivateMessagesController.cs" />
     <Compile Include="Controllers\TopicController.cs" />
@@ -2067,10 +2068,12 @@
     <Content Include="Views\Install\Index.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Home\_social_block-BLOCK.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Home\_social_twitter-WORKING-BACKUP.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Theater\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Thumbs\" />
     <Folder Include="Plugins\bin\" />
+    <Folder Include="Views\Theater\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Nop.Core\Nop.Core.csproj">
