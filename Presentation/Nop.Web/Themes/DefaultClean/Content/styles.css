@@ -973,6 +973,10 @@ textarea, input { outline: none !important; }
 	margin: 15px;
 }
 
+.mobile-menu-body .title {
+  margin-top: 16px !important;
+}
+
 .side-2 .block-other-links {
 	display: none;
 }
@@ -994,6 +998,7 @@ textarea, input { outline: none !important; }
 	width: 100%;
 	text-align: center;
 	padding: 15px;
+	color: #fff;
 }
 
 .mobile-menu-body .side-2 {
@@ -1028,10 +1033,6 @@ textarea, input { outline: none !important; }
 	border-bottom-width: 2px;
 	padding-top: 14px;
 	padding-bottom: 14px;
-}
-
-.mobile-main-menu .listbox {
-	border-top: 5px solid #000;
 }
 
 .close-sub-menu {

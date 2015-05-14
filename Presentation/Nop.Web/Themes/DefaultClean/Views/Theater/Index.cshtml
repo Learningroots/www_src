@@ -2,111 +2,115 @@
 	Layout = "~/Views/Shared/_Blank.cshtml";
 	Html.AppendCssFileParts("~/Themes/DefaultClean/Content/theater.css");
 }
-<div class="page theater-page">
+<div class="page theater-page wrapper">
+	
+	<!-- Not for SS: please replace 13 with the product ID in the follow input include the url inside onclick  -->
+	<input
+		class="js-buy-now button-1 header-buy-now-btn add-to-cart-button"
+		type="button"
+		value="BUY NOW"
+		data-productid="13"
+		onclick="AjaxCart.addproducttocart_details('/addproducttocart/details/13/1', '#theater-page');return false;"/>
+	
 	<script type="text/javascript">
-        $('.theater-page').closest('.wrapper').removeClass('wrapper');
-        $('.main-menu').append('<li><a class="button-1 header-buy-now-btn" href="#">BUY NOW</a></li>')
+        //$('.theater-page').closest('.wrapper').removeClass('wrapper');
+        $('.main-menu').after($('.js-buy-now'));
+        $('.header-buy-now-btn').click(function(){
+        	var $notificationBar = $('#bar-notification');
+        	var t = setInterval(function(){
+        		if($notificationBar.attr('style')) {
+        			clearTimeout(t);
+        			window.location = "/cart";	
+        		}
+        	},10);
+        });
     </script>
 
 	<iframe src="https://player.vimeo.com/video/35396305" width="100%" height="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 	<div class="theater__productblock1">
-		<div class="wrapper">
-			<h2>The world’s ONLY game on the Sahaba- the greatest generation to ever set foot on earth.</h2>
-			<p>Two years in the making, covering over 100 Companions and designed for the whole family, it doesn’t get any better than this when it comes to the Sahaba.</p>
-		</div>
+		<h2>The world’s ONLY game on the Sahaba- the greatest generation to ever set foot on earth.</h2>
+		<p>Two years in the making, covering over 100 Companions and designed for the whole family, it doesn’t get any better than this when it comes to the Sahaba.</p>
 	</div>
 
 	<div class="theater__productblock2">
-		<div class="wrapper">
-			<h2>Got what it takes?</h2>
-			<a href="#">Sample the game now.</a>
-		</div>
+		<h2>Got what it takes?</h2>
+		<a href="#">Sample the game now.</a>
 	</div>
 
 	<div class="theater__productblock3">
-		<div class="wrapper">
-			<h2>Thrilling fun.<br/>Chilling lessons.</h2>
-			<p>Sunday was a recovery day … no workout. My activity consisted of getting settled back in at home and running some errands. When I went out, I was on foot most of the time. I always tell my kids: Less than 10 blocks, and we’re walking! By the time I got back, I had just about closed my Move ring. I’d burned 380 active calories.</p>
-		</div>
+		<h2>Thrilling fun.<br/>Chilling lessons.</h2>
+		<p>Sunday was a recovery day … no workout. My activity consisted of getting settled back in at home and running some errands. When I went out, I was on foot most of the time. I always tell my kids: Less than 10 blocks, and we’re walking! By the time I got back, I had just about closed my Move ring. I’d burned 380 active calories.</p>
 	</div>
 
 	<div class="theater_productcarousel">
-		<div class="wrapper">
-			<h2>So What’s Inside?</h2>
-			<ul>
-				<li>
-					<a href="#">
-						<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
-						<h3>Product title</h3>
-						<div>Product category</div>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
-						<h3>Product title</h3>
-						<div>Product category</div>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
-						<h3>Product title</h3>
-						<div>Product category</div>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
-						<h3>Product title</h3>
-						<div>Product category</div>
-					</a>
-				</li>
-				<li>
-					<a href="#">
-						<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
-						<h3>Product title</h3>
-						<div>Product category</div>
-					</a>
-				</li>
-			</ul>
-		</div>
+		<h2>So What’s Inside?</h2>
+		<ul>
+			<li>
+				<a href="#">
+					<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
+					<h3>Product title</h3>
+					<div>Product category</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
+					<h3>Product title</h3>
+					<div>Product category</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
+					<h3>Product title</h3>
+					<div>Product category</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
+					<h3>Product title</h3>
+					<div>Product category</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
+					<h3>Product title</h3>
+					<div>Product category</div>
+				</a>
+			</li>
+		</ul>
 	</div>
 
 	<div class="theater__share">
-		<div class="wrapper">
-			<ul>
-				<li class="facebook"><a href="#" target="_blank">Facebook</a></li>
-				<li class="twitter"><a href="#" target="_blank">Twitter</a></li>
-				<li class="instagram"><a href="#" target="_blank">Instagram</a></li>
-			</ul>
-		</div>
+		<ul>
+			<li class="facebook"><a href="#" target="_blank">Facebook</a></li>
+			<li class="twitter"><a href="#" target="_blank">Twitter</a></li>
+			<li class="instagram"><a href="#" target="_blank">Instagram</a></li>
+		</ul>
 	</div>
 
 	<div class="theater__videos">
-		<div class="wrapper">
-			<h3>Here’s what the experts say...</h3>
-			<ul>
-				<li>video 1</li>
-				<li>video 2</li>
-				<li>video 3</li>
-			</ul>
-		</div>
+		<h3>Here’s what the experts say...</h3>
+		<ul>
+			<li>video 1</li>
+			<li>video 2</li>
+			<li>video 3</li>
+		</ul>
 	</div>
 
 	<div class="theater__fans">
-		<div class="wrapper">
-			<h3>Fans the World Over</h3>
-			<ul>
-				<li>one</li>
-				<li>two</li>
-				<li>three</li>
-				<li>four</li>
-				<li>five</li>
-				<li>six</li>
-			</ul>
-		</div>
+		<h3>Fans the World Over</h3>
+		<ul>
+			<li>one</li>
+			<li>two</li>
+			<li>three</li>
+			<li>four</li>
+			<li>five</li>
+			<li>six</li>
+		</ul>
 	</div>
 
 	<div class="theater_footer">
@@ -117,23 +121,3 @@
 	</div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
