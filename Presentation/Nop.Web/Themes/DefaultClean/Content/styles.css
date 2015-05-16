@@ -277,6 +277,13 @@ textarea[disabled="disabled"], input[disabled="disabled"] {
 	display: inline;
 }
 
+.icon-play {
+	background: url(images/play.png) 0 0 no-repeat;
+	height: 139px;
+	width: 139px;
+	display: inline-block;
+}
+
 
 /* HEADER AND MENU */
 .header {

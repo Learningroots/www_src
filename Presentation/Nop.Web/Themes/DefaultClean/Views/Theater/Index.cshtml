@@ -1,9 +1,18 @@
 ﻿@{
 	Layout = "~/Views/Shared/_Blank.cshtml";
 	Html.AppendCssFileParts("~/Themes/DefaultClean/Content/theater.css");
+	Html.AppendCssFileParts("~/Themes/DefaultClean/Content/owl.css");
+	Html.AppendCssFileParts("~/Themes/DefaultClean/Content/popup.css");
+
+	Html.AppendScriptParts("~/Themes/DefaultClean/Content/js/owl.js");
+	Html.AppendScriptParts("~/Themes/DefaultClean/Content/js/jquery.popup.js");
+
+
+	var product = "~/Themes/DefaultClean/Content/images/t-product.png";
+	var block2 = "~/Themes/DefaultClean/Content/images/t-block2.png";
 }
-<div class="page theater-page wrapper">
-	
+<div class="page theater-page">
+  <div class="wrapper">
 	<!-- Not for SS: please replace 13 with the product ID in the follow input include the url inside onclick  -->
 	<input
 		class="js-buy-now button-1 header-buy-now-btn add-to-cart-button"
@@ -28,96 +37,207 @@
 
 	<iframe src="https://player.vimeo.com/video/35396305" width="100%" height="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-	<div class="theater__productblock1">
-		<h2>The world’s ONLY game on the Sahaba- the greatest generation to ever set foot on earth.</h2>
-		<p>Two years in the making, covering over 100 Companions and designed for the whole family, it doesn’t get any better than this when it comes to the Sahaba.</p>
+	<ul class="jumpto-menu">
+		<li><a href="#block1">block 1</a></li>
+		<li><a href="#block2">this is t-block 2</a></li>
+		<li><a href="#block3">some t-block</a></li>
+		<li><a href="#block4">share</a></li>
+		<li><a href="#block5">some page this long</a></li>
+		<li><a href="#block6">6</a></li>
+		<li><a href="#block7">7</a></li>
+	</ul>
+	<script type="text/javascript">
+		$(function() {
+		  $('a[href*=#]:not([href=#])').click(function() {
+		    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+		      var target = $(this.hash);
+		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+		      if (target.length) {
+		        $('html,body').animate({
+		          scrollTop: target.offset().top
+		        }, 1000);
+		        return false;
+		      }
+		    }
+		  });
+		});
+	</script>
+
+	<div id="block1" class="theater__productblock1 t-block">
+		<img src="@Url.Content(product)" width="235px" height="237px"/>
+		<div class="block__wrapper">
+			<h2>The world’s ONLY game on the Sahaba- the greatest generation to ever set foot on earth.</h2>
+			<p>Two years in the making, covering over 100 Companions and designed for the whole family, it doesn’t get any better than this when it comes to the Sahaba.</p>
+		</div>
 	</div>
 
-	<div class="theater__productblock2">
-		<h2>Got what it takes?</h2>
-		<a href="#">Sample the game now.</a>
+	<div id="block2" class="theater__productblock2 t-block">
+		<div class="block__wrapper">
+			<h2>Got what it takes?</h2>
+			<a class="video-link" href="https://vimeo.com/35396305">Sample the game now.</a>
+		</div>
+		<img src="@Url.Content(block2)"/>
 	</div>
 
-	<div class="theater__productblock3">
+	<div id="block3" class="theater__productblock3 t-block">
 		<h2>Thrilling fun.<br/>Chilling lessons.</h2>
 		<p>Sunday was a recovery day … no workout. My activity consisted of getting settled back in at home and running some errands. When I went out, I was on foot most of the time. I always tell my kids: Less than 10 blocks, and we’re walking! By the time I got back, I had just about closed my Move ring. I’d burned 380 active calories.</p>
 	</div>
 
-	<div class="theater_productcarousel">
+	<div id="block4" class="theater_productcarousel t-block">
 		<h2>So What’s Inside?</h2>
-		<ul>
+		<ul class="owl-carousel" id="products-carousel">
 			<li>
 				<a href="#">
-					<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
+					<img src="http://lorempixel.com/240/280/abstract/1"/>
+					<h3>Companion Clues</h3>
+					<div>Childnre’s Game</div>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<img src="http://lorempixel.com/240/280/abstract/2"/>
 					<h3>Product title</h3>
 					<div>Product category</div>
 				</a>
 			</li>
 			<li>
 				<a href="#">
-					<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
+					<img src="http://lorempixel.com/240/280/abstract/3"/>
 					<h3>Product title</h3>
 					<div>Product category</div>
 				</a>
 			</li>
 			<li>
 				<a href="#">
-					<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
+					<img src="http://lorempixel.com/240/280/abstract/4"/>
 					<h3>Product title</h3>
 					<div>Product category</div>
 				</a>
 			</li>
 			<li>
 				<a href="#">
-					<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
+					<img src="http://lorempixel.com/240/280/abstract/5"/>
 					<h3>Product title</h3>
 					<div>Product category</div>
 				</a>
 			</li>
 			<li>
 				<a href="#">
-					<img src="http://dummyimage.com/150x100/ccc/ffffff.jpg&text=dummy+image"/>
+					<img src="http://lorempixel.com/240/280/abstract/6"/>
 					<h3>Product title</h3>
 					<div>Product category</div>
 				</a>
 			</li>
 		</ul>
 	</div>
+	<script type="text/javascript">
+		$('#products-carousel').owlCarousel({
+			items: 3,
+			navigation: true,
+			rewindNav: false
+		});
+	</script>
 
-	<div class="theater__share">
+
+	<div id="block5" class="theater__share t-block">
 		<ul>
-			<li class="facebook"><a href="#" target="_blank">Facebook</a></li>
-			<li class="twitter"><a href="#" target="_blank">Twitter</a></li>
-			<li class="instagram"><a href="#" target="_blank">Instagram</a></li>
+			<li class="facebook">
+				<a title="Share this on facebook" href="https://www.facebook.com/sharer/sharer.php?u=learningroots.com/theater" target="_blank">Facebook</a>
+			</li>
+			<li class="twitter">
+				<a title="Share this on twitter" href="https://twitter.com/home?status=Checkout%20this%20http://www.learningroots.com/theater" target="_blank">Twitter</a>
+			</li>
+			<li title="Share this on instagram" class="instagram">
+				<a href="#" target="_blank">Instagram</a>
+			</li>
 		</ul>
 	</div>
 
-	<div class="theater__videos">
-		<h3>Here’s what the experts say...</h3>
+	<div id="block6" class="theater__videos t-block">
+		<h2>Here’s what the experts say...</h2>
 		<ul>
-			<li>video 1</li>
-			<li>video 2</li>
-			<li>video 3</li>
+			<li>
+				<a class="video-link" href="https://vimeo.com/35396305">
+					<img src="http://lorempixel.com/320/280/people/1"/>
+					<span class="icon-play"></span>
+					<h3>Person name</h3>
+				</a>
+			</li>
+			<li>
+				<a class="image-link" href="http://lorempixel.com/650/560/people/2">
+					<img src="http://lorempixel.com/320/280/people/2"/>
+					<!-- <span class="icon-play"></span> -->
+					<h3>Person name</h3>
+				</a>
+			</li>
+			<li>
+				<a class="video-link" href="https://vimeo.com/35396305">
+					<img src="http://lorempixel.com/320/280/people/3"/>
+					<span class="icon-play"></span>
+					<h3>Person name</h3>
+				</a>
+			</li>
 		</ul>
 	</div>
 
-	<div class="theater__fans">
-		<h3>Fans the World Over</h3>
+	<div id="block7" class="theater__fans t-block">
+		<h2>Fans the World Over</h2>
 		<ul>
-			<li>one</li>
-			<li>two</li>
-			<li>three</li>
-			<li>four</li>
-			<li>five</li>
-			<li>six</li>
+			<li>
+				<a class="image-link" href="http://lorempixel.com/500/450/people/4">
+					<h3>
+						Person name
+						<span>from Paris</span>
+					</h3>
+					<img src="http://lorempixel.com/266/266/people/4">
+				</a>
+			<li>
+				<a class="image-link" href="http://lorempixel.com/500/450/people/10">
+					<h3>
+						Person name
+						<span>from Paris</span>
+					</h3>
+					<img src="http://lorempixel.com/266/266/people/10">
+				</a>
+			<li>
+				<a class="image-link" href="http://lorempixel.com/500/450/people/6">
+					<h3>
+						Person name
+						<span>from Paris</span>
+					</h3>
+					<img src="http://lorempixel.com/266/266/people/6">
+				</a>
+			<li>
+				<a class="image-link" href="http://lorempixel.com/500/450/people/7">
+					<h3>
+						Person name
+						<span>from Paris</span>
+					</h3>
+					<img src="http://lorempixel.com/266/266/people/7">
+				</a>
+			<li>
+				<a class="image-link" href="http://lorempixel.com/500/450/people/8">
+					<h3>
+						Person name
+						<span>from Paris</span>
+					</h3>
+					<img src="http://lorempixel.com/266/266/people/8">
+				</a>
+			<li>
+				<a class="image-link" href="http://lorempixel.com/500/450/people/9">
+					<h3>
+						Person name
+						<span>from Paris</span>
+					</h3>
+					<img src="http://lorempixel.com/266/266/people/9">
+				</a>
 		</ul>
 	</div>
-
-	<div class="theater_footer">
-		<h3>
-			<span class="lr-logo-small"></span>
-			Learning Roots
-		</h3>
-	</div>
-
+  </div>
+  	<div class="theater_footer"><span class="lr-logo-small"></span></div>
 </div>
+<script type="text/javascript">
+	$('.video-link').addClass('mfp-iframe').magnificPopup({type:'iframe'});
+	$('.image-link').magnificPopup({type:'image'});
+</script>

@@ -7,6 +7,10 @@
 	display: none !important;
 }
 
+img  {
+	display: block;
+}
+
 .full-width-menu-bg {
 	left: 0;
 }
@@ -19,7 +23,7 @@
 	padding-top: 0;
 }
 
-.theater-page {
+.theater-page .wrapper {
 	position: relative;
 }
 
@@ -44,3 +48,361 @@
 .header-buy-now-btn:hover {
 	background: #DF1643 !important;
 }
+
+.jumpto-menu {
+	position: absolute;
+	top: 211px;
+	right: 0;
+	list-style: none;
+	width: 50px;
+}
+
+.jumpto-menu li {
+	display: block;
+	text-indent: 0;
+	height: 15px;
+	width: 15px;
+	border-radius: 20px;
+	background: #cecece;
+	padding-top: 4px;
+	text-align: right;
+	margin-bottom: 10px;
+	margin-left: 2px;
+	transition: 200ms all;
+}
+
+.jumpto-menu li:hover {
+	margin-left: 0px;
+	background-color: #e40000;
+	height: 20px;
+	width: 20px;
+	transition: 200ms all;
+}
+
+.jumpto-menu li:hover a {
+	opacity: 1;
+	transition: 200ms all;
+}
+
+.jumpto-menu li a {
+	text-shadow: 0px 0px 6px #000;
+	text-transform: capitalize;
+	float: right;
+	width: 160px;
+	padding-right: 27px;
+	color: #FFF;
+	opacity: 0;
+	transition: 200ms all;
+}
+
+.t-block {
+	padding: 70px;
+}
+
+.t-block h2 {
+	font-family: "Ronnia";
+	font-weight: bold;
+	font-size: 35px;
+	color: #000;
+	line-height: 42px;
+}
+
+.t-block p {
+	font-family: 'ProximaNova';
+	font-size: 19px;
+	line-height: 23px;
+	margin: 0;
+
+}
+
+.theater__productblock1 {
+	background-color: #e6e7e8;
+	margin-top: -4px;
+}
+
+.theater__productblock1 .block__wrapper {
+	width: 70%;
+	padding-right: 15px;
+}
+
+.theater__productblock1 img {
+	float: right;
+	margin-top: -20px;
+}
+
+.theater__productblock2 {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.theater__productblock2 img {
+	margin-left: -33px; 
+	display: inline-block;
+}
+
+.theater__productblock2 a {
+	font-family: "Ronnia";
+	font-size: 19px;
+	text-decoration: underline;
+	color: #414eaf;
+}
+
+.theater__productblock2 .block__wrapper {
+	float: right;
+	margin-left: 40px;
+}
+
+.theater__productblock2 h2 {
+	margin-top: 168px;
+}
+
+.theater__productblock3 {
+	background: url('http://lorempixel.com/1000/450/sports/4') 0 0 no-repeat;
+	margin-top: -4px;
+}
+
+.theater__productblock3 h2 {
+	color: #ab0000;
+}
+
+.theater__productblock3 p {
+	width: 40%;
+}
+
+.theater__fans h2,
+.theater__videos h2,
+.theater_productcarousel h2 {
+	text-align: center;
+}
+
+.owl-carousel {
+	list-style: none;
+	text-align: center;	
+	margin-top: 55px;
+}
+
+.owl-buttons {
+	position: relative;
+}
+
+.owl-theme .owl-controls .owl-buttons div {
+	position: absolute;
+	top: -320px;
+	left: -70px;
+	background: url(images/leftarrow.png) no-repeat 0 0;
+	text-indent: -100px;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	height: 126px;
+	width: 50px;
+	border: none;
+}
+
+.owl-theme .owl-controls .owl-buttons div.owl-next {
+	left: auto;
+	right: -70px;
+	background: url(images/rightarrow.png) no-repeat 0 0;
+}
+
+.owl-theme .owl-controls .owl-buttons div.disabled:hover,
+.owl-theme .owl-controls .owl-buttons div.disabled {
+	opacity: 0.3;
+}
+
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span {
+	background-color: #AB0000;
+}
+
+.owl-item h3 {
+	padding-top: 30px;
+	font-size: 26px;
+	color: #000;
+	font-weight: bold;
+	font-family:'ProximaNova';
+}
+
+.owl-item img {
+	display: inline-block;
+}
+
+.owl-item a div {
+	color: #757575;
+	font-size: 19px;
+	font-family:'ProximaNova';
+	font-weight: 100
+}
+
+.theater__share {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.theater__share ul {
+	list-style: none;
+	text-align: center;
+}
+
+.theater__share li {
+	display: inline-block;
+	margin: 0 20px;
+}
+
+.theater__share li a {
+	text-indent: -200px;
+	overflow: hidden;
+	display: inline-block;
+	background: url('images/share-sprite.png') 0 0 no-repeat;
+	height: 100px;
+	width: 100px;
+}
+
+.theater__share li.twitter a {
+	background-position: -124px 0;
+}
+
+.theater__share li.instagram a {
+	background-position: -246px 0;
+}
+
+.theater__videos {
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 0;
+}
+
+.theater__videos ul {
+	list-style: none;
+}
+
+.theater__videos ul li {
+	display: inline-block;
+	margin-top: 40px;
+}
+
+.theater__videos ul li a {
+	position: relative;
+	display: block;
+	margin: 0 5px;
+	overflow: hidden;
+}
+
+.theater__videos ul li a:hover h3 {
+	bottom: 0;
+	transition: 200ms bottom;
+}
+
+.theater__videos a .icon-play {
+	position: absolute;
+	left: 114px;
+	top: 88px;
+	background-size: 100px;
+	opacity: 0.8;
+	transition: 500ms bottom;
+}
+
+.theater__videos ul li a:hover .icon-play {
+	opacity: 1;
+	transition: 500ms bottom;
+}
+
+.theater__videos h3 {
+	transition: 200ms bottom;
+	display: block;
+	position: absolute;
+	bottom: -51px;
+	width: 100%;
+	background:rgb(0,0,0);
+    background: transparent\9;
+    background:rgba(0,0,0,0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
+    zoom: 1;
+    font-family:'Ronnia';
+	padding: 15px;
+	text-align: center;
+	font-size: 21px;
+	color: #FFF;
+}
+
+.theater__fans h2 {
+	margin-bottom: 30px;
+}
+
+.theater__fans ul {
+	list-style: none;
+}
+
+.theater__fans li {
+	display: inline-block;
+	margin: 10px;
+}
+
+.theater__fans li a {
+	position: relative;
+}
+
+.theater__fans li h3 {
+	position: absolute;
+	width: 274px;
+	text-align: center;
+	font-size: 30px;
+	margin-top: 104px;
+	font-family: "Ronnia";
+	z-index: 1;
+	display: block;
+	color: #FFF;
+	text-shadow: 0px 0px 6px #000;
+}
+
+.theater__fans li h3 span {
+	font-family: "Ronnia";
+	font-size: 25px;
+	display: block;
+	margin-top: 10px;
+}
+
+.theater_footer {
+	background-color: #232323;
+	padding: 20px;
+	text-align: center;
+	border-bottom: 35px solid #C8133C;
+}
+
+.theater_footer .lr-logo-small {
+	background: url('images/logo-small.jpg') 0 0 no-repeat;
+	height: 29px;
+	width: 200px;
+	display: inline-block;
+	background-size: 200px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
