@@ -11,6 +11,11 @@ img  {
 	display: block;
 }
 
+.wrapper {
+	max-width: 1000px;
+	width: auto;
+}
+
 .full-width-menu-bg {
 	left: 0;
 }
@@ -100,15 +105,16 @@ img  {
 }
 
 .t-block h2 {
-	font-family: "Ronnia";
+	font-family: "ronnia-condensed";
 	font-weight: bold;
 	font-size: 35px;
 	color: #000;
 	line-height: 42px;
+	margin-bottom: 5px;
 }
 
 .t-block p {
-	font-family: 'ProximaNova';
+	font-family: "proxima-nova";
 	font-size: 19px;
 	line-height: 23px;
 	margin: 0;
@@ -123,6 +129,10 @@ img  {
 .theater__productblock1 .block__wrapper {
 	width: 70%;
 	padding-right: 15px;
+}
+
+.theater__productblock1 .block__wrapper h2 {
+	width: 85%;
 }
 
 .theater__productblock1 img {
@@ -141,7 +151,7 @@ img  {
 }
 
 .theater__productblock2 a {
-	font-family: "Ronnia";
+	font-family: "ronnia-condensed";
 	font-size: 19px;
 	text-decoration: underline;
 	color: #414eaf;
@@ -157,7 +167,7 @@ img  {
 }
 
 .theater__productblock3 {
-	background: url('http://lorempixel.com/1000/450/sports/4') 0 0 no-repeat;
+	background: url('images/t-block3.jpg') 1px 0 no-repeat;
 	margin-top: -4px;
 }
 
@@ -219,19 +229,19 @@ img  {
 	padding-top: 30px;
 	font-size: 26px;
 	color: #000;
-	font-weight: bold;
-	font-family:'ProximaNova';
+	font-weight: 600;
+	font-family: "proxima-nova";
 }
 
 .owl-item img {
 	display: inline-block;
 }
 
-.owl-item a div {
+.owl-item div {
 	color: #757575;
-	font-size: 19px;
-	font-family:'ProximaNova';
-	font-weight: 100
+	font-size: 17px;
+	font-family: "proxima-nova";
+	font-weight: 100;
 }
 
 .theater__share {
@@ -262,7 +272,7 @@ img  {
 	background-position: -124px 0;
 }
 
-.theater__share li.instagram a {
+.theater__share li.gplus a {
 	background-position: -246px 0;
 }
 
@@ -311,14 +321,15 @@ img  {
 	transition: 200ms bottom;
 	display: block;
 	position: absolute;
-	bottom: -51px;
+	bottom: -58px;
 	width: 100%;
 	background:rgb(0,0,0);
     background: transparent\9;
     background:rgba(0,0,0,0.5);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4c000000,endColorstr=#4c000000);
     zoom: 1;
-    font-family:'Ronnia';
+    font-family: "ronnia-condensed";
+    font-weight: 500;
 	padding: 15px;
 	text-align: center;
 	font-size: 21px;
@@ -348,7 +359,7 @@ img  {
 	text-align: center;
 	font-size: 30px;
 	margin-top: 104px;
-	font-family: "Ronnia";
+	font-family: "ronnia-condensed";
 	z-index: 1;
 	display: block;
 	color: #FFF;
@@ -356,10 +367,11 @@ img  {
 }
 
 .theater__fans li h3 span {
-	font-family: "Ronnia";
-	font-size: 25px;
+	font-family: "ronnia-condensed";
+	font-size: 24px;
+	font-weight: 300;
 	display: block;
-	margin-top: 10px;
+
 }
 
 .theater_footer {
