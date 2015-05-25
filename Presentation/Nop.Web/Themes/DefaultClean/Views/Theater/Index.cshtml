@@ -18,16 +18,17 @@
 <div class="page theater-page">
   <div class="wrapper">
 	<!-- Not for SS: please replace 13 with the product ID in the follow input include the url inside onclick  -->
-	<input
+	<a
 		class="js-buy-now button-1 header-buy-now-btn add-to-cart-button"
-		type="button"
-		value="BUY NOW"
+		href="#"
 		data-productid="13"
-		onclick="AjaxCart.addproducttocart_details('/addproducttocart/details/13/1', '#theater-page');return false;"/>
+		onclick="AjaxCart.addproducttocart_details('/addproducttocart/details/13/1', '#theater-page');return false;">
+		BUY NOW
+	</a>
 	
 	<script type="text/javascript">
         //$('.theater-page').closest('.wrapper').removeClass('wrapper');
-        $('.main-menu').after($('.js-buy-now'));
+        //$('.main-menu').after($('.js-buy-now'));
         $('.header-buy-now-btn').click(function(){
         	var $notificationBar = $('#bar-notification');
         	var t = setInterval(function(){
