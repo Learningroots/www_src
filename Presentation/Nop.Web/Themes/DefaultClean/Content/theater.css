@@ -26,7 +26,7 @@ img  {
 }
 
 .master-wrapper-main {
-	padding-top: 0;
+	padding-top: 80px;
 }
 
 .theater-page .wrapper {
@@ -37,6 +37,9 @@ img  {
 	height: 81px;
 	background: #FFF;
 	border-bottom: 1px solid #EEE;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
 }
 
 .header-buy-now-btn {
@@ -47,10 +50,10 @@ img  {
 	border-radius: 5px !important;
 	font-size: 13px;
 	float: right;
-	margin-top: -67px;
-	margin-right: 7px;
 	width: 110px;
 	text-align: center;
+	margin-top: 19px;
+	display: none;
 }
 
 .header-buy-now-btn:hover {
@@ -58,11 +61,12 @@ img  {
 }
 
 .jumpto-menu {
-	position: absolute;
-	top: 211px;
-	right: 0;
+	position: fixed;
+	top: 40%;
 	list-style: none;
 	width: 50px;
+	margin-left: 1081px;
+	z-index: 1;
 }
 
 .jumpto-menu li {
@@ -88,23 +92,23 @@ img  {
 }
 
 .jumpto-menu li:hover a {
-	opacity: 1;
-	transition: 200ms all;
+	display: block;
 }
 
 .jumpto-menu li a {
-	text-shadow: 0px 0px 6px #000;
+	text-shadow: 0px 0px 6px #fff;
 	text-transform: capitalize;
 	float: right;
 	width: 500px;
 	padding-right: 27px;
-	color: #FFF;
-	opacity: 0;
-	transition: 200ms all;
+	color: #000;
+	display: none;
 }
 
 .t-block {
 	padding: 70px;
+	padding-left: 0;
+	padding-right: 0;
 }
 
 .t-block h2 {
@@ -169,8 +173,8 @@ img  {
 	margin-top: 168px;
 }
 
-.theater__productblock3 {
-	background: url('images/t-block3.jpg') 1px 0 no-repeat;
+.theater__productblock3-bg {
+	background: #e6e7e8 url('images/t-block3.jpg') 50% no-repeat;
 	margin-top: -4px;
 }
 
@@ -285,25 +289,34 @@ img  {
 	padding-bottom: 0;
 }
 
+.theater__videos .wrapper-bg {
+	background-color: #E6E7E8;
+	margin-top: 40px;
+}
+
 .theater__videos ul {
 	list-style: none;
+	text-align: center;
+	background: white;
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .theater__videos ul li {
 	display: inline-block;
-	margin-top: 40px;
 }
 
+.theater__fans li a,
 .theater__videos ul li a {
 	position: relative;
 	display: block;
 	margin: 0 5px;
 	overflow: hidden;
+	margin-bottom: -3px;
 }
 
-.theater__videos ul li a:hover h3 {
-	bottom: 0;
-	transition: 200ms bottom;
+.theater__videos ul li img {
+	width: 312px;
 }
 
 .theater__videos a .icon-play {
@@ -320,11 +333,11 @@ img  {
 	transition: 500ms bottom;
 }
 
+.theater__fans li h3,
 .theater__videos h3 {
-	transition: 200ms bottom;
 	display: block;
 	position: absolute;
-	bottom: -58px;
+	bottom: 0;
 	width: 100%;
 	background:rgb(0,0,0);
     background: transparent\9;
@@ -345,6 +358,7 @@ img  {
 
 .theater__fans ul {
 	list-style: none;
+	text-align: center;
 }
 
 .theater__fans li {
@@ -353,25 +367,15 @@ img  {
 }
 
 .theater__fans li a {
-	position: relative;
+	margin: 0;
 }
 
 .theater__fans li h3 {
-	position: absolute;
-	width: 274px;
-	text-align: center;
-	font-size: 30px;
-	margin-top: 104px;
-	font-family: "ronnia-condensed";
-	z-index: 1;
-	display: block;
-	color: #FFF;
-	text-shadow: 0px 0px 6px #000;
 }
 
 .theater__fans li h3 span {
 	font-family: "ronnia-condensed";
-	font-size: 24px;
+	font-size: 18px;
 	font-weight: 300;
 	display: block;
 
@@ -392,10 +396,55 @@ img  {
 	background-size: 200px;
 }
 
+/* overlay at start */
+.mfp-fade.mfp-bg {
+  opacity: 0;
+
+  -webkit-transition: all 0.800s ease-out;
+  -moz-transition: all 0.800s ease-out;
+  transition: all 0.800s ease-out;
+}
+/* overlay animate in */
+.mfp-fade.mfp-bg.mfp-ready {
+  opacity: 0.8;
+}
+/* overlay animate out */
+.mfp-fade.mfp-bg.mfp-removing {
+  opacity: 0;
+}
+
+/* content at start */
+.mfp-fade.mfp-wrap .mfp-content {
+  opacity: 0;
+
+  -webkit-transition: all 0.800s ease-out;
+  -moz-transition: all 0.800s ease-out;
+  transition: all 0.800s ease-out;
+}
+/* content animate it */
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+  opacity: 1;
+}
+/* content animate out */
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+  opacity: 0;
+}
+
+.mfp-title {
+	font-size: 16px;
+	padding-top: 5px;
+}
+
 
 @media screen and (max-width: 768px) {
+	.jumpto-menu {
+		display: none;
+	}
 	.header-logo {
         float: left;
+    }
+    .header-buy-now-btn {
+    	margin-right: 13px;
     }
     .header-logo a.logo-site {
     	float: left;
@@ -476,29 +525,33 @@ img  {
 		margin-left: -50px;
 		margin-top: -50px;
     }
+    .theater__videos li {
+    	margin-bottom: 15px;
+    }
     .theater__videos a .icon-play {
     	left: 50%;
     	top: 50%;
     }
+    .theater__videos .wrapper-bg {
+    	background: none;
+    }
+    .theater__share,
+    .theater__fans h2, .theater__videos h2, .theater_productcarousel h2 {
+    	margin-top: 40px;
+    }
     .theater__videos h3 {
-    	position: relative;
     	bottom: 0 !important;
-    	width: auto;
+    	
     	padding-left: 0;
     	padding-right: 0;
+    }
+    .theater__fans h2 {
+    	margin-top: 40px;
     }
     .theater__fans li {
     	margin: 0;
     	position: relative;
-    }
-    .theater__fans li a {
-    	position: inherit;
-    }
-    .theater__fans li h3 {
-		width: 100%;
-		position: relative;
-		margin-top: 50%;
-		margin-bottom: -50%
+    	margin-bottom: 15px;
     }
     .owl-theme .owl-controls .owl-buttons {
     	display: none;

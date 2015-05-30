@@ -10,25 +10,35 @@
 
 	var product = "~/Themes/DefaultClean/Content/images/t-product.png";
 	var block2 = "~/Themes/DefaultClean/Content/images/t-block2.png";
+
+	var video1 = "~/Themes/DefaultClean/Content/images/vid1.jpg";
+	var video2 = "~/Themes/DefaultClean/Content/images/vid2.jpg";
+	var video3 = "~/Themes/DefaultClean/Content/images/vid3.jpg";
+
+	var fan1 = "~/Themes/DefaultClean/Content/images/fan1.jpg";
+	var fan2 = "~/Themes/DefaultClean/Content/images/fan2.jpg";
+	var fan3 = "~/Themes/DefaultClean/Content/images/fan3.jpg";
+	var fan4 = "~/Themes/DefaultClean/Content/images/fan4.jpg";
+	var fan5 = "~/Themes/DefaultClean/Content/images/fan5.jpg";
 }
 
 <script src="//use.typekit.net/ren7giz.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 
 <div class="page theater-page">
-  <div class="wrapper">
-	<!-- Not for SS: please replace 13 with the product ID in the follow input include the url inside onclick  -->
-	<a
-		class="js-buy-now button-1 header-buy-now-btn add-to-cart-button"
-		href="#"
-		data-productid="13"
-		onclick="AjaxCart.addproducttocart_details('/addproducttocart/details/13/1', '#theater-page');return false;">
-		BUY NOW
-	</a>
+  	<div class="wrapper">
+		<a
+			class="js-buy-now button-1 header-buy-now-btn add-to-cart-button"
+			href="#"
+			data-productid="88"
+			onclick="AjaxCart.addproducttocart_details('/addproducttocart/details/13/1', '#theater-page');return false;">
+			BUY NOW
+		</a>
+	</div>
 	
 	<script type="text/javascript">
-        //$('.theater-page').closest('.wrapper').removeClass('wrapper');
-        //$('.main-menu').after($('.js-buy-now'));
+        $('.theater-page').closest('.wrapper').removeClass('wrapper');
+        $('.main-menu').after($('.js-buy-now').show());
         $('.header-buy-now-btn').click(function(){
         	var $notificationBar = $('#bar-notification');
         	var t = setInterval(function(){
@@ -40,17 +50,19 @@
         });
     </script>
 
-	<iframe src="https://player.vimeo.com/video/35396305" width="100%" height="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-	<ul class="jumpto-menu">
-		<li><a href="#block1">The world’s ONLY game on the Sahaba- the greatest generation to ever set foot on earth.</a></li>
-		<li><a href="#block2">Got what it takes?</a></li>
-		<li><a href="#block3">Thrilling fun. Chilling lessons.</a></li>
-		<li><a href="#block4">So What’s Inside?</a></li>
-		<li><a href="#block5">Share</a></li>
-		<li><a href="#block6">Here’s what the experts say...</a></li>
-		<li><a href="#block7">Fans the World Over</a></li>
-	</ul>
+	<div class="wrapper">
+		<ul class="jumpto-menu">
+			<li><a href="#block1">The world’s ONLY game on the Sahaba- the greatest generation to ever set foot on earth.</a></li>
+			<li><a href="#block2">Got what it takes?</a></li>
+			<li><a href="#block3">Thrilling fun. Chilling lessons.</a></li>
+			<li><a href="#block4">So What’s Inside?</a></li>
+			<li><a href="#block5">Share</a></li>
+			<li><a href="#block6">Here’s what the experts say...</a></li>
+			<li><a href="#block7">Fans the World Over</a></li>
+		</ul>
+	</div>
+
 	<script type="text/javascript">
 		$(function() {
 		  $('a[href*=#]:not([href=#])').click(function() {
@@ -58,40 +70,57 @@
 		      var target = $(this.hash);
 		      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 		      if (target.length) {
+		      	var extra = 0;
+		      	if(target.is('#block7')) extra = 20;
+		      	if(target.is('#block6')) extra = 20;
+		      	if(target.is('#block5')) extra = 80;
+		      	if(target.is('#block4')) extra = 30;
+		      	if(target.is('#block3')) extra = 70;
+		      	if(target.is('#block2')) extra = 70;
+		      	if(target.is('#block1')) extra = 60;
+
 		        $('html,body').animate({
-		          scrollTop: target.offset().top
-		        }, 1000);
+		          scrollTop: target.offset().top - 15 - ( extra )
+		        }, 500);
 		        return false;
 		      }
 		    }
 		  });
 		});
 	</script>
+	
+	<iframe src="https://player.vimeo.com/video/35396305" width="100%" height="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 	<div id="block1" class="theater__productblock1 t-block">
-		<div class="block__wrapper">
-			<h2>The world’s ONLY game on the Sahaba- the greatest generation to ever set foot on earth.</h2>
-			<p>Two years in the making, covering over 100 Companions and designed for the whole family, it doesn’t get any better than this when it comes to the Sahaba.</p>
+		<div class="wrapper">
+			<div class="block__wrapper">
+				<h2>The world’s ONLY game on the Sahaba- the greatest generation to ever set foot on earth.</h2>
+				<p>Two years in the making, covering over 100 Companions and designed for the whole family, it doesn’t get any better than this when it comes to the Sahaba.</p>
+			</div>
+			<img src="@Url.Content(product)" width="235px" height="237px"/>
 		</div>
-		<img src="@Url.Content(product)" width="235px" height="237px"/>
 	</div>
 
 	<div id="block2" class="theater__productblock2 t-block">
-		<div class="block__wrapper">
-			<h2>Got what it takes?</h2>
-			<a class="video-link" href="https://vimeo.com/35396305">Sample the game now.</a>
+		<div class="wrapper">
+			<div class="block__wrapper">
+				<h2>Got what it takes?</h2>
+				<a class="video-link" href="https://vimeo.com/35396305">Sample the game now.</a>
+			</div>
+			<img src="@Url.Content(block2)"/>
 		</div>
-		<img src="@Url.Content(block2)"/>
 	</div>
 
 	<div class="theater__productblock3-bg">
-		<div id="block3" class="theater__productblock3 t-block">
-			<h2>Thrilling fun.<br/>Chilling lessons.</h2>
-			<p>Sunday was a recovery day … no workout. My activity consisted of getting settled back in at home and running some errands. When I went out, I was on foot most of the time. I always tell my kids: Less than 10 blocks, and we’re walking! By the time I got back, I had just about closed my Move ring. I’d burned 380 active calories.</p>
+		<div class="wrapper">
+			<div id="block3" class="theater__productblock3 t-block">
+				<h2>Thrilling fun.<br/>Chilling lessons.</h2>
+				<p>Sunday was a recovery day … no workout. My activity consisted of getting settled back in at home and running some errands. When I went out, I was on foot most of the time. I always tell my kids: Less than 10 blocks, and we’re walking! By the time I got back, I had just about closed my Move ring. I’d burned 380 active calories.</p>
+			</div>
 		</div>
 	</div>
 
-	<div id="block4" class="theater_productcarousel t-block">
+	<div id="block4" class="theater_productcarousel t-block wrapper">
 		<h2>So What’s Inside?</h2>
 		<ul class="owl-carousel" id="products-carousel">
 			<li>
@@ -151,88 +180,93 @@
 
 	<div id="block6" class="theater__videos t-block">
 		<h2>Here’s what the experts say...</h2>
-		<ul>
-			<li>
-				<a class="video-link" href="https://vimeo.com/35396305">
-					<img src="http://lorempixel.com/320/280/people/1"/>
-					<span class="icon-play"></span>
-					<h3>Person name</h3>
-				</a>
-			</li>
-			<li>
-				<a class="image-link" href="http://lorempixel.com/650/560/people/2">
-					<img src="http://lorempixel.com/320/280/people/2"/>
-					<!-- <span class="icon-play"></span> -->
-					<h3>Person name</h3>
-				</a>
-			</li>
-			<li>
-				<a class="video-link" href="https://vimeo.com/35396305">
-					<img src="http://lorempixel.com/320/280/people/3"/>
-					<span class="icon-play"></span>
-					<h3>Person name</h3>
-				</a>
-			</li>
-		</ul>
+		<div class="wrapper-bg">
+			<div class="wrapper">
+				<ul>
+					<li>
+						<a class="video-link" href="https://vimeo.com/35396305">
+							<img src="@Url.Content(video1)"/>
+							<span class="icon-play"></span>
+							<h3>Name ????</h3>
+						</a>
+					</li>
+					<li>
+						<a class="video-link" href="https://vimeo.com/35396305">
+							<img src="@Url.Content(video2)"/>
+							<span class="icon-play"></span>
+							<h3>Ust. Wasim Sherief</h3>
+						</a>
+					</li>
+					<li>
+						<a class="video-link" href="https://vimeo.com/35396305">
+							<img src="@Url.Content(video3)"/>
+							<span class="icon-play"></span>
+							<h3>Sh. Omar Suleiman</h3>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 
 	<div id="block7" class="theater__fans t-block">
-		<h2>Fans the World Over</h2>
-		<ul>
-			<li>
-				<a class="image-link" href="http://lorempixel.com/500/450/people/4">
-					<h3>
-						Person name
-						<span>from Paris</span>
-					</h3>
-					<img src="http://lorempixel.com/266/266/people/4">
-				</a>
-			<li>
-				<a class="image-link" href="http://lorempixel.com/500/450/people/10">
-					<h3>
-						Person name
-						<span>from Paris</span>
-					</h3>
-					<img src="http://lorempixel.com/266/266/people/10">
-				</a>
-			<li>
-				<a class="image-link" href="http://lorempixel.com/500/450/people/6">
-					<h3>
-						Person name
-						<span>from Paris</span>
-					</h3>
-					<img src="http://lorempixel.com/266/266/people/6">
-				</a>
-			<li>
-				<a class="image-link" href="http://lorempixel.com/500/450/people/7">
-					<h3>
-						Person name
-						<span>from Paris</span>
-					</h3>
-					<img src="http://lorempixel.com/266/266/people/7">
-				</a>
-			<li>
-				<a class="image-link" href="http://lorempixel.com/500/450/people/8">
-					<h3>
-						Person name
-						<span>from Paris</span>
-					</h3>
-					<img src="http://lorempixel.com/266/266/people/8">
-				</a>
-			<li>
-				<a class="image-link" href="http://lorempixel.com/500/450/people/9">
-					<h3>
-						Person name
-						<span>from Paris</span>
-					</h3>
-					<img src="http://lorempixel.com/266/266/people/9">
-				</a>
-		</ul>
+		<div class="wrapper">
+			<h2>Fans the World Over</h2>
+			<ul>
+				<li>
+					<a class="image-link" title="Waleed from Paris" href="@Url.Content(fan1)">
+						<h3>
+							Waleed
+							<span>from Paris</span>
+						</h3>
+						<img src="@Url.Content(fan1)">
+					</a>
+				<li>
+					<a class="image-link" title="Umar from Paris" href="@Url.Content(fan2)">
+						<h3>
+							Umar
+							<span>from Paris</span>
+						</h3>
+						<img src="@Url.Content(fan2)">
+					</a>
+				<li>
+					<a class="image-link" title="Soulayman from Paris" href="@Url.Content(fan3)">
+						<h3>
+							Soulayman
+							<span>from Paris</span>
+						</h3>
+						<img src="@Url.Content(fan3)">
+					</a>
+				<li>
+					<a class="image-link" title="Imran from Paris" href="@Url.Content(fan4)">
+						<h3>
+							Imran
+							<span>from Paris</span>
+						</h3>
+						<img src="@Url.Content(fan4)">
+					</a>
+				<li>
+					<a class="image-link" title="Person name from Paris" href="@Url.Content(fan5)">
+						<h3>
+							Abu Imran
+							<span>from Paris</span>
+						</h3>
+						<img src="@Url.Content(fan5)">
+					</a>
+				<li>
+					<a class="image-link" title="Person name from Paris" href="http://lorempixel.com/500/450/people/9">
+						<h3>
+							Person name
+							<span>from Paris</span>
+						</h3>
+						<img src="http://lorempixel.com/266/266/people/9">
+					</a>
+			</ul>
+		</div>
 	</div>
-  </div>
   	<div class="theater_footer"><span class="lr-logo-small"></span></div>
 </div>
 <script type="text/javascript">
-	$('.video-link').addClass('mfp-iframe').magnificPopup({type:'iframe'});
-	$('.image-link').magnificPopup({type:'image'});
+	$('.video-link').addClass('mfp-iframe').magnificPopup({type:'iframe', mainClass: 'mfp-fade'});
+	$('.image-link').magnificPopup({type:'image', titleSrc: 'title', mainClass: 'mfp-fade'});
 </script>
