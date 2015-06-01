@@ -12,6 +12,10 @@ img  {
 	display: block;
 }
 
+.text-center {
+	text-align: center;
+}
+
 .wrapper {
 	max-width: 1000px;
 	width: auto;
@@ -59,51 +63,6 @@ img  {
 
 .header-buy-now-btn:hover {
 	background: #DF1643 !important;
-}
-
-.jumpto-menu {
-	position: fixed;
-	top: 40%;
-	list-style: none;
-	width: 50px;
-	margin-left: 1081px;
-	z-index: 1;
-}
-
-.jumpto-menu li {
-	display: block;
-	text-indent: 0;
-	height: 15px;
-	width: 15px;
-	border-radius: 20px;
-	background: #cecece;
-	padding-top: 4px;
-	text-align: right;
-	margin-bottom: 10px;
-	margin-left: 2px;
-	transition: 200ms all;
-}
-
-.jumpto-menu li:hover {
-	margin-left: 0px;
-	background-color: #e40000;
-	height: 20px;
-	width: 20px;
-	transition: 200ms all;
-}
-
-.jumpto-menu li:hover a {
-	display: block;
-}
-
-.jumpto-menu li a {
-	text-shadow: 0px 0px 6px #fff;
-	text-transform: capitalize;
-	float: right;
-	width: 500px;
-	padding-right: 27px;
-	color: #000;
-	display: none;
 }
 
 .t-block {
@@ -252,8 +211,12 @@ img  {
 	font-weight: 100;
 }
 
-.theater__share {
-	padding-top: 0;
+.theater__share h2 {
+	margin-bottom: 40px;
+}
+
+.theater__share,
+.theater_productcarousel {
 	padding-bottom: 0;
 }
 
@@ -437,8 +400,69 @@ img  {
 }
 
 
+/* Progress Tracker */
+.progress-tracker {
+  position: fixed;
+  top: 50%;
+  right: 80px;
+}
+.progress-tracker.hide {
+  width: 0px;
+}
+.progress-tracker.hide ul li .pt-description,
+.progress-tracker.hide.active ul li .pt-description,
+.progress-tracker.hide.constant ul li.active .pt-description {
+  display: none;
+}
+.progress-tracker ul li {
+  width: 15px;
+  height: 15px;
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #D5D4D4;
+  margin-bottom: 10px;
+  list-style-type: none;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+}
+.progress-tracker ul li a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.progress-tracker ul li .pt-description {
+  display: none;
+  width: 235px;
+  position: absolute;
+  top: -2px;
+  right: 18px;
+}
+.progress-tracker ul li.active .pt-description {
+	top: -9px;
+}
+.progress-tracker ul li .pt-description span {
+  float: right;
+  text-align: right;
+  background-color: #e9ebea;
+  padding: 3px 8px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+.progress-tracker ul li.active {
+background-color: #C8133C;
+border: 11px solid #C8133C;
+margin-left: -3px;
+}
+.progress-tracker.constant ul li.active .pt-description,
+.progress-tracker.constant ul li:hover .pt-description {
+  display: block;
+}
+
+
 @media screen and (max-width: 768px) {
-	.jumpto-menu {
+	.progress-tracker {
 		display: none;
 	}
 	.header-logo {
