@@ -270,6 +270,10 @@ img  {
 	display: inline-block;
 }
 
+.theater__fans img {
+	width: 266px;
+}
+
 .theater__fans li a,
 .theater__videos ul li a {
 	position: relative;
