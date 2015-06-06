@@ -410,14 +410,12 @@ img  {
   top: 50%;
   right: 80px;
 }
-.progress-tracker.hide {
-  width: 0px;
-}
 .progress-tracker.hide ul li .pt-description,
 .progress-tracker.hide.active ul li .pt-description,
 .progress-tracker.hide.constant ul li.active .pt-description {
   display: none;
 }
+.progress-tracker.hide ul li.active,
 .progress-tracker ul li {
   width: 15px;
   height: 15px;
@@ -456,8 +454,7 @@ img  {
 }
 .progress-tracker ul li.active {
 background-color: #C8133C;
-border: 11px solid #C8133C;
-margin-left: -3px;
+border: 2px solid #C8133C;
 }
 .progress-tracker.constant ul li.active .pt-description,
 .progress-tracker.constant ul li:hover .pt-description {
