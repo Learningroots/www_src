@@ -1,3 +1,4 @@
+
 /* RESET STYLESHEET (html5doctor.com) v1.6.1 */
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video {
 	margin: 0;
@@ -275,13 +276,6 @@ textarea[disabled="disabled"], input[disabled="disabled"] {
 	width: 190px;
 	margin: 10px 0;
 	display: inline;
-}
-
-.icon-play {
-	background: url(images/play.png) 0 0 no-repeat;
-	height: 139px;
-	width: 139px;
-	display: inline-block;
 }
 
 
@@ -980,10 +974,6 @@ textarea, input { outline: none !important; }
 	margin: 15px;
 }
 
-.mobile-menu-body .title {
-  margin-top: 16px !important;
-}
-
 .side-2 .block-other-links {
 	display: none;
 }
@@ -1005,7 +995,6 @@ textarea, input { outline: none !important; }
 	width: 100%;
 	text-align: center;
 	padding: 15px;
-	color: #fff;
 }
 
 .mobile-menu-body .side-2 {
@@ -1042,6 +1031,10 @@ textarea, input { outline: none !important; }
 	padding-bottom: 14px;
 }
 
+.mobile-main-menu .listbox {
+	border-top: 5px solid #000;
+}
+
 .close-sub-menu {
 	float: right;
 	margin-top: -36px;
@@ -1072,11 +1065,6 @@ textarea, input { outline: none !important; }
 	margin-bottom: 15px;
 	background-size: 220px;
 	position: relative;
-}
-
-.mobile-menu-body .mobile-main-menu-nobanner {
-	background: none;
-	padding-top: 0;
 }
 
 .mobile-menu-social {
@@ -2835,11 +2823,6 @@ select#checkout_attribute_1 {
 	border: dotted 1px #d3d3d3;
 }
 
-#CardNumber,
-#CardholderName {
-	width: 68% !important;
-}
-
 .checkout-data .payment-method {
 	text-align: left;
 	border: 1px solid #EEE;
@@ -3721,10 +3704,14 @@ select#checkout_attribute_1 {
 	top: 315px;
 }
 
-#social-testimonials .social-block > div {
+.social-block > div {
 	display: table-cell;
 	vertical-align: middle;
 }
+
+/*#social-twitter .social-block > div {
+	display: block;
+}*/
 
 .social-block div a {
 	color: #C8133C;
@@ -4144,14 +4131,14 @@ select#checkout_attribute_1 {
 
 .product-grid .product-item .prices .price {
 	margin: 0px;
+	display: block;
 	font-family: "BreeBold";
 	font-size: 16px;
 }
 
 .product-grid .product-item .prices .old-price {
-	color: #9D9D9D;
+	color: #5C5B5B;
 	text-decoration: line-through;
-	margin-right: 6px;
 }
 
 .product-grid .product-item .prices .tax-shipping-info {
@@ -4332,19 +4319,15 @@ select#checkout_attribute_1 {
 	border: none;
 }
 
-.top-message-special,
-.cookieHideMessage {
+body .order-summary-content .cookieHideMessage,
+body .order-summary-content .top-message-special {
+	display: none !important;
 	background: #000;
 	text-align: center;
 	color: #FFF;
 	padding: 19px 0;
 	font-size: 17px;
 	overflow: hidden;
-}
-
-body .order-summary-content .cookieHideMessage,
-body .order-summary-content .top-message-special {
-	display: none !important;
 }
 
 .order-summary-content .cookieHideMessage .btn-close,
@@ -4389,7 +4372,6 @@ body .order-summary-content .top-message-special {
 .vendor-list-page {
 }
 
-.homepage .top-message-special,
 .categorypage .top-message-special,
 .manufacturerpage .top-message-special,
 .vendorpage .top-message-special,
