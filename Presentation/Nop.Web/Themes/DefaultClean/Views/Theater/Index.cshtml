@@ -8,19 +8,27 @@
 	Html.AppendScriptParts("~/Themes/DefaultClean/Content/js/jquery.popup.js");
 
 
-	var product = "~/Themes/DefaultClean/Content/images/t-product.png";
-	var block2 = "~/Themes/DefaultClean/Content/images/t-block2.png";
+	var product = "~/Themes/DefaultClean/Content/images/2-box-stand.png";
+	var block2 = "~/Themes/DefaultClean/Content/images/boyvsgirl.png";
+	var thrill = "~/Themes/DefaultClean/Content/images/boyrunning.png";
 
 	var video1 = "~/Themes/DefaultClean/Content/images/vid1.jpg";
 	var video2 = "~/Themes/DefaultClean/Content/images/vid2.jpg";
 	var video3 = "~/Themes/DefaultClean/Content/images/vid3.jpg";
+
+	var Collection_Quest_Cards = "~/Themes/DefaultClean/Content/images/Collection_Quest_Cards.png";
+	var Collection_Quest_Box = "~/Themes/DefaultClean/Content/images/Collection_Quest_Box.png";
+	var Collection_Highlights_villians_bookmarks = "~/Themes/DefaultClean/Content/images/Collection_Highlights_villians_bookmarks.png";
+	var Collection_Course = "~/Themes/DefaultClean/Content/images/Collection_Course.png";
+	var Collection_Clues_Cards = "~/Themes/DefaultClean/Content/images/Collection_Clues_Cards.png";
+	var Collection_Clues_Box = "~/Themes/DefaultClean/Content/images/Collection_Clues_Box.png";
 
 	var waleed = "~/Themes/DefaultClean/Content/images/waleed.jpg";
 	var umar = "~/Themes/DefaultClean/Content/images/umar.jpg";
 	var soulayman = "~/Themes/DefaultClean/Content/images/soulayman.jpg";
 	var imran = "~/Themes/DefaultClean/Content/images/imran.jpg";
 	var killian = "~/Themes/DefaultClean/Content/images/killian.jpg";
-	var murat = "~/Themes/DefaultClean/Content/images/murat.jpg";
+	var amar = "~/Themes/DefaultClean/Content/images/amar.jpg";
 }
 
 <script src="//use.typekit.net/ren7giz.js"></script>
@@ -33,7 +41,7 @@
 			href="#"
 			data-productid="88"
 			onclick="AjaxCart.addproducttocart_details('/addproducttocart/details/13/1', '#theater-page');return false;">
-			BUY NOW
+			Yes, I Want Sahaba Fun!
 		</a>
 	</div>
 	
@@ -51,15 +59,15 @@
         });
     </script>
 	
-	<iframe src="https://player.vimeo.com/video/130413972" width="100%" height="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	<iframe src="https://player.vimeo.com/video/130802188" width="100%" height="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 	<div id="block1" class="theater__productblock1 t-block pt-section" data-name="The world’s ONLY game on the Sahaba">
 		<div class="wrapper">
 			<div class="block__wrapper">
-				<h2>The world’s ONLY game on the Sahaba - the greatest generation to ever set foot on earth.</h2>
+				<h2>The Worlds Only Game on the Sahaba<br/>The Greatest Generation of Men and Women to Ever Set Foot on Earth</h2>
 				<p>Two years in the making, covering over 100 Companions and designed for the whole family, it doesn’t get any better than this when it comes to the Sahaba.</p>
 			</div>
-			<img src="@Url.Content(product)" width="235px" height="237px"/>
+			<img src="@Url.Content(product)"/>
 		</div>
 	</div>
 
@@ -67,7 +75,7 @@
 		<div class="wrapper">
 			<div class="block__wrapper">
 				<h2>Got what it takes?</h2>
-				<a class="video-link" href="https://vimeo.com/35396305">Sample the game now.</a>
+				<a class="video-link" href="https://vimeo.com/130413972">Sample the game now.</a>
 			</div>
 			<img src="@Url.Content(block2)"/>
 		</div>
@@ -77,43 +85,44 @@
 		<div class="wrapper">
 			<div id="block3" class="theater__productblock3 t-block pt-section">
 				<h2>Thrilling fun.<br/>Chilling lessons.</h2>
-				<p>Sunday was a recovery day … no workout. My activity consisted of getting settled back in at home and running some errands. When I went out, I was on foot most of the time. I always tell my kids: Less than 10 blocks, and we’re walking! By the time I got back, I had just about closed my Move ring. I’d burned 380 active calories.</p>
+				<p>Here’s a true story: One of the hardest and part of the making process is text editing, reading the same lines over and over again. But with the Sahaba, it was an eman boost for our editing team, learning about their incredible achievements, their mindset and being humbled by their impeccable character. With Companion Collection, you can experience all of that first hand for yourself.</p>
+				<img src="@Url.Content(thrill)"/>
 			</div>
 		</div>
 	</div>
 
 	<div id="block4" class="theater_productcarousel t-block pt-section wrapper">
-		<h2>So What’s Inside?</h2>
+		<h2>Here’s What You Get Inside...</h2>
 		<ul class="owl-carousel" id="products-carousel">
 			<li>
-				<img src="http://lorempixel.com/240/280/abstract/1"/>
+				<img src="@Url.Content(Collection_Quest_Box)"/>
+				<h3>Companion Quest</h3>
+				<div>Awesome Adults Package</div>
+			</li>
+			<li>
+				<img src="@Url.Content(Collection_Clues_Cards)"/>
 				<h3>Companion Clues</h3>
-				<div>Childnre’s Game</div>
+				<div>Fun Filled Kids Box</div>
 			</li>
 			<li>
-				<img src="http://lorempixel.com/240/280/abstract/2"/>
-				<h3>Product title</h3>
-				<div>Product category</div>
+				<img src="@Url.Content(Collection_Clues_Box)"/>
+				<h3>Irresistible Clue Games</h3>
+				<div>Covering 100+ Sahaba</div>
 			</li>
 			<li>
-				<img src="http://lorempixel.com/240/280/abstract/3"/>
-				<h3>Product title</h3>
-				<div>Product category</div>
+				<img src="@Url.Content(Collection_Course)"/>
+				<h3>Easy Kids Game</h3>
+				<div>Multiple Choice Trivia</div>
 			</li>
 			<li>
-				<img src="http://lorempixel.com/240/280/abstract/4"/>
-				<h3>Product title</h3>
-				<div>Product category</div>
+				<img src="@Url.Content(Collection_Highlights_villians_bookmarks)"/>
+				<h3>Extra Bonuses</h3>
+				<div>Villains & Events Pack</div>
 			</li>
 			<li>
-				<img src="http://lorempixel.com/240/280/abstract/5"/>
-				<h3>Product title</h3>
-				<div>Product category</div>
-			</li>
-			<li>
-				<img src="http://lorempixel.com/240/280/abstract/6"/>
-				<h3>Product title</h3>
-				<div>Product category</div>
+				<img src="@Url.Content(Collection_Quest_Cards)"/>
+				<h3>Play All Together</h3>
+				<div>Family Board Game</div>
 			</li>
 		</ul>
 	</div>
@@ -155,7 +164,7 @@
 						<a class="video-link" href="https://www.youtube.com/watch?v=hP9xuLjlMUM">
 							<img src="@Url.Content(video1)"/>
 							<span class="icon-play"></span>
-							<h3>Name ????</h3>
+							<h3>Sh. Yahya Ibrahim</h3>
 						</a>
 					</li>
 					<li>
@@ -166,9 +175,9 @@
 						</a>
 					</li>
 					<li>
-						<a class="video-link" href="https://vimeo.com/35396305">
+						<a class="image-link" href="@Url.Content(video3)">
 							<img src="@Url.Content(video3)"/>
-							<span class="icon-play"></span>
+							<!-- <span class="icon-play"></span> -->
 							<h3>Sh. Omar Suleiman</h3>
 						</a>
 					</li>
@@ -182,21 +191,15 @@
 			<h2>Fans the World Over</h2>
 			<ul>
 				<li>
-
-
-
-
-
-
-					<a class="image-link" title="Waleed in Germany" href="@Url.Content(waleed)">
+					<a class="image-link" title="In the lives of the Sahaba, you’ll find inspiration for every situation and personality type." href="@Url.Content(waleed)">
 						<h3>
 							Waleed
-							<span>from Paris</span>
+							<span>from Germany</span>
 						</h3>
 						<img src="@Url.Content(waleed)">
 					</a>
 				<li>
-					<a class="image-link" title="Umar in India" href="@Url.Content(umar)">
+					<a class="image-link" title="The Companions are my heroes!" href="@Url.Content(umar)">
 						<h3>
 							Umar
 							<span>from India</span>
@@ -204,7 +207,7 @@
 						<img src="@Url.Content(umar)">
 					</a>
 				<li>
-					<a class="image-link" title="Soulayman in France" href="@Url.Content(soulayman)">
+					<a class="image-link" title="They were legends from the past, and an inspiration for the future." href="@Url.Content(soulayman)">
 						<h3>
 							Soulayman
 							<span>from France</span>
@@ -212,7 +215,7 @@
 						<img src="@Url.Content(soulayman)">
 					</a>
 				<li>
-					<a class="image-link" title="Imran in Qatar" href="@Url.Content(imran)">
+					<a class="image-link" title="The legacy of the Sahaba and their efforts are with us until this very day. That’s just an incredible thought." href="@Url.Content(imran)">
 						<h3>
 							Imran
 							<span>from Qatar</span>
@@ -220,7 +223,7 @@
 						<img src="@Url.Content(imran)">
 					</a>
 				<li>
-					<a class="image-link" title="Killian in London" href="@Url.Content(killian)">
+					<a class="image-link" title="I never knew learning about the Sahaba could be this much fun." href="@Url.Content(killian)">
 						<h3>
 							Killian
 							<span>from London</span>
@@ -228,12 +231,12 @@
 						<img src="@Url.Content(killian)">
 					</a>
 				<li>
-					<a class="image-link" title="Murat in Turkey" href="@Url.Content(murat)">
+					<a class="image-link" title="I feel so honoured to be part of the same Ummah as the Sahaba!" href="@Url.Content(amar)">
 						<h3>
-							Murat
-							<span>from Turkey</span>
+							Amar
+							<span>from Malaysia</span>
 						</h3>
-						<img src="@Url.Content(murat)">
+						<img src="@Url.Content(amar)">
 					</a>
 			</ul>
 		</div>
