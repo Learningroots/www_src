@@ -8084,3 +8084,10 @@ pre {
 	display: block;
 	margin-bottom: 3px;
 }
+
+.icon-play {
+	background: url(images/play.png) 0 0 no-repeat;
+	height: 139px;
+	width: 139px;
+	display: inline-block;
+}
