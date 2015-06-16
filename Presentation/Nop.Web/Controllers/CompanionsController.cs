@@ -5,7 +5,7 @@ using Nop.Web.Framework.Security;
 
 namespace Nop.Web.Controllers
 {
-    public class TheaterController : BasePublicController
+    public class CompanionsController : BasePublicController
     {
         #region Fields
 
@@ -16,7 +16,7 @@ namespace Nop.Web.Controllers
 
         #region Constructors
 
-        public TheaterController(ICacheManager cacheManager, ILogger logger)
+        public CompanionsController(ICacheManager cacheManager, ILogger logger)
         {
             _cacheManager = cacheManager;
             _logger = logger;
