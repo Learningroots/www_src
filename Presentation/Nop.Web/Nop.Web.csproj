@@ -954,6 +954,8 @@
     <Content Include="Content\tinymce\skins\lightgray\skin.min.css" />
     <Content Include="Content\tinymce\themes\modern\theme.min.js" />
     <Content Include="Content\tinymce\tinymce.min.js" />
+    <Content Include="Properties\PublishProfiles\AWS.pubxml.user" />
+    <Content Include="Properties\PublishProfiles\LRBuild.pubxml.user" />
     <Content Include="Scripts\fineuploader\edit.gif" />
     <Content Include="Scripts\fineuploader\fineuploader-4.2.2.css" />
     <Content Include="Scripts\fineuploader\fineuploader-4.2.2.min.css" />
@@ -1017,7 +1019,7 @@
     <Content Include="Content\kendo\2014.1.318\images\kendoui.ttf" />
     <Content Include="app.config" />
     <None Include="Properties\PublishProfiles\AWS.pubxml" />
-    <None Include="Properties\PublishProfiles\LRPublish.pubxml" />
+    <None Include="Properties\PublishProfiles\LRBuild.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\fineuploader\iframe.xss.response-4.2.2.js" />
     <Content Include="Scripts\fineuploader\jquery.fineuploader-4.2.2.js" />
@@ -2066,8 +2068,6 @@
     <Content Include="Themes\DefaultClean\Content\fonts\ProximaNova.otf" />
     <Content Include="Themes\DefaultClean\Views\Checkout\OnePageCheckout.cshtml" />
     <Content Include="Views\Install\Index.cshtml" />
-    <Content Include="Themes\DefaultClean\Views\Home\_social_block-BLOCK.cshtml" />
-    <Content Include="Themes\DefaultClean\Views\Home\_social_twitter-WORKING-BACKUP.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Companions\Index.cshtml" />
     <Content Include="Views\Shared\_RootBlank.cshtml" />
     <Content Include="Views\Shared\_Blank.cshtml">

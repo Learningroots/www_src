@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Projects\Learningroots\solutions\nopcommerce\src_published</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\Github\Learningroots\Published</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Administration/Content/images/1pix.gif">
