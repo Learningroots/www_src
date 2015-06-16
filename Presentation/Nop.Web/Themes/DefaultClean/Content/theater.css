@@ -481,14 +481,16 @@ border: 2px solid #C8133C;
 
 
 @media screen and (max-width: 768px) {
-	.progress-tracker {
-		display: none;
-	}
-	.header-logo {
+     .progress-tracker {
+	display: none;
+     }
+    .header-logo {
         float: left;
     }
     .header-buy-now-btn {
     	margin-right: 13px;
+    	font-size: 12px;
+  	width: 155px;
     }
     .header-logo a.logo-site {
     	float: left;
