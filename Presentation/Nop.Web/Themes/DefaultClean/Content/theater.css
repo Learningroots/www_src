@@ -426,7 +426,7 @@ img  {
 .progress-tracker {
   position: fixed;
   top: 50%;
-  right: 80px;
+  right: 40px;
 }
 .progress-tracker.hide ul li .pt-description,
 .progress-tracker.hide.active ul li .pt-description,
