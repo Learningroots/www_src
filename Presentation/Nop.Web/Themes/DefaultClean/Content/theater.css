@@ -155,9 +155,6 @@ img  {
 
 .theater__productblock3 p {
 	width: 555px;
-	text-shadow: 0px 0px 3px #fff;
-	color: #000;
-	background-color: rgba(255, 255, 255, 0.53);
 }
 
 .theater__fans h2,
@@ -426,7 +423,7 @@ img  {
 .progress-tracker {
   position: fixed;
   top: 50%;
-  right: 40px;
+  right: 80px;
 }
 .progress-tracker.hide ul li .pt-description,
 .progress-tracker.hide.active ul li .pt-description,
@@ -481,20 +478,23 @@ border: 2px solid #C8133C;
 
 
 @media screen and (max-width: 768px) {
-     .progress-tracker {
-	display: none;
-     }
-    .header-logo {
+	.progress-tracker {
+		display: none;
+	}
+	.header-logo {
         float: left;
     }
     .header-buy-now-btn {
     	margin-right: 13px;
-    	font-size: 12px;
-  	width: 155px;
+    	width: 154px;
+  		padding-left: 8px !important;
+  		padding-right: 8px !important;
     }
     .header-logo a.logo-site {
     	float: left;
     	margin-left: 9px;
+    	width: 138px;
+  		margin-top: 6px;
     }
     .header-logo {
     	float: none;
