@@ -3819,7 +3819,7 @@ select#checkout_attribute_1 {
 	display: inline-block;*/
 }
 
-.character-video .icon-play {
+.character-video .icon-play { display:none;
 	position: absolute;
 	left: 50%;
 	top: 50%;
