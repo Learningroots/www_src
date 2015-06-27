@@ -3604,16 +3604,11 @@ select#checkout_attribute_1 {
 }
 
 .home-page-product-grid .item-box .product-item .product-title {
-	position: absolute;
-	width: 100%;
-	bottom: 30px;
+	min-height: 60px;
 }
 
 .home-page-product-grid .item-box .product-item .add-info {
-	position: absolute;
-	bottom: 15px;
-	width: 100%;
-	text-align: center;
+	
 }
 
 .home-page-product-grid .item-box:last-child .product-item {
@@ -4217,6 +4212,7 @@ select#checkout_attribute_1 {
 }
 
 .product-grid .product-item .details {
+	padding-bottom: 8px;
 }
 
 .product-grid .product-item .product-rating-box {
@@ -4227,6 +4223,7 @@ select#checkout_attribute_1 {
 	background: none repeat scroll 0 0 #FFFFFF;
 	text-align: center;
 	overflow: hidden;
+	min-height: 180px;
 }
 
 .product-grid .product-item .picture img {
