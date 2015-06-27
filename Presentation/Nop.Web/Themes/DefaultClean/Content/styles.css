@@ -3523,6 +3523,11 @@ select#checkout_attribute_1 {
 	width: auto;
 }
 
+.product-grid.home-page-product-grid .item-box {
+	margin-left: 42px;
+	margin-right: -39px;
+}
+
 .home-page-featured-products {
 	background: url(images/home-categories-bg.png);
 	padding: 20px;
