@@ -1,4 +1,4 @@
-<div class="mobile-menu-overlay"></div>
+<div class="mobile-menu-overlay" title="click here to close the menu"></div>
 <div class="mobile-menu">
 	
 	<div class="mobile-menu-header">
@@ -126,6 +126,10 @@
 					})
 			)
 		}
+	});
+
+	$_mobile_overlay.click(function(){
+		$_mobile_closer.click();
 	});
 
 	//close menu when esc is pressed
