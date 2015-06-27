@@ -4159,14 +4159,13 @@ select#checkout_attribute_1 {
 	vertical-align: text-top;
 }
 
-.sub-category-grid .sub-category-item,
-.product-grid .product-item {
+.sub-category-grid .sub-category-item, .product-grid .product-item {
 	text-align: center;
 	margin: 0;
 	padding: 0;
-	width: 206px;
+	width: 226px;
 	min-height: 210px;
-	margin-right: 40px;
+	margin-right: 10px;
 	margin-bottom: 30px;
 }
 
@@ -4218,12 +4217,12 @@ select#checkout_attribute_1 {
 .product-grid .product-item .picture {
 	background: none repeat scroll 0 0 #FFFFFF;
 	text-align: center;
-	height: 140px;
 	overflow: hidden;
 }
 
 .product-grid .product-item .picture img {
 	margin: 5px;
+	width: 160px;
 }
 
 .product-grid .product-item .description {
