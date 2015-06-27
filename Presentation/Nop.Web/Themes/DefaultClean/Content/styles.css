@@ -759,14 +759,14 @@ textarea, input { outline: none !important; }
 	height: 90px;
 }
 
-.footer-boy {
+/*.footer-boy {
 	background: url(images/footer-boy.png) no-repeat 0 0;
 	display: inline-block;
 	height: 156px;
 	width: 95px;
 	margin-top: -64px;
 	float: left;
-}
+}*/
 
 .footer-link {
 	display: inline-block;
@@ -782,6 +782,7 @@ textarea, input { outline: none !important; }
 .footer-link1 {
 	background: url(images/marker.png) no-repeat 0 0;
 	padding-left: 36px;
+	margin-left: 12px;
 }
 
 .footer-link2 {
@@ -790,9 +791,8 @@ textarea, input { outline: none !important; }
 }
 
 .footer-link3 {
-	background: url(images/at.png) no-repeat 0 0;
+	background: red url(images/at.png) no-repeat 0 0;
 	padding-left: 44px;
-	display: none;
 }
 
 
