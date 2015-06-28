@@ -1729,8 +1729,18 @@ li.sub-menu-active > a,
 	padding-top: 50px;
 }
 
+#mc_embed_signup form {
+	padding-top: 0;
+}
+
+#mc_embed_signup {
+	position: relative;
+	top: -30px;
+}
+
 .homepage .block-newsletter  {
 	padding-top: 0;
+	margin-bottom: -70px;
 }
 
 .block-newsletter .newsletter-email {
