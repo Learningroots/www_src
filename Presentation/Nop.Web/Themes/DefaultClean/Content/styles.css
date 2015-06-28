@@ -277,6 +277,7 @@ textarea[disabled="disabled"], input[disabled="disabled"] {
 	font-family: "ronnia-condensed";
 }
 
+.admin-header-links,
 .fixed {
     position: fixed;
     top:0; left:0;
@@ -488,6 +489,8 @@ ul.language-list li:hover {
 	padding: 20px;
 	background-color: #CE092E;
 	text-align: center;
+	top: auto;
+	bottom: 0;
 }
 
 .admin-header-links .administration {
@@ -2059,9 +2062,9 @@ li.sub-menu-active > a,
 	bottom: 0;
 	width: 100%;
 	z-index: 100000;
-	background: none repeat scroll 0 0 #F6F6F4;
-	border-top: 3px solid #FFFFFF !important;
-	color: #5C5B5B;
+	background: #C8133C;
+	border-top: 3px solid #C8133C !important;
+	color: #fff;
 	margin: 0px;
 }
 
@@ -2083,20 +2086,22 @@ li.sub-menu-active > a,
 
 .eu-cookie-bar-notification .content .text {
 	float: left;
-	padding-top: 5px;
+	padding-top: 12px;
 }
 
 .eu-cookie-bar-notification .content .ok-button {
 	float: left;
 	margin-left: 10px;
+	color: #C8133C;
+	background: #fff;
 }
 
 .eu-cookie-bar-notification .content a.learn-more {
 	float: left;
 	margin-left: 10px;
-	padding-top: 5px;
+	padding-top: 12px;
 	text-decoration: underline;
-	color: #5C5B5B;
+	color: #fff;
 }
 
 .eu-cookie-bar-notification .content a.learn-more:hover {
@@ -3631,6 +3636,7 @@ select#checkout_attribute_1 {
 
 .home-page-product-grid .item-box .product-item .product-title {
 	min-height: 60px;
+	padding: 0 5px;
 }
 
 .home-page-product-grid .item-box .product-item .add-info {
@@ -4010,7 +4016,7 @@ select#checkout_attribute_1 {
 	position: relative;
 }
 
-.charater-other p {
+div .charater-other p {
 	margin-top: 30%;
 	font-size: 18px;
 	text-align: center;
@@ -4060,15 +4066,13 @@ select#checkout_attribute_1 {
 
 .charater-bio p, .charater-other p {
 	margin-bottom: 0;
-	font-family: "ronnia-condensed";
+	line-height: 16px;
 }
-
 
 .home-page .homepage-tabs a {
 	margin-right: 3px;
 	margin-left: 3px;
 }
-
 
 /* join the club */
 .home-page-join-the-club {
@@ -4257,7 +4261,7 @@ select#checkout_attribute_1 {
 }
 
 .product-grid .product-item .details {
-	padding-bottom: 8px;
+	padding-bottom: 12px;
 }
 
 .product-grid .product-item .product-rating-box {
@@ -4268,7 +4272,7 @@ select#checkout_attribute_1 {
 	background: none repeat scroll 0 0 #FFFFFF;
 	text-align: center;
 	overflow: hidden;
-	min-height: 180px;
+	min-height: 160px;
 	display: table;
 	width: 100%;
 }
