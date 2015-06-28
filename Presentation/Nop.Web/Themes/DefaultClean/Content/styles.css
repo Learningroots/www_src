@@ -140,8 +140,9 @@ body {
 	line-height: normal;
 }
 
-h1,h2,h3,h4,h5,h6 {
-	font-family: "BreeBold"
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
 }
 
 a {
@@ -200,10 +201,7 @@ textarea[disabled="disabled"], input[disabled="disabled"] {
 	background: #FFF;
 }
 
-.master-wrapper-content {
-	
-}
-
+.theater-page-body  .master-wrapper-content ,
 .one-page-checkout .master-wrapper-content {
 	padding-top: 0 !important;
 }
@@ -358,6 +356,10 @@ textarea[disabled="disabled"], input[disabled="disabled"] {
 	padding-top: 13px;
 	float: left;
 	padding-bottom: 10px;
+}
+
+.theater-page-body .header-logo a.logo-site {
+	padding-top: 10px;
 }
 
 .header-logo a img {
@@ -3641,6 +3643,7 @@ select#checkout_attribute_1 {
 	margin-right: 0;
 }
 
+.page-title,
 .home-page-product-grid .title,
 .home-block-title {
 	text-align: center;
@@ -3648,6 +3651,9 @@ select#checkout_attribute_1 {
 	font-size: 25px;
 	color: #000;
 	margin-top: 10px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .home-discover .home-block-title {
@@ -4558,6 +4564,7 @@ body .order-summary-content .top-message-special {
 .category-page .page-title,.manufacturer-list-page .page-title,.manufacturer-page .page-title,.vendor-page .page-title,.product-tag-page .page-title,.product-tags-all-page .page-title,.vendor-list-page .page-title {
 	border-bottom: 0 none;
 	clear: both;
+	text-align: left;
 }
 
 .product-tags-all-page .product-tags-list li {
@@ -4639,6 +4646,7 @@ body .order-summary-content .top-message-special {
 .product-sorting {
 	float: right;
 	margin-top: -66px;
+	font-size: 13px;
 }
 
 .product-viewmode {
@@ -6312,6 +6320,7 @@ body .order-summary-content .top-message-special {
 }
 
 .product-details-page .product-name {
+	font-family: 'Open Sans', sans-serif;
 	font-size: 28px;
 	margin-bottom: 0.3em;
 	padding-top: 10px;
