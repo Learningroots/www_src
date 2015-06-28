@@ -3546,22 +3546,25 @@ select#checkout_attribute_1 {
 
 .master-wrapper-page .theme-default .nivo-directionNav a {
 	background-image: url(images/arrows.png);
-	width: 86px;
-	height: 85px;
+	width: 55px;
+	height: 55px;
 	cursor: pointer;
+	border-radius: 100px;
 }
 
 .master-wrapper-page .theme-default a.nivo-prevNav {
-	left: -23px;
+	left: 35px;
+	background-position: -25px -15px;
 }
 
 .master-wrapper-page .theme-default a.nivo-nextNav {
-	background-position: -85px 0;
-	right: -26px;
+	background-position: -90px -16px;
+	right: 35px;
+
 }
 
 .master-wrapper-page .nivo-directionNav a {
-	top: 50%;
+	top: 54%;
 	margin-top: -53px;
 }
 
@@ -3649,6 +3652,7 @@ select#checkout_attribute_1 {
 	border: none;
 	margin-top: 25px;
 	padding-top: 0;
+	margin-left: 10px;
 }
 
 .home-discover .slider .viewport {
@@ -3661,7 +3665,7 @@ select#checkout_attribute_1 {
 }
 
 .home-discover .slider .next {
-	right: 0;
+	right: 15px;
 	left: auto;
 	background-position: 8px 0;
 }
@@ -3679,8 +3683,8 @@ select#checkout_attribute_1 {
 .home-discover .slider .overview li {
 	border: none;
 	height: auto;
-	width: 180px;
-	margin-right: 50px;
+	width: 183px;
+	margin-right: 35px;
 }
 
 .home-discover .slider .overview li a {
