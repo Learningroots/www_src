@@ -133,7 +133,7 @@ select {
 /* OTHER RESET STYLESHEET (HTML GENERAL) */
 body {
 	text-align: left;
-	font-family: 'BreeRegular',arial,verdana,helvetica,sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	font-size: 12px;
 	background: none repeat scroll 0 0 #fff;
 	color: #5C5B5B;
@@ -182,9 +182,7 @@ legend {
 	font-size: 16px;
 }
 
-textarea,
-input[type="text"], input[type="password"] {
-	font-family: "ronnia-condensed";
+textarea, input[type="text"], input[type="password"] {
 	border: 1px solid #eee;
 	border-radius: 5px;
 	padding: 12px 15px;
@@ -1185,7 +1183,7 @@ textarea, input { outline: none !important; }
 .page-title h1, .page-title h2 {
 	font-size: 20px;
 	margin: 0;
-	font-weight: 100;
+	font-weight: bold;
 	color: black;
 	padding: 12px 0;
 }
@@ -3872,6 +3870,8 @@ select#checkout_attribute_1 {
 #social-testimonials .social-block > div {
 	display: table-cell;
 	vertical-align: middle;
+	line-height: 15px;
+  	font-size: 11px;
 }
 
 /*#social-twitter .social-block > div {
@@ -3893,13 +3893,13 @@ select#checkout_attribute_1 {
 	font-family: serif;
 	height: 20px;
 	position: absolute;
-	top: 3px;
+	top: 20px;
 }
 
 .double-quote-end {
-	 bottom: 15px;
+	bottom: -8px;
 	top: auto;
-	right: 11px;
+	right: 14px;
 }
 
 /* end of social block */
@@ -4011,7 +4011,7 @@ select#checkout_attribute_1 {
 }
 
 .charater-other p {
-	margin-top: 45%;
+	margin-top: 30%;
 	font-size: 18px;
 	text-align: center;
 	line-height: 22px;
@@ -4055,6 +4055,7 @@ select#checkout_attribute_1 {
 
 .charater-bio p {
 	font-size: 14px; 
+	margin-top: 5px;
 }
 
 .charater-bio p, .charater-other p {
@@ -4246,7 +4247,7 @@ select#checkout_attribute_1 {
 	line-height: 1.3em;
 	overflow: hidden;
 	padding: 8px 0 8px 0;
-	font-family: "BreeBold";
+	font-weight: bold;
 	font-size: 16px;
 	color: #000;
 }
@@ -6429,7 +6430,6 @@ body .order-summary-content .top-message-special {
 
 .product-details-page .full-description p {
 	line-height: 20px;
-	font-family: "ronnia-condensed";
 }
 
 .product-details-page .full-description ul, .product-details-page .full-description ol {
