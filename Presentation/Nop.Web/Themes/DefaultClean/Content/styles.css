@@ -123,16 +123,6 @@ select {
 	src: url('fonts/BreeRegular.otf') format('opentype');
 }
 
-@font-face{
-	font-family:'ProximaNova';
-	src: url('fonts/ProximaNova.otf') format('opentype');
-}
-
-@font-face{
-	font-family:'Ronnia';
-	src: url('fonts/Ronnia.otf') format('opentype');
-}
-
 @font-face {
     font-family:'CandyScript';
 	src: url('fonts/CandyScript.ttf') format('opentype');
@@ -193,7 +183,7 @@ legend {
 
 textarea,
 input[type="text"], input[type="password"] {
-	font-family: Arial,sans-serif;
+	font-family: "ronnia-condensed";
 	border: 1px solid #eee;
 	border-radius: 5px;
 	padding: 12px 15px;
@@ -288,6 +278,7 @@ textarea[disabled="disabled"], input[disabled="disabled"] {
 	height: 138px;
 	background: #fff;
 	border-bottom: 8px solid #eee;
+	font-family: "ronnia-condensed";
 }
 
 .fixed {
@@ -1009,7 +1000,7 @@ textarea, input { outline: none !important; }
 }
 
 .mobile-menu-signup.button-1 {
-	font-family: 'ProximaNova';
+	font-family: "proxima-nova";
 	width: 100%;
 	text-align: center;
 	padding: 15px;
@@ -3474,6 +3465,10 @@ select#checkout_attribute_1 {
 	color: #000;
 }
 
+.ui-autocomplete.ui-widget {
+	font-family: "ronnia-condensed";
+}
+
 .ui-widget-header {
 	color: white !important;
 	background: #c8133c !important;
@@ -3722,7 +3717,7 @@ select#checkout_attribute_1 {
 }
 
 .home-discover .slider .overview li a span {
-	font-family: "ProximaNova";
+	font-family: "proxima-nova";
 	color: #BC0A2F;
 	padding-top: 5px;
 	display: block;
@@ -4058,7 +4053,7 @@ select#checkout_attribute_1 {
 
 .charater-bio p, .charater-other p {
 	margin-bottom: 0;
-	font-family: "Ronnia";
+	font-family: "ronnia-condensed";
 }
 
 
@@ -6425,7 +6420,7 @@ body .order-summary-content .top-message-special {
 
 .product-details-page .full-description p {
 	line-height: 20px;
-	font-family: "Ronnia";
+	font-family: "ronnia-condensed";
 }
 
 .product-details-page .full-description ul, .product-details-page .full-description ol {
