@@ -214,6 +214,10 @@ textarea[disabled="disabled"], input[disabled="disabled"] {
 	
 }
 
+.one-page-checkout .master-wrapper-content {
+	padding-top: 0 !important;
+}
+
 .master-wrapper-main {
 	color: #5C5B5B;
 	padding: 30px 0;
@@ -281,9 +285,16 @@ textarea[disabled="disabled"], input[disabled="disabled"] {
 
 /* HEADER AND MENU */
 .header {
-	height: 126px;
+	height: 138px;
 	background: #fff;
 	border-bottom: 8px solid #eee;
+}
+
+.fixed {
+    position: fixed;
+    top:0; left:0;
+    width: 100%;
+    z-index: 10000;
 }
 
 .header .icon {
@@ -353,8 +364,9 @@ textarea[disabled="disabled"], input[disabled="disabled"] {
 	display: block;
 	text-align: left;
 	width: 170px;
-	margin-top: 7px;
+	padding-top: 13px;
 	float: left;
+	padding-bottom: 10px;
 }
 
 .header-logo a img {
@@ -414,7 +426,7 @@ ul.language-list li:hover {
 	display: block;
 	position: absolute;
 	right: 0;
-	top: 52px;
+	top: 57px;
 }
 
 .header-links {
@@ -658,7 +670,7 @@ ul.language-list li:hover {
 
 .search-box {
 	float: left;
-	margin-top: 19px;
+	margin-top: 26px;
 	margin-left: 40px;
 }
 
@@ -710,12 +722,13 @@ ul.language-list li:hover {
 }
 
 .ui-autocomplete {
-	z-index: 10 !important; /*ensure that z-index is more than .nivoSlider a.nivo-imageLink used on the home page*/
+	z-index: 10000 !important; /*ensure that z-index is more than .nivoSlider a.nivo-imageLink used on the home page*/
 	margin-left: -15px !important;
 	width: 308px !important;
 	border-radius: 0 !important;
 	margin-top: -4px !important;
 	border: 1px solid #eee !important;
+	position: fixed !important;
 }
 
 textarea, input { outline: none !important; }
@@ -936,6 +949,7 @@ textarea, input { outline: none !important; }
 
 .mobile-menu-overlay {
 	display: none;
+	z-index: 10000;
 }
 
 .mobile-menu {
@@ -945,7 +959,7 @@ textarea, input { outline: none !important; }
 	-khtml-opacity: 1;
 	opacity: 1;
 	background: #fff;
-	z-index: 20;
+	z-index: 10000;
 	width: 320px;
 	left: -320px;
 	transition: 300ms left;
@@ -1120,12 +1134,12 @@ textarea, input { outline: none !important; }
 	border-radius: 12px;
 	border: 1px solid #CCC;
 	color: inherit;
-	padding: 9px 14px;
+	padding: 3px 8px;
 	display: inline-block;
 	height: auto !important;
 	width: auto !important;
 	background: #FFF !important;
-	margin-top: 5px;
+	margin-top: -4px;
 }
 
 
@@ -2652,6 +2666,14 @@ select#checkout_attribute_1 {
 	border-bottom: none;
 }
 
+.one-page-checkout .header.fixed {
+	position: inherit;
+	top: auto;
+	left: auto;
+	width: inherit;
+	z-index: inherit;
+}
+
 .one-page-checkout .header .logo-site {
 	background: url(images/checkout-logo.jpg) no-repeat 0 2px;
 	float: right;
@@ -2744,6 +2766,8 @@ select#checkout_attribute_1 {
 	padding-left: 95px
 }
 
+.checkout-page .order-summary-body .cart-item-row td.sku { display: none; }
+
 .checkout-page .order-summary-body .cart-item-row td.product-picture { border: none;}
 
 .checkout-page .order-summary-body .cart-item-row td.subtotal {
@@ -2798,6 +2822,10 @@ select#checkout_attribute_1 {
 	padding-left: 10px;
 	color: #A6A6A6;
 }
+
+/*.checkout-page .order-summary-body .cart-item-row td.product a {
+	line-height: 12px;
+}*/
 
 .checkout-page .order-summary-body .cart-item-row td.product {
 	vertical-align: top;
@@ -6445,8 +6473,8 @@ body .order-summary-content .top-message-special {
 	color: #CE092E;
 	font-size: 14px;
 	position: absolute;
-	top: 15px;
-	left: 140px;
+	top: -1px;
+	left: 81px;
 }
 
 .product-details-page .product-reviews-overview {
@@ -8118,11 +8146,11 @@ pre {
 	display: block;
 	width: 57px;
 	float: left;
-	padding-top: 23px;
+	padding-top: 30px;
 	margin-right: 21px;
-	border-right: 1px solid #eee;
+	border-right: 1px solid #EEE;
 	margin-top: 0;
-	padding-bottom: 21px;
+	padding-bottom: 24px;
 	padding-right: 20px;
 }
 
@@ -8137,13 +8165,13 @@ pre {
 	height: 305px;
 	position: absolute;
 	z-index: 10;
-	margin-top: 86px;
+	margin-top: 97px;
 }
 
 .main-menu {
 	float: left;
 	margin-left: 110px;
-	margin-top: 20px;
+	margin-top: 27px;
 }
 
 .main-menu li {
@@ -8158,7 +8186,7 @@ pre {
 
 .main-menu a .menu-arrow {
 	display: none;
-	height: 31px;
+	height: 35px;
 	position: absolute;
 	width: 100%;
 	top: 35px;
@@ -8196,7 +8224,7 @@ pre {
 .main-menu > li .sub-menu {
 	display: none;
 	background: #ce092e url(images/menu-girl-boy.jpg) no-repeat 90px 26px;
-	top: 86px;
+	top: 97px;
 	min-height: 305px;
 	position: absolute;
 	left: 0;

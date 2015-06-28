@@ -12,7 +12,7 @@
     var storeName = EngineContext.Current.Resolve<IStoreContext>().CurrentStore.GetLocalized(x => x.Name);
 }
 
-<div class="header">
+<div class="header fixed">
     @Html.Widget("header")
     <div class="header-links-wrapper">
         <div class="wrapper">
@@ -93,4 +93,7 @@
             $.cookie('topmessage', 'hidden', { expires: 30 });
         });
     }
+
+    //sticky header
+    $('.master-wrapper-content').css('padding-top', $('.header.fixed').height());
 </script>
