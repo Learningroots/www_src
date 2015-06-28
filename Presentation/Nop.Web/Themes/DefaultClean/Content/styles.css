@@ -1906,7 +1906,7 @@ li.sub-menu-active > a,
 .mini-shopping-cart .count {
 	position: absolute;
 	border-radius: 50px;
-	font-size: 16px;
+	font-size: 12px;
 	background: #bd0a2f;
 	color: white;
 	top: 19px;
@@ -1998,6 +1998,20 @@ li.sub-menu-active > a,
 	font-size: 13px; 
 	float: right;
 	margin-top: -8px !important
+}
+
+.cart-button-footer:hover,
+.cart-button-footer {
+	float: none;
+	margin-top: 6px !important;
+	display: block;
+	margin-left: -1px;
+	margin-right: -1px;
+	margin-bottom: -2px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	text-align: center;
+	padding: 13px;
 }
 
 .mini-shopping-cart .cart-button,

@@ -51,4 +51,10 @@
             </div>
         }
     </div>
+    @if (Model.TotalProducts > 0)
+    {
+        <div>
+            <a class="button-1 cart-button cart-button-footer"  href="@(Url.RouteUrl("ShoppingCart"))">View cart in detail</a>
+        </div>
+    }
 </div>
