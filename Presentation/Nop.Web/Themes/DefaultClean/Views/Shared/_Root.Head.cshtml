@@ -33,7 +33,7 @@
     <meta name="generator" content="nopCommerce" />
     <script src="//use.typekit.net/ren7giz.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     @Html.NopHeadCustom()
     @*This is used so that themes can inject content into the header*@
     @Html.Partial("Head")
@@ -49,10 +49,18 @@
     {
         @StackExchange.Profiling.MiniProfiler.RenderIncludes()
     }
-    <!--Powered by nopCommerce - http://www.nopCommerce.com-->
-    <!--Copyright (c) 2008-2014-->
 </head>
 <body>
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.3&appId=142765659081858";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
     @RenderBody()
     @Html.NopCssFiles(this.Url, ResourceLocation.Foot)
     @Html.NopScripts(this.Url, ResourceLocation.Foot)

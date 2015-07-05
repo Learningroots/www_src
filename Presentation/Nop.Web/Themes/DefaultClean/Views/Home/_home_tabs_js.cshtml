@@ -53,4 +53,16 @@
 		});
 
 	});
+
+	$(window).load(function(){
+		setTimeout(function(){
+			$('.testimonials-slider .viewport').height(
+				$('.testimonials-slider .overview').height()
+			);
+		}, 1000);
+	});
+
+	if($(window).width() > 768) $('.testimonials-slider').tinycarousel({infinite: false,  bullets   : true});
+
+    
 </script>
