@@ -7,9 +7,39 @@
         {
             <li class="ico-orders"><a href="/customer/orders">My orders</a></li>
             <li class="ico-account"><a href="/customer/info">My account</a></li>
-        }   
-        
-        <li class="ico-uk"><a href="/">English</a></li>
+        }
+        <li class="ico-uk listofflags-wrapper">
+            <a href="/">English</a>
+            <ul class="listofflags f32">
+                <li>
+                    <a class="flag au" href="/">Australia</a>
+                </li>
+                <li>
+                    <a class="flag ca" href="/">Canada (English)</a>
+                </li>
+                <li>
+                    <a class="flag ca" href="/">Canada (French)</a>
+                </li>
+                <li>
+                    <a class="flag fr" href="/">France</a>
+                </li>
+                <li>
+                    <a class="flag ir" href="/">Ireland</a>
+                </li>
+                <li>
+                    <a class="flag nz" href="/">New Zealand</a>
+                </li>
+                <li>
+                    <a class="flag es" href="/">Spain</a>
+                </li>
+                <li>
+                    <a class="flag gb" href="/">United Kingdom</a>
+                </li>
+                <li>
+                    <a class="flag " href="/">Other</a>
+                </li>
+            </ul>
+        </li>
 
         @if (Model.IsAuthenticated)
         {

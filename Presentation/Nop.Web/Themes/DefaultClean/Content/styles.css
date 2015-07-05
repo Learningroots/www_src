@@ -451,15 +451,67 @@ ul.language-list li:hover {
 	padding-top: 10px;
 }
 
-.header-links .ico-uk a,
-.header-links .ico-france a {
+.header-links .ico-uk > a,
+.header-links .ico-france > a {
 	margin-right: 32px;
 	background: url('data:image/gif;base64,R0lGODlhEAALAMQAAEp1zmOP3PIAAP///3yi5vgZBP8AAJCv6ld+03OX5P8uGvYKAP8PAE1+0/8XAGOU3oOm6Ji18Hyg51WC1P4IAGCF1fcAAISt5v8dBFF6z2qU3fUTAJSt5miP3lJ+1FqG1iH5BAAHAP8ALAAAAAAQAAsAAAVQYCRGx2CeCuasV3tB54kxVA3dkBSbc00RQOBu0KsljschzcDsODWaYc1C/VgDn6GBSvV4P5MhVUAGADKIjJhM9qARiOFiPp/YK5VhYcPfhAAAOw==') no-repeat 0 7px;
 	padding-left: 29px;
 	background-size: 23px;
 }
 
-.header-links .ico-uk a {
+.listofflags-wrapper {
+	position: relative;
+	height: 50px;
+}
+
+.listofflags:hover,
+.listofflags-wrapper:hover .listofflags {
+	display: block;
+}
+
+.listofflags:before {
+	content: ' ';
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 10px 10px 10px;
+	border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #fff rgba(0, 0, 0, 0);
+	position: absolute;
+	margin-top: -10px;
+	margin-left: 71px;
+}
+
+.listofflags {
+	display: none;
+	position: absolute;
+	z-index: 100000000;
+	background: #fff;
+	top: 50px;
+  	left: -41px;
+	border: 1px solid #EEE;
+  	box-shadow: 0px 7px 29px #2D2D2D;
+}
+
+ul.listofflags li {
+
+}
+
+ul.listofflags li a {
+  padding-top: 0 !important;
+  padding-left: 42px;
+  width: 150px !important;
+  margin-left: 7px;
+  margin-bottom: 1px;
+}
+
+ul.listofflags li,
+ul.listofflags li a {
+	display: block;
+	float: none;
+	text-align: left;
+}
+
+.header-links .ico-uk > a {
 	background: url('images/ico-flag-uk.jpg') no-repeat 0 7px;
 }
 
@@ -3759,11 +3811,13 @@ select#checkout_attribute_1 {
 	color: #BC0A2F;
 	padding-top: 5px;
 	display: block;
+	font-weight: bold;
 }
 
 .home-discover .slider .overview li a h3 {
 	color: #000;
 	margin-top: 45px;
+	font-size: 18px;
 }
 
 .home-discover .slider .overview li a .image-wrapper {
@@ -4111,7 +4165,7 @@ div .charater-other p {
 
 .charater-bio p, .charater-other p {
 	margin-bottom: 0;
-	line-height: 16px;
+	line-height: 20px;
 }
 
 .home-page .homepage-tabs a {
@@ -6422,10 +6476,9 @@ body .order-summary-content .top-message-special {
 }
 
 .product-page-tabs a {
-	background: #CFCFCF;
 	padding: 11px 21px;
 	margin-right: 1px;
-	color: #fff;
+	color: #898989;
 	position: relative;
 	width: 113px;
 	display: inline-block;
@@ -6434,7 +6487,11 @@ body .order-summary-content .top-message-special {
 	transition: 300ms all;
 }
 
-.product-page-tabs a:hover,
+.product-page-tabs a:hover {
+	color: #000;
+	transition: 300ms all;
+}
+
 .product-page-tabs a.active-tab {
 	background: #c8133c;
 	color: #fff;

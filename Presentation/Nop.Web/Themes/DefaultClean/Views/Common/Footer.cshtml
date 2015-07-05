@@ -103,3 +103,12 @@
 </div>
 
 @Html.Partial("_mobile_menu")
+
+<script type="text/javascript">
+    if($('#eu-cookie-bar-notification').length === 1) { $('#eu-cookie-bar-notification').show()
+        $('.footer-poweredby').hide();
+    }
+    $('#eu-cookie-ok').click(function(){
+        $('.footer-poweredby').show();
+    });
+</script>
