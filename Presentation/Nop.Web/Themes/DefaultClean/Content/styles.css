@@ -1134,6 +1134,11 @@ textarea, input { outline: none !important; }
 	margin-bottom: 15px;
 	background-size: 220px;
 	position: relative;
+	margin-top: 15px;
+}
+
+.mobile-menu-body .mobile-main-menu .listbox:first-child {
+	border-top: 5px solid #000;
 }
 
 .mobile-menu-social {
@@ -1150,8 +1155,7 @@ textarea, input { outline: none !important; }
 }
 
 .mobile-menu-body .mobile-main-menu-nobanner {
-	background: none;
-	padding-top: 0;
+	
 }
 
 .product-share-button .at15t_twitter, 
@@ -2066,7 +2070,7 @@ li.sub-menu-active > a,
 	margin-bottom: -2px;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
-	text-align: center;
+	text-align: right;
 	padding: 13px;
 }
 
@@ -4383,8 +4387,8 @@ div .charater-other p {
 }
 
 .product-grid .product-item .picture img {
-	max-width: 95%;
-	max-height: 200px;
+	max-width: 190px;
+    max-height: 165px;
 }
 
 .product-grid .product-item .description {

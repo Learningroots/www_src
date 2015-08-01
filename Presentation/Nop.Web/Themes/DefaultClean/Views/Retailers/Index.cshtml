@@ -1,9 +1,93 @@
 @{
     Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    Html.AppendScriptParts("https://maps.googleapis.com/maps/api/js?v=3.exp");
     Html.AddTitleParts("Retailers");
+
+    var marker = "~/Themes/DefaultClean/Content/images/marker-gmap.png";
 }
-<div class="wrapper">
+
+<style type="text/css">
+	#map-canvas {
+    height: 400px;
+    margin: 0;
+    margin-top: 8px;
+    padding: 0;
+    width: 100%;
+	}
+	.master-wrapper-main {
+		padding-top: 0;
+	}
+	.retailers-page {
+		margin-top: 20px;
+	}
+</style>
+
+<div id="map-canvas"></div>
+
+<div class="retailers-page">
     <div class="page-body">
-		<h1>Retailers page</h1>
+    <div class="wrapper">
+			<h1>Retailers page</h1>
+			<ul class="js-retailers-list"></ul>
+		</div>
 	</div>
 </div>
+
+
+
+
+<script>
+
+	$('.retailers-page').closest('.wrapper').removeClass('wrapper');
+	var __map_data = [
+			{ "latitude":51.477748, "longitude":-0.127029, "title":"London 1", "content":"This is office number 1 for Learning Roots." },
+			{ "latitude":51.532241, "longitude":-0.137329, "title":"London 2", "content":"This is the 2nd office of Learning Roots." },
+			{ "latitude":51.382241, "longitude":-0.137329, "title":"London 3", "content":"This is the Third office of Learning Roots. Making this very long to just to see how it fits the popup on the map<br>This should be a new line." }
+	];
+
+	var map;
+	var icon = "@Url.Content(marker)";
+
+	function initialize() {
+	  map = new google.maps.Map(document.getElementById('map-canvas'));
+
+		var infowindow = new google.maps.InfoWindow({maxWidth: 200});
+   	var bounds = new google.maps.LatLngBounds();
+   	var $retailersList = $(".js-retailers-list");
+
+    for (i = 0; i < __map_data.length; i++) {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(__map_data[i].latitude, __map_data[i].longitude),
+            map: map,
+            icon: icon
+        });
+
+        bounds.extend(marker.position);
+
+        $retailersList.append("<li><h3>"+__map_data[i].title+"</h3><div>"+__map_data[i].content+"</div></li>");
+
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+              infowindow.setContent("<h3>"+__map_data[i].title+"</h3><div>"+__map_data[i].content+"</div>");
+              infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+
+    map.fitBounds(bounds);
+
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+
+
+
+
+
+
+
+
+

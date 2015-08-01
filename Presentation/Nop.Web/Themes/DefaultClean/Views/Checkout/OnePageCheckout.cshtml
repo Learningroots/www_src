@@ -48,6 +48,11 @@
         <h3>Order summary</h3>
         @Html.Action("OrderSummary", "ShoppingCart", new { isEditable = false })
         <script type="text/javascript">
+
+            $('.cart-total tr:last-child .cart-total-right .nobr span')
+            .add('.cart-total tr:eq(1) .cart-total-right .nobr span')
+            .text('Awaiting Payment Method');
+
             var __timer = setInterval(function(){
                 if( $('.cart-footer:eq(1)').length === 1 )  {
                     clearTimeout(__timer);
