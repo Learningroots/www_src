@@ -17,6 +17,12 @@ namespace Nop.Web.Infrastructure
                             new { controller = "Companions", action = "Index" },
                             new[] { "Nop.Web.Controllers" });
 
+            //Retails page
+            routes.MapLocalizedRoute("RetailersPage",
+                            "retailers/",
+                            new { controller = "Retailers", action = "Index" },
+                            new[] { "Nop.Web.Controllers" });
+
             //home page
             routes.MapLocalizedRoute("HomePage",
                             "",

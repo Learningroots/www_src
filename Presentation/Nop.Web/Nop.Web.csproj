@@ -199,6 +199,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BackwardCompatibility1XController.cs" />
     <Compile Include="Controllers\BackwardCompatibility2XController.cs" />
+    <Compile Include="Controllers\RetailersController.cs" />
     <Compile Include="Controllers\ReturnRequestController.cs" />
     <Compile Include="Controllers\KeepAliveController.cs" />
     <Compile Include="Controllers\ExternalAuthenticationController.cs" />
@@ -2073,10 +2074,12 @@
     <Content Include="Views\Shared\_Blank.cshtml">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="Themes\DefaultClean\Views\Retailers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Images\Thumbs\" />
     <Folder Include="Plugins\bin\" />
+    <Folder Include="Views\retail\" />
     <Folder Include="Views\Theater\" />
   </ItemGroup>
   <ItemGroup>
