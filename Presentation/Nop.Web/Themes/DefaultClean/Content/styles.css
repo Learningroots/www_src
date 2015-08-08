@@ -816,6 +816,7 @@ textarea, input { outline: none !important; }
 }
 
 .footer a {
+	font-family: "BreeRegular";
 	text-decoration: none;
 	color: #fff;
 }
@@ -917,6 +918,7 @@ textarea, input { outline: none !important; }
 }
 
 .footer-poweredby {
+	font-family: 'Open Sans', sans-serif;
 	padding-top: 30px;
 	padding-bottom: 30px;
 	clear: both;
@@ -968,6 +970,7 @@ textarea, input { outline: none !important; }
 }
 
 .footer-menu-wrapper .column h3 {
+	font-family: "BreeBold";
 	font-size: 13px;
 	color: #e21836;
 	text-transform: uppercase;
@@ -1879,6 +1882,7 @@ li.sub-menu-active > a,
 	text-align: center;
 	display: block;
 	color: #000;
+	font-family: "BreeRegular";
 }
 
 
@@ -3978,6 +3982,16 @@ select#checkout_attribute_1 {
 	padding: 15px;
 	padding-bottom: 12px;
 	box-shadow: 2px 2px 2px #DDD;
+}
+
+.social_twitter .posted-time {
+	text-transform: uppercase;
+}
+
+.social_twitter a {
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	padding-bottom: 0 !important;
 }
 
 .social_instagram .social-block {
