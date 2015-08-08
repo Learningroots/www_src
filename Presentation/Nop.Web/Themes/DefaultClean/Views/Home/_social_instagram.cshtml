@@ -1,6 +1,12 @@
 <span class="social-block-instagram-icon"></span>
 
-<!-- 3 blocks of .social-block will go here  -->
-<div class="social-block"><img src="http://dummyimage.com/205x205/000000/ffffff"/></div>
-<div class="social-block"><img src="http://dummyimage.com/205x205/000000/ffffff"/></div>
-<div class="social-block"><img src="http://dummyimage.com/205x205/000000/ffffff"/></div>
+<div class="js-instagram-images"></div>
+
+<script type="text/javascript">
+$.getJSON('Home/InstagramFeed', function(res) {
+	$(res.data).each(function(){
+		var img = this.images.low_resolution;
+		$('.js-instagram-images').append("<div class='social-block'><img width="+img.width+" height="+img.height+" src='"+img.url+"' /></div>");
+	});
+});
+</script>

@@ -133,7 +133,7 @@ select {
 /* OTHER RESET STYLESHEET (HTML GENERAL) */
 body {
 	text-align: left;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "proxima-nova";
 	font-size: 12px;
 	background: none repeat scroll 0 0 #fff;
 	color: #5C5B5B;
@@ -141,7 +141,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Open Sans', sans-serif;
+	font-family: "proxima-nova";
 	font-weight: bold;
 }
 
@@ -443,6 +443,14 @@ ul.language-list li:hover {
 	margin-right: 106px;
 }
 
+.header-links .listofflags-wrapper a,
+.header-links .ico-account a,
+.header-links .ico-orders a {
+	text-transform: capitalize;
+	font-size: 13px;
+	margin-top: 1px;
+}
+
 .header-links .ico-uk a,
 .header-links .ico-france a,
 .header-links .ico-account a,
@@ -454,7 +462,7 @@ ul.language-list li:hover {
 .header-links .ico-uk > a,
 .header-links .ico-france > a {
 	margin-right: 32px;
-	background: url('data:image/gif;base64,R0lGODlhEAALAMQAAEp1zmOP3PIAAP///3yi5vgZBP8AAJCv6ld+03OX5P8uGvYKAP8PAE1+0/8XAGOU3oOm6Ji18Hyg51WC1P4IAGCF1fcAAISt5v8dBFF6z2qU3fUTAJSt5miP3lJ+1FqG1iH5BAAHAP8ALAAAAAAQAAsAAAVQYCRGx2CeCuasV3tB54kxVA3dkBSbc00RQOBu0KsljschzcDsODWaYc1C/VgDn6GBSvV4P5MhVUAGADKIjJhM9qARiOFiPp/YK5VhYcPfhAAAOw==') no-repeat 0 7px;
+	background: url('data:image/gif;base64,R0lGODlhEAALAMQAAEp1zmOP3PIAAP///3yi5vgZBP8AAJCv6ld+03OX5P8uGvYKAP8PAE1+0/8XAGOU3oOm6Ji18Hyg51WC1P4IAGCF1fcAAISt5v8dBFF6z2qU3fUTAJSt5miP3lJ+1FqG1iH5BAAHAP8ALAAAAAAQAAsAAAVQYCRGx2CeCuasV3tB54kxVA3dkBSbc00RQOBu0KsljschzcDsODWaYc1C/VgDn6GBSvV4P5MhVUAGADKIjJhM9qARiOFiPp/YK5VhYcPfhAAAOw==') no-repeat 0 10px;
 	padding-left: 29px;
 	background-size: 23px;
 }
@@ -512,7 +520,7 @@ ul.listofflags li a {
 }
 
 .header-links .ico-uk > a {
-	background: url('images/ico-flag-uk.jpg') no-repeat 0 7px;
+	background: url('images/ico-flag-uk.jpg') no-repeat 0 10px;
 }
 
 .header-links a {
@@ -526,7 +534,7 @@ ul.listofflags li a {
 	margin-top: 5px;
 	text-transform: uppercase;
 	font-size: 11px;
-	font-weight: bold;
+	font-weight: 500;
 }
 
 .header-links a:hover {
@@ -1954,9 +1962,9 @@ li.sub-menu-active > a,
 }
 
 .mini-shopping-cart .items a {
-	font-weight: bold;
+	font-weight: 600;
 	text-decoration: none;
-	font-family: "BreeBold";
+	font-family: "ronnia-condensed";
 }
 
 .mini-shopping-cart .items a:hover {
@@ -3799,20 +3807,20 @@ select#checkout_attribute_1 {
 	margin-right: 0;
 }
 
-.page-title,
-.home-page-product-grid .title,
-.home-block-title {
+.page-title, .home-page-product-grid .title, .home-block-title {
 	text-align: center;
 	margin-bottom: 15px;
 	font-size: 25px;
 	color: #000;
 	margin-top: 10px;
-	font-family: 'Open Sans', sans-serif;
+	font-family: "BreeBold";
 	font-weight: bold;
-	text-transform: uppercase;
+	text-transform: capitalize;
 }
 
 .home-discover .home-block-title {
+	text-transform: capitalize;
+	font-family: "BreeBold";
 	margin-top: 40px;
 }
 
@@ -3884,12 +3892,15 @@ select#checkout_attribute_1 {
 	padding-top: 5px;
 	display: block;
 	font-weight: bold;
+	text-transform: uppercase;
 }
 
 .home-discover .slider .overview li a h3 {
 	color: #000;
 	margin-top: 45px;
 	font-size: 18px;
+	font-family: "BreeBold";
+	text-transform: capitalize;
 }
 
 .home-discover .slider .overview li a .image-wrapper {
@@ -3971,6 +3982,11 @@ select#checkout_attribute_1 {
 
 .social_instagram .social-block {
 	box-shadow: 0 0 8px #9D9D9D;
+}
+
+.social_instagram img {
+	max-width: 205px;
+	max-height: 205px;
 }
 
 .social-block-header {
@@ -4256,6 +4272,7 @@ div .charater-other p {
 }
 
 .home-page-join-the-club p {
+	font-family: "BreeRegular";
 	float: left;
 	color: #FFF;
 	width: 530px;
@@ -4263,11 +4280,12 @@ div .charater-other p {
 }
 
 .home-page-join-the-club .button-1 {
+	font-family: "BreeBold";
 	float: right;
 	font-size: 18px;
 	margin-top: 45px;
 	box-shadow: 0px 6px 0px #90001B;
-	padding: 13px 21px 10px;
+	padding: 13px 32px 10px;
 	border-radius: 5px;
 	text-transform: inherit;
 }
@@ -4414,6 +4432,7 @@ div .charater-other p {
 	font-weight: normal;
 	font-size: 12px;
 	padding: 0;
+	font-family: "BreeBold"
 }
 
 .product-grid .product-item .product-title a {
@@ -4423,7 +4442,7 @@ div .charater-other p {
 	overflow: hidden;
 	padding: 8px 0 8px 0;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 14px;
 	color: #000;
 }
 
@@ -6496,7 +6515,7 @@ body .order-summary-content .top-message-special {
 }
 
 .product-details-page .product-name {
-	font-family: 'Open Sans', sans-serif;
+	font-family: "BreeBold";
 	font-size: 28px;
 	margin-bottom: 0.3em;
 	padding-top: 10px;
@@ -6548,6 +6567,8 @@ body .order-summary-content .top-message-special {
 }
 
 .product-page-tabs a {
+	font-family: "BreeRegular";
+	text-transform: uppercase;
 	padding: 11px 21px;
 	margin-right: 1px;
 	color: #898989;
