@@ -1082,6 +1082,7 @@ textarea, input { outline: none !important; }
 }
 
 .mobile-menu .list li a {
+	font-family: "BreeBold";
 	padding: 10px 0;
 	z-index: 1;
 }
@@ -1271,6 +1272,7 @@ textarea, input { outline: none !important; }
 }
 
 .page-title h1 {
+	font-family: "BreeBold";
 	font-size: 30px;
 	border-bottom: 1px solid #DFDFDF;
 	padding-bottom: 20px;
@@ -1705,6 +1707,10 @@ li.sub-menu-active > a,
 .block-blog-archive,
 .block-poll,
 .block-account-navigation {
+}
+
+.block-category-navigation {
+	font-family: "BreeBold";
 }
 
 .block-category-navigation .active > a {
@@ -4850,6 +4856,10 @@ body .order-summary-content .top-message-special {
 	font-size: 0;
 	line-height: 0;
 	visibility: hidden;
+}
+
+.product-sorting select {
+	margin-left: 5px;
 }
 
 .product-sorting {
