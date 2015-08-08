@@ -3,7 +3,10 @@
 }
 <div class="page home-page">
     <div class="page-body">
-        @Html.Widget("home_page_top")
+
+        @if(!Request.Browser.IsMobileDevice) {
+            @Html.Widget("home_page_top")
+        }
 
         <script type="text/javascript">
             $('.home-page').closest('.wrapper').removeClass('wrapper');
@@ -27,7 +30,9 @@
             </script>
         </div>
 
-        @Html.Partial("_meet_chars")
+        @if(!Request.Browser.IsMobileDevice) {
+            @Html.Partial("_meet_chars")
+        }
 
         <div class="home-page-join-the-club home-page-block">
             <div class="wrapper">
@@ -35,10 +40,10 @@
             </div>
         </div>
         
-        @Html.Partial("_social_block")
-
-        @Html.Partial("_home_tabs_js")
-        
+        @if(!Request.Browser.IsMobileDevice) {
+            @Html.Partial("_social_block")
+            @Html.Partial("_home_tabs_js")
+        }
         @Html.Widget("home_page_bottom")
     </div>
 </div>
