@@ -3371,6 +3371,7 @@ select#checkout_attribute_1 {
 }
 
 .retailers-list li  {
+	vertical-align: top;
     width: 50%;
     background: url(images/marker.png) no-repeat 0 0;
     font-size: 14px;
