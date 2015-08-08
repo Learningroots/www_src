@@ -3294,6 +3294,74 @@ select#checkout_attribute_1 {
 }
 
 
+/* RETAILER PAGE */
+
+.page-title h1.retailers-title {
+	border: none;
+	font-size: 40px;
+}
+
+.retailers-title .girl-pic {
+	background: url(images/retailers-girl.jpg) no-repeat 0 0;
+	display: inline-block;
+	height: 66px;
+	width: 44px;
+	margin-right: 10px;
+	margin-bottom: -21px;
+}
+
+.retailers-links, .retailers-list {
+	margin: 30px 0;
+	list-style: none;
+}
+
+.retailers-links li, .retailers-list li {
+	display: inline-block;
+}
+
+.retailers-links {
+	text-align: center;
+}
+
+.retailers-links li {
+	line-height: 20px;
+}
+
+.retailers-links li:after {
+	content: ' | ';
+	display: inline-block;
+	margin: 0 5px;
+}
+
+.retailers-links li:last-child:after {
+	content: '';
+}
+
+
+.retailers-list h2 {
+	font-size: 20px;
+	display: block;
+	width: 100%;
+	margin: 20px 0;
+	border-top: 1px dotted #ccc;
+	padding-top: 20px;
+	margin-bottom: 0;
+}
+
+.retailers-list li h3 {
+	font-size: 14px;
+}
+
+.retailers-list li  {
+    width: 50%;
+    background: url(images/marker.png) no-repeat 0 0;
+    font-size: 14px;
+    padding-left: 44px;
+    padding-top: 3px;
+    margin-top: 25px;
+}
+
+
 /* ONE PAGE CHECKOUT */
 .opc .buttons {
 	margin-top: 0;

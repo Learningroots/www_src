@@ -1,6 +1,8 @@
 @{
     Layout = "~/Views/Shared/_ColumnsOne.cshtml";
     Html.AppendScriptParts("https://maps.googleapis.com/maps/api/js?v=3.exp");
+    Html.AppendScriptParts("https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js");
+
     Html.AddTitleParts("Retailers");
 
     var marker = "~/Themes/DefaultClean/Content/images/marker-gmap.png";
@@ -20,15 +22,47 @@
 	.retailers-page {
 		margin-top: 20px;
 	}
+	#back-to-top {
+    position: fixed;
+    bottom: 40%;
+    right: 40px;
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    background: #CE092E;
+    color: #fff;
+    cursor: pointer;
+    border: 0;
+    text-decoration: none;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
+    font-size: 44px;
+		}
+		#back-to-top.show:hover {
+		  opacity: 1;
+		}
+		#back-to-top.show {
+			opacity: 0.8;
+		}
 </style>
+
+<a href="#" id="back-to-top" title="Back to top">&uarr;</a>
 
 <div id="map-canvas"></div>
 
 <div class="retailers-page">
     <div class="page-body">
     <div class="wrapper">
-			<h1>Retailers page</h1>
-			<ul class="js-retailers-list"></ul>
+
+    	<span class="page-title">
+	    	<h1 class="retailers-title">
+	    		<span class="girl-pic"></span><span class="js-num-retailers"></span> retailers found Worldwide</span>
+	    	</h1>
+	    </span>
+
+			<ul class="js-retailers-links retailers-links"></ul>
+			<ul class="js-retailers-list retailers-list"></ul>
 		</div>
 	</div>
 </div>
@@ -38,56 +72,1675 @@
 
 <script>
 
-	$('.retailers-page').closest('.wrapper').removeClass('wrapper');
-	var __map_data = [
-			{ "latitude":51.477748, "longitude":-0.127029, "title":"London 1", "content":"This is office number 1 for Learning Roots." },
-			{ "latitude":51.532241, "longitude":-0.137329, "title":"London 2", "content":"This is the 2nd office of Learning Roots." },
-			{ "latitude":51.382241, "longitude":-0.137329, "title":"London 3", "content":"This is the Third office of Learning Roots. Making this very long to just to see how it fits the popup on the map<br>This should be a new line." }
-	];
+$('.retailers-page').closest('.wrapper').removeClass('wrapper');
 
-	var map;
-	var icon = "@Url.Content(marker)";
+var map;
+var icon = "@Url.Content(marker)";
 
-	function initialize() {
-	  map = new google.maps.Map(document.getElementById('map-canvas'));
+function initialize() {
+	$('.js-num-retailers').html(__map_data.length);
+	var latlng = new google.maps.LatLng(53.94205713184974, -1.5902698749999922);
+  var mapOptions = { zoom: 6, center: latlng };
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-		var infowindow = new google.maps.InfoWindow({maxWidth: 200});
-   	var bounds = new google.maps.LatLngBounds();
-   	var $retailersList = $(".js-retailers-list");
+	var infowindow = new google.maps.InfoWindow({maxWidth: 200});
+ 	
 
-    for (i = 0; i < __map_data.length; i++) {
-        marker = new google.maps.Marker({
-            position: new google.maps.LatLng(__map_data[i].latitude, __map_data[i].longitude),
-            map: map,
-            icon: icon
-        });
+  for (i = 0; i < __map_data.length; i++) {
+		var data = __map_data[i];
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(data.lat, data.lng),
+        map: map,
+        icon: icon
+    });
 
-        bounds.extend(marker.position);
+    google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        return function () {
+        	var data2 = __map_data[i];
+          infowindow.setContent(getContent(data2));
+          infowindow.open(map, marker);
+        }
+    })(marker, i));
+  }
+}
 
-        $retailersList.append("<li><h3>"+__map_data[i].title+"</h3><div>"+__map_data[i].content+"</div></li>");
+google.maps.event.addDomListener(window, 'load', initialize);
 
-        google.maps.event.addListener(marker, 'click', (function (marker, i) {
-            return function () {
-              infowindow.setContent("<h3>"+__map_data[i].title+"</h3><div>"+__map_data[i].content+"</div>");
-              infowindow.open(map, marker);
-            }
-        })(marker, i));
-    }
+function hasValue(val) {
+	if(val && typeof val === 'number') return val;
+	return (val && (typeof val === "string") && val.length > 0);
+}
 
-    map.fitBounds(bounds);
+function getContent(data) {
+	var address = data["Address 1"];
+    
+  if(data["Address 2"] && data["Address 2"].length > 0) {
+  	if(address.length !== 0) address += ",<br/>";
+  	address += data["Address 2"];
+  }
 
+  if(data["City"] && data["City"].length > 0) {
+  	if(address.length !== 0) address += ",<br/>";
+  	address += data["City"];
+  }
+
+  if(data["Post Code"] && data["Post Code"].length > 0) {
+  	if(address.length !== 0) address += ",<br/>";
+  	address += data["Post Code"];
+  }
+
+  if(data["Country"] && data["Country"] !== data["Post Code"]) {
+  	if(address.length !== 0) address += ",<br/>";
+  	address += data["Country"];
+  }
+
+  var email = hasValue(data["Email"]) ? data["Email"] : "";
+  var phone  = hasValue(data["Phone"]) ? "<div>Phone: "+data["Phone"]+"</div>" : "";
+  var mobile = hasValue(data["Mobile"]) ? "<div>Mobile: "+data["Mobile"]+"</div>" : "";
+  var website = hasValue(data["Website"]) ? "<div>Website: <a href='"+data["Website"]+"' target='_blank'>"+data["Website"]+"</a></div>" : "";
+
+	return "<h3>"+data["Company Name"]+"</h3>"+
+    		"<div class='retailerAddress'>"+address+"</div>"+
+    		"<div class='retailerOther'>"+
+    			email+
+    			phone+
+    			mobile+
+    			website+
+    		"</div>";
+}
+
+
+google.maps.event.addDomListener(window, 'load', function(){
+	var $retailersList = $(".js-retailers-list");
+	var $retailersLinks = $('.js-retailers-links')
+	var groupedData = _.groupBy (__map_data, 'Country');
+
+	for (var country in groupedData) {
+		var id = country.replace(/ /g,'').toLowerCase().replace('&','');
+		$retailersLinks.append("<li><a class='linkjumpto' href='#"+id+"'>"+country+"</a></li>");
+		var retailersListInCountry = groupedData[country];
+		var singPlur = retailersListInCountry.length > 1 ? 'retailers' : 'retailer';
+		$retailersList.append("<h2 id='"+id+"'>"+retailersListInCountry.length + " "+ singPlur +" found in "+country+"</h2>");
+		for (i = 0; i < retailersListInCountry.length; i++) {
+			var data = retailersListInCountry[i];
+			$retailersList.append("<li>"+getContent(data)+"</li>");
+		}
 	}
 
-	google.maps.event.addDomListener(window, 'load', initialize);
 
+	var headerHeight = $('.header.fixed').length !== 0 ? $('.header.fixed').height() : 0;
+
+	$('a.linkjumpto').on('click',function (e) {
+	    e.preventDefault();
+	    var target = this.hash;
+	    var $target = $(target);
+	    $('html, body').stop().animate({
+	        'scrollTop': $target.offset().top - headerHeight - 5
+	    	}, 900, 'swing', function () {
+	        window.location.hash = target;
+	    });
+	});
+
+});
+
+
+var scrollTrigger = 600, // px
+  backToTop = function () {
+      var scrollTop = $(window).scrollTop();
+      if (scrollTop > scrollTrigger) {
+          $('#back-to-top').addClass('show');
+      } else {
+          $('#back-to-top').removeClass('show');
+      }
+  };
+backToTop();
+$(window).on('scroll', function () {
+  backToTop();
+});
+$('#back-to-top').on('click', function (e) {
+  e.preventDefault();
+  $('html,body').animate({
+      scrollTop: 0
+  }, 700);
+});
+
+
+var __map_data = [
+  {
+      "Main Contact": "Ms Romy Ramos",
+      "Catergory": "International Distributor",
+      "Company Name": "Romy Ramos",
+      "Address 1": " 6/77 Boronia Road",
+      "Address 2": "Greenacre",
+      "City": "NSW",
+      "Country": "Australia",
+      "Post Code": "Australia",
+      "Email": "romylramos@hotmail.com",
+      "Phone": "61424181471",
+      "Mobile": "",
+      "Website": "",
+      "lat": "-33.905437",
+      "lng": "151.051535"
+  },
+  {
+      "Main Contact": "Fauzan Ahmad",
+      "Catergory": "International Distributor",
+      "Company Name": "Darussalam Australia",
+      "Address 1": "149 Haldom Strret",
+      "Address 2": "Lakemba",
+      "City": "",
+      "Country": "Australia",
+      "Post Code": "Australia",
+      "Email": "fauzan-ahmed101@hotmail.com",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "-33.922159",
+      "lng": "151.078841"
+  },
+  {
+      "Main Contact": "Marwan Baytiye",
+      "Catergory": "International Retailer",
+      "Company Name": "The Islamic Bookstore - Australia",
+      "Address 1": "165 Haldon Street",
+      "Address 2": "",
+      "City": "Lakemba ",
+      "Country": "Australia",
+      "Post Code": "Australia",
+      "Email": "marwan@islamicbookstore.com.au",
+      "Phone": "61297584040",
+      "Mobile": "+61 4 1868 7075",
+      "Website": "http://www.islamicbookstore.com.au",
+      "lat": "-33.922751",
+      "lng": "151.079029"
+  },
+  {
+      "Main Contact": "Nabil Ayoubi",
+      "Catergory": "",
+      "Company Name": "HIYC Islamic Superstore",
+      "Address 1": "1-15 Motto Drive",
+      "Address 2": "Coolaroo",
+      "City": "Melbourne",
+      "Country": "Australia",
+      "Post Code": "3048",
+      "Email": "",
+      "Phone": "61412066679",
+      "Mobile": "",
+      "Website": "",
+      "lat": "-37.642846",
+      "lng": "144.931966"
+  },
+  {
+      "Main Contact": "Calisha Bennett",
+      "Catergory": "",
+      "Company Name": "Diamonds of Islam",
+      "Address 1": "9 Whitehorse Drive",
+      "Address 2": "Harrisdale",
+      "City": "Harrisdale",
+      "Country": "Australia",
+      "Post Code": "6122",
+      "Email": "calishabennett@gmail.com",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "-32.270242",
+      "lng": "116.065031"
+  },
+  {
+      "Main Contact": "Helal Hatem (Islam Winkel)",
+      "Catergory": "International Retailer",
+      "Company Name": "E-qtisad",
+      "Address 1": "Florent Beeckxlaan 44",
+      "Address 2": "9140",
+      "City": "Temse",
+      "Country": "Belgium",
+      "Post Code": "Belgium",
+      "Email": "islamwinkel@live.be",
+      "Phone": "320485000000",
+      "Mobile": "",
+      "Website": "",
+      "lat": "51.131324",
+      "lng": "4.196062"
+  },
+  {
+      "Main Contact": "Andaleeb Mustaq",
+      "Catergory": "International Distributor",
+      "Company Name": "Princess Olive Baby Boutique",
+      "Address 1": "2105-68 Grangeway Avenue",
+      "Address 2": "Scarborough, ON",
+      "City": "M1H 0A1 ",
+      "Country": "Canada",
+      "Post Code": "",
+      "Email": "nightingalem@gmail.com",
+      "Phone": "7789946807",
+      "Mobile": "778-994-6801",
+      "Website": "",
+      "lat": "43.773592",
+      "lng": "-79.249762"
+  },
+  {
+      "Main Contact": "Aneesa Bozai",
+      "Catergory": "International Retailer",
+      "Company Name": "Eastern Toybox",
+      "Address 1": "89 Rouge Bank Dr.",
+      "Address 2": "Markha, ON.",
+      "City": "",
+      "Country": "Canada",
+      "Post Code": "Canada",
+      "Email": "info@easterntoybox.com",
+      "Phone": "4163886186",
+      "Mobile": "",
+      "Website": "http://www.easterntoybox.com",
+      "lat": "43.861075",
+      "lng": "-79.237026"
+  },
+  {
+      "Main Contact": "Asif",
+      "Catergory": "",
+      "Company Name": "Sound Vision Canada",
+      "Address 1": "",
+      "Address 2": "",
+      "City": "",
+      "Country": "Canada",
+      "Post Code": "",
+      "Email": "sales@soundvisioncanada.com",
+      "Phone": "18005608754",
+      "Mobile": "",
+      "Website": "http://www.SoundVisionCanada.com",
+      "lat": "56.130366",
+      "lng": "-106.346771"
+  },
+  {
+      "Main Contact": "Tahir Mirza",
+      "Catergory": "International Retailer",
+      "Company Name": "IslamGuide.dk",
+      "Address 1": "Det Islamiske Trossamfund - IG",
+      "Address 2": "Dortheavej 45",
+      "City": "2400 Cophenagen NV",
+      "Country": "Denmark",
+      "Post Code": "Denmark",
+      "Email": "info@islamguide.dk",
+      "Phone": "4570222177",
+      "Mobile": "",
+      "Website": "http://www.islamguide.dk",
+      "lat": "55.703560",
+      "lng": "12.538440"
+  },
+  {
+      "Main Contact": "Shymaa Radwan",
+      "Catergory": "International Distributor",
+      "Company Name": "Arab International Co. Commercial Agencies",
+      "Address 1": "S5-6, 6th Zone,",
+      "Address 2": "1st District, 5th Area,",
+      "City": "New Cairo",
+      "Country": "Egypt",
+      "Post Code": "11477",
+      "Email": "Shaymaa.Radwan@alefbookstores.com",
+      "Phone": "20226160650",
+      "Mobile": "+201 00 213 78 45",
+      "Website": "http://www.alefbookstores.com",
+      "lat": "30.013707",
+      "lng": "31.423848"
+  },
+  {
+      "Main Contact": "Soulayman (Claudy) Ségor",
+      "Catergory": "International Distributor",
+      "Company Name": "Minority Media Learning Roots France",
+      "Address 1": "101 avenue du Général-Leclerc",
+      "Address 2": "",
+      "City": "Paris",
+      "Country": "France",
+      "Post Code": "75014",
+      "Email": "soulayman@learningroots.fr",
+      "Phone": "33981020167",
+      "Mobile": "+33 1 83 64 82 60 / +33 6 98 01 90 85",
+      "Website": "",
+      "lat": "48.825718",
+      "lng": "2.326485"
+  },
+  {
+      "Main Contact": "Tamim Mansury",
+      "Catergory": "International Distributor",
+      "Company Name": "Learning Roots DE",
+      "Address 1": "",
+      "Address 2": "",
+      "City": "",
+      "Country": "Germany",
+      "Post Code": "",
+      "Email": "tamim@learningroots.de",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "51.165691",
+      "lng": "10.451526"
+  },
+  {
+      "Main Contact": "Zabeeullah",
+      "Catergory": "International Distributor",
+      "Company Name": "Darussalam India",
+      "Address 1": "Showroom: # 324",
+      "Address 2": "Triplicane High Road, Triplicane,",
+      "City": "Chenna",
+      "Country": "India",
+      "Post Code": "India",
+      "Email": "sadiq@iecabroad.com / info@darussalam.in",
+      "Phone": "9.14456e+22",
+      "Mobile": "+91 9884112041",
+      "Website": "",
+      "lat": "13.055483",
+      "lng": "80.273838"
+  },
+  {
+      "Main Contact": "Shifaa' Bintu Ahmad",
+      "Catergory": "International Retailer",
+      "Company Name": "Fun Language Course",
+      "Address 1": "JI. Pangeran Antasari Gg. Sentosa",
+      "Address 2": "No. 020 RT. 004",
+      "City": "Kalimantan Timur (East Kalimantan)",
+      "Country": "Indonesia",
+      "Post Code": "Balikpapan 76124",
+      "Email": "bintu.ahmad@gmail.com",
+      "Phone": null,
+      "Mobile": "+6281347390889",
+      "Website": "http://www.griya-anak.com",
+      "lat": "-1.237355",
+      "lng": "116.842442"
+  },
+  {
+      "Main Contact": "Abiola Raheem",
+      "Catergory": "International Distributor",
+      "Company Name": "Islamic Resources Store",
+      "Address 1": "59 Fettercairn Road",
+      "Address 2": "Tallaght",
+      "City": "Dublin",
+      "Country": "Ireland",
+      "Post Code": "0024",
+      "Email": "wasii78@yahoo.com",
+      "Phone": "353871000000",
+      "Mobile": "",
+      "Website": "http://www.islamicresourcesstore.com",
+      "lat": "53.291876",
+      "lng": "-6.396999"
+  },
+  {
+      "Main Contact": "Mwanamtama Athman",
+      "Catergory": "",
+      "Company Name": "Emaani",
+      "Address 1": "Room 1 Ground floor",
+      "Address 2": "TSS Investments Building",
+      "City": "Mombasa",
+      "Country": "Kenya",
+      "Post Code": "Kenya",
+      "Email": "mtamaathman@ymail.com",
+      "Phone": null,
+      "Mobile": "+254 (0)722 273 387",
+      "Website": "",
+      "lat": "-4.043477",
+      "lng": "39.668206"
+  },
+  {
+      "Main Contact": "Omar George",
+      "Catergory": "International Distributor",
+      "Company Name": "Omar George",
+      "Address 1": "Dumna Street, Building No. 1",
+      "Address 2": "3rd Floor, Flat No. 11",
+      "City": "Salmiya ",
+      "Country": "Kuwait",
+      "Post Code": "Kuwait",
+      "Email": "omargeorge@gmail.com",
+      "Phone": null,
+      "Mobile": "+965 9949 2203",
+      "Website": "",
+      "lat": "29.375859",
+      "lng": "47.977405"
+  },
+  {
+      "Main Contact": "Siti Norbaiti Abdullah",
+      "Catergory": "International Retailer",
+      "Company Name": "My First Step Enterprise",
+      "Address 1": "9, Jalan 3/57, ",
+      "Address 2": "Seksyen 3 Tambahan,",
+      "City": "43650 Bandar Baru Bangi",
+      "Country": "Malaysia",
+      "Post Code": "Malaysia",
+      "Email": "syah_baiti_jannati@yahoo.com",
+      "Phone": "6.01961e+21",
+      "Mobile": "07735054835 / 0161 737 9290",
+      "Website": "http://www.myfirstep.com",
+      "lat": "4.210484",
+      "lng": "101.975766"
+  },
+  {
+      "Main Contact": "Siti Amalia binti Samarudin ",
+      "Catergory": "International Distributor",
+      "Company Name": "Baitul Sakinah",
+      "Address 1": "RM1579 Jalan Rembia Perkasa 18",
+      "Address 2": "Taman Rembia Perkasa",
+      "City": "78000 Alor Gajah",
+      "Country": "Malaysia",
+      "Post Code": "Malaysia",
+      "Email": "siti.amalia@gmail.com / baitulsakinah@gmail.com",
+      "Phone": "132668701",
+      "Mobile": "",
+      "Website": "http://www.didikanakku.com",
+      "lat": "4.210484",
+      "lng": "101.975766"
+  },
+  {
+      "Main Contact": "Khayrul Amar Rizali",
+      "Catergory": "",
+      "Company Name": "Learning Roots Malaysia",
+      "Address 1": "23-2, Petaling Jaya Commercial City (PJCC),",
+      "Address 2": "Jalan PJS 5/30, 46150,",
+      "City": "Petaling Jaya,",
+      "Country": "Malaysia",
+      "Post Code": "Malaysia",
+      "Email": "amar@learningroots.com",
+      "Phone": "3.77723156",
+      "Mobile": "013.399.8837",
+      "Website": "",
+      "lat": "4.210484",
+      "lng": "101.975766"
+  },
+  {
+      "Main Contact": "Muhammad Ashfaaq Motara",
+      "Catergory": "International Retailer",
+      "Company Name": "Ummah Store NZ",
+      "Address 1": "18 Farrelly Avenue (Back Property)",
+      "Address 2": "Mt Roskill",
+      "City": "Aukland",
+      "Country": "New Zealand",
+      "Post Code": "New Zealand",
+      "Email": "ashfaaq.motara@ummahstore.co.nz",
+      "Phone": "6496205759",
+      "Mobile": "",
+      "Website": "http://www.ummahstore.co.nz",
+      "lat": "-36.902674",
+      "lng": "174.727194"
+  },
+  {
+      "Main Contact": "Dr Aisha Ibrahim",
+      "Catergory": "International Distributor",
+      "Company Name": "Islamic Funstuff Store",
+      "Address 1": "43 Alpha Beach New Road",
+      "Address 2": "",
+      "City": "Lekki",
+      "Country": "Nigeria",
+      "Post Code": "Nigeria",
+      "Email": "toyosi_oloyede@yahoo.com",
+      "Phone": "2348020000000",
+      "Mobile": "23418984606",
+      "Website": "",
+      "lat": "6.688094",
+      "lng": "3.229739"
+  },
+  {
+      "Main Contact": "Omole Qudrat",
+      "Catergory": "International Retailer",
+      "Company Name": "Saltin Exquisite Islamic Stores",
+      "Address 1": "Suite 30, MOF Shopping Mall",
+      "Address 2": "132, Iganmode Road",
+      "City": "Ota",
+      "Country": "Nigeria",
+      "Post Code": "Nigeria",
+      "Email": " saltinventures@yahoo.com",
+      "Phone": "2348030000000",
+      "Mobile": "234-803-377-1618",
+      "Website": "",
+      "lat": "6.688094",
+      "lng": "3.229739"
+  },
+  {
+      "Main Contact": "Halita Aliyu",
+      "Catergory": "International Retailer",
+      "Company Name": "Tarbiyah Books Plus",
+      "Address 1": "21 Blantyre Street (3rd Floor)",
+      "Address 2": "Off Adetokunbo Ademola Street Wuse 2",
+      "City": "Abuja",
+      "Country": "Nigeria",
+      "Post Code": "",
+      "Email": "halita@tarbiyahbooksplus.com",
+      "Phone": "2348180000000",
+      "Mobile": "+234 803 320 0624",
+      "Website": "http://www.tarbiyahbooksplus.com",
+      "lat": "9.076479",
+      "lng": "7.398574"
+  },
+  {
+      "Main Contact": "Wasif ",
+      "Catergory": "International Retailer",
+      "Company Name": "",
+      "Address 1": "",
+      "Address 2": "",
+      "City": "",
+      "Country": "Pakistan",
+      "Post Code": "",
+      "Email": "",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "30.375321",
+      "lng": "69.345116"
+  },
+  {
+      "Main Contact": "Hala Alturki",
+      "Catergory": "International Distributor",
+      "Company Name": "Hala Alturki",
+      "Address 1": "Al Nahda Streams",
+      "Address 2": "P.O.Box 105070",
+      "City": "Madina Munawarrah",
+      "Country": "Saudi Arabia",
+      "Post Code": "Saudi Arabia",
+      "Email": "alnahda.learning@gmail.com ",
+      "Phone": "966570000000",
+      "Mobile": "+966 50 4376 367",
+      "Website": "",
+      "lat": "21.510948",
+      "lng": "39.791552"
+  },
+  {
+      "Main Contact": "Ridwan",
+      "Catergory": "",
+      "Company Name": "Islam Inspired Ideas",
+      "Address 1": "",
+      "Address 2": "",
+      "City": "Jeddah",
+      "Country": "Saudi Arabia",
+      "Post Code": "Saudi Arabia",
+      "Email": "ridwan@islaminspiredideas.com",
+      "Phone": null,
+      "Mobile": "+966540584727",
+      "Website": "http://www.islaminspiredideas.com",
+      "lat": "21.285407",
+      "lng": "39.237551"
+  },
+  {
+      "Main Contact": "Ms Marhainie Kamarudin",
+      "Catergory": "International Retailer",
+      "Company Name": "Wardah Books",
+      "Address 1": "58 Bussorah Street",
+      "Address 2": "",
+      "City": "",
+      "Country": "Singapore",
+      "Post Code": "Singapore",
+      "Email": "books@wardahbooks.com",
+      "Phone": "6567415903",
+      "Mobile": "",
+      "Website": "http://www.wardahbooks.com",
+      "lat": "1.301427",
+      "lng": "103.859472"
+  },
+  {
+      "Main Contact": "Mohammed Hanafi Othman",
+      "Catergory": "International Retailer",
+      "Company Name": "Hanafi",
+      "Address 1": "Blk 34 Bedok ",
+      "Address 2": "South Ave 2 #03-363",
+      "City": "",
+      "Country": "Singapore",
+      "Post Code": "460034",
+      "Email": "hanafi.buatsimanja@gmail.com",
+      "Phone": "6581124785",
+      "Mobile": "",
+      "Website": "",
+      "lat": "1.322105",
+      "lng": "103.938057"
+  },
+  {
+      "Main Contact": "Nur Fazliana Abdul Rahman",
+      "Catergory": "International Retailer",
+      "Company Name": "The English Islamic Bookshop",
+      "Address 1": "32 Onan Road",
+      "Address 2": "The Galaxy ",
+      "City": "",
+      "Country": "Singapore",
+      "Post Code": "424484",
+      "Email": "fazliana@cims.com.sp",
+      "Phone": "6565970425",
+      "Mobile": "",
+      "Website": "http://www.cims.com.sp",
+      "lat": "1.315581",
+      "lng": "103.896776"
+  },
+  {
+      "Main Contact": "Faheemah Kolia",
+      "Catergory": "",
+      "Company Name": "Sherwood Books",
+      "Address 1": "1st floor, Suite 2 The Ridge",
+      "Address 2": "Derby Downs Office Park",
+      "City": "Durban ",
+      "Country": "South Africa",
+      "Post Code": "",
+      "Email": "info@kiducate.co.za",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "-29.858680",
+      "lng": "31.021840"
+  },
+  {
+      "Main Contact": "Faheemah Kolia",
+      "Catergory": "International Distributor",
+      "Company Name": "Kiducate",
+      "Address 1": "5 Penguin Avenue",
+      "Address 2": "Lenasia",
+      "City": "Johannesburg",
+      "Country": "South Africa",
+      "Post Code": "South Africa",
+      "Email": "faheemah.kolia@gmail.com",
+      "Phone": "27118522568",
+      "Mobile": "+2782 800 0071",
+      "Website": "",
+      "lat": "-26.312592",
+      "lng": "27.828821"
+  },
+  {
+      "Main Contact": "Jignasa Patel",
+      "Catergory": "International Retailer",
+      "Company Name": "Tahara",
+      "Address 1": "Sodra Förstadsgatan 95B",
+      "Address 2": "",
+      "City": "21420 Malmö",
+      "Country": "Sweden",
+      "Post Code": "SWEDEN",
+      "Email": "sales@tahara.se",
+      "Phone": "460740000000",
+      "Mobile": "",
+      "Website": "http://www.tahara.se",
+      "lat": "55.590453",
+      "lng": "13.005364"
+  },
+  {
+      "Main Contact": "Shayma Ziyanak",
+      "Catergory": "International Retailer",
+      "Company Name": "Salsabil",
+      "Address 1": "Sommarvädersgatan 56",
+      "Address 2": "",
+      "City": "418 33 Gothenburg",
+      "Country": "Sweden",
+      "Post Code": "418 33",
+      "Email": "ummah.se@gmail.com",
+      "Phone": "46700399377",
+      "Mobile": "",
+      "Website": "",
+      "lat": "57.717840",
+      "lng": "11.894527"
+  },
+  {
+      "Main Contact": "Lina Marcela",
+      "Catergory": "International Retailer",
+      "Company Name": "Hassan Aligour",
+      "Address 1": "Lp #2 Rashaad Avenue ",
+      "Address 2": "Mon Plasir Road",
+      "City": "Cunupia",
+      "Country": "Trinidad & Tobago",
+      "Post Code": "Trinidad & Tobago",
+      "Email": "marssia29@hotmail.com",
+      "Phone": "1.86876e+21",
+      "Mobile": "",
+      "Website": "",
+      "lat": "11.231771",
+      "lng": "-60.698199"
+  },
+  {
+      "Main Contact": "Abdulmajid Brimah Ibrahim",
+      "Catergory": "International Retailer",
+      "Company Name": "Silver Link FZE",
+      "Address 1": "P.O.BOX 54192",
+      "Address 2": "",
+      "City": "SHARJAH",
+      "Country": "UAE",
+      "Post Code": "UAE",
+      "Email": "abd4hire@gmail.com",
+      "Phone": null,
+      "Mobile": "+971508465449",
+      "Website": "",
+      "lat": "25.322327",
+      "lng": "55.513643"
+  },
+  {
+      "Main Contact": "Br. Ahmed (Worker)",
+      "Catergory": "UK Retailer",
+      "Company Name": "ZamZam International",
+      "Address 1": "388 Green Street",
+      "Address 2": "Forest Gate",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "E13 9AP",
+      "Email": "info@zamzamdirect.com / fin_bial@hotmail.com",
+      "Phone": "2084701300",
+      "Mobile": "07932941133",
+      "Website": "http://www.zamzamuk.com",
+      "lat": "51.536681",
+      "lng": "0.034828"
+  },
+  {
+      "Main Contact": "Br. Zoeb",
+      "Catergory": "UK Retailer",
+      "Company Name": "Iqra Books",
+      "Address 1": "65 South Road",
+      "Address 2": "Southall",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "UB1 1SQ",
+      "Email": "iqrabooks@hotmail.com",
+      "Phone": "208868000000000000000",
+      "Mobile": "07535601601",
+      "Website": "http://www.iqrabooks.biz",
+      "lat": "51.508272",
+      "lng": "-0.377629"
+  },
+  {
+      "Main Contact": "A & B Yaqub",
+      "Catergory": "UK Retailer",
+      "Company Name": "RNB Enterprises",
+      "Address 1": "70 Queens Road",
+      "Address 2": "Walthamstow",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "E17 8QP",
+      "Email": "",
+      "Phone": "2085216380",
+      "Mobile": "",
+      "Website": "",
+      "lat": "51.578760",
+      "lng": "-0.023101"
+  },
+  {
+      "Main Contact": "Br. Sajid or Br. Mussadiq",
+      "Catergory": "UK Distributor",
+      "Company Name": "Azhar Academy Ltd",
+      "Address 1": "54-68 Little Ilford Lane",
+      "Address 2": "Manor Park",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "E12 5QA",
+      "Email": "shoeb@azharacademy.com",
+      "Phone": "208912000000000000000",
+      "Mobile": "",
+      "Website": "http://www.azharacademy.com",
+      "lat": "51.552420",
+      "lng": "0.058043"
+  },
+  {
+      "Main Contact": "Noora",
+      "Catergory": "UK Retailer",
+      "Company Name": "Dar Al-Taqwa Book Shop",
+      "Address 1": "7a Melcombe Street",
+      "Address 2": "Off Baker Street",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "NW1 6AE",
+      "Email": "daral_taqwa@hotmail.com / daraltaqwa@mail.com (for paypal)",
+      "Phone": "2079356385",
+      "Mobile": "",
+      "Website": "http://www.daraltaqwa.com",
+      "lat": "51.522737",
+      "lng": "-0.157834"
+  },
+  {
+      "Main Contact": "Yunus Sidat",
+      "Catergory": "UK Retailer",
+      "Company Name": "The Islamic Establishment",
+      "Address 1": "68 Asfordby Street",
+      "Address 2": "",
+      "City": "Leicester",
+      "Country": "UK",
+      "Post Code": "LE5 3QG",
+      "Email": "info@al-atfaal.co.uk / sales@theislamicestablishment.com",
+      "Phone": "1162127084",
+      "Mobile": "07811335422",
+      "Website": "http://www.al-atfaal.co.uk",
+      "lat": "52.637239",
+      "lng": "-1.105640"
+  },
+  {
+      "Main Contact": "Tariq Qureshi",
+      "Catergory": "UK Retailer",
+      "Company Name": "The Book Centre",
+      "Address 1": "Express House",
+      "Address 2": "White Abbey Road",
+      "City": "Bradford",
+      "Country": "UK",
+      "Post Code": "BD8 8EJ",
+      "Email": "sales@bookcentre.co.uk / tariq@bookcenter.co.uk",
+      "Phone": "1274727864",
+      "Mobile": "",
+      "Website": "http://www.bookcentre.co.uk",
+      "lat": "53.799172",
+      "lng": "-1.766269"
+  },
+  {
+      "Main Contact": "Br Atif Darr",
+      "Catergory": "UK Retailer",
+      "Company Name": "4 Corners UK Ltd",
+      "Address 1": "Unit 7, Crown Point South Industrial Park",
+      "Address 2": "King Street, Denton",
+      "City": "Manchester",
+      "Country": "UK",
+      "Post Code": "M34 6PG",
+      "Email": "atifdarr@simplyislam.com",
+      "Phone": "1612733383",
+      "Mobile": "",
+      "Website": "http://www.simplyislam.com",
+      "lat": "53.454098",
+      "lng": "-2.110183"
+  },
+  {
+      "Main Contact": "Mohamed Sadiq",
+      "Catergory": "UK Retailer",
+      "Company Name": "Darul Kutub",
+      "Address 1": "70 South Street",
+      "Address 2": "Sevile Town",
+      "City": "Dewsbury",
+      "Country": "UK",
+      "Post Code": "WF12 9NE",
+      "Email": "info@darulkutub.com",
+      "Phone": "1924488082",
+      "Mobile": "07973394214",
+      "Website": "http://darulkutub.com",
+      "lat": "53.682355",
+      "lng": "-1.629536"
+  },
+  {
+      "Main Contact": "Mr Muhsin Mogra",
+      "Catergory": "UK Retailer",
+      "Company Name": "Aniq Ltd.",
+      "Address 1": "279 St. Saviours Road",
+      "Address 2": "",
+      "City": "Leicester",
+      "Country": "UK",
+      "Post Code": "LE5 4HG",
+      "Email": "m_mogra@hotmail.com / info@aniq.co.uk",
+      "Phone": "116274000000000000000",
+      "Mobile": "",
+      "Website": "",
+      "lat": "52.634418",
+      "lng": "-1.101525"
+  },
+  {
+      "Main Contact": "Sheraz",
+      "Catergory": "UK Retailer",
+      "Company Name": "Impressions Worldwide Ltd",
+      "Address 1": "21 Millicent Road",
+      "Address 2": "Leyton",
+      "City": "London ",
+      "Country": "UK",
+      "Post Code": "E10 7LG",
+      "Email": "sheraz@islamicimpressions.com",
+      "Phone": "8.44801e+31",
+      "Mobile": "07939484143/02080358656 (office) ",
+      "Website": "http://www.islamicimpressions.co.uk",
+      "lat": "51.569193",
+      "lng": "-0.026033"
+  },
+  {
+      "Main Contact": "Kishwar Sultana",
+      "Catergory": "Weekend School",
+      "Company Name": "Andalus",
+      "Address 1": "21 Bank Street",
+      "Address 2": "",
+      "City": "Glasgow",
+      "Country": "UK",
+      "Post Code": "G12 8JQ",
+      "Email": "humairaqureshi1@aol.com",
+      "Phone": "1413376415",
+      "Mobile": "07727289206",
+      "Website": "",
+      "lat": "55.874803",
+      "lng": "-4.282720"
+  },
+  {
+      "Main Contact": "Nashrin",
+      "Catergory": "UK Retailer",
+      "Company Name": "House of Hijab",
+      "Address 1": "314 Derby Street",
+      "Address 2": "",
+      "City": "Bolton",
+      "Country": "UK",
+      "Post Code": "BL3 6LF",
+      "Email": "houseofhijab.net@gmail.com",
+      "Phone": "1204652007",
+      "Mobile": "07792187642",
+      "Website": "",
+      "lat": "53.567597",
+      "lng": "-2.442529"
+  },
+  {
+      "Main Contact": "Hamza Darr",
+      "Catergory": "UK Retailer",
+      "Company Name": "Living Islam",
+      "Address 1": "Rashid House",
+      "Address 2": "Westgate",
+      "City": "Bradford",
+      "Country": "UK",
+      "Post Code": "BD1 3AA",
+      "Email": "hamza@livingislam.biz / web@livingislamonline.com / nasir@livingislamonline.com / nkhan62@hotmail.co.uk",
+      "Phone": "1274730000000000",
+      "Mobile": "07723028485",
+      "Website": "http://www.livingislamonline.com",
+      "lat": "53.796385",
+      "lng": "-1.759619"
+  },
+  {
+      "Main Contact": "Br. Munir",
+      "Catergory": "UK Retailer",
+      "Company Name": "Knowledge and Wisdom",
+      "Address 1": "844 Stratford Road",
+      "Address 2": "Sparkhill",
+      "City": "Birmingham",
+      "Country": "UK",
+      "Post Code": "B11 4BS",
+      "Email": "ilm_wa_hikma@yahoo.co.uk",
+      "Phone": "121778000000000000000",
+      "Mobile": "",
+      "Website": "",
+      "lat": "52.444833",
+      "lng": "-1.859005"
+  },
+  {
+      "Main Contact": "M Nazir",
+      "Catergory": "UK Retailer",
+      "Company Name": "Amsons",
+      "Address 1": "209 Dunstable Road",
+      "Address 2": "",
+      "City": "Luton",
+      "Country": "UK",
+      "Post Code": "LU1 1DD",
+      "Email": "amsons@hotmail.co.uk",
+      "Phone": "4401580000000",
+      "Mobile": "07506717668",
+      "Website": "",
+      "lat": "51.885922",
+      "lng": "-0.429421"
+  },
+  {
+      "Main Contact": "Abdul Malik",
+      "Catergory": "UK Retailer",
+      "Company Name": "i4c Ltd",
+      "Address 1": "5-10 Eastman Road",
+      "Address 2": "",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "W3 7YG",
+      "Email": "islam4children@hotmail.com",
+      "Phone": "208762000000000000000",
+      "Mobile": "",
+      "Website": "",
+      "lat": "51.505411",
+      "lng": "-0.260421"
+  },
+  {
+      "Main Contact": "Mohammed Sujal",
+      "Catergory": "UK Retailer",
+      "Company Name": "Al-Aqsa",
+      "Address 1": "8 Priory Close",
+      "Address 2": "Coppice",
+      "City": "Oldham",
+      "Country": "UK",
+      "Post Code": "OL8 4DY",
+      "Email": "esujal@hotmail.com",
+      "Phone": "7966163394",
+      "Mobile": "",
+      "Website": "",
+      "lat": "53.526942",
+      "lng": "-2.127865"
+  },
+  {
+      "Main Contact": "Yasmin Mussa",
+      "Catergory": "UK Madrasah",
+      "Company Name": "Gate of Knowledge",
+      "Address 1": "147 Mount Pleasant Road",
+      "Address 2": "",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "N17 6TQ",
+      "Email": "ymg44@hotmail.com",
+      "Phone": "2088083800",
+      "Mobile": "07746097118",
+      "Website": "",
+      "lat": "51.593167",
+      "lng": "-0.078317"
+  },
+  {
+      "Main Contact": "Umar",
+      "Catergory": "UK Retailer",
+      "Company Name": "Ummah Central",
+      "Address 1": "94 Queenswood Gardens",
+      "Address 2": "Wanstead",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "E11 3SF",
+      "Email": "info@ummahcentral.com",
+      "Phone": null,
+      "Mobile": "07883 526994",
+      "Website": "http://www.ummahcentral.com",
+      "lat": "51.564719",
+      "lng": "0.025321"
+  },
+  {
+      "Main Contact": "A Zein",
+      "Catergory": "UK Retailer",
+      "Company Name": "The Souk",
+      "Address 1": "290 Stratford Road",
+      "Address 2": "Sparkhill",
+      "City": "Birmingham",
+      "Country": "UK",
+      "Post Code": "B11 1AA",
+      "Email": "a.omeri@alsouk.co.uk",
+      "Phone": "1217730721",
+      "Mobile": "",
+      "Website": "",
+      "lat": "52.459444",
+      "lng": "-1.871641"
+  },
+  {
+      "Main Contact": "Atir Darr",
+      "Catergory": "UK Retailer",
+      "Company Name": "Rolex Books",
+      "Address 1": "81-83 Wilmslow Road",
+      "Address 2": "Rusholme",
+      "City": "Manchester",
+      "Country": "UK",
+      "Post Code": "M14 5SU",
+      "Email": "atir@rolexbooks.co.uk",
+      "Phone": "1612254448",
+      "Mobile": "",
+      "Website": "",
+      "lat": "53.455439",
+      "lng": "-2.224872"
+  },
+  {
+      "Main Contact": "Waheed",
+      "Catergory": "UK Distributor",
+      "Company Name": "Darussalam",
+      "Address 1": "Leyton Business Centre ",
+      "Address 2": "Unit 17 Etloe Road Leyton ",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "E10 7BT",
+      "Email": "info@darussalam.com / hfzwaheed@yahoo.co.uk",
+      "Phone": "4402090000000",
+      "Mobile": "07947306706",
+      "Website": "",
+      "lat": "51.564139",
+      "lng": "-0.022482"
+  },
+  {
+      "Main Contact": "Tahir",
+      "Catergory": "UK Retailer",
+      "Company Name": "Amsons",
+      "Address 1": "351-355 Coventry Road",
+      "Address 2": "Small Heath",
+      "City": "Birmingham",
+      "Country": "UK",
+      "Post Code": "B10 0SN",
+      "Email": "amsonsonline@gmail.com",
+      "Phone": "1217711727",
+      "Mobile": "07958539973",
+      "Website": "",
+      "lat": "52.471930",
+      "lng": "-1.865167"
+  },
+  {
+      "Main Contact": "Arshid Ahmed",
+      "Catergory": "UK Retailer",
+      "Company Name": "True Murid",
+      "Address 1": "10 Victoria Court",
+      "Address 2": "",
+      "City": "Keighley",
+      "Country": "UK",
+      "Post Code": "BD21 2SE",
+      "Email": "truemurid@googlemail.com",
+      "Phone": null,
+      "Mobile": "07917542720",
+      "Website": "",
+      "lat": "53.869816",
+      "lng": "-1.917659"
+  },
+  {
+      "Main Contact": "Mr Mahroof Mohammed",
+      "Catergory": "UK Retailer",
+      "Company Name": "Salafi Bookstore Bradford",
+      "Address 1": "461 Great Horton Road",
+      "Address 2": "",
+      "City": "Bradford",
+      "Country": "UK",
+      "Post Code": "BD7 3DJ",
+      "Email": "info@albaseerah.com",
+      "Phone": "1274501736",
+      "Mobile": "07801287111",
+      "Website": "",
+      "lat": "53.784956",
+      "lng": "-1.777918"
+  },
+  {
+      "Main Contact": "Rahan Qureshi",
+      "Catergory": "UK Madrasah",
+      "Company Name": "Ribat Institute",
+      "Address 1": "1 Glendale Close",
+      "Address 2": "",
+      "City": "Woking",
+      "Country": "UK",
+      "Post Code": "GU21 3HN",
+      "Email": "admin@ribat.org.uk",
+      "Phone": "1483855542",
+      "Mobile": "07989351052",
+      "Website": "",
+      "lat": "51.315901",
+      "lng": "-0.578708"
+  },
+  {
+      "Main Contact": "Abu Hamaad",
+      "Catergory": "UK Retailer",
+      "Company Name": "Salafi Bookstore",
+      "Address 1": "472 Coventry Road",
+      "Address 2": "Small Heath",
+      "City": "Birmingham",
+      "Country": "UK",
+      "Post Code": "B10 0UG",
+      "Email": "wholesale@spubs.com",
+      "Phone": "1217730033",
+      "Mobile": "",
+      "Website": "",
+      "lat": "52.470063",
+      "lng": "-1.859287"
+  },
+  {
+      "Main Contact": "Faisal Mohammed",
+      "Catergory": "Club",
+      "Company Name": "Muslim Education & Outreach Cambridge",
+      "Address 1": "23 King Street",
+      "Address 2": "",
+      "City": "Cambridge ",
+      "Country": "UK",
+      "Post Code": "CB1 1AH",
+      "Email": "faisal@meoc.org.uk",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "52.207439",
+      "lng": "0.122891"
+  },
+  {
+      "Main Contact": "Hamzah Ghaffor",
+      "Catergory": "UK Madrasah",
+      "Company Name": "Portobello Education Centre",
+      "Address 1": "80 Wakefield Avenue",
+      "Address 2": "",
+      "City": "Edinburugh",
+      "Country": "UK",
+      "Post Code": "EH7 6TW",
+      "Email": "rumighafoor@hotmail.com",
+      "Phone": null,
+      "Mobile": "07891464292",
+      "Website": "",
+      "lat": "55.960932",
+      "lng": "-3.129116"
+  },
+  {
+      "Main Contact": "Hemen Mohammad",
+      "Catergory": "UK Retailer",
+      "Company Name": "Huda",
+      "Address 1": "Unit 14A Cheetham Hill Shopping Centre Bury Old Road",
+      "Address 2": "Cheetham Hill",
+      "City": "Manchester",
+      "Country": "UK",
+      "Post Code": "M8 5EL",
+      "Email": "info@hudaislamic.com / hemenmohammad53@yahoo.com",
+      "Phone": "1617408408",
+      "Mobile": "07872634226",
+      "Website": "",
+      "lat": "53.513000",
+      "lng": "-2.244823"
+  },
+  {
+      "Main Contact": "Zaida",
+      "Catergory": "UK Retailer",
+      "Company Name": "786 Centre",
+      "Address 1": "46 Warrington Street",
+      "Address 2": "",
+      "City": "Blackburn",
+      "Country": "UK",
+      "Post Code": "BB1 5PW",
+      "Email": "info@786centre.com",
+      "Phone": null,
+      "Mobile": "07939614832",
+      "Website": "http://www.786centre.com",
+      "lat": "53.761069",
+      "lng": "-2.466001"
+  },
+  {
+      "Main Contact": "Mohamed Osman",
+      "Catergory": "UK Retailer",
+      "Company Name": "Islam in Bristol",
+      "Address 1": "82 Stapleton Road",
+      "Address 2": "Easton",
+      "City": "Bristol",
+      "Country": "UK",
+      "Post Code": "BS5 0PW",
+      "Email": "mosman64@gmail.com / mubarak.mohamud@gmail.com / bookstore@islambristol.co.uk",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "http://www.islaminbristol.com",
+      "lat": "51.460967",
+      "lng": "-2.573753"
+  },
+  {
+      "Main Contact": "Saleem or Anwar Hussain",
+      "Catergory": "UK Madrasah",
+      "Company Name": "European Islamic Centre",
+      "Address 1": "Werneth House",
+      "Address 2": "79 Manchester Road",
+      "City": "Oldham ",
+      "Country": "UK",
+      "Post Code": "OL8 4LN",
+      "Email": "admineic@btconnect.com",
+      "Phone": null,
+      "Mobile": "07974803502",
+      "Website": "",
+      "lat": "53.528687",
+      "lng": "-2.134553"
+  },
+  {
+      "Main Contact": "Mohammad Hatahet",
+      "Catergory": "UK Retailer",
+      "Company Name": "The World of Islam",
+      "Address 1": "211 Wilmslow Road",
+      "Address 2": "",
+      "City": "Manchester",
+      "Country": "UK",
+      "Post Code": "M14 5AG",
+      "Email": "islam@gmx.com",
+      "Phone": "1612563232",
+      "Mobile": "",
+      "Website": "",
+      "lat": "53.452747",
+      "lng": "-2.222494"
+  },
+  {
+      "Main Contact": "Hassan (Andre Phillips)",
+      "Catergory": "UK Retailer",
+      "Company Name": "Arabian Luxuries",
+      "Address 1": "571 High Road",
+      "Address 2": "Tottenham",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "N17 6SB",
+      "Email": "ha@arabianluxuries.com",
+      "Phone": "2081230882",
+      "Mobile": "07506292703",
+      "Website": "",
+      "lat": "51.595523",
+      "lng": "-0.068888"
+  },
+  {
+      "Main Contact": "Sadaf Butt",
+      "Catergory": "Agent",
+      "Company Name": "The Islamic Bookstore",
+      "Address 1": "18 Westwick Gardens",
+      "Address 2": "Hounslow",
+      "City": "",
+      "Country": "UK",
+      "Post Code": "TW4 6LW",
+      "Email": "ummubayy@hotmail.com",
+      "Phone": "2088442861",
+      "Mobile": "07908 518 162",
+      "Website": "",
+      "lat": "51.476169",
+      "lng": "-0.406559"
+  },
+  {
+      "Main Contact": "Br Naeem",
+      "Catergory": "UK Retailer",
+      "Company Name": "Sunnah Bookstore",
+      "Address 1": "42A Maynard Road",
+      "Address 2": "",
+      "City": "Leicester",
+      "Country": "UK",
+      "Post Code": "LE2 0AN",
+      "Email": "",
+      "Phone": null,
+      "Mobile": "07852 563904",
+      "Website": "http://www.sunnahbookstore.com",
+      "lat": "52.637213",
+      "lng": "-1.115121"
+  },
+  {
+      "Main Contact": "Kolqur Rahman/ Yahya",
+      "Catergory": "UK Retailer",
+      "Company Name": "Blackstone",
+      "Address 1": "96 Whitechapel Road",
+      "Address 2": "",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "E1 1JQ",
+      "Email": "kolqur@blackstonedirect.com",
+      "Phone": "2072470373",
+      "Mobile": "07507 264164",
+      "Website": "http://www.blackstonedirect.com",
+      "lat": "51.517652",
+      "lng": "-0.065298"
+  },
+  {
+      "Main Contact": "Samihah El-Gindy",
+      "Catergory": "",
+      "Company Name": "British Muslim Heritage Centre",
+      "Address 1": "College Road ",
+      "Address 2": "Whalley Range",
+      "City": "Manchester",
+      "Country": "UK",
+      "Post Code": "M16 8BP",
+      "Email": "bmhcgiftshop@gmail.com",
+      "Phone": "1618818062",
+      "Mobile": " 07903763939",
+      "Website": "http://www.bmhc.org.uk",
+      "lat": "53.449958",
+      "lng": "-2.265921"
+  },
+  {
+      "Main Contact": "Akil",
+      "Catergory": "UK Retailer",
+      "Company Name": "Jubbas.com",
+      "Address 1": "6 Higher Eanam",
+      "Address 2": "Copy Nook",
+      "City": "Blackburn",
+      "Country": "UK",
+      "Post Code": "BB1 3AZ",
+      "Email": "akil@jubbas.com",
+      "Phone": null,
+      "Mobile": "07856520000",
+      "Website": "http://www.jubbas.com",
+      "lat": "53.748554",
+      "lng": "-2.467036"
+  },
+  {
+      "Main Contact": "Mu’aawiyah Tucker",
+      "Catergory": "UK Madrasah",
+      "Company Name": "Arabic Courses",
+      "Address 1": "437-443 High Road",
+      "Address 2": "Leyton",
+      "City": "London",
+      "Country": "UK",
+      "Post Code": "E10 5EL",
+      "Email": "Contact-Us@Arabic-Courses.com",
+      "Phone": "4402090000000",
+      "Mobile": "",
+      "Website": "http://www.Arabic-Courses.com",
+      "lat": "51.564113",
+      "lng": "-0.011297"
+  },
+  {
+      "Main Contact": "Sajid ",
+      "Catergory": "UK Islamic School",
+      "Company Name": "Andalusia Academy Bristol",
+      "Address 1": "Old School Building",
+      "Address 2": "St Matthias Park ",
+      "City": "Bristol",
+      "Country": "UK",
+      "Post Code": "BS2 0BA",
+      "Email": "",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "51.457291",
+      "lng": "-2.582846"
+  },
+  {
+      "Main Contact": "Aaliyah Khan",
+      "Catergory": "UK Retailer",
+      "Company Name": "The Islamic Kidstore",
+      "Address 1": "Flat no 20, Westgate Apts",
+      "Address 2": "170-173 Commercial Street",
+      "City": "Newport",
+      "Country": "UK",
+      "Post Code": "NP20 1JN",
+      "Email": "theislamickidstore@gmail.com",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "51.587197",
+      "lng": "-2.996222"
+  },
+  {
+      "Main Contact": "Nazia Nasreen",
+      "Catergory": "UK Retailer",
+      "Company Name": "Ibraheem Toy House",
+      "Address 1": "468 Belchers Lane",
+      "Address 2": "Bordesley Green",
+      "City": "Birmingham ",
+      "Country": "UK",
+      "Post Code": "B9 5SX",
+      "Email": "nasreenn1@hotmail.co.uk",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "52.477387",
+      "lng": "-1.835580"
+  },
+  {
+      "Main Contact": "Sara Khan",
+      "Catergory": "Weekend School",
+      "Company Name": "Dar ul-Isra",
+      "Address 1": "62 Whitchurch road",
+      "Address 2": "",
+      "City": "Cardiff",
+      "Country": "UK",
+      "Post Code": "CF14 3LX",
+      "Email": "ameirak@rocketmail.com",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "51.500167",
+      "lng": "-3.186551"
+  },
+  {
+      "Main Contact": "Roza",
+      "Catergory": "",
+      "Company Name": "Kitaabun",
+      "Address 1": "104 Uppingham Road",
+      "Address 2": "",
+      "City": "Leicester",
+      "Country": "UK",
+      "Post Code": "LE5 0QF",
+      "Email": "",
+      "Phone": "441163000000",
+      "Mobile": "",
+      "Website": "",
+      "lat": "52.642172",
+      "lng": "-1.096415"
+  },
+  {
+      "Main Contact": "Muzaffar",
+      "Catergory": "",
+      "Company Name": "Discover Islam Bookshop",
+      "Address 1": "61 Gladstone street ",
+      "Address 2": "",
+      "City": "Peterborough",
+      "Country": "UK",
+      "Post Code": "PE1 2BN",
+      "Email": "hussainmuzaffar@hotmail.com",
+      "Phone": "1733314488",
+      "Mobile": "",
+      "Website": "",
+      "lat": "52.578113",
+      "lng": "-0.248844"
+  },
+  {
+      "Main Contact": "Mr Hatem Atallah",
+      "Catergory": "International Distributor",
+      "Company Name": "Afkar Hadefa Trading Co. ",
+      "Address 1": "PO Box 28032 ",
+      "Address 2": "Sharjah",
+      "City": "United Arab Emirates",
+      "Country": "United Arab Emirates",
+      "Post Code": "",
+      "Email": "afkar_co@emirates.net.ae",
+      "Phone": "9.71657e+21",
+      "Mobile": "Cell:+97150 6196842",
+      "Website": "http://www.afkarhadefa.com",
+      "lat": "25.322327",
+      "lng": "55.513643"
+  },
+  {
+      "Main Contact": "Muayyad Masoud",
+      "Catergory": "International Distributor",
+      "Company Name": "Dar Dawat Al-Basheer Publications",
+      "Address 1": "Sharjah Children's Reading Festival Department of Culture & Information Government of Sharjah",
+      "Address 2": "Dawat Al-Basheer KSA (Hall-5, B-16)",
+      "City": "Sharjah",
+      "Country": "United Arab Emirates",
+      "Post Code": "",
+      "Email": "mwmasoud@msn.com",
+      "Phone": "97443900000000000",
+      "Mobile": "+966554779343 0097150-7871707 / 0097150-3665490",
+      "Website": "",
+      "lat": "25.322327",
+      "lng": "55.513643"
+  },
+  {
+      "Main Contact": "",
+      "Catergory": "UK Distributor",
+      "Company Name": "Noble Books",
+      "Address 1": "39 Jerry's Avenue",
+      "Address 2": "Nanuet",
+      "City": "New York",
+      "Country": "USA",
+      "Post Code": "USA  ",
+      "Email": "",
+      "Phone": null,
+      "Mobile": "",
+      "Website": "",
+      "lat": "41.088138",
+      "lng": "-74.017821"
+  },
+  {
+      "Main Contact": "Naziha Akon",
+      "Catergory": "International Retailer",
+      "Company Name": "Mariam Learns and Grows",
+      "Address 1": "22131 NE 9th Place",
+      "Address 2": "Sammamish",
+      "City": "Washington",
+      "Country": "USA",
+      "Post Code": "USA  ",
+      "Email": "mariamlearnsandgrows@gmail.com",
+      "Phone": "14088992225",
+      "Mobile": "",
+      "Website": "",
+      "lat": "47.618160",
+      "lng": "-122.043740"
+  },
+  {
+      "Main Contact": "Tahira Rabbani",
+      "Catergory": "International Retailer",
+      "Company Name": "Good Tree Books",
+      "Address 1": "1398 3rd Street",
+      "Address 2": "Whitehall",
+      "City": "",
+      "Country": "USA",
+      "Post Code": "USA  ",
+      "Email": "goodtreebooks@gmail.com",
+      "Phone": null,
+      "Mobile": "973 462 3914",
+      "Website": "http://www.GoodTreeBooks.com",
+      "lat": "40.643950",
+      "lng": "-75.474712"
+  },
+  {
+      "Main Contact": "Abdul Majeed Syed",
+      "Catergory": "International Distributor",
+      "Company Name": "Muslimzon.com",
+      "Address 1": "488 W Lodge",
+      "Address 2": "",
+      "City": "Wheeling",
+      "Country": "USA",
+      "Post Code": "USA  ",
+      "Email": "a.majeed.a@gmail.com",
+      "Phone": "77369800000000000000",
+      "Mobile": "",
+      "Website": "http://www.Muslimzon.com",
+      "lat": "40.643950",
+      "lng": "-75.474712"
+  },
+  {
+      "Main Contact": "AnisAhmed Shaikh",
+      "Catergory": "International Distributor",
+      "Company Name": "Ammar Books And Audio",
+      "Address 1": "96 Arch Street",
+      "Address 2": "",
+      "City": "New Britain",
+      "Country": "USA",
+      "Post Code": "USA  ",
+      "Email": "anisahmedj@gmail.com",
+      "Phone": "8606557860",
+      "Mobile": "",
+      "Website": "",
+      "lat": "41.664469",
+      "lng": "-72.781788"
+  },
+  {
+      "Main Contact": "Adnan A Khattak",
+      "Catergory": "International Retailer",
+      "Company Name": "IslamicBookStore.com",
+      "Address 1": "3840 Bank Street",
+      "Address 2": "Baltimore",
+      "City": "MD 21224-2522",
+      "Country": "USA",
+      "Post Code": "USA  ",
+      "Email": "adnank@islamicbookstore.com",
+      "Phone": "410675000000",
+      "Mobile": "",
+      "Website": "",
+      "lat": "39.288034",
+      "lng": "-76.563856"
+  },
+  {
+      "Main Contact": "Adnan Latif",
+      "Catergory": "International Madrasah",
+      "Company Name": "Adnan Latif",
+      "Address 1": "1814 Otter Pond Lane",
+      "Address 2": "Canton",
+      "City": "MI 48188",
+      "Country": "USA",
+      "Post Code": "",
+      "Email": "kehraba@yahoo.com",
+      "Phone": null,
+      "Mobile": "+1 734-377-8232",
+      "Website": "",
+      "lat": "42.293237",
+      "lng": "-83.448548"
+  },
+  {
+      "Main Contact": "Athar Jatoi",
+      "Catergory": "International Retailer",
+      "Company Name": "Mecca Books",
+      "Address 1": "P.O. BOX 1484",
+      "Address 2": "Ashburn",
+      "City": "",
+      "Country": "USA",
+      "Post Code": "USA  ",
+      "Email": "ajatoi@meccabooks.com",
+      "Phone": "2025962969",
+      "Mobile": "",
+      "Website": "http://www.meccabooks.com",
+      "lat": "39.043757",
+      "lng": "-77.487442"
+  },
+  {
+      "Main Contact": "Abraar Alli",
+      "Catergory": "International Distributor",
+      "Company Name": "Abraar Alli",
+      "Address 1": "26 Rattan St. Bamboo 2",
+      "Address 2": "Valsayn",
+      "City": "",
+      "Country": "West Indies",
+      "Post Code": "West Indies",
+      "Email": "asadukulameen@gmail.com",
+      "Phone": "18684748210",
+      "Mobile": "",
+      "Website": "",
+      "lat": "21.469114",
+      "lng": "-78.656894"
+  }
+]
 </script>
-
-
-
-
-
-
-
-
-
-
