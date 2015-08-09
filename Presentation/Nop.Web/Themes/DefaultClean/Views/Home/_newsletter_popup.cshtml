@@ -15,8 +15,6 @@
 
 	function newsletterpopup() {
 
-		if($.cookie('newsletterpopup')) return;
-
 		$('.newsletter-popup_body').html($('.block-newsletter').clone());
 
 		var timeBeforePopupOpens = 25000,
@@ -32,7 +30,9 @@
 			$('.newsletter-popup_body #mce-EMAIL').focus();
 		}
 
-		setTimeout(openNewsLetterPopup, timeBeforePopupOpens);
+		if(!$.cookie('newsletterpopup')) {
+			setTimeout(openNewsLetterPopup, timeBeforePopupOpens);
+		}
 
 		$('body').delegate('.newsletter-popup-close', "click", function(e){
 			window.isNewsLetterPopupOpened = false;
