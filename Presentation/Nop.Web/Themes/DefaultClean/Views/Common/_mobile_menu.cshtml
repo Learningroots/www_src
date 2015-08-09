@@ -1,4 +1,4 @@
-<div class="mobile-menu-overlay" title="click here to close the menu"></div>
+<div class="mobile-menu-overlay" title="click here to close"></div>
 <div class="mobile-menu">
 	
 	<div class="mobile-menu-header">
@@ -70,18 +70,13 @@
 
 	//sign up
 	$(function(){
-		$_newsLetter_input   = $('#mce-EMAIL');
-		$_mobile_menu_signup = $('.mobile-menu-signup, .footer-link2, .home-page-join-the-club a.button-1');
-		if($_newsLetter_input.length == 0) return $_mobile_menu_signup.hide();
-		$_mobile_menu_signup.click(function(e){
+		$('.mobile-menu-signup, .footer-link2, .home-page-join-the-club a.button-1').click(function(e){
 			e.preventDefault();
 			//close the popup and focus the input at the footer
 			$('.mobile-menu-close').click();
-			$('html, body').animate({
-			    scrollTop: $_newsLetter_input.offset().top - 200
-			}, 1000, function(){
-				$_newsLetter_input.focus();
-			});
+			if(window.openNewsLetterPopup) {
+				window.openNewsLetterPopup();
+			}
 		});
 	});
 

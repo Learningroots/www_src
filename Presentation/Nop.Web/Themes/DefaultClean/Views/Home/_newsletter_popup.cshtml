@@ -1,0 +1,57 @@
+<div class="newsletter-overlay" title="click here to close"></div>
+
+<div class="newsletter-popup">
+	<div class="newsletter-popup-inner">
+		<div class="hijab-girl"></div>
+		<a href="#" class="newsletter-popup-close" title="Close this popup"></a>
+		<div class="newsletter-popup_body">Enter deails here</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+
+	window.isNewsLetterPopupOpened = false;
+
+	function newsletterpopup() {
+
+		//if($.cookie('newsletterpopup')) return;
+
+		$('.newsletter-popup_body').html($('.block-newsletter').clone());
+
+		var timeBeforePopupOpens = 25000,
+			$_newsletter_overlay = $('.newsletter-overlay'),
+			$_newsletter_popup = $('.newsletter-popup'),
+			$_newsletter_closer = $('.newsletter-popup-close');
+
+		window.openNewsLetterPopup = function() {
+			if(window.isNewsLetterPopupOpened) return;
+			window.isNewsLetterPopupOpened = true;
+			$_newsletter_overlay.show();
+			$_newsletter_popup.addClass('newsletter-popup-opened');
+			$('.newsletter-popup_body #mce-EMAIL').focus();
+		}
+
+		setTimeout(openNewsLetterPopup, timeBeforePopupOpens);
+
+		$('body').delegate('.newsletter-popup-close', "click", function(e){
+			window.isNewsLetterPopupOpened = false;
+			e.preventDefault();
+			$_newsletter_overlay.fadeOut('fast');
+			$_newsletter_popup.removeClass('newsletter-popup-opened');
+			$.cookie('newsletterpopup', 'hidden', { expires: 1000 });
+		});
+
+		$_newsletter_overlay.click(function(){
+			$_newsletter_closer.click();
+		});
+
+		//close menu when esc is pressed
+		$(document).keydown(function(e) {
+			if (e.keyCode == 27) $_newsletter_closer.click();
+		});
+	}
+	
+	$(document).ready(newsletterpopup);
+
+</script>
