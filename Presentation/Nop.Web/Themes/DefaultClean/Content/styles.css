@@ -1079,6 +1079,7 @@ textarea, input { outline: none !important; }
 	top: -250px;
 	padding: 6px;
 	margin-left: -200px;
+	transition: 300ms top;
 }
 
 .newsletter-popup-inner {
@@ -1094,7 +1095,7 @@ textarea, input { outline: none !important; }
 
 .newsletter-popup-opened {
 	top: 30%;
-	transition: 300ms left;
+	transition: 300ms top;
 }
 
 .mobile-menu-header {
