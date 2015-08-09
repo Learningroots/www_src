@@ -712,7 +712,6 @@ ul.listofflags li a {
 	display: none;
 }
 
-
 /* search box */
 .search-text {
 	border: 1px solid #eee;
@@ -724,7 +723,7 @@ ul.listofflags li a {
 
 .search-box {
 	float: left;
-	margin-top: 26px;
+	margin-top: 16px;
 	margin-left: 40px;
 }
 
@@ -1896,6 +1895,10 @@ li.sub-menu-active > a,
 	height: 50px;
 	background-size: 58px;
 	position: relative;
+}
+
+.newsletter-popup_body .block-newsletter {
+	padding-top: 0;
 }
 
 .newsletter-popup_body .block-newsletter .newsletter-email {

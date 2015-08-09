@@ -31,7 +31,10 @@
 		}
 
 		if(!$.cookie('newsletterpopup')) {
-			setTimeout(openNewsLetterPopup, timeBeforePopupOpens);
+			// show only on homepage
+			if($('.home-page').length > 0) {
+				setTimeout(openNewsLetterPopup, timeBeforePopupOpens);
+			}
 		}
 
 		$('body').delegate('.newsletter-popup-close', "click", function(e){
