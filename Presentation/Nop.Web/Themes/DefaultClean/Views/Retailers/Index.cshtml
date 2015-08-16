@@ -5,16 +5,17 @@
 
     Html.AddTitleParts("Retailers");
 
-    var marker = "~/Themes/DefaultClean/Content/images/marker-gmap.png";
+    var marker = "~/Themes/DefaultClean/Content/images/marker-lr.png";
+    var jumptotop = "~/Themes/DefaultClean/Content/images/jumptotop.png";
 }
 
 <style type="text/css">
 	#map-canvas {
-    height: 400px;
-    margin: 0;
-    margin-top: 8px;
-    padding: 0;
-    width: 100%;
+        height: 400px;
+        margin: 0;
+        margin-top: 8px;
+        padding: 0;
+        width: 100%;
 	}
 	.master-wrapper-main {
 		padding-top: 0;
@@ -23,31 +24,29 @@
 		margin-top: 20px;
 	}
 	#back-to-top {
-    position: fixed;
-    bottom: 40%;
-    right: 40px;
-    z-index: 9999;
-    width: 60px;
-    height: 60px;
-    text-align: center;
-    background: #CE092E;
-    color: #fff;
-    cursor: pointer;
-    border: 0;
-    text-decoration: none;
-    transition: opacity 0.2s ease-out;
-    opacity: 0;
-    font-size: 52px;
-		}
-		#back-to-top.show:hover {
-		  opacity: 1;
-		}
-		#back-to-top.show {
-			opacity: 0.8;
-		}
+        background: url("@Url.Content(jumptotop)") no-repeat 0 0;
+        background-size: 60px;
+        position: fixed;
+        bottom: 40%;
+        right: 40px;
+        z-index: 9999;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        border: 0;
+        transition: opacity 0.2s ease-out;
+        opacity: 0;
+        font-size: 52px;
+	}
+	#back-to-top.show:hover {
+	   opacity: 1;
+	}
+	#back-to-top.show {
+	   opacity: 0.8;
+	}
 </style>
 
-<a href="#" id="back-to-top" title="Back to top">&uarr;</a>
+<a href="#" id="back-to-top" title="Back to top"></a>
 
 <div id="map-canvas"></div>
 
@@ -163,7 +162,7 @@ google.maps.event.addDomListener(window, 'load', function(){
 		$retailersList.append("<h2 id='"+id+"'>"+retailersListInCountry.length + " "+ singPlur +" found in "+country+"</h2>");
 		for (i = 0; i < retailersListInCountry.length; i++) {
 			var data = retailersListInCountry[i];
-			$retailersList.append("<li>"+getContent(data)+"</li>");
+			$retailersList.append("<li class='"+ (data.isPremium ? 'premium' : '') +"'>"+getContent(data)+"</li>");
 		}
 	}
 
@@ -209,17 +208,18 @@ var __map_data = [{
     "Main Contact": "Ms Romy Ramos",
     "Catergory": "International Distributor",
     "Company Name": "Romy Ramos",
-    "Address 1": " 6/77 Boronia Road",
+    "Address 1": "",
     "Address 2": "Greenacre",
     "City": "NSW",
     "Country": "Australia",
-    "Post Code": "Australia",
-    "Email": "romylramos@hotmail.com",
-    "Phone": "61424181471",
+    "Post Code": "",
+    "Email": "info@taqwaonline.com.au",
+    "Phone": "0424181471",
     "Mobile": "",
-    "Website": "",
+    "Website": "taqwaonline.com.au",
     "lat": "-33.905437",
-    "lng": "151.051535"
+    "lng": "151.051535",
+    "isPremium": false
 },
 {
     "Main Contact": "Fauzan Ahmad",
@@ -227,15 +227,16 @@ var __map_data = [{
     "Company Name": "Darussalam Australia",
     "Address 1": "149 Haldom Strret",
     "Address 2": "Lakemba",
-    "City": "",
+    "City": "Sydney",
     "Country": "Australia",
-    "Post Code": "Australia",
-    "Email": "fauzan-ahmed101@hotmail.com",
-    "Phone": null,
-    "Mobile": "",
-    "Website": "",
+    "Post Code": "2195",
+    "Email": " admin@dsbooks.com.au",
+    "Phone": "02 9740 7188",
+    "Mobile": "0423 599 075",
+    "Website": "http://dsbooks.com.au",
     "lat": "-33.922159",
-    "lng": "151.078841"
+    "lng": "151.078841",
+    "isPremium": true
 },
 {
     "Main Contact": "Marwan Baytiye",
@@ -251,7 +252,8 @@ var __map_data = [{
     "Mobile": "+61 4 1868 7075",
     "Website": "http://www.islamicbookstore.com.au",
     "lat": "-33.922751",
-    "lng": "151.079029"
+    "lng": "151.079029",
+    "isPremium": false
 },
 {
     "Main Contact": "Nabil Ayoubi",
@@ -267,23 +269,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "-37.642846",
-    "lng": "144.931966"
-},
-{
-    "Main Contact": "Calisha Bennett",
-    "Catergory": "",
-    "Company Name": "Diamonds of Islam",
-    "Address 1": "9 Whitehorse Drive",
-    "Address 2": "Harrisdale",
-    "City": "Harrisdale",
-    "Country": "Australia",
-    "Post Code": "6122",
-    "Email": "calishabennett@gmail.com",
-    "Phone": null,
-    "Mobile": "",
-    "Website": "",
-    "lat": "-32.270242",
-    "lng": "116.065031"
+    "lng": "144.931966",
+    "isPremium": false
 },
 {
     "Main Contact": "Helal Hatem (Islam Winkel)",
@@ -299,7 +286,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "51.131324",
-    "lng": "4.196062"
+    "lng": "4.196062",
+    "isPremium": false
 },
 {
     "Main Contact": "Andaleeb Mustaq",
@@ -315,7 +303,8 @@ var __map_data = [{
     "Mobile": "778-994-6801",
     "Website": "",
     "lat": "43.773592",
-    "lng": "-79.249762"
+    "lng": "-79.249762",
+    "isPremium": false
 },
 {
     "Main Contact": "Aneesa Bozai",
@@ -331,7 +320,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.easterntoybox.com",
     "lat": "43.861075",
-    "lng": "-79.237026"
+    "lng": "-79.237026",
+    "isPremium": false
 },
 {
     "Main Contact": "Asif",
@@ -347,7 +337,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.SoundVisionCanada.com",
     "lat": "56.130366",
-    "lng": "-106.346771"
+    "lng": "-106.346771",
+    "isPremium": false
 },
 {
     "Main Contact": "Tahir Mirza",
@@ -363,7 +354,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.islamguide.dk",
     "lat": "55.703560",
-    "lng": "12.538440"
+    "lng": "12.538440",
+    "isPremium": false
 },
 {
     "Main Contact": "Shymaa Radwan",
@@ -379,7 +371,8 @@ var __map_data = [{
     "Mobile": "+201 00 213 78 45",
     "Website": "http://www.alefbookstores.com",
     "lat": "30.013707",
-    "lng": "31.423848"
+    "lng": "31.423848",
+    "isPremium": false
 },
 {
     "Main Contact": "Soulayman (Claudy) Segor",
@@ -395,7 +388,8 @@ var __map_data = [{
     "Mobile": "+33 1 83 64 82 60 / +33 6 98 01 90 85",
     "Website": "",
     "lat": "48.825718",
-    "lng": "2.326485"
+    "lng": "2.326485",
+    "isPremium": false
 },
 {
     "Main Contact": "Tamim Mansury",
@@ -411,7 +405,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "51.165691",
-    "lng": "10.451526"
+    "lng": "10.451526",
+    "isPremium": false
 },
 {
     "Main Contact": "Zabeeullah",
@@ -427,7 +422,8 @@ var __map_data = [{
     "Mobile": "+91 9884112041",
     "Website": "",
     "lat": "13.055483",
-    "lng": "80.273838"
+    "lng": "80.273838",
+    "isPremium": false
 },
 {
     "Main Contact": "Shifaa' Bintu Ahmad",
@@ -443,7 +439,8 @@ var __map_data = [{
     "Mobile": "+6281347390889",
     "Website": "http://www.griya-anak.com",
     "lat": "-1.237355",
-    "lng": "116.842442"
+    "lng": "116.842442",
+    "isPremium": false
 },
 {
     "Main Contact": "Abiola Raheem",
@@ -459,7 +456,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.islamicresourcesstore.com",
     "lat": "53.291876",
-    "lng": "-6.396999"
+    "lng": "-6.396999",
+    "isPremium": false
 },
 {
     "Main Contact": "Mwanamtama Athman",
@@ -475,7 +473,8 @@ var __map_data = [{
     "Mobile": "+254 (0)722 273 387",
     "Website": "",
     "lat": "-4.043477",
-    "lng": "39.668206"
+    "lng": "39.668206",
+    "isPremium": false
 },
 {
     "Main Contact": "Omar George",
@@ -491,7 +490,8 @@ var __map_data = [{
     "Mobile": "+965 9949 2203",
     "Website": "",
     "lat": "29.375859",
-    "lng": "47.977405"
+    "lng": "47.977405",
+    "isPremium": false
 },
 {
     "Main Contact": "Siti Norbaiti Abdullah",
@@ -507,7 +507,8 @@ var __map_data = [{
     "Mobile": "07735054835 / 0161 737 9290",
     "Website": "http://www.myfirstep.com",
     "lat": "4.210484",
-    "lng": "101.975766"
+    "lng": "101.975766",
+    "isPremium": false
 },
 {
     "Main Contact": "Siti Amalia binti Samarudin",
@@ -523,7 +524,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.didikanakku.com",
     "lat": "4.210484",
-    "lng": "101.975766"
+    "lng": "101.975766",
+    "isPremium": false
 },
 {
     "Main Contact": "Khayrul Amar Rizali",
@@ -539,7 +541,8 @@ var __map_data = [{
     "Mobile": "013.399.8837",
     "Website": "",
     "lat": "4.210484",
-    "lng": "101.975766"
+    "lng": "101.975766",
+    "isPremium": false
 },
 {
     "Main Contact": "Muhammad Ashfaaq Motara",
@@ -555,7 +558,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.ummahstore.co.nz",
     "lat": "-36.902674",
-    "lng": "174.727194"
+    "lng": "174.727194",
+    "isPremium": false
 },
 {
     "Main Contact": "Dr Aisha Ibrahim",
@@ -571,7 +575,8 @@ var __map_data = [{
     "Mobile": "23418984606",
     "Website": "",
     "lat": "6.688094",
-    "lng": "3.229739"
+    "lng": "3.229739",
+    "isPremium": false
 },
 {
     "Main Contact": "Omole Qudrat",
@@ -587,7 +592,8 @@ var __map_data = [{
     "Mobile": "234-803-377-1618",
     "Website": "",
     "lat": "6.688094",
-    "lng": "3.229739"
+    "lng": "3.229739",
+    "isPremium": false
 },
 {
     "Main Contact": "Halita Aliyu",
@@ -603,7 +609,8 @@ var __map_data = [{
     "Mobile": "+234 803 320 0624",
     "Website": "http://www.tarbiyahbooksplus.com",
     "lat": "9.076479",
-    "lng": "7.398574"
+    "lng": "7.398574",
+    "isPremium": false
 },
 {
     "Main Contact": "Hala Alturki",
@@ -619,7 +626,8 @@ var __map_data = [{
     "Mobile": "+966 50 4376 367",
     "Website": "",
     "lat": "21.510948",
-    "lng": "39.791552"
+    "lng": "39.791552",
+    "isPremium": false
 },
 {
     "Main Contact": "Ridwan",
@@ -635,7 +643,8 @@ var __map_data = [{
     "Mobile": "+966540584727",
     "Website": "http://www.islaminspiredideas.com",
     "lat": "21.285407",
-    "lng": "39.237551"
+    "lng": "39.237551",
+    "isPremium": false
 },
 {
     "Main Contact": "Ms Marhainie Kamarudin",
@@ -651,7 +660,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.wardahbooks.com",
     "lat": "1.301427",
-    "lng": "103.859472"
+    "lng": "103.859472",
+    "isPremium": false
 },
 {
     "Main Contact": "Mohammed Hanafi Othman",
@@ -667,7 +677,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "1.322105",
-    "lng": "103.938057"
+    "lng": "103.938057",
+    "isPremium": false
 },
 {
     "Main Contact": "Nur Fazliana Abdul Rahman",
@@ -683,7 +694,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.cims.com.sp",
     "lat": "1.315581",
-    "lng": "103.896776"
+    "lng": "103.896776",
+    "isPremium": false
 },
 {
     "Main Contact": "Faheemah Kolia",
@@ -699,7 +711,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "-29.858680",
-    "lng": "31.021840"
+    "lng": "31.021840",
+    "isPremium": false
 },
 {
     "Main Contact": "Faheemah Kolia",
@@ -715,7 +728,8 @@ var __map_data = [{
     "Mobile": "+2782 800 0071",
     "Website": "",
     "lat": "-26.312592",
-    "lng": "27.828821"
+    "lng": "27.828821",
+    "isPremium": false
 },
 {
     "Main Contact": "Jignasa Patel",
@@ -731,7 +745,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.tahara.se",
     "lat": "55.590453",
-    "lng": "13.005364"
+    "lng": "13.005364",
+    "isPremium": false
 },
 {
     "Main Contact": "Shayma Ziyanak",
@@ -747,7 +762,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "57.717840",
-    "lng": "11.894527"
+    "lng": "11.894527",
+    "isPremium": false
 },
 {
     "Main Contact": "Lina Marcela",
@@ -763,7 +779,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "11.231771",
-    "lng": "-60.698199"
+    "lng": "-60.698199",
+    "isPremium": false
 },
 {
     "Main Contact": "Abdulmajid Brimah Ibrahim",
@@ -779,7 +796,8 @@ var __map_data = [{
     "Mobile": "+971508465449",
     "Website": "",
     "lat": "25.322327",
-    "lng": "55.513643"
+    "lng": "55.513643",
+    "isPremium": false
 },
 {
     "Main Contact": "Ahmed",
@@ -795,7 +813,8 @@ var __map_data = [{
     "Mobile": "07932941133",
     "Website": "http://www.zamzamuk.com",
     "lat": "51.536681",
-    "lng": "0.034828"
+    "lng": "0.034828",
+    "isPremium": false
 },
 {
     "Main Contact": "Zoeb",
@@ -811,7 +830,8 @@ var __map_data = [{
     "Mobile": "07535601601",
     "Website": "http://www.iqrabooks.biz",
     "lat": "51.508272",
-    "lng": "-0.377629"
+    "lng": "-0.377629",
+    "isPremium": false
 },
 {
     "Main Contact": "A & B Yaqub",
@@ -827,7 +847,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "51.578760",
-    "lng": "-0.023101"
+    "lng": "-0.023101",
+    "isPremium": false
 },
 {
     "Main Contact": "Sajid",
@@ -843,7 +864,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.azharacademy.com",
     "lat": "51.552420",
-    "lng": "0.058043"
+    "lng": "0.058043",
+    "isPremium": false
 },
 {
     "Main Contact": "Noora",
@@ -859,7 +881,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.daraltaqwa.com",
     "lat": "51.522737",
-    "lng": "-0.157834"
+    "lng": "-0.157834",
+    "isPremium": false
 },
 {
     "Main Contact": "Yunus Sidat",
@@ -875,7 +898,8 @@ var __map_data = [{
     "Mobile": "07811335422",
     "Website": "http://www.al-atfaal.co.uk",
     "lat": "52.637239",
-    "lng": "-1.105640"
+    "lng": "-1.105640",
+    "isPremium": false
 },
 {
     "Main Contact": "Tariq Qureshi",
@@ -891,7 +915,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.bookcentre.co.uk",
     "lat": "53.799172",
-    "lng": "-1.766269"
+    "lng": "-1.766269",
+    "isPremium": false
 },
 {
     "Main Contact": "Br Atif Darr",
@@ -907,7 +932,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.simplyislam.com",
     "lat": "53.454098",
-    "lng": "-2.110183"
+    "lng": "-2.110183",
+    "isPremium": false
 },
 {
     "Main Contact": "Mohamed Sadiq",
@@ -923,7 +949,8 @@ var __map_data = [{
     "Mobile": "07973394214",
     "Website": "http://darulkutub.com",
     "lat": "53.682355",
-    "lng": "-1.629536"
+    "lng": "-1.629536",
+    "isPremium": false
 },
 {
     "Main Contact": "Mr Muhsin Mogra",
@@ -939,7 +966,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "52.634418",
-    "lng": "-1.101525"
+    "lng": "-1.101525",
+    "isPremium": false
 },
 {
     "Main Contact": "Sheraz",
@@ -955,7 +983,8 @@ var __map_data = [{
     "Mobile": "07939484143/02080358656 (office)",
     "Website": "http://www.islamicimpressions.co.uk",
     "lat": "51.569193",
-    "lng": "-0.026033"
+    "lng": "-0.026033",
+    "isPremium": false
 },
 {
     "Main Contact": "Kishwar Sultana",
@@ -971,7 +1000,8 @@ var __map_data = [{
     "Mobile": "07727289206",
     "Website": "",
     "lat": "55.874803",
-    "lng": "-4.282720"
+    "lng": "-4.282720",
+    "isPremium": false
 },
 {
     "Main Contact": "Nashrin",
@@ -987,7 +1017,8 @@ var __map_data = [{
     "Mobile": "07792187642",
     "Website": "",
     "lat": "53.567597",
-    "lng": "-2.442529"
+    "lng": "-2.442529",
+    "isPremium": false
 },
 {
     "Main Contact": "Hamza Darr",
@@ -1003,7 +1034,8 @@ var __map_data = [{
     "Mobile": "07723028485",
     "Website": "http://www.livingislamonline.com",
     "lat": "53.796385",
-    "lng": "-1.759619"
+    "lng": "-1.759619",
+    "isPremium": false
 },
 {
     "Main Contact": "Br. Munir",
@@ -1019,7 +1051,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "52.444833",
-    "lng": "-1.859005"
+    "lng": "-1.859005",
+    "isPremium": false
 },
 {
     "Main Contact": "M Nazir",
@@ -1035,7 +1068,8 @@ var __map_data = [{
     "Mobile": "07506717668",
     "Website": "",
     "lat": "51.885922",
-    "lng": "-0.429421"
+    "lng": "-0.429421",
+    "isPremium": false
 },
 {
     "Main Contact": "Abdul Malik",
@@ -1051,7 +1085,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "51.505411",
-    "lng": "-0.260421"
+    "lng": "-0.260421",
+    "isPremium": false
 },
 {
     "Main Contact": "Mohammed Sujal",
@@ -1067,7 +1102,8 @@ var __map_data = [{
     "Mobile": "07966163394",
     "Website": "",
     "lat": "53.526942",
-    "lng": "-2.127865"
+    "lng": "-2.127865",
+    "isPremium": false
 },
 {
     "Main Contact": "Yasmin Mussa",
@@ -1083,7 +1119,8 @@ var __map_data = [{
     "Mobile": "07746097118",
     "Website": "",
     "lat": "51.593167",
-    "lng": "-0.078317"
+    "lng": "-0.078317",
+    "isPremium": false
 },
 {
     "Main Contact": "Umar",
@@ -1099,7 +1136,8 @@ var __map_data = [{
     "Mobile": "07883 526994",
     "Website": "http://www.ummahcentral.com",
     "lat": "51.564719",
-    "lng": "0.025321"
+    "lng": "0.025321",
+    "isPremium": false
 },
 {
     "Main Contact": "A Zein",
@@ -1115,7 +1153,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "52.459444",
-    "lng": "-1.871641"
+    "lng": "-1.871641",
+    "isPremium": false
 },
 {
     "Main Contact": "Atir Darr",
@@ -1131,7 +1170,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "53.455439",
-    "lng": "-2.224872"
+    "lng": "-2.224872",
+    "isPremium": false
 },
 {
     "Main Contact": "Waheed",
@@ -1147,7 +1187,8 @@ var __map_data = [{
     "Mobile": "07947306706",
     "Website": "",
     "lat": "51.564139",
-    "lng": "-0.022482"
+    "lng": "-0.022482",
+    "isPremium": false
 },
 {
     "Main Contact": "Tahir",
@@ -1163,7 +1204,8 @@ var __map_data = [{
     "Mobile": "07958539973",
     "Website": "",
     "lat": "52.471930",
-    "lng": "-1.865167"
+    "lng": "-1.865167",
+    "isPremium": false
 },
 {
     "Main Contact": "Arshid Ahmed",
@@ -1179,7 +1221,8 @@ var __map_data = [{
     "Mobile": "07917542720",
     "Website": "",
     "lat": "53.869816",
-    "lng": "-1.917659"
+    "lng": "-1.917659",
+    "isPremium": false
 },
 {
     "Main Contact": "Mr Mahroof Mohammed",
@@ -1195,7 +1238,8 @@ var __map_data = [{
     "Mobile": "07801287111",
     "Website": "",
     "lat": "53.784956",
-    "lng": "-1.777918"
+    "lng": "-1.777918",
+    "isPremium": false
 },
 {
     "Main Contact": "Rahan Qureshi",
@@ -1211,7 +1255,8 @@ var __map_data = [{
     "Mobile": "07989351052",
     "Website": "",
     "lat": "51.315901",
-    "lng": "-0.578708"
+    "lng": "-0.578708",
+    "isPremium": false
 },
 {
     "Main Contact": "Abu Hamaad",
@@ -1227,7 +1272,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "52.470063",
-    "lng": "-1.859287"
+    "lng": "-1.859287",
+    "isPremium": false
 },
 {
     "Main Contact": "Faisal Mohammed",
@@ -1243,7 +1289,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "52.207439",
-    "lng": "0.122891"
+    "lng": "0.122891",
+    "isPremium": false
 },
 {
     "Main Contact": "Hamzah Ghaffor",
@@ -1259,7 +1306,8 @@ var __map_data = [{
     "Mobile": "07891464292",
     "Website": "",
     "lat": "55.960932",
-    "lng": "-3.129116"
+    "lng": "-3.129116",
+    "isPremium": false
 },
 {
     "Main Contact": "Hemen Mohammad",
@@ -1275,7 +1323,8 @@ var __map_data = [{
     "Mobile": "07872634226",
     "Website": "",
     "lat": "53.513000",
-    "lng": "-2.244823"
+    "lng": "-2.244823",
+    "isPremium": false
 },
 {
     "Main Contact": "Zaida",
@@ -1291,7 +1340,8 @@ var __map_data = [{
     "Mobile": "07939614832",
     "Website": "http://www.786centre.com",
     "lat": "53.761069",
-    "lng": "-2.466001"
+    "lng": "-2.466001",
+    "isPremium": false
 },
 {
     "Main Contact": "Mohamed Osman",
@@ -1307,7 +1357,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.islaminbristol.com",
     "lat": "51.460967",
-    "lng": "-2.573753"
+    "lng": "-2.573753",
+    "isPremium": false
 },
 {
     "Main Contact": "Saleem or Anwar Hussain",
@@ -1323,7 +1374,8 @@ var __map_data = [{
     "Mobile": "07974803502",
     "Website": "",
     "lat": "53.528687",
-    "lng": "-2.134553"
+    "lng": "-2.134553",
+    "isPremium": false
 },
 {
     "Main Contact": "Mohammad Hatahet",
@@ -1339,7 +1391,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "53.452747",
-    "lng": "-2.222494"
+    "lng": "-2.222494",
+    "isPremium": false
 },
 {
     "Main Contact": "Hassan (Andre Phillips)",
@@ -1355,7 +1408,8 @@ var __map_data = [{
     "Mobile": "07506292703",
     "Website": "",
     "lat": "51.595523",
-    "lng": "-0.068888"
+    "lng": "-0.068888",
+    "isPremium": false
 },
 {
     "Main Contact": "Sadaf Butt",
@@ -1371,7 +1425,8 @@ var __map_data = [{
     "Mobile": "07908 518 162",
     "Website": "",
     "lat": "51.476169",
-    "lng": "-0.406559"
+    "lng": "-0.406559",
+    "isPremium": false
 },
 {
     "Main Contact": "Br Naeem",
@@ -1387,7 +1442,8 @@ var __map_data = [{
     "Mobile": "07852 563904",
     "Website": "http://www.sunnahbookstore.com",
     "lat": "52.637213",
-    "lng": "-1.115121"
+    "lng": "-1.115121",
+    "isPremium": false
 },
 {
     "Main Contact": "Kolqur Rahman/ Yahya",
@@ -1403,7 +1459,8 @@ var __map_data = [{
     "Mobile": "07507 264164",
     "Website": "http://www.blackstonedirect.com",
     "lat": "51.517652",
-    "lng": "-0.065298"
+    "lng": "-0.065298",
+    "isPremium": false
 },
 {
     "Main Contact": "Samihah El-Gindy",
@@ -1419,7 +1476,8 @@ var __map_data = [{
     "Mobile": " 07903763939",
     "Website": "http://www.bmhc.org.uk",
     "lat": "53.449958",
-    "lng": "-2.265921"
+    "lng": "-2.265921",
+    "isPremium": false
 },
 {
     "Main Contact": "Akil",
@@ -1435,7 +1493,8 @@ var __map_data = [{
     "Mobile": "07856520000",
     "Website": "http://www.jubbas.com",
     "lat": "53.748554",
-    "lng": "-2.467036"
+    "lng": "-2.467036",
+    "isPremium": false
 },
 {
     "Main Contact": "Mu’aawiyah Tucker",
@@ -1451,7 +1510,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.Arabic-Courses.com",
     "lat": "51.564113",
-    "lng": "-0.011297"
+    "lng": "-0.011297",
+    "isPremium": false
 },
 {
     "Main Contact": "Sajid",
@@ -1467,7 +1527,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "51.457291",
-    "lng": "-2.582846"
+    "lng": "-2.582846",
+    "isPremium": false
 },
 {
     "Main Contact": "Aaliyah Khan",
@@ -1483,7 +1544,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "51.587197",
-    "lng": "-2.996222"
+    "lng": "-2.996222",
+    "isPremium": false
 },
 {
     "Main Contact": "Nazia Nasreen",
@@ -1499,7 +1561,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "52.477387",
-    "lng": "-1.835580"
+    "lng": "-1.835580",
+    "isPremium": false
 },
 {
     "Main Contact": "Sara Khan",
@@ -1515,7 +1578,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "51.500167",
-    "lng": "-3.186551"
+    "lng": "-3.186551",
+    "isPremium": false
 },
 {
     "Main Contact": "Roza",
@@ -1531,7 +1595,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "52.642172",
-    "lng": "-1.096415"
+    "lng": "-1.096415",
+    "isPremium": false
 },
 {
     "Main Contact": "Muzaffar",
@@ -1547,7 +1612,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "52.578113",
-    "lng": "-0.248844"
+    "lng": "-0.248844",
+    "isPremium": false
 },
 {
     "Main Contact": "Mr Hatem Atallah",
@@ -1563,7 +1629,8 @@ var __map_data = [{
     "Mobile": "Cell:+97150 6196842",
     "Website": "http://www.afkarhadefa.com",
     "lat": "25.322327",
-    "lng": "55.513643"
+    "lng": "55.513643",
+    "isPremium": false
 },
 {
     "Main Contact": "Muayyad Masoud",
@@ -1579,7 +1646,8 @@ var __map_data = [{
     "Mobile": "+966554779343 0097150-7871707 / 0097150-3665490",
     "Website": "",
     "lat": "25.322327",
-    "lng": "55.513643"
+    "lng": "55.513643",
+    "isPremium": false
 },
 {
     "Main Contact": "",
@@ -1595,7 +1663,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "41.088138",
-    "lng": "-74.017821"
+    "lng": "-74.017821",
+    "isPremium": false
 },
 {
     "Main Contact": "Naziha Akon",
@@ -1611,7 +1680,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "47.618160",
-    "lng": "-122.043740"
+    "lng": "-122.043740",
+    "isPremium": false
 },
 {
     "Main Contact": "Tahira Rabbani",
@@ -1627,7 +1697,8 @@ var __map_data = [{
     "Mobile": "973 462 3914",
     "Website": "http://www.GoodTreeBooks.com",
     "lat": "40.643950",
-    "lng": "-75.474712"
+    "lng": "-75.474712",
+    "isPremium": false
 },
 {
     "Main Contact": "Abdul Majeed Syed",
@@ -1643,7 +1714,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.Muslimzon.com",
     "lat": "40.643950",
-    "lng": "-75.474712"
+    "lng": "-75.474712",
+    "isPremium": false
 },
 {
     "Main Contact": "AnisAhmed Shaikh",
@@ -1659,7 +1731,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "41.664469",
-    "lng": "-72.781788"
+    "lng": "-72.781788",
+    "isPremium": false
 },
 {
     "Main Contact": "Adnan A Khattak",
@@ -1675,7 +1748,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "39.288034",
-    "lng": "-76.563856"
+    "lng": "-76.563856",
+    "isPremium": false
 },
 {
     "Main Contact": "Adnan Latif",
@@ -1691,7 +1765,8 @@ var __map_data = [{
     "Mobile": "+1 734-377-8232",
     "Website": "",
     "lat": "42.293237",
-    "lng": "-83.448548"
+    "lng": "-83.448548",
+    "isPremium": false
 },
 {
     "Main Contact": "Athar Jatoi",
@@ -1707,7 +1782,8 @@ var __map_data = [{
     "Mobile": "",
     "Website": "http://www.meccabooks.com",
     "lat": "39.043757",
-    "lng": "-77.487442"
+    "lng": "-77.487442",
+    "isPremium": false
 },
 {
     "Main Contact": "Abraar Alli",
@@ -1723,6 +1799,7 @@ var __map_data = [{
     "Mobile": "",
     "Website": "",
     "lat": "21.469114",
-    "lng": "-78.656894"
+    "lng": "-78.656894",
+    "isPremium": false
 }]
 </script>

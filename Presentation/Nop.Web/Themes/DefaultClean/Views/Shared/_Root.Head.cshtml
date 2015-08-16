@@ -51,7 +51,9 @@
     }
 </head>
 <body>
-
+@if(Request.Browser.IsMobileDevice) {
+  <script>jQuery('body').addClass('mobile-device')</script>
+}
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];

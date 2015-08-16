@@ -1,5 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    Html.AppendCssFileParts("~/Themes/DefaultClean/Content/owl.css");
+    Html.AppendScriptParts("~/Themes/DefaultClean/Content/js/owl.js");
 }
 <div class="page home-page">
     <div class="page-body">
@@ -27,6 +29,16 @@
                     if($(this).innerHeight()> _item_box_tallest) _item_box_tallest = $(this).innerHeight();
                 });
                 $_item_box_list.height(_item_box_tallest);
+                if($(window).width() < 768) {
+                    $('.home-page-product-grid .item-box').wrapAll('<div class="owl-carousel"></div>');
+                    $('.home-page-product-grid .owl-carousel').owlCarousel({
+                        singleItem: true,
+                        items: 3,
+                        navigation: false,
+                        rewindNav: true,
+                        lazyLoad: true
+                    });
+                }
             </script>
         </div>
 

@@ -990,26 +990,27 @@ textarea, input { outline: none !important; }
 
 /* mobile menu and newsletter popup on homepage (25 seconds) */
 
-.hijab-girl {
-	background: url(images/hijab-girl.png) no-repeat 21px 0;
-	height: 220px;
-	width: 222px;
-	background-size: 120px;
-	position: absolute;
-	left: -67px;
-	top: 22px;
+.popup-image {
+	background: url(images/popup-image.png) no-repeat 0 0;
+    height: 224px;
+    width: 380px;
+    background-size: 380px;
+    position: absolute;
+    left: -21px;
+    top: 17px;
 }
 
 .newsletter-popup-close {
 	position: absolute;
-	right: -97px;
-    top: -40px;
-	height: 35px;
-	width: 91px;
+	left: 680px;
+	top: -17px;
+	height: 23px;
+	width: 23px;
 	display: inline-block;
-	background: url(images/close_icon.png) no-repeat -8px 0;
+	background: url(images/close-tranp.png) no-repeat 0 0;
 	padding-top: 15px;
 	color: #FFF;
+	background-size: 20px;
 }
 
 .mobile-menu,
@@ -1050,21 +1051,46 @@ textarea, input { outline: none !important; }
 	transition: 300ms left;
 }
 
-.newsletter-popup-inner {
-	position: relative;
-}
-
 .newsletter-popup_body {
-	height: 100%;
-	width: 100%;
-	padding-left: 68px;
-	padding-top: 84px;
-	text-align: center;
-	padding-right: 25px;
+    width: 100%;
+    padding-left: 0;
+    padding-top: 60px;
+    text-align: left;
+    padding-right: 0;
 }
 
 .newsletter-popup_body #mc_embed_signup form {
-	text-align: center;
+	text-align: left;
+	padding: 0;
+}
+
+.newsletter-popup_body #mc_embed_signup #newsletter-subscribe-block input.email {
+	width: 278px !important
+}
+
+.newsletter-popup_body .block-newsletter #mc-embedded-subscribe {
+	padding: 14px 13px 15px;
+    border: none;
+    font-size: 10px;
+    box-shadow: none;
+    margin: 0;
+}
+
+.newsletter-popup_body #mc_embed_signup form h3 {
+	font-family: "aktiv-grotesk";
+	text-transform: uppercase;
+	color: #FFF;
+	font-size: 28px;
+    font-weight: 100;
+}
+
+.newsletter-popup_body #mc_embed_signup form h4 {
+	font-family: "proxima-nova";
+	text-transform: uppercase;
+	color: #FFF;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 .newsletter-popup_body #mce-EMAIL {
@@ -1072,19 +1098,25 @@ textarea, input { outline: none !important; }
 }
 
 .newsletter-popup {
-	width: 400px;
-	height: 250px;
-	left: 50%;
-	top: -250px;
-	padding: 6px;
-	margin-left: -200px;
+	display: none;
+	background: transparent;
+	width: 780px;
+    height: auto;
+    left: 50%;
+    top: -250px;
+    padding-left: 0;
+    margin-left: -390px;
 	transition: 300ms top;
+}
+
+.newsletter-popup #mc_embed_signup {
+	background: transparent;
 }
 
 .newsletter-popup-inner {
 	position: relative;
     height: 100%;
-    border: 1px solid #E4E4E4;
+    padding-left: 370px;
 }
 
 .mobile-menu-opened {
@@ -1093,6 +1125,7 @@ textarea, input { outline: none !important; }
 }
 
 .newsletter-popup-opened {
+	display: block;
 	top: 30%;
 	transition: 300ms top;
 }
@@ -1899,6 +1932,7 @@ li.sub-menu-active > a,
 
 .newsletter-popup_body .block-newsletter {
 	padding-top: 0;
+	background: transparent;
 }
 
 .newsletter-popup_body .block-newsletter .newsletter-email {
@@ -3448,13 +3482,18 @@ select#checkout_attribute_1 {
 .retailers-list li  {
 	vertical-align: top;
     width: 50%;
-    background: url(images/marker.png) no-repeat 0 0;
+    background: url(images/marker-lr.png) no-repeat 0 0;
     font-size: 14px;
     padding-left: 44px;
     padding-top: 3px;
     margin-top: 25px;
 }
 
+.retailers-list li.premium {
+	background: url(images/marker-prem.png) no-repeat 0 0;
+	background-size: 40px;
+    padding-left: 47px;
+}
 
 /* ONE PAGE CHECKOUT */
 .opc .buttons {
@@ -8376,26 +8415,25 @@ pre {
 	margin: 0 35px;
 }
 
-.testimonials-slider .buttons,
-.slider .buttons {
-	background: url(images/prev-arrow.png) no-repeat 0 0;
-	display: block;
-	position: absolute;
-	left: 14px;
-	z-index: 1;
-	height: 44px;
-	text-indent: -9999px;
-	overflow: hidden;
-	width: 44px;
-	top: 62px;
-	background-size: 36px;
+.testimonials-slider .buttons, .slider .buttons {
+	background: url(images/leftarrow-transp.png) no-repeat 0 0;
+    display: block;
+    position: absolute;
+    left: 14px;
+    z-index: 1;
+    height: 88px;
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 37px;
+    top: 62px;
+    background-size: 20px;
 }
 
 .testimonials-slider .next,
 .slider .next {
     right: 4px;
     left: auto;
-    background-image: url(images/next-arrow.png);
+    background-image: url(images/rightarrow-transp.png);
 }
 
 .testimonials-slider .disable:hover,
@@ -8456,7 +8494,7 @@ pre {
 
 .testimonials-slider .buttons {
 	left: 54px;
-	top: 0;
+	top: 71px;
 }
 
 .testimonials-slider .next {
@@ -8471,9 +8509,6 @@ pre {
     border: none;
     width: 800px;
 }
-
-
-
 
 
 /* NEWLY ADDED STYLES FOR HEADER */

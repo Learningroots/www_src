@@ -2,11 +2,9 @@
 
 <div class="newsletter-popup">
 	<div class="newsletter-popup-inner">
-		<div class="popup-image"></div>
+		<div class="hijab-girl"></div>
 		<a href="#" class="newsletter-popup-close" title="Close this popup"></a>
-		<div class="newsletter-popup_body">
-			<div class="newsletter-popup__form"></div>
-		</div>
+		<div class="newsletter-popup_body">Enter deails here</div>
 	</div>
 </div>
 
@@ -17,8 +15,7 @@
 
 	function newsletterpopup() {
 
-		$('.newsletter-popup__form').html($('.block-newsletter').clone());
-		$('.newsletter-popup__form').find('#mc_embed_signup_scroll').replaceWith("<h3>Learn the Secrets of History's Greatest Parents</h3><h4>please enter your email below get your copy:</h4>");
+		$('.newsletter-popup_body').html($('.block-newsletter').clone());
 
 		var timeBeforePopupOpens = 25000,
 			$_newsletter_overlay = $('.newsletter-overlay'),
@@ -34,10 +31,7 @@
 		}
 
 		if(!$.cookie('newsletterpopup')) {
-			// show only on homepage
-			if($('.home-page').length > 0) {
-				setTimeout(openNewsLetterPopup, timeBeforePopupOpens);
-			}
+			setTimeout(openNewsLetterPopup, timeBeforePopupOpens);
 		}
 
 		$('body').delegate('.newsletter-popup-close', "click", function(e){
