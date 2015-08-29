@@ -1,5 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+}
+@if(Request.Browser.IsMobileDevice) {
     Html.AppendCssFileParts("~/Themes/DefaultClean/Content/owl.css");
     Html.AppendScriptParts("~/Themes/DefaultClean/Content/js/owl.js");
 }
@@ -32,8 +34,8 @@
                 if($(window).width() < 768) {
                     $('.home-page-product-grid .item-box').wrapAll('<div class="owl-carousel"></div>');
                     $('.home-page-product-grid .owl-carousel').owlCarousel({
-                        singleItem: true,
-                        items: 3,
+                        singleItem: false,
+                        items: 1,
                         navigation: false,
                         rewindNav: true,
                         lazyLoad: true
@@ -42,9 +44,11 @@
             </script>
         </div>
 
+        @*
         @if(!Request.Browser.IsMobileDevice) {
             @Html.Partial("_meet_chars")
         }
+        *@
 
         <div class="home-page-join-the-club home-page-block">
             <div class="wrapper">

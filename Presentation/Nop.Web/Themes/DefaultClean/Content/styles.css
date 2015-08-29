@@ -293,17 +293,18 @@ textarea[disabled="disabled"], input[disabled="disabled"] {
 .header .ico-register {
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
+	font-weight: bold;
 }
 
 .header .ico-wishlist {
 	display: none;
 }
 
-.header .ico-logout,
-.header .ico-login {
+.header .ico-logout, .header .ico-login {
 	border-top-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	text-align: center;
+	font-weight: bold;
 }
 
 
@@ -443,6 +444,14 @@ ul.language-list li:hover {
 	margin-right: 106px;
 }
 
+.red-bar {
+	background: #C8133C;
+	height: 15px;
+	margin: -1px;
+	margin-right: -2px;
+	margin-top: 4px;
+}
+
 .header-links .listofflags-wrapper a,
 .header-links .ico-account a,
 .header-links .ico-orders a {
@@ -459,11 +468,10 @@ ul.language-list li:hover {
 	padding-top: 10px;
 }
 
-.header-links .ico-uk > a,
-.header-links .ico-france > a {
+.header-links .ico-uk > a, .header-links .ico-france > a {
 	margin-right: 32px;
 	background: url('data:image/gif;base64,R0lGODlhEAALAMQAAEp1zmOP3PIAAP///3yi5vgZBP8AAJCv6ld+03OX5P8uGvYKAP8PAE1+0/8XAGOU3oOm6Ji18Hyg51WC1P4IAGCF1fcAAISt5v8dBFF6z2qU3fUTAJSt5miP3lJ+1FqG1iH5BAAHAP8ALAAAAAAQAAsAAAVQYCRGx2CeCuasV3tB54kxVA3dkBSbc00RQOBu0KsljschzcDsODWaYc1C/VgDn6GBSvV4P5MhVUAGADKIjJhM9qARiOFiPp/YK5VhYcPfhAAAOw==') no-repeat 0 10px;
-	padding-left: 29px;
+	padding-left: 8px;
 	background-size: 23px;
 }
 
@@ -520,7 +528,8 @@ ul.listofflags li a {
 }
 
 .header-links .ico-uk > a {
-	background: url('images/ico-flag-uk.jpg') no-repeat 0 10px;
+	background: url('images/ico-flag-uk.jpg') no-repeat 0 13px;
+	background-size: 17px;
 }
 
 .header-links a {
@@ -534,7 +543,7 @@ ul.listofflags li a {
 	margin-top: 5px;
 	text-transform: uppercase;
 	font-size: 11px;
-	font-weight: 500;
+	font-weight: 300;
 }
 
 .header-links a:hover {
@@ -543,6 +552,7 @@ ul.listofflags li a {
 
 .header-links a.account {
 	color: #AF0304;
+	font-weight: bold;
 }
 
 .admin-header-links {
@@ -815,7 +825,7 @@ textarea, input { outline: none !important; }
 }
 
 .footer a {
-	font-family: "BreeRegular";
+	font-family: "BreeBold";
 	text-decoration: none;
 	color: #fff;
 }
@@ -1167,6 +1177,7 @@ textarea, input { outline: none !important; }
 
 .mobile-menu-body .block-other-links a {
 	color: inherit;
+	text-transform: none;
 }
 
 .mobile-menu-signup.button-1 {
@@ -1182,8 +1193,9 @@ textarea, input { outline: none !important; }
 }
 
 .mobile-menu .list li a {
-	font-family: "BreeBold";
-	padding: 10px 0;
+	font-family: "ronnia-condensed";
+	font-size: 15px;
+	padding: 13px 0;
 	z-index: 1;
 }
 
@@ -1270,13 +1282,13 @@ textarea, input { outline: none !important; }
 	
 }
 
-.product-share-button .at15t_twitter, 
-.product-share-button .at15t_facebook, 
+.product-share-button .addthis_button_twitter, 
+.product-share-button .addthis_button_facebook, 
 .mobile-menu-social ul li a {
 	background: url(images/mobile-menu-social.png) no-repeat 0 0 !important;
 	display: inline-block;
 	height: 48px;
-	width: 44px;
+	width: 44px !important;
 	text-indent: -9999px;
 	overflow: hidden;
 }
@@ -1285,10 +1297,12 @@ textarea, input { outline: none !important; }
 	background-position: -47px 0 !important;
 }
 
+.at4-icon.aticon-facebook,
+.at4-icon.aticon-twitter,
 .addthis_button_email.addthis_button_preferred_3.at300b,
 .addthis_button_print.addthis_button_preferred_4.at300b,
 .addthis_button_compact.at300m {
-	display: none;
+	display: none !important;
 }
 
 .product-share-button .addthis_counter.addthis_bubble_style {
@@ -1306,10 +1320,19 @@ textarea, input { outline: none !important; }
 	width: auto !important;
 	background: #FFF !important;
 	margin-top: -4px;
+	font-size: 13px;
+    height: 39px !important;
+    line-height: 16px;
+    width: 40px !important;
+    padding: 11px;
+    border-radius: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    font-family: "BreeRegular";
 }
 
 
-.product-share-button .at15t_twitter,
+.product-share-button .addthis_button_twitter,
 .mobile-menu-social ul li.twitter a {
 	background-position: -91px 0 !important;
 }
@@ -3429,12 +3452,13 @@ select#checkout_attribute_1 {
 }
 
 .retailers-title .girl-pic {
-	background: url(images/retailers-girl.jpg) no-repeat 0 0;
-	display: inline-block;
-	height: 66px;
-	width: 44px;
-	margin-right: 10px;
-	margin-bottom: -21px;
+    background: url(images/retailers-girl.jpg) no-repeat 0 0;
+    display: inline-block;
+    height: 66px;
+    width: 44px;
+    margin-right: 10px;
+    margin-bottom: -19px;
+    background-size: 43px;
 }
 
 .retailers-links, .retailers-list {
@@ -3482,7 +3506,8 @@ select#checkout_attribute_1 {
 .retailers-list li  {
 	vertical-align: top;
     width: 50%;
-    background: url(images/marker-lr.png) no-repeat 0 0;
+    background: url(images/marker-big.png) no-repeat 0 0;
+    background-size: 23px;
     font-size: 14px;
     padding-left: 44px;
     padding-top: 3px;
@@ -4016,7 +4041,7 @@ select#checkout_attribute_1 {
 	color: #BC0A2F;
 	padding-top: 5px;
 	display: block;
-	font-weight: bold;
+	font-weight: 800;
 	text-transform: uppercase;
 }
 
@@ -4073,7 +4098,8 @@ select#checkout_attribute_1 {
 .social-block-instagram-icon {
 	background: url(images/instagram-big.png) no-repeat 0 0;
 	height: 139px;
-	top: -174px;
+	top: -148px;
+    background-size: 103px;
 }
 
 .social-block-testimonials-icon {
@@ -4157,6 +4183,7 @@ select#checkout_attribute_1 {
 	height: 60px;
 	width: 46px;
 	cursor: pointer;
+	z-index: 1;
 }
 
 .tabs-arrows .tab-arrow-active,
@@ -5480,6 +5507,14 @@ body .order-summary-content .top-message-special {
 	margin: 66px 0 0;
 }
 
+.productdetails-page .breadcrumb {
+	margin-top: 20px;
+}
+
+.productdetails-page .product-name h1 {
+	font-family: "BreeBold";
+}
+
 .breadcrumb ul {
 	margin: 0px;
 	padding: 0px;
@@ -5506,6 +5541,13 @@ body .order-summary-content .top-message-special {
 .breadcrumb .current-item {
 	font-size: 0.9em;
 	font-weight: normal;
+	font-family: "BreeRegular";
+}
+
+.seo-text {
+	font-size: 14px;
+    line-height: 21px;
+    text-align: center;
 }
 
 .breadcrumb .delimiter {
@@ -6746,6 +6788,7 @@ body .order-summary-content .top-message-special {
 }
 
 .product-details-page .qty-label {
+	font-family: "BreeRegular";
 	position: absolute;
 	left: 16px;
 	top: 6px;
@@ -6806,11 +6849,12 @@ body .order-summary-content .top-message-special {
 }
 
 .product-details-page .product-share-label {
+	font-family: "BreeRegular";
 	color: #CE092E;
-	font-size: 14px;
+	font-size: 15px;
 	position: absolute;
-	top: -1px;
-	left: 81px;
+	top: 17px;
+	left: 144px;
 }
 
 .product-details-page .product-reviews-overview {
@@ -6886,6 +6930,10 @@ body .order-summary-content .top-message-special {
 	margin-left: 5px;
 	text-transform: none;
 	border-radius: 5px;
+}
+
+.productdetails-page .add-to-cart-button {
+	font-family: "BreeBold";
 }
 
 .product-details-page .product-variant-list .add-to-cart-button {
@@ -6973,7 +7021,7 @@ body .order-summary-content .top-message-special {
 }
 
 .product-details-page .product-essential .prices {
-	margin-top: 15px;
+	margin-top: 10px;
 	margin-bottom: 15px;
 }
 
@@ -8416,24 +8464,35 @@ pre {
 }
 
 .testimonials-slider .buttons, .slider .buttons {
-	background: url(images/leftarrow-transp.png) no-repeat 0 0;
-    display: block;
-    position: absolute;
-    left: 14px;
-    z-index: 1;
-    height: 88px;
-    text-indent: -9999px;
-    overflow: hidden;
-    width: 37px;
-    top: 62px;
-    background-size: 20px;
+	background: url(images/prev-arrow.png) no-repeat 0 0;
+	display: block;
+	position: absolute;
+	left: 14px;
+	z-index: 1;
+	height: 44px;
+	text-indent: -9999px;
+	overflow: hidden;
+	width: 44px;
+	top: 62px;
+	background-size: 36px;
+}
+
+.testimonials-slider .buttons {
+	background-image: url(images/leftarrow-transp.png);
+	height: 88px;
+	width: 37px;
+	background-size: 20px;
 }
 
 .testimonials-slider .next,
 .slider .next {
     right: 4px;
     left: auto;
-    background-image: url(images/rightarrow-transp.png);
+    background-image: url(images/next-arrow.png);
+}
+
+.testimonials-slider .next {
+	background-image: url(images/rightarrow-transp.png);
 }
 
 .testimonials-slider .disable:hover,
@@ -8548,7 +8607,7 @@ pre {
 .main-menu {
 	float: left;
 	margin-left: 110px;
-	margin-top: 27px;
+	margin-top: 17px;
 }
 
 .main-menu li {
@@ -8581,6 +8640,7 @@ pre {
 	display: inline-block;
 	padding: 10px 13px 8px;
 	font-weight: bold;
+	font-family: "BreeBold";
 	font-size: 15px;
 	position: relative;
 }
@@ -8618,11 +8678,11 @@ pre {
 	height: 52px;
 	border-bottom: 1px dotted #fff;
 	margin-bottom: 21px;
-	font-size: 22px;
+	font-size: 24px;
 	color: white;
-	font-family: 'CandyScript';
+	font-family: "ronnia-condensed";
+	font-weight: 100;
 	padding-top: 14px;
-	font-weight: normal;
 	letter-spacing: 2px;
 }
 
@@ -8635,7 +8695,10 @@ pre {
 .main-menu > li .sub-menu a {
 	color: white;
 	display: block;
-	margin-bottom: 3px;
+	margin-bottom: 5px;
+	font-family: "proxima-nova";
+	font-weight: 400;
+	font-size: 14px;
 }
 
 .icon-play {
