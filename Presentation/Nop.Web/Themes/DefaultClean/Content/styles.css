@@ -2621,6 +2621,12 @@ select#checkout_attribute_1 {
 	padding: 5px 0;
 }
 
+input[type="button"],
+input[type="submit"] {
+	-webkit-appearance:none;
+	border-radius: 5px;
+}
+
 .continue-shopping-button {
 	background: #FFF;
 	color: #666;
@@ -6584,6 +6590,10 @@ body .order-summary-content .top-message-special {
 	width: 49%;
 	margin-right: 2%;
 	margin-bottom: 15px;
+}
+
+.product-details-page .gallery .picture > a {
+	display: none;
 }
 
 .product-details-page .gallery .picture {
