@@ -8,7 +8,33 @@
   body {
     min-width: 320px;
   }
-
+  .map-canvas-wrapper {
+    position: fixed !important;
+    top: -1500px;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    visibility: hidden;
+  }
+  #map-canvas {
+    height: 100%;
+    width: 100%;
+    margin: 0 !important;
+  }
+  .closeMapView {
+    background: url(images/closebtnred.png) 0 0 no-repeat;
+    z-index: 100000;
+    font-size: 20px;
+    color: #000;
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    text-indent: -10000px;
+    overflow: hidden;
+    height: 50px;
+    width: 50px;
+    background-size: 50px;
+  }
   .wrapper {
     width: 100%;
   }

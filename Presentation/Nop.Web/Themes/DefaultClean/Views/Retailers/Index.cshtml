@@ -41,6 +41,14 @@
 	#back-to-top.show:hover {
 	   opacity: 1;
 	}
+    .showMapView {
+        display: none;
+        width: 100%;
+        padding: 13px;
+    }
+    .mapInfoPopupWrapper {
+        min-width: 200px;
+    }
 	#back-to-top.show {
 	   opacity: 0.8;
 	}
@@ -48,16 +56,20 @@
 
 <a href="#" id="back-to-top" title="Back to top"></a>
 
-<div id="map-canvas"></div>
+<div class="map-canvas-wrapper">
+    <div id="map-canvas"></div>
+</div>
 
 <div class="retailers-page">
     <div class="page-body">
     <div class="wrapper">
 
     	<span class="page-title">
+            <h1 class="retailers-title js-loader">Loading...</h1>
 	    	<h1 class="retailers-title hidden">
 	    		<span class="girl-pic"></span><span class="js-num-retailers"></span> retailers found Worldwide</span>
 	    	</h1>
+            <a href="#" class="button-1 showMapView">Show map view</a>
 	    </span>
 
 			<ul class="js-retailers-links retailers-links"></ul>
@@ -67,46 +79,61 @@
 </div>
 
 
-
-
 <script>
-
 $('.retailers-page').closest('.wrapper').removeClass('wrapper');
+
+var $_map_canvas = $('#map-canvas');
+if($(window).width() <= 768) {
+    function makeMapFullHeight() {
+        $_map_canvas.height($(window).height());
+        if(map) google.maps.event.trigger(map, 'resize');
+    }
+    makeMapFullHeight();
+    window.addEventListener("orientationchange", makeMapFullHeight, false);
+}
 
 var map;
 var icon = "@Url.Content(marker)";
 
 function initialize() {
+    $('.js-loader').remove();
 	$('.js-num-retailers').html(__map_data.length).parent().show();
 	var latlng = new google.maps.LatLng(53.94205713184974, -1.5902698749999922);
     var mapOptions = { zoom: 6, center: latlng };
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-    if($(window).width() < 768) {
-        map.setOptions({draggable: false, panControl: true});
-    }
-    else {
-        map.setOptions({scrollwheel: false, panControl: true});   
-    }
-
 	var infowindow = new google.maps.InfoWindow({maxWidth: 200});
  	
 
-  for (i = 0; i < __map_data.length; i++) {
+    for (i = 0; i < __map_data.length; i++) {
 		var data = __map_data[i];
-    marker = new google.maps.Marker({
-        position: new google.maps.LatLng(data.lat, data.lng),
-        map: map,
-        icon: icon
-    });
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.lat, data.lng),
+            map: map,
+            icon: icon
+        });
 
-    google.maps.event.addListener(marker, 'click', (function (marker, i) {
-        return function () {
-        	var data2 = __map_data[i];
-          infowindow.setContent(getContent(data2));
-          infowindow.open(map, marker);
-        }
-    })(marker, i));
-  }
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+            	var data2 = __map_data[i];
+                infowindow.setContent('<div class="mapInfoPopupWrapper">'+getContent(data2)+'</div>');
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+    if($(window).width() <= 768) {
+        $('.showMapView').css('display','block').click(function(e){
+            e.preventDefault();
+            $('.map-canvas-wrapper').css({'top':'0', 'visibility':'visible'}).fadeIn();
+            google.maps.event.trigger(map, 'resize');
+        });
+        $('.map-canvas-wrapper')
+            .prepend(
+                $('<a class="closeMapView" href="#">X</a>').click(function(e){
+                    e.preventDefault();
+                    $('.map-canvas-wrapper').fadeOut();
+                })
+            );
+    }
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
