@@ -29,11 +29,7 @@
     }
 }
 
-<!-- If you want to hide the girl on sidebar, just add a css class 'no-girl' to the following element -->
-<!-- so the following element becomes like this -->
-<!--  <div class="side-2 no-girl">  -->
-<!-- PLEASE REMOVE ALL THESE COMMENTS ONE READ -->
-<div class="side-2">
+<div class="side-2 js-sidebar2">
     @if (IsSectionDefined("left"))
     {
         @RenderSection("left")
@@ -46,8 +42,14 @@
         @Html.Widget("left_side_column_after")
     }
 </div>
-<div class="center-2">
+<div class="center-2 js-center-2">
     @Html.Widget("main_column_before")
     @RenderBody()
     @Html.Widget("main_column_after")
 </div>
+
+<script type="text/javascript">
+    if($(window).width() < 768) {
+         $('.js-center-2').after( $('.js-sidebar2') );
+    }
+</script>

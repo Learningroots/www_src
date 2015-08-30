@@ -8,10 +8,10 @@
 
     int productPerRow = EngineContext.Current.Resolve<MediaSettings>().ProductThumbPerRowOnProductDetailsPage;
 }
-<div class="gallery">
+<div class="gallery js-gallery">
     <div class="picture">
         
-            <a style="display: none" href="@Model.DefaultPictureModel.FullSizeImageUrl" title="@Model.Name" id="main-product-img-lightbox-anchor-@Model.Id" class="main-slider-img-link">
+            <a href="@Model.DefaultPictureModel.FullSizeImageUrl" title="@Model.Name" id="main-product-img-lightbox-anchor-@Model.Id" class="main-slider-img-link">
                 <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" itemprop="image" class="main-slider-img" id="main-product-img-@Model.Id" />
             </a>
 
@@ -25,27 +25,29 @@
             </span>
 
             <script type="text/javascript">
-                var _image_zoomer;
-                function _zoom_main_image() {
+                if($(window).width() > 768) {
+                    var _image_zoomer;
+                    function _zoom_main_image() {
 
-                    _image_zoomer = $("#viewer").iviewer({
-                       src: $('.main-slider-img-link').attr('href'), 
-                       update_on_resize: false,
-                       //zoom_animation: true,
-                       ui_disabled: true,
-                       zoom_min: 50,
-                       mousewheel: true
-                  });
+                        _image_zoomer = $("#viewer").iviewer({
+                           src: $('.main-slider-img-link').attr('href'), 
+                           update_on_resize: false,
+                           //zoom_animation: true,
+                           ui_disabled: true,
+                           zoom_min: 50,
+                           mousewheel: true
+                      });
 
-                   $("#in").click(function(){ _image_zoomer.iviewer('zoom_by', 1); }); 
-                   $("#out").click(function(){ _image_zoomer.iviewer('zoom_by', -1); }); 
-                   $("#fit").click(function(){ _image_zoomer.iviewer('set_zoom', 150); }); 
-                   $("#orig").click(function(){ _image_zoomer.iviewer('set_zoom', 100); }); 
+                       $("#in").click(function(){ _image_zoomer.iviewer('zoom_by', 1); }); 
+                       $("#out").click(function(){ _image_zoomer.iviewer('zoom_by', -1); }); 
+                       $("#fit").click(function(){ _image_zoomer.iviewer('set_zoom', 150); }); 
+                       $("#orig").click(function(){ _image_zoomer.iviewer('set_zoom', 100); }); 
+                    }
+
+                    $(document).ready(function () {
+                        _zoom_main_image();
+                    });
                 }
-
-                $(document).ready(function () {
-                    _zoom_main_image();
-                });
             </script>
         
     </div>
@@ -71,7 +73,6 @@
 
         <script type="text/javascript">
             $(document).ready(function () {
-
                 //$('.thumb-popup-link').magnificPopup({ type: 'image', removalDelay: 300, gallery: { enabled: true } });
                 var $main = $('.main-slider-img');
                 var $main_link = $('.main-slider-img-link');
@@ -84,8 +85,10 @@
                             $main.stop(true).fadeOut('normal', function() {
                                 $main.attr('src', that.href ).fadeIn('normal');
                                 $main_link.attr('href', that.href );
-                                _image_zoomer.iviewer('destroy');
-                                _zoom_main_image();
+                                if(_image_zoomer) {
+                                    _image_zoomer.iviewer('destroy');
+                                    _zoom_main_image();
+                                }
                             })
                         })
             });

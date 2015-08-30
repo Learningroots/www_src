@@ -55,7 +55,7 @@
     <div class="wrapper">
 
     	<span class="page-title">
-	    	<h1 class="retailers-title">
+	    	<h1 class="retailers-title hidden">
 	    		<span class="girl-pic"></span><span class="js-num-retailers"></span> retailers found Worldwide</span>
 	    	</h1>
 	    </span>
@@ -77,10 +77,16 @@ var map;
 var icon = "@Url.Content(marker)";
 
 function initialize() {
-	$('.js-num-retailers').html(__map_data.length);
+	$('.js-num-retailers').html(__map_data.length).parent().show();
 	var latlng = new google.maps.LatLng(53.94205713184974, -1.5902698749999922);
-  var mapOptions = { zoom: 6, center: latlng };
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    var mapOptions = { zoom: 6, center: latlng };
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    if($(window).width() < 768) {
+        map.setOptions({draggable: false, panControl: true});
+    }
+    else {
+        map.setOptions({scrollwheel: false, panControl: true});   
+    }
 
 	var infowindow = new google.maps.InfoWindow({maxWidth: 200});
  	
@@ -117,7 +123,7 @@ function getContent(data) {
     if(address && address.length !== 0) address += ",<br/>";
     address += data["Address 1"];
   }
-    
+
   if(data["Address 2"] && data["Address 2"].length > 0) {
   	if(address && address.length !== 0) address += ",<br/>";
   	address += data["Address 2"];
@@ -173,6 +179,10 @@ google.maps.event.addDomListener(window, 'load', function(){
 
 
 	var headerHeight = $('.header.fixed').length !== 0 ? $('.header.fixed').height() : 0;
+
+    if($(window).width() < 768) {
+        headerHeight = 0;
+    }
 
 	$('a.linkjumpto').on('click',function (e) {
 	    e.preventDefault();

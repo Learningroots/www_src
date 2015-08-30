@@ -1511,10 +1511,11 @@ td.fieldname {
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	width: 128px;
-	height: 128px;
+	width: 100px;
+	height: 100px;
 	overflow: hidden;
 	z-index: 1104;
+	margin-left: -50px;
 }
 
 .ajax-loading-block-window .loading-image {
@@ -1929,8 +1930,8 @@ li.sub-menu-active > a,
 	padding-top: 50px;
 }
 
-#mc_embed_signup form {
-	padding-top: 0;
+.block-newsletter #mc_embed_signup form {
+	padding: 10px;
 }
 
 #mc_embed_signup {
@@ -8607,7 +8608,7 @@ pre {
 .main-menu {
 	float: left;
 	margin-left: 110px;
-	margin-top: 17px;
+	margin-top: 27px;
 }
 
 .main-menu li {

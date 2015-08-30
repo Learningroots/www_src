@@ -58,7 +58,7 @@
                         <!--product pictures-->
                         @Html.Partial("_ProductDetailsPictures", Model)
                         @Html.Widget("productdetails_after_pictures", Model.Id)
-                        <div class="overview">
+                        <div class="overview js-overview">
                             <div class="product-name">
                                 <h1 itemprop="name">
                                     @Model.Name
@@ -172,3 +172,9 @@
             @Html.Widget("productdetails_bottom", Model.Id)
         </div>
     </div>
+
+
+
+<script type="text/javascript">
+    $('.js-overview').after($('.js-gallery').css('visibility','visible'));
+</script>
