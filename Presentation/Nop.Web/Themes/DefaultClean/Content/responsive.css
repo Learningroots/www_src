@@ -378,6 +378,7 @@
   }
   .block-newsletter .newsletter-email {
     width: auto;
+    height: auto;
   }
   #mc_embed_signup #newsletter-subscribe-block input.email {
     width: 75%;
