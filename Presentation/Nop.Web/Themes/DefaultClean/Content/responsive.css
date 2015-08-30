@@ -201,6 +201,9 @@
   .home-discover .home-block-title {
     margin-top: 30px;
   }
+  .home-page-product-grid .owl-carousel {
+    text-align: center;
+  }
   .home-page-product-grid .item-box .product-item {
     margin-left: 10px;
     margin-right: 10px;
