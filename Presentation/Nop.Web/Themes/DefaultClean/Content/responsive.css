@@ -1209,6 +1209,9 @@
   .login-page .new-wrapper .buttons .register-button {
     margin-top: 15px;
   }
+  .login-page .register-block .text {
+    padding-right: 60px;
+  }
   .register-boy {
     right: -41px;
     bottom: -54px;
