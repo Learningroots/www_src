@@ -480,6 +480,7 @@ ul.language-list li:hover {
 	height: 50px;
 }
 
+
 .listofflags:hover,
 .listofflags-wrapper:hover .listofflags {
 	display: block;
@@ -1108,12 +1109,11 @@ textarea, input { outline: none !important; }
 }
 
 .newsletter-popup {
-	display: none;
 	background: transparent;
 	width: 780px;
     height: auto;
     left: 50%;
-    top: -250px;
+    top: -350px;
     padding-left: 0;
     margin-left: -390px;
 	transition: 300ms top;
@@ -8664,8 +8664,7 @@ pre {
 	text-decoration: none;
 }
 
-.main-menu > li:hover .sub-menu,
-.main-menu > li:hover a .menu-arrow {
+.main-menu > li:hover .sub-menu, .main-menu > li:hover a .menu-arrow {
 	display: block;
 }
 

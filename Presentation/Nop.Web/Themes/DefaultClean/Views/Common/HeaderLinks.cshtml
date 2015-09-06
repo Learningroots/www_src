@@ -8,7 +8,7 @@
             <li class="ico-orders"><a href="/customer/orders">My orders</a></li>
             <li class="ico-account"><a href="/customer/info">My account</a></li>
         }
-        <li class="ico-uk listofflags-wrapper">
+        <li class="ico-uk listofflags-wrapper js-flag-toggle menu-unactive-dropdown">
             <a href="/" onclick="return false;">English</a>
             <ul class="listofflags f16">
                 <li>
@@ -26,6 +26,13 @@
                 <div class="red-bar"></div>
             </ul>
         </li>
+
+        <script type="text/javascript">
+            $('.js-flag-toggle').click(function(){
+                $(this).toggleClass('menu-active-dropdown');
+                $(this).toggleClass('menu-unactive-dropdown');
+            });
+        </script>
 
         @if (Model.IsAuthenticated)
         {  
