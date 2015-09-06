@@ -1217,6 +1217,15 @@
     bottom: -54px;
     background-size: 82px;
   }
+  .registration-page .register-boy {
+    right: -13px;
+  }
+  .registration-page .page-body {
+    padding-left: 20px;
+  }
+  .registration-page .field-validation-error {
+    display: block;
+  }
   .login-page .customer-blocks {
     margin-bottom: 0;
   }
