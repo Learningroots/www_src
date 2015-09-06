@@ -641,6 +641,9 @@
   .productdetails-page .master-wrapper-main {
     padding: 0;
   }
+  .productdetails-page .full-description iframe {
+    width: 100%;
+  }
   .product-details-page .gallery .picture-thumbs a.buttons {
     display: none;
   }

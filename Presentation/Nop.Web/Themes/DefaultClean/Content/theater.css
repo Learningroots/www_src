@@ -47,6 +47,7 @@ img  {
 }
 
 .header-buy-now-btn {
+	font-family: 'BreeRegular',arial,verdana,helvetica,sans-serif;
 	padding: 14px 16px !important;
 	border: none;
 	color: #FFF !important;
