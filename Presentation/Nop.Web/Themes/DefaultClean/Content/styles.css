@@ -1109,14 +1109,14 @@ textarea, input { outline: none !important; }
 }
 
 .newsletter-popup {
+	display: none;
 	background: transparent;
 	width: 780px;
     height: auto;
     left: 50%;
-    top: -350px;
+    top: -250px;
     padding-left: 0;
     margin-left: -390px;
-	transition: 300ms top;
 }
 
 .newsletter-popup #mc_embed_signup {
