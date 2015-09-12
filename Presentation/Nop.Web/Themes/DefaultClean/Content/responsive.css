@@ -162,10 +162,26 @@
   .home-discover .slider .overview li {
     margin: 10px;
   }
+  .nivo-directionNav,
   .home-discover .slider .prev,
-  .home-discover .slider .next,
-  .slider-wrapper {
+  .home-discover .slider .next {
     display: none !important;
+  }
+  .master-wrapper-page .theme-default .nivo-controlNav {
+    margin-top: -44px;
+  }
+  .slider-wrapper.theme-default {
+    margin-left: -4px;
+    margin-right: -4px;
+    margin-top: -5px;
+  }
+  .master-wrapper-page .theme-default .nivo-controlNav a {
+    background-size: 10px;
+    height: 10px;
+    width: 10px;
+  }
+  .master-wrapper-page .theme-default .nivo-controlNav a.active {
+    background-position: 0 -10px;
   }
   .main-menu {
       float: none;

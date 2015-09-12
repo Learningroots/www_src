@@ -7,11 +7,9 @@
 }
 <div class="page home-page">
     <div class="page-body">
-
-        @if(!Request.Browser.IsMobileDevice) {
-            @Html.Widget("home_page_top")
-        }
-
+        
+        @Html.Widget("home_page_top")
+        
         <script type="text/javascript">
             $('.home-page').closest('.wrapper').removeClass('wrapper');
         </script>
