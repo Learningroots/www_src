@@ -808,11 +808,6 @@ textarea, input { outline: none !important; }
 }
 
 /* FOOTER */
-.spacer {
-	clear: both;
-	height: 70px;
-}
-
 .footer .wrapper {
 	width: 750px;
 }
@@ -956,6 +951,7 @@ textarea, input { outline: none !important; }
 .footer-circle {
 	height: 25px;
 	width: 25px;
+	margin-left: -12.5px;
 	border-radius: 30px;
 	background-color: #222222;
 	position: absolute;
@@ -1821,18 +1817,6 @@ li.sub-menu-active > a,
 	padding: 0;
 }
 
-.block-category-navigation,
-.block-vendor-navigation,
-.block-recently-viewed-products,
-.block-info,
-.block-newsletter,
-.block-popular-tags,
-.block-popular-blogtags,
-.block-blog-archive,
-.block-poll,
-.block-account-navigation {
-}
-
 .block-category-navigation {
 	font-family: "BreeBold";
 }
@@ -1926,8 +1910,23 @@ li.sub-menu-active > a,
 }
 
 .block-newsletter {
+	display: none;
 	clear: both;
 	padding-top: 50px;
+}
+
+.homepage .spacer {
+	height: 0;
+}
+
+.spacer {
+	height: 30px;
+	clear: both;
+}
+
+.homepage .block-newsletter,
+.newsletter-popup_body .block-newsletter {
+	display: block;
 }
 
 .block-newsletter #mc_embed_signup form {
@@ -1941,7 +1940,7 @@ li.sub-menu-active > a,
 
 .homepage .block-newsletter  {
 	padding-top: 0;
-	margin-bottom: -70px;
+	margin-bottom: 0;
 }
 
 .block-newsletter .newsletter-email {
@@ -6725,10 +6724,6 @@ body .order-summary-content .top-message-special {
 	text-align: center;
 	color: #fff;
 	font-weight: normal;
-}
-
-.product-details-page .spacer {
-	height: 30px;
 }
 
 .product-details-page .product-review-list .title {

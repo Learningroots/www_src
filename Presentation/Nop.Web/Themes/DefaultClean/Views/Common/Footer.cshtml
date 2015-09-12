@@ -77,6 +77,27 @@
                 
             </ul>
         </div>
+        <script type="text/javascript">
+            if($(window).width() <= 768) {
+                var $__cols = $('.footer-menu-wrapper').find('.column').not('.column.follow-us');
+                $__cols.each(function(){
+                    $that = $(this);
+                    $that
+                        .addClass('accorditionList')
+                        .find('ul')
+                        .hide()
+                        .end()
+                        .find('h3')
+                        .click(function(){
+                            $__cols.find('h3').not($(this)).removeClass('accorditionHeaderVisible');
+                            $__cols.find('ul').not($(this).next('ul')).hide();
+                            var $thisUl = $(this).next('ul');
+                            $thisUl.toggle();
+                            $(this).toggleClass('accorditionHeaderVisible', $thisUl.is(':visible'));
+                        });
+                });
+            }
+        </script>
         <div class="footer-circle"></div>
     </div>
     <div class="footer-poweredby">

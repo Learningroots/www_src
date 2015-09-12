@@ -81,9 +81,6 @@
     margin: 0;
     padding-bottom: 30px;
   } 
-  .spacer {
-    height: 0px;  
-  }
   .product-sorting {
     width: 100%;
     margin-top: 13px;
@@ -91,9 +88,6 @@
   }
   .product-sorting select {
     width: 80%;
-  }
-  .homepage .spacer {
-    height: 50px;
   }
   .viewer-controls,
   .join-the-club-boy,
@@ -119,9 +113,7 @@
   }
   .header-links-wrapper {
     float: none;
-    margin: 0 auto;
-    display: table;
-    width: 100%;
+    height: inherit;
   }
   .home-social-block,
   .full-width-menu-bg {
@@ -132,6 +124,7 @@
     margin: 0;
     padding: 19px 14px;
     margin-bottom: -2px;
+    width: 100%;
   }
   .main-menu > li:hover a {
     border-bottom: none;
@@ -215,7 +208,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
-    padding-top: 6px;
+    padding-top: 11px;
   }
   .tax-display-type-selector,
   .language-selector,
@@ -253,8 +246,6 @@
     display: none;
   }
   .header-links ul {
-    text-align: left;
-    margin-left: 10px;
     float: none;
   }
   .header .ico-cart {
@@ -262,32 +253,33 @@
     margin-top: 1px;
   }
   .header-links-wrapper #topcartlink {
-    right: 5px;
+    right: 10px;
+    width: auto;
+    top: 72px;
   }
   .header-links ul li {
     float: none;
+    margin: 0;
     display: inline-block;
+    width: 50%;
   }
-  .menu-active-dropdown .listofflags {
-    display: block;
-  }
-  .menu-unactive-dropdown .listofflags {
+  .ico-account,
+  .ico-orders {
     display: none !important;
   }
-  .header-links ul li.listofflags-wrapper a {
-    padding-top: 15px;
-    background-position: 0 18px;
-    margin-right: 10px;
+  .loggedin-link-wrapper,
+  .loggedout-link-wrapper {
+    padding: 6px;
+    padding-right: 3px;
   }
-  .header-links ul li.listofflags-wrapper .listofflags {
-    top: 53px;
-    left: -10px;
+  .loggedin-link-wrapper.loggedin-link-second-child,
+  .loggedout-link-wrapper.loggedout-link-second-child {
+    padding-left: 3px;
+    padding-right: 6px;
   }
-
-  .listofflags:before {
-    margin-left: 21px;
+  .listofflags-wrapper {
+    display: none !important;
   }
-
   .flyout-cart {
     display: none !important;
   }
@@ -399,7 +391,6 @@
     width: auto;
     margin: 0;
     padding: 20px;
-    text-align: left;
   }
   .home-page-join-the-club .button-1 {
     float: none;
@@ -421,7 +412,7 @@
   }
   .block-newsletter .newsletter-email {
     width: auto;
-    height: auto;
+    margin-bottom: 30px;
   }
   #mc_embed_signup #newsletter-subscribe-block input.email {
     width: 75%;
@@ -460,7 +451,7 @@
   .footer-menu-wrapper .column a {
     display: inline-block;
     padding: 10px;
-    padding-left: 0;
+    padding-left: 15px;
   }
   .footer-menu-wrapper {
     padding: 15px;
@@ -472,6 +463,11 @@
     text-align: left;
     border: none;
     padding-left: 0;
+    border: 1px solid #191919;
+    margin-top: -1px;
+  }
+  .footer-menu-wrapper .column.follow-us {
+    border: none;
   }
   .footer-menu-wrapper .column h3 {
     word-wrap: break-word
@@ -499,6 +495,25 @@
     margin-right: 10px;
     margin-top: 15px;
 
+  }
+  .follow-us h3,
+  .accorditionList h3 {
+    padding: 15px 15px;
+    background: #342B28 url('images/arrow-down.png') 97% 50% no-repeat;
+    background-size: 19px;
+  }
+  .accorditionList .accorditionHeaderVisible {
+    background-image: url('images/arrow-up.png');
+  }
+  .follow-us h3 {
+    background: none;
+    text-align: center;
+    padding-top: 24px;
+    font-size: 15px !important;
+    margin-bottom: -20px;
+  }
+  .footer-menu-wrapper .column.follow-us ul {
+    margin-bottom: 0;
   }
   .footer-tax-shipping,
   .footer-disclaimer {
@@ -646,13 +661,21 @@
     height: 50px;
     width: 50px;
   }
+  .nobr {
+      white-space: inherit !important;
+  }
+  td {
+      border-bottom: 1px dotted #ccc;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
   .product-details-page .product-essential > .overview {
-    margin-top: -30px;
     float: none;
     width: 100%;
-    margin-left: 15px;
-    margin-right: 15px;
     margin-bottom: 30px;
+  }
+  .product-details-page.featured-product .product-essential > .overview:before {
+    display: none;
   }
   .productdetails-page .master-wrapper-main {
     padding: 0;
@@ -1251,15 +1274,6 @@
 }
 
 
-
-
-
-@media screen and (max-width: 600px) and (min-width: 505px) {
-  .header-links a.account {
-    width: 100px; 
-  }
-}
-
 @media screen and (max-width: 570px) {
   .order-completed-continue-button {
     margin-bottom: 96px;
@@ -1328,14 +1342,11 @@
     padding: 8px;
     min-width: auto;
   }
-  .header-links-wrapper #topcartlink {
-    top: 49px;
-  }
   .ui-autocomplete {
     width: 297px !important;
   }
-  .user-loggedin .header-links-wrapper #topcartlink {
-    top: 94px;
+  .header-links-wrapper #topcartlink {
+    top: 50px;
   }
   .header-links-wrapper #topcartlink a {
     min-width: 86px;
@@ -1343,27 +1354,6 @@
   }
   .header-links .ico-account {
     margin-right: 30px;
-  }
-  .loggedout-link-wrapper a {
-    padding: 12px 25px;
-    margin-right: 7px;
-  }
-  .header-links ul li.listofflags-wrapper {
-    float: right;
-    margin-right: 14px;
-  }
-  .header-links ul li.listofflags-wrapper a {
-    background-position: 0 13px;
-    padding-top: 10px;
-    padding-left: 22px;
-  }
-  .header-links ul li.listofflags-wrapper .listofflags {
-    top: 43px;
-    left: -130px;
-    right: 5px;
-  }
-  .listofflags:before {
-    margin-left: 140px;
   }
   .loggedin-link-wrapper {
     width: 48%;
@@ -1374,11 +1364,8 @@
   .loggedin-link-wrapper a {
     width: 100%;
   }
-  .listofflags-wrapper {
-    height: auto;
-  }
   .header-logo a.logo-site {
-    padding-top: 15px;
+    padding-top: 20px;
   }
   .header-logo a img {
     width: 130px;

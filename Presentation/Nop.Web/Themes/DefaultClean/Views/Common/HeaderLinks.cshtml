@@ -37,13 +37,11 @@
         @if (Model.IsAuthenticated)
         {  
             <script type="text/javascript">$('body').addClass('user-loggedin')</script>
-            <li class="loggedin-link-wrapper"><a href="@Url.RouteUrl("CustomerInfo")" class="account">@Model.CustomerEmailUsername</a></li>
-            <li class="loggedin-link-wrapper"><a href="@Url.RouteUrl("Logout")" class="ico-logout">@T("Account.Logout")</a></li>
+            <li class="loggedin-link-wrapper"><a href="@Url.RouteUrl("CustomerInfo")" class="account">@Model.CustomerEmailUsername</a></li><li class="loggedin-link-wrapper loggedin-link-second-child"><a href="@Url.RouteUrl("Logout")" class="ico-logout">@T("Account.Logout")</a></li>
         }
         else
         {
-            <li class="loggedout-link-wrapper"><a href="@Url.RouteUrl("Register")" class="ico-register">@T("Account.Register")</a></li>
-            <li class="loggedout-link-wrapper"><a href="@Url.RouteUrl("Login")" class="ico-login">@T("Account.Login")</a></li>
+            <li class="loggedout-link-wrapper"><a href="@Url.RouteUrl("Register")" class="ico-register">@T("Account.Register")</a></li><li class="loggedout-link-wrapper loggedout-link-second-child"><a href="@Url.RouteUrl("Login")" class="ico-login">@T("Account.Login")</a></li>
         }
 
         @if (Model.AllowPrivateMessages)
@@ -70,8 +68,8 @@
         }
         @if (Model.WishlistEnabled)
         {
-            <li>
-                <a href="@Url.RouteUrl("Wishlist")" class="ico-wishlist">
+            <li class="ico-wishlist">
+                <a href="@Url.RouteUrl("Wishlist")">
                     <span class="cart-label">@T("Wishlist")</span>
                     <span class="wishlist-qty">@T("Wishlist.HeaderQuantity", Model.WishlistItems)</span>
                 </a>
