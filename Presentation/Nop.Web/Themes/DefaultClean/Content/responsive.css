@@ -80,6 +80,10 @@
     padding: 0 1%;
     margin: 0;
     padding-bottom: 30px;
+  }
+  .productdetails-page .breadcrumb,
+  .product-details-page .product-essential {
+    padding-left: 10px;
   } 
   .product-sorting {
     width: 100%;
@@ -637,7 +641,6 @@
   }
   .product-details-page .gallery .picture > a img {
     max-height: 350px;
-    width: 100%;
   }
   .product-details-page .gallery .slider .viewport {
     margin-left: 10px;
@@ -1401,6 +1404,9 @@
 
 
 @media screen and (max-width: 385px) {
+  .footer-top-links {
+    display: none;
+  }
   .order-completed-continue-button {
     margin-bottom: 127px;
   }
