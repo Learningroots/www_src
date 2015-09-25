@@ -9,6 +9,14 @@
     min-width: 320px;
     overflow-x: hidden;
   }
+  .mobile-menu-body {
+    background: #fff;
+    margin: 0;
+    padding: 15px;
+  }
+  .mobile-menu {
+    position: absolute;
+  }
   .map-canvas-wrapper {
     position: fixed !important;
     top: -1500px;
