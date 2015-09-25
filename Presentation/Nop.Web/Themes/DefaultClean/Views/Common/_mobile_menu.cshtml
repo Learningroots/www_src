@@ -88,7 +88,7 @@
 
 	$_mobile_opener.click(function(e) {
 		e.preventDefault();
-		if($(window).width() >= 768) {
+		if($(window).width() <= 768) {
 			$(window).scrollTop(0);
 		}
 		$_mobile_overlay.show();
