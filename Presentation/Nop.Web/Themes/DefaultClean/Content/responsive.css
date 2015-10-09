@@ -2,6 +2,14 @@
     SMALLER MOBILE DEVICES
 =====================================================*/
 
+@media screen and (max-width: 1024px) {
+  .nivo-directionNav,
+  .home-discover .slider .prev,
+  .home-discover .slider .next {
+    display: none !important;
+  }
+}
+
 @media screen and (max-width: 768px) {
     /* MASTER PAGE WRAPPERS */
 
@@ -169,11 +177,6 @@
   }
   .home-discover .slider .overview li {
     margin: 10px;
-  }
-  .nivo-directionNav,
-  .home-discover .slider .prev,
-  .home-discover .slider .next {
-    display: none !important;
   }
   .master-wrapper-page .theme-default .nivo-controlNav {
     margin-top: -44px;
