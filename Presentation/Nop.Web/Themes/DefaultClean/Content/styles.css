@@ -1295,6 +1295,9 @@ textarea, input { outline: none !important; }
 
 .at4-icon.aticon-facebook,
 .at4-icon.aticon-twitter,
+.addthis_button_tumblr,
+.addthis_button_email,
+.addthis_button_gmail,
 .addthis_button_email.addthis_button_preferred_3.at300b,
 .addthis_button_print.addthis_button_preferred_4.at300b,
 .addthis_button_compact.at300m {
