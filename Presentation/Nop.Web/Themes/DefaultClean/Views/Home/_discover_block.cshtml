@@ -8,7 +8,7 @@
     <div class="slider">
 		<a class="buttons prev" href="#">&lt;</a>
 		<div class="viewport">
-		    <ul class="overview owl-carousel">
+		    <ul class="overview">
 		        <li>
                     <a href="@T("Home.Discover.Block1.Url")">
                         <div class="image-wrapper">
@@ -73,9 +73,10 @@
         $('.slider').tinycarousel({infinite: false})
     }
     else {
-        $('.owl-carousel').owlCarousel({
+        $('.home-discover ul.overview').addClass('owl-carousel').owlCarousel({
             singleItem: false,
             items: 1,
+            itemsTablet: [768,3],
             navigation: false,
             rewindNav: true,
             lazyLoad: true
